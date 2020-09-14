@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Player.h"
+#include "player.h"
 using namespace std;
 
 int main(int argc, char** argv) {
