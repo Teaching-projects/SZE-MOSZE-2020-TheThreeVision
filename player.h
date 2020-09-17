@@ -3,19 +3,18 @@
 
 class Player
 {
-	std::string Nev;
+	const std::string Name;
 	int HP;
-	int DMG;
+	const int DMG;
 public:
-	Player(std::string nev, int hp, int dmg) :Nev(nev), HP(hp), DMG(dmg) {}
-	void setNev(std::string nev) { Nev = nev; }
-	std::string getNev() const { return Nev; }
+	Player(std::string name, int hp, int dmg) :Name(name), HP(hp), DMG(dmg) {}
+	
+	std::string getName() const { return Name; }
 	void setHP(int hp) { HP = hp; }
 	int	getHP() const { return HP; }
-	void setDMG(int dmg) { DMG = dmg; }
 	int getDMG() const { return DMG; }
 
 	friend std::ostream& operator<<(std::ostream& o,Player& d);
-	void Damage(Player* player);
-	void DamagePrint(Player* player);
+	std::string Damage(Player* player);
+	
 };

@@ -1,27 +1,28 @@
 #include "player.h"
+#include <iostream>
+#include <sstream>
 
-void Player::Damage(Player* player)
+
+std::string Player::Damage(Player* player)
 {
+	
 	if ((player->HP - DMG) >= 0)
 	{
 		player->HP -= DMG;
 
 	}
-	else { player->HP = 0; }
-}
-void Player::DamagePrint(Player* player)
-{
-	std::cout << Nev << " -> " << player->getNev() << "\n";
-	if ((player->HP - DMG) >= 0)
-	{
-		player->HP -= DMG;
-
-	}
-	else { player->HP = 0; }
-	std::cout << *this << "\n" << *player << "\n";
+    else { player->HP = 0; }
+	
+    std::ostringstream abc;
+    
+    abc << Name << " -> " << player->getName() << "\n" << *this << "\n" << *player << "\n";
+    
+    std::string str = abc.str();
+    
+    return str;
 }
 
 std::ostream & operator<<(std::ostream & o, Player & d)
 {
-	return o << d.getNev() << ": HP: " << d.getHP() << ", DMG: " << d.getDMG();
+	return o << d.getName() << ": HP: " << d.getHP() << ", DMG: " << d.getDMG();
 }

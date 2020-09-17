@@ -10,11 +10,16 @@ int main(int argc, char** argv) {
               Player2<<endl;
         while (Player1.getHP() > 0 && Player2.getHP() > 0)
         {
-            Player1.DamagePrint(&Player2);
+            cout << Player1.Damage(&Player2);
 
             if (Player2.getHP() > 0) {
-                Player2.DamagePrint(&Player1);
+                cout << Player2.Damage(&Player1);
             }
+        }
+        if (Player1.getHP() == 0) {
+            cout << Player2.getName() << " wins.";
+        }else if(Player2.getHP() == 0){
+            cout << Player1.getName() << " wins.";
         }
     } else{
         cout << "Bad input data" << endl;
