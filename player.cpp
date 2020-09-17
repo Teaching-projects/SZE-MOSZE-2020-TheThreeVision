@@ -13,11 +13,11 @@ std::string Player::Damage(Player* player)
 	}
     else { player->HP = 0; }
 	
-    std::ostringstream abc;
+    std::ostringstream oss;
     
-    abc << Name << " -> " << player->getName() << "\n" << *this << "\n" << *player << "\n";
+    oss << Name << " -> " << player->getName() << "\n" << *this << "\n" << *player << "\n";
     
-    std::string str = abc.str();
+    std::string str = oss.str();
     
     return str;
 }
