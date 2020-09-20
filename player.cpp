@@ -1,9 +1,8 @@
 #include "player.h"
 #include <iostream>
-#include <sstream>
 
 
-std::string Player::Damage(Player* player)
+void Player::Damage(Player* player)
 {
 	
 	if ((player->HP - DMG) >= 0)
@@ -13,16 +12,15 @@ std::string Player::Damage(Player* player)
 	}
     else { player->HP = 0; }
 	
-    std::ostringstream abc;
-    
-    abc << Name << " -> " << player->getName() << "\n" << *this << "\n" << *player << "\n";
-    
-    std::string str = abc.str();
-    
-    return str;
+}
+
+void Player::print(Player* player){
+    std::cout << Name << " -> " << player->getName() << std::endl;
+    std::cout << *this << '\n' << *player << '\n';
 }
 
 std::ostream & operator<<(std::ostream & o, Player & d)
 {
 	return o << d.getName() << ": HP: " << d.getHP() << ", DMG: " << d.getDMG();
 }
+
