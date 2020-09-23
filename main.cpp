@@ -12,7 +12,7 @@ int main(int argc, char** argv) {
     Player* Player1 = Player::parseUnit(argv[1]);
     Player* Player2 = Player::parseUnit(argv[2]);
     
-    cout<<Player1 << endl << Player2 << endl;
+    //cout<<Player1 << endl << Player2 << endl;
     while (Player1->getHP() > 0 && Player2->getHP() > 0)
     {
         Player1->Damage(Player2);
