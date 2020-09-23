@@ -17,11 +17,6 @@ void Player::Damage(Player* player)
 	
 }
 
-void Player::print(Player* player){
-    std::cout << Name << " -> " << player->getName() << std::endl;
-    std::cout << *this << '\n' << *player << '\n';
-}
-
 Player* Player::parseUnit(const std::string filename){
     std::ifstream file(filename);
     std::vector<std::string> data;

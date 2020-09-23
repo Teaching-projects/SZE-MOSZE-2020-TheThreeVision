@@ -15,6 +15,5 @@ public:
 
 	friend std::ostream& operator<<(std::ostream& o,Player& d);
 	void Damage(Player* player);
-    void print(Player* player);
     static Player* parseUnit(const std::string file);
 };
