@@ -3,9 +3,9 @@ name: Workflow test
 on: 
 	push
 
-		jobs:
-		build_and_test:
+jobs:
+	build_and_test:
 		runs-on: ubuntu-latest
 		steps:
-		-uses: actions/checkout@v2
-		-run:	g++ -std=c++17 *.cpp
+		 -uses: actions/checkout@v2
+		 -run:	g++ -std=c++17 *.cpp
