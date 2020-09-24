@@ -20,11 +20,9 @@ int main(int argc, char** argv) {
         }
     }
     if (Player1->getHP() == 0) {
-            cout << Player2->getName() << " wins." << " Remaining HP: " << Player2->getHP() << ".";
-        }
-        else if (Player2->getHP() == 0) {
-            cout << Player1->getName() << " wins." << " Remaining HP: " << Player1->getHP() << ".";;
-        }
+        cout << Player2->getName() << " wins."<< "Remaining HP: "<<Player2->getHP()<<".";
+    }else if(Player2->getHP() == 0){
+        cout << Player1->getName() << " wins."<< "Remaining HP: "<<Player1->getHP()<<".";;
     }
 
     return 0;
