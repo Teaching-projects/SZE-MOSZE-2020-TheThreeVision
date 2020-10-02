@@ -6,11 +6,20 @@ using namespace std;
 
 int main(int argc, char** argv) {
     if (argc != 3) {
-        throw std::runtime_error("Bad input data.");
+        cerr << "Bad input data." << endl;
+        return 1;
     }
     else {
-        Player* Player1 = Player::parseUnit(argv[1]);
-        Player* Player2 = Player::parseUnit(argv[2]);
+        Player* Player1, * Player2;
+        try {
+            Player1 = Player::parseUnit(argv[1]);
+            Player2 = Player::parseUnit(argv[2]);
+        }
+        catch (std::runtime_error& e) {
+            cerr << e.what();
+            return 2;
+        }
+
 
         while (Player1->getHP() > 0 && Player2->getHP() > 0)
         {
