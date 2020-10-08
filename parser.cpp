@@ -35,11 +35,10 @@ std::map<std::string, std::string> Parser::ParseJson(std::string DataToParse){
         } 
     }
     Map["name"] = DataToParse.substr(findWord,endOfWord-findWord);
-    Map["hp"] = 10;
-    Map["dmg"] = 11;
-    
+    Map["hp"] = "10";
+    Map["dmg"] = "11";
+
     return Map;
-    
 }
 
 std::map<std::string, std::string> Parser::ParseJson(std::istream& JSONToParse){
