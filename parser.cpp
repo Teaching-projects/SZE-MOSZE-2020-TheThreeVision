@@ -26,17 +26,41 @@ std::map<std::string, std::string> Parser::ParseJson(std::string DataToParse){
         }
     }
     int findWord = DataToParse.find("name") + 8;
-    int endOfWord;
-    for (int i = findWord; i < DataToParse.length(); i++)
+    int endOfWord = 0, i = findWord;
+    while (endOfWord == 0)
     {
         if (DataToParse[i] == '"')
         {
             endOfWord = i;
-        } 
+        }
+        i++;
     }
-    Map["name"] = DataToParse.substr(findWord,endOfWord-findWord);
-    Map["hp"] = "10";
-    Map["dmg"] = "11";
+    Map["name"] = DataToParse.substr(findWord-1,endOfWord-findWord+1);
+    findWord = DataToParse.find("hp") + 4;
+    endOfWord = 0;
+    i=findWord;
+    while (endOfWord == 0)
+    {
+        if (!isdigit(DataToParse[i]))
+        {
+            endOfWord = i;
+        }
+        i++;
+    }
+    Map["hp"] = DataToParse.substr(findWord,endOfWord-findWord);
+    //valami
+    findWord = DataToParse.find("dmg") + 5;
+    endOfWord = 0;
+    i=findWord;
+    while (endOfWord == 0)
+    {
+        if (!isdigit(DataToParse[i]))
+        {
+            endOfWord = i;
+        }
+        i++;
+    }
+    Map["dmg"] = DataToParse.substr(findWord,endOfWord-findWord);
 
     return Map;
 }
