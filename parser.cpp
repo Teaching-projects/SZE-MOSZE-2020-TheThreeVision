@@ -36,6 +36,7 @@ std::map<std::string, std::string> Parser::ParseJson(std::string DataToParse){
         i++;
     }
     Map["name"] = DataToParse.substr(findWord-1,endOfWord-findWord+1);
+
     findWord = DataToParse.find("hp") + 4;
     endOfWord = 0;
     i=findWord;
@@ -48,7 +49,7 @@ std::map<std::string, std::string> Parser::ParseJson(std::string DataToParse){
         i++;
     }
     Map["hp"] = DataToParse.substr(findWord,endOfWord-findWord);
-    
+
     findWord = DataToParse.find("dmg") + 5;
     endOfWord = 0;
     i=findWord;
@@ -61,7 +62,20 @@ std::map<std::string, std::string> Parser::ParseJson(std::string DataToParse){
         i++;
     }
     Map["dmg"] = DataToParse.substr(findWord,endOfWord-findWord);
-    
+    //to attackspeed branch
+    findWord = DataToParse.find("acd") + 5;
+    endOfWord = 0;
+    i = findWord;
+    while (endOfWord == 0)
+    {
+        if (!isdigit(DataToParse[i]))
+        {
+            endOfWord = i;
+        }
+        i++;
+    }
+    Map["acd"] = DataToParse.substr(findWord,endOfWord-findWord);
+    std::cout << "arc: " << Map["acd"] << std::endl;
     return Map;
 }
 
