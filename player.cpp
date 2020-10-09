@@ -18,10 +18,10 @@ void Player::Damage(Player* player)
 
 }
 
-Player* Player::parseUnit(const std::string filename) {
+Player* Player::parseUnit(const std::string toParse) {
     std::map<std::string, std::string> Map;
 
-    Map = Parser::ParseJson(filename);
+    Map = Parser::ParseJson(toParse);
     
     return new Player(Map["name"], stoi(Map["hp"]), stoi(Map["dmg"]));
 }

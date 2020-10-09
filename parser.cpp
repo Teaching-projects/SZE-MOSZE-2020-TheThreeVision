@@ -48,7 +48,7 @@ std::map<std::string, std::string> Parser::ParseJson(std::string DataToParse){
         i++;
     }
     Map["hp"] = DataToParse.substr(findWord,endOfWord-findWord);
-    //valami
+    
     findWord = DataToParse.find("dmg") + 5;
     endOfWord = 0;
     i=findWord;
@@ -61,7 +61,7 @@ std::map<std::string, std::string> Parser::ParseJson(std::string DataToParse){
         i++;
     }
     Map["dmg"] = DataToParse.substr(findWord,endOfWord-findWord);
-
+    
     return Map;
 }
 
