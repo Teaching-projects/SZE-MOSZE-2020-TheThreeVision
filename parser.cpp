@@ -75,7 +75,7 @@ std::map<std::string, std::string> Parser::ParseJson(std::string DataToParse){
         i++;
     }
     Map["acd"] = DataToParse.substr(findWord,endOfWord-findWord);
-    std::cout << "arc: " << Map["acd"] << std::endl;
+
     return Map;
 }
 
