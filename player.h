@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <cmath>
+
 class Player
 {
 	const std::string Name;
