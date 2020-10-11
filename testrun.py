@@ -1,7 +1,7 @@
 import os, sys
 
 def main():
-    excepted_outputs = ["Sally wins. Remaining HP: 5.", "Kakarott wins. Remaining HP: 29970.", "Kakarott wins. Remaining HP: 29990.", "Maple wins. Remaining HP: 30.", "Kakarott wins. Remaining HP: 30000.", "Kakarott wins. Remaining HP: 30000."]
+    excepted_outputs = ["Sally wins. Remaining HP: 40.", "Kakarott wins. Remaining HP: 29970.", "Kakarott wins. Remaining HP: 33000.", "Sally wins. Remaining HP: 40.", "Kakarott wins. Remaining HP: 30000.", "Kakarott wins. Remaining HP: 33000."]
     commands = ['./a.out "Units/Sally.json" "Units/Maple.json"', './a.out "Units/Sally.json" "Units/Kakarott.json"', './a.out "Units/Maple.json" "Units/Kakarott.json"', './a.out "Units/Maple.json" "Units/Sally.json"', './a.out "Units/Kakarott.json" "Units/Sally.json"', './a.out "Units/Kakarott.json" "Units/Maple.json"']
     outputs = []
 
