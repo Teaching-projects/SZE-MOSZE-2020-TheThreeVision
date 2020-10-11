@@ -14,12 +14,13 @@ def main():
         if outputs[i] != excepted_outputs[i]:
             error += "Found some error...\n"
             
-for i in commands:
+
+    for i in commands:
         os.system("valgrind --leak-check=full --error-exitcode=5 " + i)
         if (os.system("echo $?") == 5):
             print("Memory leak...\n")
             sys.exit(5)
-            
+
     if len(error) == 0: 
         sys.exit(0)
     else: 
