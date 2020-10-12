@@ -5,7 +5,7 @@
 #include <iostream>
 
 
-void Player::Damage(Player* player)
+void Player::Damage (Player* player)const
 {
 
     if ((player->HP - DMG) >= 0)
@@ -15,6 +15,50 @@ void Player::Damage(Player* player)
     }
     else { player->HP = 0; }
 
+}
+
+void Player::Fight(Player* otherplayer)
+{
+    std::cout << "\t" << "  \t" << this->getHP() << " " << otherplayer->getHP() << "\n";
+    this->Damage(otherplayer);
+    double a = this->getAtkCoolDown(); double b = otherplayer->getAtkCoolDown();
+    double sa = 0, sb = 0;
+   
+    while (this->getHP() > 0 && otherplayer->getHP() > 0)
+    {
+        if (sa + a < b + sb) {
+            
+            sa += a; 
+            this->Damage(otherplayer);
+            std::cout << a << "\t" << sa << "  \t"
+            <<this->getHP()<<" "<< otherplayer->getHP() <<"\t";
+            
+        }
+        else {
+            if (sa + a > b + sb) {
+                 sb += b;
+                 otherplayer->Damage(this);
+                 std::cout << b << "\t  " << sb << "\t" 
+                 << this->getHP() << " " << otherplayer->getHP() << "\t";
+            }
+            else {//ha egyszerre ütnének akkor az üt amelyik a Fight-ot idította
+                
+                sa += a;
+                this->Damage(otherplayer);
+                std::cout << a << "\t" << sa << "  \t" 
+                << this->getHP() << " " << otherplayer->getHP() << "\t";
+            }
+        }
+        std::cout /*<< sa << " " << sb */<< std::endl;
+
+    }
+   /* while (this->getHP() > 0 && otherplayer->getHP() > 0)
+    {
+        this->Damage(otherplayer);
+        if (otherplayer->getHP() > 0) {
+            otherplayer->Damage(this);
+        }
+    }*/
 }
 
 Player* Player::parseUnit(const std::string filename) {
@@ -56,7 +100,7 @@ Player* Player::parseUnit(const std::string filename) {
     else {
         throw std::runtime_error("There is a problem with the file: " + filename);
     }
-    return new Player(name, hp, dmg);
+    return new Player(name, hp, dmg,1);
 }
 
 std::ostream& operator<<(std::ostream& o, Player& d)

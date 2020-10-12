@@ -19,15 +19,11 @@ int main(int argc, char** argv) {
             cerr << e.what();
             return 2;
         }
+        //teszt
+        Player1->setAtkCoolDown(2);
+        Player1->Fight(Player2);
 
-
-        while (Player1->getHP() > 0 && Player2->getHP() > 0)
-        {
-            Player1->Damage(Player2);
-            if (Player2->getHP() > 0) {
-                Player2->Damage(Player1);
-            }
-        }
+      
         if (Player1->getHP() == 0) {
             cout << Player2->getName() << " wins." << " Remaining HP: " << Player2->getHP() << ".";
         }
