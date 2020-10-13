@@ -1,6 +1,9 @@
 #pragma once
 #include <iostream>
-
+/**
+* \class Player
+* \brief Player class
+*/
 class Player
 {
 	const std::string Name;

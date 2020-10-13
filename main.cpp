@@ -19,8 +19,6 @@ int main(int argc, char** argv) {
             cerr << e.what();
             return 2;
         }
-        //teszt
-        Player1->setAtkCoolDown(2);
         Player1->Fight(Player2);
 
       
