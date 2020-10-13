@@ -1,80 +1,65 @@
 #include "parser.h"
 
-std::map<std::string, std::string> Parser::ParseJson(std::string DataToParse){
+std::map<std::string, std::string> Parser::ParseJsonString(std::string StringToParse){
     std::map<std::string, std::string> Map;
-    if (DataToParse.find('{') == std::string::npos)
+    
+    for (int i = 0; i < StringToParse.length(); i++)
     {
-        std::ifstream ToParse(DataToParse);
-        if (ToParse.good())
+        if (StringToParse[i] == ' ')
         {
-            DataToParse = "";
-            std::string line;
-            while (std::getline(ToParse, line))
-            {
-                DataToParse += line;
-            }
-        }else{
-            throw std::runtime_error("Bad input data.");
+            StringToParse.erase(i,1);
         }
     }
-
-    for (int i = 0; i < DataToParse.length(); i++)
-    {
-        if (DataToParse[i] == ' ')
-        {
-            DataToParse.erase(i,1);
-        }
-    }
-    int findWord = DataToParse.find("name") + 8;
+    int findWord = StringToParse.find("name") + 8;
     int endOfWord = 0, i = findWord;
     while (endOfWord == 0)
     {
-        if (DataToParse[i] == '"')
+        if (StringToParse[i] == '"')
         {
             endOfWord = i;
         }
         i++;
     }
-    Map["name"] = DataToParse.substr(findWord-1,endOfWord-findWord+1);
+    Map["name"] = StringToParse.substr(findWord-1,endOfWord-findWord+1);
 
-    findWord = DataToParse.find("hp") + 4;
+    findWord = StringToParse.find("hp") + 4;
     endOfWord = 0;
     i=findWord;
     while (endOfWord == 0)
     {
-        if (!isdigit(DataToParse[i]))
+        if (!isdigit(StringToParse[i]))
         {
             endOfWord = i;
         }
         i++;
     }
-    Map["hp"] = DataToParse.substr(findWord,endOfWord-findWord);
+    Map["hp"] = StringToParse.substr(findWord,endOfWord-findWord);
 
-    findWord = DataToParse.find("dmg") + 5;
+    findWord = StringToParse.find("dmg") + 5;
     endOfWord = 0;
     i=findWord;
     while (endOfWord == 0)
     {
-        if (!isdigit(DataToParse[i]))
+        if (!isdigit(StringToParse[i]))
         {
             endOfWord = i;
         }
         i++;
     }
-    Map["dmg"] = DataToParse.substr(findWord,endOfWord-findWord);
+    Map["dmg"] = StringToParse.substr(findWord,endOfWord-findWord);
     //to attackspeed branch
-    findWord = DataToParse.find("acd") + 5;
+    findWord = StringToParse.find("acd") + 5;
     endOfWord = 0;
     i = findWord;
     while (endOfWord == 0)
     {
-        if (!isdigit(DataToParse[i]))
+        if (!isdigit(StringToParse[i]))
         {
             endOfWord = i;
         }
         i++;
     }
-    Map["acd"] = DataToParse.substr(findWord,endOfWord-findWord);
+    Map["acd"] = StringToParse.substr(findWord,endOfWord-findWord);
 
     return Map;
 }
@@ -86,5 +71,21 @@ std::map<std::string, std::string> Parser::ParseJson(std::istream& JSONToParse){
         DataToParse += line;
     }
     
-    return Parser::ParseJson(DataToParse);
+    return Parser::ParseJsonString(DataToParse);
+}
+
+std::map<std::string, std::string> Parser::ParseJsonFilename(std::string FilenameToParse){
+    std::ifstream ToParse(FilenameToParse);
+    std::string DataToParse = "";
+    if (ToParse.good())
+    {
+        std::string line;
+        while (std::getline(ToParse, line))
+        {
+            DataToParse += line;
+        }
+    }else{
+        throw std::runtime_error("Bad input data.");
+    }
+    return Parser::ParseJsonString(DataToParse);
 }
