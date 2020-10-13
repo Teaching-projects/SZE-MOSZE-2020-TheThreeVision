@@ -2,14 +2,26 @@
 
 std::map<std::string, std::string> Parser::ParseJsonString(std::string StringToParse){
     std::map<std::string, std::string> Map;
-    
-    for (int i = 0; i < StringToParse.length(); i++)
+    bool toDelete = true;
+    int j = 0;
+    while (j < StringToParse.length())
     {
-        if (StringToParse[i] == ' ')
+        if (StringToParse[j] == '"'){
+            if (toDelete)
+            {
+                toDelete = false;
+            }else{
+                toDelete = true;
+            }
+        }
+        if (StringToParse[j] == ' ' && toDelete)
         {
-            StringToParse.erase(i,1);
+            StringToParse.erase(j,1);
+        }else{
+            j++;
         }
     }
+    
     int findWord = StringToParse.find("name") + 8;
     int endOfWord = 0, i = findWord;
     while (endOfWord == 0)
@@ -88,4 +100,8 @@ std::map<std::string, std::string> Parser::ParseJsonFilename(std::string Filenam
         throw std::runtime_error("Bad input data.");
     }
     return Parser::ParseJsonString(DataToParse);
+}
+
+std::string FindData(std::string StringToParse, std::string StringToFind){
+    return "";
 }

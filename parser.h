@@ -11,4 +11,5 @@ public:
     static std::map<std::string, std::string> ParseJsonFilename(std::string FilenameToParse);
     static std::map<std::string, std::string> ParseJson(std::istream& JSONToParse);
     static std::map<std::string, std::string> ParseJsonString(std::string StringToParse);
+    std::string FindData(std::string StringToParse, std::string StringToFind);
 };
