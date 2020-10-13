@@ -21,57 +21,16 @@ std::map<std::string, std::string> Parser::ParseJsonString(std::string StringToP
             j++;
         }
     }
+    std::string Str = StringToParse;
+    std::string name = "name";
+    std::string hp = "hp";
+    std::string dmg = "dmg";
     
-    int findWord = StringToParse.find("name") + 8;
-    int endOfWord = 0, i = findWord;
-    while (endOfWord == 0)
-    {
-        if (StringToParse[i] == '"')
-        {
-            endOfWord = i;
-        }
-        i++;
-    }
-    Map["name"] = StringToParse.substr(findWord-1,endOfWord-findWord+1);
+    Map["name"] = Parser::FindData(Str,name);
 
-    findWord = StringToParse.find("hp") + 4;
-    endOfWord = 0;
-    i=findWord;
-    while (endOfWord == 0)
-    {
-        if (!isdigit(StringToParse[i]))
-        {
-            endOfWord = i;
-        }
-        i++;
-    }
-    Map["hp"] = StringToParse.substr(findWord,endOfWord-findWord);
+    Map["hp"] = Parser::FindData(Str,hp);
 
-    findWord = StringToParse.find("dmg") + 5;
-    endOfWord = 0;
-    i=findWord;
-    while (endOfWord == 0)
-    {
-        if (!isdigit(StringToParse[i]))
-        {
-            endOfWord = i;
-        }
-        i++;
-    }
-    Map["dmg"] = StringToParse.substr(findWord,endOfWord-findWord);
-    //to attackspeed branch
-    findWord = StringToParse.find("acd") + 5;
-    endOfWord = 0;
-    i = findWord;
-    while (endOfWord == 0)
-    {
-        if (!isdigit(StringToParse[i]))
-        {
-            endOfWord = i;
-        }
-        i++;
-    }
-    Map["acd"] = StringToParse.substr(findWord,endOfWord-findWord);
+    Map["dmg"] = Parser::FindData(Str,dmg);
 
     return Map;
 }
@@ -97,11 +56,33 @@ std::map<std::string, std::string> Parser::ParseJsonFilename(std::string Filenam
             DataToParse += line;
         }
     }else{
-        throw std::runtime_error("Bad input data.");
+        
     }
     return Parser::ParseJsonString(DataToParse);
 }
 
-std::string FindData(std::string StringToParse, std::string StringToFind){
-    return "";
+std::string Parser::FindData(const std::string& StringToParse, const std::string& StringToFind){
+    std::string data = "";
+
+    if (StringToParse.find(StringToFind) != std::string::npos)
+    {
+        int findWord = StringToParse.find(StringToFind) + StringToFind.length() + 2;
+         if (StringToParse[findWord] == '"')
+        {
+            findWord++;
+        }
+        do
+        {
+            data += StringToParse[findWord];
+            findWord++;
+        } while (isdigit(StringToParse[findWord]) or isalpha(StringToParse[findWord]));
+    }else{
+        throw std::runtime_error("Bad input data.");
+    }
+    if (data == "")
+    {
+        throw std::runtime_error("Bad input data.");
+    }
+    
+    return data;
 }
