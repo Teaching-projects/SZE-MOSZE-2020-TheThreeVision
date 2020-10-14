@@ -1,45 +1,52 @@
-#include "../parser.h"
 #include <gtest/gtest.h>
+#include <string>
+#include <map>
+#include <fstream>
+#include "../parser.h"
 
-TEST(ParserTest, InputString){
-	Parser p;
-	std::map<std::string, std::string> TestMap;
-
-	TestMap = p.ParseJsonString("{\n\t\"name\"\t   :  \"vizibicikli\",\n\t\"hp\":15330,\n\t\"dmg\"   :    1450\n}");
-
-	ASSERT_TRUE(TestMap["name"] == "vizibicikli");
-	ASSERT_TRUE(stoi(TestMap["hp"]) == 15530);
-	ASSERT_TRUE(stoi(TestMap["dmg"]) == 1450);
-};
-
-TEST(ParserTest, InputFileName) {
-	Parser p;
-	std::map<std::string, std::string> TestMap;
-
-	TestMap = p.ParseJsonFilename("unit.json");
-
-	ASSERT_TRUE(TestMap["name"] == "vizibicikli");
-	ASSERT_TRUE(stoi(TestMap["hp"]) == 15530);
-	ASSERT_TRUE(stoi(TestMap["dmg"]) == 1450);
-};
-TEST(ParserTest, InputIstream) {
-	Parser p;
-	std::map<std::string, std::string> TestMap;
-	std::fstream filename;
-
-	filename.open("unit.json");
-	TestMap = p.ParseJson(filename);
-	filename.close();
-
-	ASSERT_TRUE(TestMap["name"] == "vizibicikli");
-	ASSERT_TRUE(stoi(TestMap["hp"]) == 15530);
-	ASSERT_TRUE(stoi(TestMap["dmg"]) == 1450);
-};
-
-
-
-int main(int argc, char **argv)
+TEST(ParserTest, TestingWithFileInput)
 {
-	testing::InitGoogleTest(&argc, argv);
+	std::string inputFilename = "unit.json";
+	std::map<std::string, std::string> expected;
+	expected.insert(std::pair<std::string, std::string>("name", "vizibicikli"));
+	expected.insert(std::pair<std::string, std::string>("hp", "15330"));
+	expected.insert(std::pair<std::string, std::string>("dmg", "1450"));
+
+    std::ifstream inputFile(inputFilename);
+
+	std::map<std::string, std::string> testingFunction = Parser::ParseJson(inputFile);
+
+    inputFile.close();
+
+	ASSERT_EQ(expected, testingFunction);
+}
+
+TEST(ParserTest, TestingWithFilenameInput)
+{
+	std::string inputFilename = "unit.json";
+	std::map<std::string, std::string> expected;
+	expected.insert(std::pair<std::string, std::string>("name", "vizibicikli"));
+	expected.insert(std::pair<std::string, std::string>("hp", "15330"));
+	expected.insert(std::pair<std::string, std::string>("dmg", "1450"));
+	std::map<std::string, std::string> testingFunction = Parser::ParseJsonFilename(inputFilename);
+
+	ASSERT_EQ(expected, testingFunction);
+}
+
+TEST(ParserTest, TestingWithStringInput)
+{
+	std::string inputString = "{\n\t\"name\"\t   :  \"vizibicikli\",\n\t\"hp\":15330,\n\t\"dmg\"   :    1450\n}";
+	std::map<std::string, std::string> expected;
+	expected.insert(std::pair<std::string, std::string>("name", "vizibicikli"));
+	expected.insert(std::pair<std::string, std::string>("hp", "15330"));
+	expected.insert(std::pair<std::string, std::string>("dmg", "1450"));
+	std::map<std::string, std::string> testingFunction = Parser::ParseJsonString(inputString);
+
+	ASSERT_EQ(expected, testingFunction);
+}
+
+int main(int argc, char** argv)
+{
+	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
 }
