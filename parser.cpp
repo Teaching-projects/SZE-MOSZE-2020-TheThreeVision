@@ -72,7 +72,7 @@ std::string Parser::FindData(const std::string& StringToParse, const std::string
         {
             data += StringToParse[findWord];
             findWord++;
-        } while (isdigit(StringToParse[findWord]) or isalpha(StringToParse[findWord]) or StringToParse[findWord] = ' ');
+        } while (isdigit(StringToParse[findWord]) or isalpha(StringToParse[findWord]) or StringToParse[findWord] == ' ');
     }else{
         throw std::runtime_error("Bad input data.");
     }
