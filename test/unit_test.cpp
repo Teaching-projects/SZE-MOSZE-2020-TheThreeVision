@@ -2,7 +2,7 @@
 #include <string>
 #include <map>
 #include <fstream>
-#include "parser.h"
+#include "../parser.h"
 
 TEST(ParserTest, TestingWithFileInput)
 {
