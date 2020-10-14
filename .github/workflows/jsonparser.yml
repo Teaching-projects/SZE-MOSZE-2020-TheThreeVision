@@ -14,4 +14,4 @@ jobs:
       - name: Build
         run: cd test && cmake CMakeLists.txt && make
       - name: Run test
-        run: /home/runner/work/SZE-MOSZE-2020-TheThreeVision/SZE-MOSZE-2020-TheThreeVision/build/test/unit_test.cpp
+        run: test/unit_test.cpp
