@@ -3,7 +3,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
-
+#include <cmath>
 
 void Player::Damage(Player* player)const
 {
@@ -70,38 +70,40 @@ Player* Player::parseUnit(const std::string filename) {
 	return new Player(name, hp, dmg);
 }
 
+
+
 std::ostream& operator<<(std::ostream& o, Player& d)
 {
 	return o << d.getName() << ": HP: " << d.getHP() << ", DMG: " << d.getDMG();
 }
 
-void AdventurerPlayer::levelup(int levelnew)
+void AdventurerPlayer::levelup(int levels)
 {
-	maxHP =(int) round((double)maxHP * 1.1);
-	setDMG((int)round((double)getDMG() * 1.1));
-	setHP(maxHP);
+	for (int i = 0; i < levels; i++)
+	{
+		maxHP = (int)round((double)maxHP * 1.1);
+		setDMG((int)round((double)getDMG() * 1.1));
+		setHP(maxHP);
+	}
+
 }
 
 void AdventurerPlayer::Fight(AdventurerPlayer* otherplayer)
 {
 	while (this->getHP() > 0 && otherplayer->getHP() > 0)
 	{
-		int othHP = otherplayer->getHP(),thiHP=this->getHP();
+		int othHP = otherplayer->getHP(), thiHP = this->getHP();
 		int othXP = otherplayer->getXP(), thiXP = this->getXP();
 
 		this->Damage(otherplayer);
 		this->increaseXP(othHP - otherplayer->getHP());//this xp-je nõ annyival, amenyi sebzést a MÁSIK szenvedett
-		if (thiXP / 100 < this->getXP() / 100)//minden elért 100 xp után
-		{
-			this->levelup(this->getXP() / 100);
-		}
+		this->levelup(this->getXP() / 100 - thiXP / 100);
+
+
 		if (otherplayer->getHP() > 0) {
 			otherplayer->Damage(this);
 			otherplayer->increaseXP(thiHP - this->getHP());//otherplayer xp-je nõ annyival, amenyi sebzést a this szenvedett
-			if (othXP / 100 < otherplayer->getXP() / 100)//minden elért 100 xp után
-			{
-				otherplayer->levelup(otherplayer->getXP() / 100);
-			}
+			otherplayer->levelup(otherplayer->getXP() / 100 - othXP / 100);
 		}
 	}
 
