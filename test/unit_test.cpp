@@ -6,7 +6,7 @@
 
 TEST(ParserTest, TestingWithFileInput)
 {
-	std::string inputFilename = "unit.json";
+	std::string inputFilename = "test/unit.json";
 	std::map<std::string, std::string> expected;
 	expected.insert(std::pair<std::string, std::string>("name", "vizibicikli"));
 	expected.insert(std::pair<std::string, std::string>("hp", "15330"));
@@ -23,7 +23,7 @@ TEST(ParserTest, TestingWithFileInput)
 
 TEST(ParserTest, TestingWithFilenameInput)
 {
-	std::string inputFilename = "unit.json";
+	std::string inputFilename = "test/unit.json";
 	std::map<std::string, std::string> expected;
 	expected.insert(std::pair<std::string, std::string>("name", "vizibicikli"));
 	expected.insert(std::pair<std::string, std::string>("hp", "15330"));
@@ -35,7 +35,7 @@ TEST(ParserTest, TestingWithFilenameInput)
 
 TEST(ParserTest, TestingWithStringInput)
 {
-	std::string inputString = "{\n\t\"name\"\t   :  \"vizibicikli\",\n\t\"hp\":15330,\n\t\"dmg\"   :    1450\n}";
+	std::string inputString = "{\n\t\"name\"  :  \"vizibicikli\",\n\t\"hp\":15330,\n\t\"dmg\"   :    1450\n}";
 	std::map<std::string, std::string> expected;
 	expected.insert(std::pair<std::string, std::string>("name", "vizibicikli"));
 	expected.insert(std::pair<std::string, std::string>("hp", "15330"));
