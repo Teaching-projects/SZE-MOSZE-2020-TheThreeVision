@@ -14,4 +14,4 @@ jobs:
       - name: Build
         run: cd test && cmake CMakeLists.txt && make
       - name: Run test
-        run: ./test/unit_test.cpp
+        run: cd test && ./unit_test
