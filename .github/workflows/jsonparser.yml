@@ -1,16 +1,17 @@
 
-name: jsonparser test
+name: Unit Test workflow
 
-on:
-  push
+on: push
 
 jobs:
-  build_and_test:
+  build:
     runs-on: ubuntu-latest
     steps:
+      - name: Install gtest
+        run: sudo apt install libgtest-dev && cd /usr/src/gtest && sudo cmake . && sudo make && sudo cp *.a /usr/lib && sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
       - uses: actions/checkout@v2
-      - run: g++ -std=c++17 *.cpp
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-      - run: python testrun.py
+
+      - name: Build
+        run: cd test && cmake CMakeLists.txt && make
+      - name: Run test
+        run: cd test &&./runTests
