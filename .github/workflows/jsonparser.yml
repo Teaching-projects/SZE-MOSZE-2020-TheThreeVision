@@ -16,6 +16,6 @@ jobs:
       - name: Build
         run: cd test && cmake CMakeLists.txt && make
       - name: change permissions
-        run:  chmod +x ./unit_test.cpp
+        run:  chmod +x test/unit_test.cpp
       - name: Run test
         run: test/unit_test.cpp
