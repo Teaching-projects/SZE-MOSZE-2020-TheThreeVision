@@ -21,16 +21,13 @@ std::map<std::string, std::string> Parser::ParseJsonString(std::string StringToP
             j++;
         }
     }
-    std::string Str = StringToParse;
-    std::string name = "name";
-    std::string hp = "hp";
-    std::string dmg = "dmg";
+    std::string array[] = {StringToParse, "name", "hp", "dmg"};
     
-    Map["name"] = Parser::FindData(Str,name);
+    Map["name"] = Parser::FindData(array[0],array[1]);
 
-    Map["hp"] = Parser::FindData(Str,hp);
+    Map["hp"] = Parser::FindData(array[0],array[2]);
 
-    Map["dmg"] = Parser::FindData(Str,dmg);
+    Map["dmg"] = Parser::FindData(array[0],array[3]);
 
     return Map;
 }
@@ -75,7 +72,7 @@ std::string Parser::FindData(const std::string& StringToParse, const std::string
         {
             data += StringToParse[findWord];
             findWord++;
-        } while (isdigit(StringToParse[findWord]) or isalpha(StringToParse[findWord]));
+        } while (isdigit(StringToParse[findWord]) or isalpha(StringToParse[findWord]) or StringToParse[findWord] = ' ');
     }else{
         throw std::runtime_error("Bad input data.");
     }
