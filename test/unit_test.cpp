@@ -14,7 +14,7 @@ TEST(ParserTest, TestingWithFileInput)
 
     std::ifstream inputFile(inputFilename);
 
-	std::map<std::string, std::string> testingFunction = JsonParser::parseJson(inputFile);
+	std::map<std::string, std::string> testingFunction = Parser::parseJson(inputFile);
 
     inputFile.close();
 
@@ -28,7 +28,7 @@ TEST(ParserTest, TestingWithFilenameInput)
 	expected.insert(std::pair<std::string, std::string>("name", "vizibicikli"));
 	expected.insert(std::pair<std::string, std::string>("hp", "15330"));
 	expected.insert(std::pair<std::string, std::string>("dmg", "1450"));
-	std::map<std::string, std::string> testingFunction = JsonParser::parseJsonFilename(inputFilename);
+	std::map<std::string, std::string> testingFunction = Parser::parseJsonFilename(inputFilename);
 
 	ASSERT_EQ(expected, testingFunction);
 }
@@ -40,7 +40,7 @@ TEST(ParserTest, TestingWithStringInput)
 	expected.insert(std::pair<std::string, std::string>("name", "vizibicikli"));
 	expected.insert(std::pair<std::string, std::string>("hp", "15330"));
 	expected.insert(std::pair<std::string, std::string>("dmg", "1450"));
-	std::map<std::string, std::string> testingFunction = JsonParser::parseJsonString(inputString);
+	std::map<std::string, std::string> testingFunction = Parser::parseJsonString(inputString);
 
 	ASSERT_EQ(expected, testingFunction);
 }
