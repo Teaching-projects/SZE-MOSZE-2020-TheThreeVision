@@ -17,6 +17,6 @@ jobs:
         run: cd test && cmake CMakeLists.txt && make
       - name: change permissions
         run:  chmod +x test/unit_test.cpp
-      - run: g++ -std=c++17 *.cpp
+      - run: g++ -std=c++17 *.cpp -o unit_test
       - name: Run test
         run: test/unit_test
