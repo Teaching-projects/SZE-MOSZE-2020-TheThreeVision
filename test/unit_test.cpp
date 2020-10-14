@@ -25,7 +25,7 @@ TEST(ParserTest, InputFileName) {
 }
 
 TEST(ParserTest, InputIstream) {
-	JsonParser p;
+	Parser p;
 	std::map<std::string, std::string> TestMap;
 	std::fstream filename;
 
