@@ -1,8 +1,7 @@
-
 #include "../parser.h"
 #include <gtest/gtest.h>
 
-TEST(ParserTest, InputString) {
+TEST(ParserTest, InputString){
 	Parser p;
 	std::map<std::string, std::string> TestMap;
 
@@ -11,7 +10,7 @@ TEST(ParserTest, InputString) {
 	ASSERT_TRUE(TestMap["name"] == "vizibicikli");
 	ASSERT_TRUE(stoi(TestMap["hp"]) == 15530);
 	ASSERT_TRUE(stoi(TestMap["dmg"]) == 1450);
-}
+};
 
 TEST(ParserTest, InputFileName) {
 	Parser p;
@@ -22,8 +21,7 @@ TEST(ParserTest, InputFileName) {
 	ASSERT_TRUE(TestMap["name"] == "vizibicikli");
 	ASSERT_TRUE(stoi(TestMap["hp"]) == 15530);
 	ASSERT_TRUE(stoi(TestMap["dmg"]) == 1450);
-}
-
+};
 TEST(ParserTest, InputIstream) {
 	Parser p;
 	std::map<std::string, std::string> TestMap;
@@ -36,7 +34,7 @@ TEST(ParserTest, InputIstream) {
 	ASSERT_TRUE(TestMap["name"] == "vizibicikli");
 	ASSERT_TRUE(stoi(TestMap["hp"]) == 15530);
 	ASSERT_TRUE(stoi(TestMap["dmg"]) == 1450);
-}
+};
 
 
 
