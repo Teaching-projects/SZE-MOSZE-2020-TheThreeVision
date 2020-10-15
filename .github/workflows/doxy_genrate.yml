@@ -4,7 +4,6 @@ on:
   push:
     branches:	
       - attackspeed
-      - gh-pages
 
 jobs:
   doxygen:
@@ -23,4 +22,3 @@ jobs:
           BRANCH: gh-pages
           FOLDER: DOCS/html
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CLEAN: true
