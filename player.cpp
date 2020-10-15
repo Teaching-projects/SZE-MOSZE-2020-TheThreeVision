@@ -21,26 +21,26 @@ void Player::Fight(Player* otherplayer)
 {
     
     this->Damage(otherplayer);
-    double a = this->getAtkCoolDown(); double b = otherplayer->getAtkCoolDown();
-    double sa = 0, sb = 0;
+    double atkcdownThis = this->getAtkCoolDown(); double atkcdownOther = otherplayer->getAtkCoolDown();
+    double cooldownCounterThis = 0, cooldownCounterOther = 0;
    
     while (this->getHP() > 0 && otherplayer->getHP() > 0)
     {
-        if (sa + a < b + sb) {
+        if (cooldownCounterThis + atkcdownThis < atkcdownOther + cooldownCounterOther) {
             
-            sa += a; 
+            cooldownCounterThis += atkcdownThis; 
             this->Damage(otherplayer);
            
             
         }
         else {
-            if (sa + a > b + sb) {
-                 sb += b;
+            if (cooldownCounterThis + atkcdownThis > atkcdownOther + cooldownCounterOther) {
+                 cooldownCounterOther += atkcdownOther;
                  otherplayer->Damage(this);
             }
             else {//ha egyszerre ütnének akkor az üt amelyik a Fight-ot idította
                 
-                sa += a;
+                cooldownCounterThis += atkcdownThis;
                 this->Damage(otherplayer);
             }
         }
