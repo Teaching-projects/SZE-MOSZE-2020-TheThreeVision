@@ -1,0 +1,24 @@
+name: Cpp check GHA
+
+on:
+  push
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: sudo apt-get install cppcheck
+      - run: sudo apt-get install valgrind
+      - run: cppcheck *.cpp --enable=all --output-file=cppcheck_for_artifact.txt
+      - name: Uploading cppcheck as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: cppcheck_for_artifact
+          path: ./cppcheck_for_artifact.txt
+      - run: g++ -std=c++17 *.cpp -Wall -Wextra -g
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - run: python cppchecktest.py
+      - run: python testrun.py

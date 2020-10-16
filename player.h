@@ -14,16 +14,22 @@
  */
 class Player
 {
-private:
 	const std::string Name; ///< the Name of the player
 	int HP;					///< the HealPoints of the player
-	const int DMG;			///< the Damage of the player
+	int DMG;			///< the Damage of the player
 	double AtkCoolDown;		///< the player's Attack Cooldown shows that after how many seconds he/she can hit again. 
 
+protected:
 	/// this method damage the other player
 	void Damage (Player* player/**[in] the player who is injured*/)const;
-public:
+	/// simple setter to the HealPoints
+	void setHP(int h) { HP = h; }
+	/// simple setter to the Damage
+	void setDMG(int d) { DMG = d; }
+	/// simple setter to the AttackCooldown
+	void setAtkCoolDown(int atkCoolDown)  {  AtkCoolDown=  atkCoolDown; }
 	
+public:
 	/// player construct, what put the input parameters to the data members
 	Player(std::string name, int hp, int dmg, double atkCoolDown) :Name(name), HP(hp), DMG(dmg), AtkCoolDown(atkCoolDown) {}
 
@@ -35,8 +41,7 @@ public:
 	int getDMG() const { return DMG; }
 	///simple getter to the AttackCooldown
 	double getAtkCoolDown() const { return AtkCoolDown; }
-	/// simple setter to the AttackCooldown
-	void setAtkCoolDown(int atkCoolDown)  {  AtkCoolDown=  atkCoolDown; }
+
 
 	
 	/// easy way to print an player
@@ -51,4 +56,23 @@ public:
 	 * \throw throw a "runtime_error" if something wrong
 	 */
 	static Player* parseUnit(const std::string file/**[in] is the .json file's name*/);
+};
+
+class AdventurerPlayer : public Player
+{
+private:
+	int XP = 0;
+	int maxHP;
+
+protected:
+	void levelup(int levels);
+	void increaseXP(int dmg);
+	void Damage(AdventurerPlayer* player);
+public:
+
+	void Fight(AdventurerPlayer* otherplayer);
+	AdventurerPlayer(std::string name, int hp, int dmg, double atkCoolDown) :Player(name, hp, dmg, atkCoolDown), maxHP(hp) {};
+
+	int getXP() { return XP; }
+	static AdventurerPlayer* parseUnit(const std::string file);
 };

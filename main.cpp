@@ -10,10 +10,10 @@ int main(int argc, char** argv) {
         return 1;
     }
     else {
-        Player* Player1, * Player2;
+        AdventurerPlayer* Player1, * Player2;
         try {
-            Player1 = Player::parseUnit(argv[1]);
-            Player2 = Player::parseUnit(argv[2]);
+            Player1 = AdventurerPlayer::parseUnit(argv[1]);
+            Player2 = AdventurerPlayer::parseUnit(argv[2]);
         }
         catch (std::runtime_error& e) {
             cerr << e.what();
@@ -23,10 +23,12 @@ int main(int argc, char** argv) {
 
       
         if (Player1->getHP() == 0) {
+          
             cout << Player2->getName() << " wins." << " Remaining HP: " << Player2->getHP() << ".";
+            
         }
         else if (Player2->getHP() == 0) {
-            cout << Player1->getName() << " wins." << " Remaining HP: " << Player1->getHP() << ".";;
+            cout << Player1->getName() << " wins." << " Remaining HP: " << Player1->getHP() << ".";
         }
     }
 
