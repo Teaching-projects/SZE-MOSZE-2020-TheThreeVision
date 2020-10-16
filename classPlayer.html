@@ -63,6 +63,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classPlayer-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -74,6 +75,14 @@ $(function() {
  <a href="classPlayer.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="player_8h_source.html">player.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Player:</div>
+<div class="dyncontent">
+<div class="center"><img src="classPlayer__inherit__graph.png" border="0" usemap="#Player_inherit__map" alt="Inheritance graph"/></div>
+<map name="Player_inherit__map" id="Player_inherit__map">
+<area shape="rect" id="node2" href="classAdventurerPlayer.html" title="AdventurerPlayer" alt="" coords="5,80,128,107"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -97,10 +106,6 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a277a586339b313167cbe1242dbd47856">getAtkCoolDown</a> () const</td></tr>
 <tr class="memdesc:a277a586339b313167cbe1242dbd47856"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple getter to the AttackCooldown <br /></td></tr>
 <tr class="separator:a277a586339b313167cbe1242dbd47856"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30eefb04ae0d1b92e12a8ec136aea025"><td class="memItemLeft" align="right" valign="top"><a id="a30eefb04ae0d1b92e12a8ec136aea025"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a30eefb04ae0d1b92e12a8ec136aea025">setAtkCoolDown</a> (int atkCoolDown)</td></tr>
-<tr class="memdesc:a30eefb04ae0d1b92e12a8ec136aea025"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple setter to the AttackCooldown <br /></td></tr>
-<tr class="separator:a30eefb04ae0d1b92e12a8ec136aea025"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84ea8d63b619770a3eb3733c44dccd11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a84ea8d63b619770a3eb3733c44dccd11">Fight</a> (<a class="el" href="classPlayer.html">Player</a> *player)</td></tr>
 <tr class="memdesc:a84ea8d63b619770a3eb3733c44dccd11"><td class="mdescLeft">&#160;</td><td class="mdescRight">fight with another player while one of them is die  <a href="#a84ea8d63b619770a3eb3733c44dccd11">More...</a><br /></td></tr>
 <tr class="separator:a84ea8d63b619770a3eb3733c44dccd11"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,6 +115,24 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a7260c439b541b0a7b6354a45e9d8c95b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classPlayer.html">Player</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a7260c439b541b0a7b6354a45e9d8c95b">parseUnit</a> (const std::string file)</td></tr>
 <tr class="memdesc:a7260c439b541b0a7b6354a45e9d8c95b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method reads a .json file and get the useful informations.  <a href="#a7260c439b541b0a7b6354a45e9d8c95b">More...</a><br /></td></tr>
 <tr class="separator:a7260c439b541b0a7b6354a45e9d8c95b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a478d85343d3be4b6a37e9000631115b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a478d85343d3be4b6a37e9000631115b7">Damage</a> (<a class="el" href="classPlayer.html">Player</a> *player) const</td></tr>
+<tr class="memdesc:a478d85343d3be4b6a37e9000631115b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method damage the other player  <a href="#a478d85343d3be4b6a37e9000631115b7">More...</a><br /></td></tr>
+<tr class="separator:a478d85343d3be4b6a37e9000631115b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63b1be267586483284d565f805322735"><td class="memItemLeft" align="right" valign="top"><a id="a63b1be267586483284d565f805322735"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a63b1be267586483284d565f805322735">setHP</a> (int h)</td></tr>
+<tr class="memdesc:a63b1be267586483284d565f805322735"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple setter to the HealPoints <br /></td></tr>
+<tr class="separator:a63b1be267586483284d565f805322735"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55904852ada67dfdd368c6c37f03a2d2"><td class="memItemLeft" align="right" valign="top"><a id="a55904852ada67dfdd368c6c37f03a2d2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a55904852ada67dfdd368c6c37f03a2d2">setDMG</a> (int d)</td></tr>
+<tr class="memdesc:a55904852ada67dfdd368c6c37f03a2d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple setter to the Damage <br /></td></tr>
+<tr class="separator:a55904852ada67dfdd368c6c37f03a2d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30eefb04ae0d1b92e12a8ec136aea025"><td class="memItemLeft" align="right" valign="top"><a id="a30eefb04ae0d1b92e12a8ec136aea025"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a30eefb04ae0d1b92e12a8ec136aea025">setAtkCoolDown</a> (int atkCoolDown)</td></tr>
+<tr class="memdesc:a30eefb04ae0d1b92e12a8ec136aea025"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple setter to the AttackCooldown <br /></td></tr>
+<tr class="separator:a30eefb04ae0d1b92e12a8ec136aea025"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -123,6 +146,40 @@ Friends</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>2020.10.13. 22:22</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>A player can fight with an other player while one of them is die. The fight end is depend on the two player's HealPoints, Damages, and the AttackCooldowns. </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a478d85343d3be4b6a37e9000631115b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a478d85343d3be4b6a37e9000631115b7">&#9670;&nbsp;</a></span>Damage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Player::Damage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPlayer.html">Player</a> *&#160;</td>
+          <td class="paramname"><em>player</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>this method damage the other player </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">player</td><td>the player who is injured </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a84ea8d63b619770a3eb3733c44dccd11"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a84ea8d63b619770a3eb3733c44dccd11">&#9670;&nbsp;</a></span>Fight()</h2>
 

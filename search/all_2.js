@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3c_3c',['operator&lt;&lt;',['../classPlayer.html#a5c0b1dbadbfcfc31cc61c4d74074030f',1,'Player']]]
+  ['fight',['Fight',['../classPlayer.html#a84ea8d63b619770a3eb3733c44dccd11',1,'Player']]]
 ];
