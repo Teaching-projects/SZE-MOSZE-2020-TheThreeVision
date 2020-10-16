@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['damage',['Damage',['../classPlayer.html#a478d85343d3be4b6a37e9000631115b7',1,'Player']]]
+  ['adventurerplayer',['AdventurerPlayer',['../classAdventurerPlayer.html#ab2d9c2a2f09dcbe2ad2b1a03e52950d8',1,'AdventurerPlayer']]]
 ];
