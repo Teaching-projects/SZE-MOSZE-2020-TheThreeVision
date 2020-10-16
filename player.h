@@ -61,18 +61,32 @@ public:
 class AdventurerPlayer : public Player
 {
 private:
-	int XP = 0;
-	int maxHP;
+	int XP = 0;///< the ExperiencePoints of the adventurerPlayer
+	int maxHP; ///< the maximum of the adventurerPlayer's HealPoints
 
 protected:
-	void levelup(int levels);
-	void increaseXP(int dmg);
-	void Damage(AdventurerPlayer* player);
+	/// this method increases maxHP, DMG and decreases AtkCoolDown and sets the HP to maximum
+	void levelup(int levels/**[in] is the number of the level increases*/);
+	/// add more XP to XP
+	void increaseXP(int dmg/**[in] is the number of the added XP*/);
+	/**
+	 * \brief This method damages the other adventurerPlayer.
+	 * \note this method does the increaseXP and the levelup 
+	 */	
+	void Damage(AdventurerPlayer* player/**[in] the adventurerPlayer who is injured*/);
 public:
-
-	void Fight(AdventurerPlayer* otherplayer);
+	/**
+	 * \brief fight with another player while one of them is die
+	 */
+	void Fight(AdventurerPlayer* otherplayer/**[in] is the other player*/);
+	/// adventurerPlayer construct, what put the input parameters to the data members
 	AdventurerPlayer(std::string name, int hp, int dmg, double atkCoolDown) :Player(name, hp, dmg, atkCoolDown), maxHP(hp) {};
-
+	/// a simple getter to the ExperiencePoints
 	int getXP() { return XP; }
-	static AdventurerPlayer* parseUnit(const std::string file);
+	/**
+	 * \brief This method reads a .json file and get the useful informations.
+	 * \return return with an AdventurerPlayer object
+	 * \throw throw a "runtime_error" if something wrong
+	 */
+	static AdventurerPlayer* parseUnit(const std::string file/**[in] is the .json file's name*/);
 };
