@@ -54,8 +54,7 @@ TEST(ParserTest, TestingFindData)
 	std::string inputString = "{\n\t\"name\"  :  \"vizibicikli\",\n\t\"hp\":1553,\n\t\"dmg\"   :    1450\n}";
 
 	std::string data = Parser::FindData(inputString, "name");
-	std::string expected;
-	expected.insert("vizibicikli");
+	std::string expected = "vizibicikli";
 
 	ASSERT_EQ(expected, data);
 }
