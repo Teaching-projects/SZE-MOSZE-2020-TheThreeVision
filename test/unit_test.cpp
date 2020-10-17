@@ -33,7 +33,7 @@ TEST(ParserTest, TestingWithFilenameInput)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		EXPECT_STREQ("Bad input data.", e.what());
 	}
 }
 
@@ -49,7 +49,7 @@ TEST(ParserTest, TestingWithStringInput)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		EXPECT_STREQ("Bad input data.", e.what());
 	}
 }
 
