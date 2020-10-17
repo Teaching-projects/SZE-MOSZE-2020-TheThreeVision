@@ -17,57 +17,87 @@ void Player::Damage(Player* player)const
 
 }
 
+
+
 void Player::Fight(Player* otherplayer)
 {
-	 while (this->getHP() > 0 && otherplayer->getHP() > 0)
-	 {
-		 this->Damage(otherplayer);
-		 if (otherplayer->getHP() > 0) {
-			 otherplayer->Damage(this);
-		 }
-	 }
+    
+    this->Damage(otherplayer);
+    double atkcdownThis = this->getAtkCoolDown(); double atkcdownOther = otherplayer->getAtkCoolDown();
+    double cooldownCounterThis = 0, cooldownCounterOther = 0;
+   
+    while (this->getHP() > 0 && otherplayer->getHP() > 0)
+    {
+        if (cooldownCounterThis + atkcdownThis < atkcdownOther + cooldownCounterOther) {
+            
+            cooldownCounterThis += atkcdownThis; 
+            this->Damage(otherplayer);
+           
+            
+        }
+        else {
+            if (cooldownCounterThis + atkcdownThis > atkcdownOther + cooldownCounterOther) {
+                 cooldownCounterOther += atkcdownOther;
+                 otherplayer->Damage(this);
+            }
+            else {//ha egyszerre ï¿½tnï¿½nek akkor az ï¿½t amelyik a Fight-ot idï¿½totta
+                
+                cooldownCounterThis += atkcdownThis;
+                this->Damage(otherplayer);
+            }
+        }
+
+    }
 }
 
 Player* Player::parseUnit(const std::string filename) {
-	std::ifstream file(filename);
-	std::vector<std::string> data;
-	std::string newLine, name;
-	int hp, dmg;
-	if (file.good()) {
-		while (getline(file, newLine)) {
-			data.push_back(newLine);
-		}
-		data[0].erase();
-		data[data.size() - 1].erase();
-		for (int i = 0; i < data.size(); i++) {
-			int c;
-			c = data[i].find('"');
-			if (data[i][c + 1] == 'n') {
-				c = data[i].find(':');
-				std::string temp;
-				temp = data[i].substr(c + 3, data[i].length());
-				name = temp.substr(0, temp.length() - 2);
-			}
-			else if (data[i][c + 1] == 'h') {
-				c = data[i].find(':');
-				std::string temp;
-				temp = data[i].substr(c + 2, data[i].length());
-				temp = temp.substr(0, temp.length() - 1);
-				hp = atoi(temp.c_str());
-			}
-			else if (data[i][c + 1] == 'd') {
-				c = data[i].find(':');
-				std::string temp;
-				temp = data[i].substr(c + 2, data[i].length());
-				temp = temp.substr(0, temp.length());
-				dmg = atoi(temp.c_str());
-			}
-		}
-	}
-	else {
-		throw std::runtime_error("There is a problem with the file: " + filename);
-	}
-	return new Player(name, hp, dmg);
+    std::ifstream file(filename);
+    std::vector<std::string> data;
+    std::string newLine, name;
+    int hp, dmg;
+    double atkcd;
+    if (file.good()) {
+        while (getline(file, newLine)) {
+            data.push_back(newLine);
+        }
+        data[0].erase();
+        data[data.size() - 1].erase();
+        for (int i = 0; i < data.size(); i++) {
+            int c;
+            c = data[i].find('"');
+            if (data[i][c + 1] == 'n') {
+                c = data[i].find(':');
+                std::string temp;
+                temp = data[i].substr(c + 3, data[i].length());
+                name = temp.substr(0, temp.length() - 2);
+            }
+            else if (data[i][c + 1] == 'h') {
+                c = data[i].find(':');
+                std::string temp;
+                temp = data[i].substr(c + 2, data[i].length());
+                temp = temp.substr(0, temp.length() - 1);
+                hp = atoi(temp.c_str());
+            }
+            else if (data[i][c + 1] == 'd') {
+                c = data[i].find(':');
+                std::string temp;
+                temp = data[i].substr(c + 2, data[i].length());
+                temp = temp.substr(0, temp.length());
+                dmg = atoi(temp.c_str());
+            }
+            else if (data[i][c + 1] == 'a') {
+                c = data[i].find(':');
+                std::string temp;
+                temp = data[i].substr(c + 2, data[i].length());
+                temp = temp.substr(0, temp.length());
+                atkcd = atof(temp.c_str());
+            }
+        }
+    }
+    else {
+        throw std::runtime_error("There is a problem with the file: " + filename);
+    }
+    return new Player(name, hp, dmg, atkcd);
 }
 
 
@@ -83,6 +113,7 @@ void AdventurerPlayer::levelup(int levels)
 	{
 		maxHP = (int)round((double)maxHP * 1.1);
 		setDMG((int)round((double)getDMG() * 1.1));
+        setAtkCoolDown(getAtkCoolDown()*0.9);
 		setHP(maxHP);
 	}
 
@@ -90,22 +121,32 @@ void AdventurerPlayer::levelup(int levels)
 
 void AdventurerPlayer::Fight(AdventurerPlayer* otherplayer)
 {
-	while (this->getHP() > 0 && otherplayer->getHP() > 0)
-	{
-		int othHP = otherplayer->getHP(), thiHP = this->getHP();
-		int othXP = otherplayer->getXP(), thiXP = this->getXP();
+    this->Damage(otherplayer);
+    double atkcdownThis = this->getAtkCoolDown(); double atkcdownOther = otherplayer->getAtkCoolDown();
+    double cooldownCounterThis = 0, cooldownCounterOther = 0;
 
-		this->Damage(otherplayer);
-		this->increaseXP(othHP - otherplayer->getHP());//this xp-je nõ annyival, amenyi sebzést a MÁSIK szenvedett
-		this->levelup(this->getXP() / 100 - thiXP / 100);
+    while (this->getHP() > 0 && otherplayer->getHP() > 0)
+    {
+        if (cooldownCounterThis + atkcdownThis < atkcdownOther + cooldownCounterOther) {
+
+            cooldownCounterThis += atkcdownThis;
+            this->Damage(otherplayer);
 
 
-		if (otherplayer->getHP() > 0) {
-			otherplayer->Damage(this);
-			otherplayer->increaseXP(thiHP - this->getHP());//otherplayer xp-je nõ annyival, amenyi sebzést a this szenvedett
-			otherplayer->levelup(otherplayer->getXP() / 100 - othXP / 100);
-		}
-	}
+        }
+        else {
+            if (cooldownCounterThis + atkcdownThis > atkcdownOther + cooldownCounterOther) {
+                cooldownCounterOther += atkcdownOther;
+                otherplayer->Damage(this);
+            }
+            else {//ha egyszerre Ã¼tnÃ©nek akkor az Ã¼t amelyik a Fight-ot idï¿½totta
+
+                cooldownCounterThis += atkcdownThis;
+                this->Damage(otherplayer);
+            }
+        }
+
+    }
 
 }
 
@@ -116,46 +157,72 @@ void AdventurerPlayer::increaseXP(int dmg)
 	XP += dmg;
 }
 
-AdventurerPlayer* AdventurerPlayer::parseUnit(const std::string filename)
+void AdventurerPlayer::Damage(AdventurerPlayer* player) 
 {
-	std::ifstream file(filename);
-	std::vector<std::string> data;
-	std::string newLine, name;
-	int hp, dmg;
-	if (file.good()) {
-		while (getline(file, newLine)) {
-			data.push_back(newLine);
-		}
-		data[0].erase();
-		data[data.size() - 1].erase();
-		for (int i = 0; i < data.size(); i++) {
-			int c;
-			c = data[i].find('"');
-			if (data[i][c + 1] == 'n') {
-				c = data[i].find(':');
-				std::string temp;
-				temp = data[i].substr(c + 3, data[i].length());
-				name = temp.substr(0, temp.length() - 2);
-			}
-			else if (data[i][c + 1] == 'h') {
-				c = data[i].find(':');
-				std::string temp;
-				temp = data[i].substr(c + 2, data[i].length());
-				temp = temp.substr(0, temp.length() - 1);
-				hp = atoi(temp.c_str());
-			}
-			else if (data[i][c + 1] == 'd') {
-				c = data[i].find(':');
-				std::string temp;
-				temp = data[i].substr(c + 2, data[i].length());
-				temp = temp.substr(0, temp.length());
-				dmg = atoi(temp.c_str());
-			}
-		}
-	}
-	else {
-		throw std::runtime_error("There is a problem with the file: " + filename);
-	}
-	return new AdventurerPlayer(name, hp, dmg);
+    int othXP = player->getXP(), thiXP = this->getXP();
+    int damage = getDMG();
+    if ((player->getHP() - getDMG()) >= 0)
+    {
+        player->setHP(player->getHP() - getDMG());
+    }
+    else {
+        damage = player->getHP();
+        player->setHP(0); 
+    }
+
+    this->increaseXP(damage);//this xp-je nï¿½ annyival, amenyi sebzï¿½st a Mï¿½SIK szenvedett
+    this->levelup(this->getXP() / 100 - thiXP / 100);
 
 }
+
+AdventurerPlayer* AdventurerPlayer::parseUnit(const std::string filename)
+{
+    std::ifstream file(filename);
+    std::vector<std::string> data;
+    std::string newLine, name;
+    int hp, dmg;
+    double atkcd;
+    if (file.good()) {
+        while (getline(file, newLine)) {
+            data.push_back(newLine);
+        }
+        data[0].erase();
+        data[data.size() - 1].erase();
+        for (int i = 0; i < data.size(); i++) {
+            int c;
+            c = data[i].find('"');
+            if (data[i][c + 1] == 'n') {
+                c = data[i].find(':');
+                std::string temp;
+                temp = data[i].substr(c + 3, data[i].length());
+                name = temp.substr(0, temp.length() - 2);
+            }
+            else if (data[i][c + 1] == 'h') {
+                c = data[i].find(':');
+                std::string temp;
+                temp = data[i].substr(c + 2, data[i].length());
+                temp = temp.substr(0, temp.length() - 1);
+                hp = atoi(temp.c_str());
+            }
+            else if (data[i][c + 1] == 'd') {
+                c = data[i].find(':');
+                std::string temp;
+                temp = data[i].substr(c + 2, data[i].length());
+                temp = temp.substr(0, temp.length());
+                dmg = atoi(temp.c_str());
+            }
+            else if (data[i][c + 1] == 'a') {
+                c = data[i].find(':');
+                std::string temp;
+                temp = data[i].substr(c + 2, data[i].length());
+                temp = temp.substr(0, temp.length());
+                atkcd = atof(temp.c_str());
+            }
+        }
+    }
+    else {
+        throw std::runtime_error("There is a problem with the file: " + filename);
+    }
+    return new AdventurerPlayer(name, hp, dmg, atkcd);
+}
+

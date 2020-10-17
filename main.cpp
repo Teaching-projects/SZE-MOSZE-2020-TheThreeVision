@@ -19,9 +19,9 @@ int main(int argc, char** argv) {
             cerr << e.what();
             return 2;
         }
+        Player1->Fight(Player2);
 
-         Player1->Fight(Player2);
-       
+      
         if (Player1->getHP() == 0) {
           
             cout << Player2->getName() << " wins." << " Remaining HP: " << Player2->getHP() << ".";
