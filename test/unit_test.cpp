@@ -31,7 +31,7 @@ TEST(ParserTest, TestingWithFilenameInput)
 	{
 		Parser::ParseJsonFilename(inputFilename);
 	}
-	catch(const std::exception& e)
+	catch(const std::runtime_error& e)
 	{
 		EXPECT_STREQ("Bad input data.", e.what());
 	}
@@ -47,7 +47,7 @@ TEST(ParserTest, TestingWithStringInput)
 	{
 		Parser::ParseJsonString(inputString);
 	}
-	catch(const std::exception& e)
+	catch(const std::runtime_error& e)
 	{
 		EXPECT_STREQ("Bad input data.", e.what());
 	}
