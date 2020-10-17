@@ -37,6 +37,7 @@ TEST(ParserTest, TestingWithStringInput)
 	std::map<std::string, std::string> testingFunction = Parser::ParseJsonString(inputString);
 
 	ASSERT_THROW(Parser::ParseJsonString(inputString), std::runtime_error);
+}
 
 int main(int argc, char** argv)
 {
