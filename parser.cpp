@@ -86,13 +86,8 @@ std::string Parser::FindData(const std::string& StringToParse, const std::string
             if (!isdigit(data[i]))
             {
                 throw std::runtime_error("Bad input data.");
-            }
-            
+            }       
          }
     }
-    
-    
-    
-    
     return data;
 }
