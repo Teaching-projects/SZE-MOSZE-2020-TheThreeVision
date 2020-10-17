@@ -27,7 +27,7 @@ TEST(ParserTest, TestingWithFilenameInput)
 
 	std::map<std::string, std::string> testingFunction = Parser::ParseJsonFilename(inputFilename);
 
-	ASSERT_THROW(Parser::ParseJsonFilename(inputFilename), "Bad input data.");
+	ASSERT_THROW(Parser::ParseJsonFilename(inputFilename), std::runtime_error("Bad input data."));
 }
 
 TEST(ParserTest, TestingWithStringInput)
@@ -36,7 +36,7 @@ TEST(ParserTest, TestingWithStringInput)
 	
 	std::map<std::string, std::string> testingFunction = Parser::ParseJsonString(inputString);
 
-	ASSERT_THROW(Parser::ParseJsonString(inputString), "Bad input data.");
+	ASSERT_THROW(Parser::ParseJsonString(inputString), std::runtime_error("Bad input data."));
 }
 
 int main(int argc, char** argv)
