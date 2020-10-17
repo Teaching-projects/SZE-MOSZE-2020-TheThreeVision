@@ -23,27 +23,20 @@ TEST(ParserTest, TestingWithFileInput)
 
 TEST(ParserTest, TestingWithFilenameInput)
 {
-	std::string inputFilename = "test/unit.json";
-	std::map<std::string, std::string> expected;
-	expected.insert(std::pair<std::string, std::string>("name", "vizibicikli"));
-	expected.insert(std::pair<std::string, std::string>("hp", "15330"));
-	expected.insert(std::pair<std::string, std::string>("dmg", "1450"));
+	std::string inputFilename = "test/unit_fail.json";
+
 	std::map<std::string, std::string> testingFunction = Parser::ParseJsonFilename(inputFilename);
 
-	ASSERT_EQ(expected, testingFunction);
+	ASSERT_THROW(Parser::ParseJsonFilename(inputFilename), std::runtime_error);
 }
 
 TEST(ParserTest, TestingWithStringInput)
 {
-	std::string inputString = "{\n\t\"name\"  :  \"vizibicikli\",\n\t\"hp\":15330,\n\t\"dmg\"   :    1450\n}";
-	std::map<std::string, std::string> expected;
-	expected.insert(std::pair<std::string, std::string>("name", "vizibicikli"));
-	expected.insert(std::pair<std::string, std::string>("hp", "15330"));
-	expected.insert(std::pair<std::string, std::string>("dmg", "1450"));
+	std::string inputString = "{\n\t\"name\"  :  \"vizibicikli\",\n\t\"hp\":1w3,\n\t\"dmg\"   :    1450\n}";
+	
 	std::map<std::string, std::string> testingFunction = Parser::ParseJsonString(inputString);
 
-	ASSERT_EQ(expected, testingFunction);
-}
+	ASSERT_THROW(Parser::ParseJsonString(inputString), std::runtime_error);
 
 int main(int argc, char** argv)
 {
