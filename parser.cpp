@@ -21,9 +21,9 @@ std::map<std::string, std::string> Parser::ParseJsonString(std::string StringToP
             j++;
         }
     }
-    std::string array[] = {StringToParse, "name", "hp", "dmg"};
+    std::string array[] = {StringToParse, "name", "hp", "dmg", "atkcd"};
 
-    for (int i = 1; i < 4; i++)
+    for (int i = 1; i < 5; i++)
     {
         Map[array[i]] = Parser::FindData(array[0],array[i]);
     }

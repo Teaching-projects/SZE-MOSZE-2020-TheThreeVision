@@ -1,5 +1,6 @@
 {
     "name": "vizibicikli",
     "hp": 15330,
-    "dmg": 1450
+    "dmg": 1450,
+    "attackcooldown": 2
   }
