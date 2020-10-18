@@ -25,28 +25,14 @@ TEST(ParserTest, TestingWithFilenameInput)
 {
 	std::string inputFilename = "test/unit_fail.json";
 
-	try
-	{
-		Parser::ParseJsonFilename(inputFilename);
-	}
-	catch(const std::runtime_error& e)
-	{
-		EXPECT_STREQ("Bad input data.", e.what());
-	}
+	ASSERT_THROW(Parser::ParseJsonFilename(inputFilename), std::runtime_error);
 }
 
 TEST(ParserTest, TestingWithStringInput)
 {
 	std::string inputString = "{\n\t\"name\"  :  \"vizibicikli\",\n\t\"hp\":1w3,\n\t\"dmg\"   :    1450\n}";
 
-	try
-	{
-		Parser::ParseJsonString(inputString);
-	}
-	catch(const std::runtime_error& e)
-	{
-		EXPECT_STREQ("Bad input data.", e.what());
-	}
+	ASSERT_THROW(Parser::ParseJsonString(inputString), std::runtime_error);
 }
 
 int main(int argc, char** argv)

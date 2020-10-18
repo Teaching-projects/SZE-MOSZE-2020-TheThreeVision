@@ -51,8 +51,6 @@ std::map<std::string, std::string> Parser::ParseJsonFilename(std::string Filenam
         {
             DataToParse += line;
         }
-    }else{
-        
     }
     return Parser::ParseJsonString(DataToParse);
 }
