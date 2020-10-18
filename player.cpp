@@ -56,8 +56,8 @@ Player* Player::parseUnit(const std::string toParse) {
     std::map<std::string, std::string> Map;
     
     Map = Parser::ParseJsonFilename(toParse);
-
-    return new Player(Map["name"], stoi(Map["hp"]), stoi(Map["dmg"]), stod(Map["atkcd"]);
+    
+    return new Player(Map["name"], stoi(Map["hp"]), stoi(Map["dmg"]), stod(Map["atkcd"]));
 }
 
 
@@ -135,12 +135,12 @@ void AdventurerPlayer::Damage(AdventurerPlayer* player)
 
 }
 
-AdventurerPlayer* AdventurerPlayer::parseUnit(const std::string filename)
+AdventurerPlayer* AdventurerPlayer::parseUnit(const std::string toParse)
 {
     std::map<std::string, std::string> Map;
     
     Map = Parser::ParseJsonFilename(toParse);
 
-    return new AdventurePlayer(Map["name"], stoi(Map["hp"]), stoi(Map["dmg"]), stod(Map["atkcd"]);
+    return new AdventurerPlayer(Map["name"], stoi(Map["hp"]), stoi(Map["dmg"]), stod(Map["atkcd"]));
 }
 

@@ -1,5 +1,5 @@
 {
     "name": "vizibicikli",
     "dmg": 1450,
-    "attackcooldown": 2
+    "atkcd": 2
   }

@@ -2,5 +2,5 @@
   "name": "Sally",
   "hp": 45,
   "dmg": 30,
-  "attackcooldown": 3
+  "atkcd": 3
 }

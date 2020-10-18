@@ -31,7 +31,7 @@ TEST(ParserTest, TestingWithFilenameInput)
 
 TEST(ParserTest, TestingWithStringInput)
 {
-	std::string inputString = "{\n\t\"name\"  :  \"vizibicikli\",\n\t\"hp\":1w3,\n\t\"dmg\"   :    1450,\n \"attackcooldown\": 2}";
+	std::string inputString = "{\n\t\"name\"  :  \"vizibicikli\",\n\t\"hp\":1w3,\n\t\"dmg\"   :    1450,\n \"atkcd\": 2}";
 
 	ASSERT_THROW(Parser::ParseJsonString(inputString), std::runtime_error);
 }
