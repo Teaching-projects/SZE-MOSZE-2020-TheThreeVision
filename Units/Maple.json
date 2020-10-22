@@ -2,5 +2,5 @@
   "name": "Maple",
   "hp": 150,
   "dmg": 10,
-  "attackcooldown": 2.9
+  "atkcd": 2.9
 }
