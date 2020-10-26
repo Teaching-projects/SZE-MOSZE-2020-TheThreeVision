@@ -150,16 +150,44 @@ TEST(Finddatatest, TestingWithfalsedata)
 	ASSERT_THROW(Parser::FindData(inputString, toFind), std::runtime_error);
 }
 
-TEST(Finddatatest, TestingWithoutdata)
+TEST(ParserTest2, TestingWithFilenameInput_good)
 {
-	std::string toFind = "name";
-	
-	std::string inputString = "{\n\t\"name\":\"\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
-	
+	std::string inputFilename = "test/unit2.json";
+	std::map<std::string, std::string> expected;
+	expected.insert(std::pair<std::string, std::string>("name", "vizibicikli"));
+	expected.insert(std::pair<std::string, std::string>("hp", "15330"));
+	expected.insert(std::pair<std::string, std::string>("dmg", "1450"));
+	expected.insert(std::pair<std::string, std::string>("atkcd", "2"));
+		
+	std::map<std::string, std::string> testingFunction = Parser::ParseJsonFilename(inputFilename);
 
-	ASSERT_THROW(Parser::FindData(inputString, toFind), std::runtime_error);
+	
+	ASSERT_EQ(expected, testingFunction);
 }
 
+TEST(ParserTest2, TestingWithStringInput_good)
+{
+	std::string inputString = "{\n\t\"name\":\"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
+	std::map<std::string, std::string> expected;
+	expected.insert(std::pair<std::string, std::string>("name", "vizibicikli"));
+	expected.insert(std::pair<std::string, std::string>("hp", "15330"));
+	expected.insert(std::pair<std::string, std::string>("dmg", "1450"));
+	expected.insert(std::pair<std::string, std::string>("atkcd", "2"));
+
+	std::map<std::string, std::string> testingFunction = Parser::ParseJsonString(inputString);
+
+
+	ASSERT_EQ(expected, testingFunction);
+}
+
+TEST(ParserTest, TestingWithFilenameInput)
+{
+	std::string Filename = "test/unit_fail.json";
+	std::ifstream inputFile(Filename);
+
+	ASSERT_THROW(Parser::ParseJson(inputFile), std::runtime_error);
+}
+	
 
 int main(int argc, char** argv)
 {
