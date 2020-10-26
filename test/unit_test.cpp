@@ -88,14 +88,14 @@ TEST(ParserTest2, TestingWithStringInput_randomkeys)
 
 	ASSERT_EQ(expected, testingFunction);
 }
-TEST(Finddatatest, Nametest) 
+TEST(Finddatatest, Hptest) 
 {
 	
-	std::string toFind="name";
+	std::string toFind="hp";
 	std::string expected;
 
 	std::string inputString = "{\n\t\"name\"  :  \"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\"   :    15330,\n \"atkcd\": 2}";
-	expected = "vizibicikli";
+	expected = "15330";
 	std::string data = Parser::FindData(inputString,toFind);
 
 	ASSERT_EQ(expected, data);
