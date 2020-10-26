@@ -84,7 +84,7 @@ TEST(ParserTest2, TestingWithStringInput_randomkeys)
 
 
 
-	std::map<std::string, std::string> testingFunction = Parser::ParseJsonString(inputFilename);
+	std::map<std::string, std::string> testingFunction = Parser::ParseJsonString(inputString);
 
 	ASSERT_EQ(expected, testingFunction);
 }
