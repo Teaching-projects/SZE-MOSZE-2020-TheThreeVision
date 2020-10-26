@@ -3,7 +3,10 @@ name: Google test workflow
 
 on: 
   push:
-      branches: [jsonparser]
+      branches: 
+      - master 
+      - unittest
+      - gh-pages
 
 
 jobs:
