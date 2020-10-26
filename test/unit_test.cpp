@@ -72,7 +72,7 @@ TEST(ParserTest2, TestingWithFilenameInput_randomkeys)
 
 	
 }
-TEST(ParserTest, TestingWithStringInput)
+TEST(ParserTest2, TestingWithStringInput_randomkeys)
 {
 	std::string inputString = "{\n\t\"name\"  :  \"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\"   :    15330,\n \"atkcd\": 2}";
 
