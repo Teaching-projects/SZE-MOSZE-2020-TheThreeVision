@@ -188,7 +188,19 @@ TEST(ParserTest2, TestingWithFilenameInput)
 	ASSERT_THROW(Parser::ParseJson(inputFile), std::runtime_error);
 }
 	
+TEST(Finddatatest, Nametest_withspace)
+{
 
+	std::string toFind = "name";
+	std::string expected;
+
+	std::string inputString = "{\n\t\"name\":\"vizi bicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
+	expected = "vizi bicikli";
+	std::string data = Parser::FindData(inputString, toFind);
+
+	ASSERT_EQ(expected, data);
+
+}
 int main(int argc, char** argv)
 {
 	::testing::InitGoogleTest(&argc, argv);
