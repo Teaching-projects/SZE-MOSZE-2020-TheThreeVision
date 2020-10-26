@@ -180,7 +180,7 @@ TEST(ParserTest2, TestingWithStringInput_good)
 	ASSERT_EQ(expected, testingFunction);
 }
 
-TEST(ParserTest, TestingWithFilenameInput)
+TEST(ParserTest2, TestingWithFilenameInput)
 {
 	std::string Filename = "test/unit_fail.json";
 	std::ifstream inputFile(Filename);
