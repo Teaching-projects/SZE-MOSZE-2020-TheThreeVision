@@ -88,7 +88,7 @@ TEST(ParserTest2, TestingWithStringInput_randomkeys)
 
 	ASSERT_EQ(expected, testingFunction);
 }
-Test(Finddatatest, Nametest) 
+TEST(Finddatatest, Nametest) 
 {
 	
 	std::string toFind="name";
