@@ -94,7 +94,7 @@ TEST(Finddatatest, Hptest)
 	std::string toFind="hp";
 	std::string expected;
 
-	std::string inputString = "{\n\t\"name\"  :  \"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\"   :    15330,\n \"atkcd\": 2}";
+	std::string inputString = "{\n\t\"name\":\"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
 	expected = "15330";
 	std::string data = Parser::FindData(inputString,toFind);
 
