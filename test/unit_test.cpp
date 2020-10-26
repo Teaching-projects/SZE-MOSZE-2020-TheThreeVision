@@ -152,9 +152,9 @@ TEST(Finddatatest, TestingWithfalsedata)
 
 TEST(Finddatatest, TestingWithoutdata)
 {
-	std::string toFind = "atkcd";
+	std::string toFind = "name";
 	
-	std::string inputString = "{\n\t\"name\":\"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":}";
+	std::string inputString = "{\n\t\"name\":\"\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
 	
 
 	ASSERT_THROW(Parser::FindData(inputString, toFind), std::runtime_error);
