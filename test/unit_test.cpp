@@ -101,6 +101,46 @@ TEST(Finddatatest, Hptest)
 	ASSERT_EQ(expected, data);
 
 }
+TEST(Finddatatest, Nametest)
+{
+
+	std::string toFind = "name";
+	std::string expected;
+
+	std::string inputString = "{\n\t\"name\":\"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
+	expected = "vizibicikli";
+	std::string data = Parser::FindData(inputString, toFind);
+
+	ASSERT_EQ(expected, data);
+
+}
+TEST(Finddatatest, dmgtest)
+{
+
+	std::string toFind = "dmg";
+	std::string expected;
+
+	std::string inputString = "{\n\t\"name\":\"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
+	expected = "1450";
+	std::string data = Parser::FindData(inputString, toFind);
+
+	ASSERT_EQ(expected, data);
+
+}
+TEST(Finddatatest, atkcd)
+{
+
+	std::string toFind = "atkcd";
+	std::string expected;
+
+	std::string inputString = "{\n\t\"name\":\"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
+	expected = "2";
+	std::string data = Parser::FindData(inputString, toFind);
+
+	ASSERT_EQ(expected, data);
+
+}
+
 
 int main(int argc, char** argv)
 {
