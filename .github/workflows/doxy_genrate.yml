@@ -2,9 +2,6 @@ name: Documentation
 
 on:
   push:
-    branches:	
-      - documentation
-      - master
 
 jobs:
   doxygen:
