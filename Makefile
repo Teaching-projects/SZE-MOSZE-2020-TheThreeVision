@@ -27,7 +27,7 @@ static_code_analysis:
 	$(CH) $(CPPOBJS) $(CHFLAGS)
 	$(CH) $(CPPOBJS) $(CHAFLAGS)
 
-memory_leak_check:
+memory_leak_check: linking
 	valgrind $(VFLAGS) ./game $(VJSONS)
 
 io_diff_check:
