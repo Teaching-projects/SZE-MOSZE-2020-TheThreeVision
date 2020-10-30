@@ -31,7 +31,8 @@ int main(int argc, char** argv) {
         else if (Player2->getHP() == 0) {
             cout << Player1->getName() << " wins." << " Remaining HP: " << Player1->getHP() << ".";
         }
+        delete Player1, Player2;
     }
-    delete Player1, Player2;
+   
     return 0;
 }
