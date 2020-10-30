@@ -9,7 +9,7 @@ VFLAGS := --leak-check=full --error-exitcode=3
 VJSONS := Units/Kakarott.json Units/Maple.json
 
 
-all_tests: linking static_code_analysis cppcheck_style_and_performance memory_leak_check correct_io_diff_check
+all_tests: linking static_code_analysis memory_leak_check io_diff_check
 
 linking: $(OBJS)
 	$(CC) $(CFLAGS) -o game $(OBJS)
