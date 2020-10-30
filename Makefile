@@ -17,7 +17,7 @@ linking: $(OBJS)
 player.o: player.cpp player.h parser.h
 	$(CC) $(CFLAGS) -c player.cpp
 
-parser.o: parser.cpp parser.h BadJsonException.h
+parser.o: parser.cpp parser.h
 	$(CC) $(CFLAGS) -c parser.cpp
 
 main.o: main.cpp player.h
