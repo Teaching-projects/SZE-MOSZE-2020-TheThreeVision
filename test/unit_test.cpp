@@ -128,24 +128,8 @@ TEST(Finddatatests, ALL_DATA_TESTS)
 
 	ASSERT_EQ(expected3, data3);
 }
-//TEST(Finddatatest, Nametest)
-{
 
 
-
-}
-//TEST(Finddatatest, dmgtest)
-{
-
-
-
-}
-//TEST(Finddatatest, atkcd)
-{
-
-
-
-}
 
 TEST(Finddatatest, TestingWithfalsedata)
 {
