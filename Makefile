@@ -34,7 +34,7 @@ io_diff_check:
 	python3 testrun.py
 
 unittest:
-	cd test && ./runTests
+	cd test/runTests
 
 documentation:
 	doxygen doxconf
