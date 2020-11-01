@@ -196,15 +196,15 @@ TEST(DATATEST, _NOT_EXISTINGFILE)
 
 TEST(Fight, isdead)
 {
-	Player* p1 = Player::parseUnit("../Units/Maple.json");
-	Player* p2 = Player::parseUnit("../Units/Sally.json");
+	Player* p1 = Player::parseUnit("Units/Maple.json");
+	Player* p2 = Player::parseUnit("Units/Sally.json");
 	p1->Fight(p2);
 	ASSERT_TRUE(p1->getHP() < 0 || p2->getHP() < 0);
 }
 TEST(Fight, runtest)
 {
-	Player* p1 = Player::parseUnit("../Units/Maple.json");
-	Player* p2 = Player::parseUnit("../Units/Sally.json");
+	Player* p1 = Player::parseUnit("Units/Maple.json");
+	Player* p2 = Player::parseUnit("Units/Sally.json");
 
 	EXPECT_NO_THROW(p1->Fight(p2));
 	
