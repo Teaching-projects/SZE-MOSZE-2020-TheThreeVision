@@ -3,6 +3,7 @@
 #include <map>
 #include <fstream>
 #include "../parser.h"
+#include "../player.h"
 
 TEST(ParserTest, TestingWithFileInput)
 {
@@ -130,7 +131,7 @@ TEST(Finddatatest, TestingWithfalsedata)
 {
 	std::string inputString = "{\n\t\"name\":\"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
 	std::string toFind = "atcd";
-	
+
 
 	ASSERT_THROW(Parser::FindData(inputString, toFind), std::runtime_error);
 }
@@ -175,16 +176,39 @@ TEST(ParserTest2, TestingWithFilenameInput)
 
 TEST(Finddatatest, Nametest_withspace)
 {
-std::string inputString = "{\n\t\"name\":\"vizi bicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
+	std::string inputString = "{\n\t\"name\":\"vizi bicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
 	std::string toFind = "name";
-	std::string expected= "vizi bicikli";;
-	
-	
+	std::string expected = "vizi bicikli";;
+
+
 	std::string data = Parser::FindData(inputString, toFind);
 
 	ASSERT_EQ(expected, data);
 
 }
+TEST(DATATEST, _NOT_EXISTINGFILE)
+{
+	std::string inputFilename = "test/doesitexist.json";
+
+	ASSERT_THROW(Parser::ParseJsonFilename(inputFilename), std::runtime_error);
+
+}
+
+TEST(Fight, isdead)
+{
+	Player* p1 = Player::parseUnit("../Units/Maple.json");
+	Player* p2 = Player::parseUnit("../Units/Sally.json");
+	p1->Fight(p2);
+	ASSERT_TRUE(p1->getHP < 0 || p2->getHP < 0);
+}
+TEST(Fight, runtest)
+{
+	Player* p1 = Player::parseUnit("../Units/Maple.json");
+	Player* p2 = Player::parseUnit("../Units/Sally.json");
+
+	EXPECT_NO_THROW(p1->Fight(p2);)
+}
+
 int main(int argc, char** argv)
 {
 	::testing::InitGoogleTest(&argc, argv);
