@@ -207,6 +207,7 @@ TEST(Fight, runtest)
 	Player* p2 = Player::parseUnit("../Units/Sally.json");
 
 	EXPECT_NO_THROW(p1->Fight(p2));
+	
 }
 
 int main(int argc, char** argv)
