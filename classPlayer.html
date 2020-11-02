@@ -96,7 +96,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <tr class="separator:a73e4ff2d70e62ca7e3be1d9b4ad9de85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27d7b8bebd9805deafb389d26e2e1790"><td class="memItemLeft" align="right" valign="top"><a id="a27d7b8bebd9805deafb389d26e2e1790"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a27d7b8bebd9805deafb389d26e2e1790">getHP</a> () const</td></tr>
-<tr class="memdesc:a27d7b8bebd9805deafb389d26e2e1790"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple getter to the HealPoint <br /></td></tr>
+<tr class="memdesc:a27d7b8bebd9805deafb389d26e2e1790"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple getter to the HealthPoints <br /></td></tr>
 <tr class="separator:a27d7b8bebd9805deafb389d26e2e1790"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33bb2286cc8ae5441ed9acbafd1d3343"><td class="memItemLeft" align="right" valign="top"><a id="a33bb2286cc8ae5441ed9acbafd1d3343"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a33bb2286cc8ae5441ed9acbafd1d3343">getDMG</a> () const</td></tr>
@@ -113,7 +113,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a7260c439b541b0a7b6354a45e9d8c95b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classPlayer.html">Player</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a7260c439b541b0a7b6354a45e9d8c95b">parseUnit</a> (const std::string file)</td></tr>
-<tr class="memdesc:a7260c439b541b0a7b6354a45e9d8c95b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method reads a .json file and get the useful informations.  <a href="#a7260c439b541b0a7b6354a45e9d8c95b">More...</a><br /></td></tr>
+<tr class="memdesc:a7260c439b541b0a7b6354a45e9d8c95b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method use the parser class, and reads a .json file, and get the keys and the attached data and returns a new <a class="el" href="classPlayer.html" title="Player class. ">Player</a> object.  <a href="#a7260c439b541b0a7b6354a45e9d8c95b">More...</a><br /></td></tr>
 <tr class="separator:a7260c439b541b0a7b6354a45e9d8c95b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -123,7 +123,7 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a478d85343d3be4b6a37e9000631115b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63b1be267586483284d565f805322735"><td class="memItemLeft" align="right" valign="top"><a id="a63b1be267586483284d565f805322735"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a63b1be267586483284d565f805322735">setHP</a> (int h)</td></tr>
-<tr class="memdesc:a63b1be267586483284d565f805322735"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple setter to the HealPoints <br /></td></tr>
+<tr class="memdesc:a63b1be267586483284d565f805322735"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple setter to the HealthPoints <br /></td></tr>
 <tr class="separator:a63b1be267586483284d565f805322735"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55904852ada67dfdd368c6c37f03a2d2"><td class="memItemLeft" align="right" valign="top"><a id="a55904852ada67dfdd368c6c37f03a2d2"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a55904852ada67dfdd368c6c37f03a2d2">setDMG</a> (int d)</td></tr>
@@ -137,14 +137,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a5c0b1dbadbfcfc31cc61c4d74074030f"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a5c0b1dbadbfcfc31cc61c4d74074030f">operator&lt;&lt;</a> (std::ostream &amp;o, <a class="el" href="classPlayer.html">Player</a> &amp;d)</td></tr>
-<tr class="memdesc:a5c0b1dbadbfcfc31cc61c4d74074030f"><td class="mdescLeft">&#160;</td><td class="mdescRight">easy way to print an player  <a href="#a5c0b1dbadbfcfc31cc61c4d74074030f">More...</a><br /></td></tr>
+<tr class="memdesc:a5c0b1dbadbfcfc31cc61c4d74074030f"><td class="mdescLeft">&#160;</td><td class="mdescRight">easy way to print a player  <a href="#a5c0b1dbadbfcfc31cc61c4d74074030f">More...</a><br /></td></tr>
 <tr class="separator:a5c0b1dbadbfcfc31cc61c4d74074030f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classPlayer.html" title="Player class. ">Player</a> class. </p>
 <dl class="section author"><dt>Author</dt><dd>radvanszkyI</dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2020.10.13. 22:22</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>A player can fight with an other player while one of them is die. The fight end is depend on the two player's HealPoints, Damages, and the AttackCooldowns. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>A player can fight with an other player while one of them is alive. The end of the fight depends on the HealthPoints, Damages and the Attackcooldowns of the two Players </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a478d85343d3be4b6a37e9000631115b7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a478d85343d3be4b6a37e9000631115b7">&#9670;&nbsp;</a></span>Damage()</h2>
@@ -230,7 +230,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>This method reads a .json file and get the useful informations. </p>
+<p>This method use the parser class, and reads a .json file, and get the keys and the attached data and returns a new <a class="el" href="classPlayer.html" title="Player class. ">Player</a> object. </p>
 <dl class="section return"><dt>Returns</dt><dd>return with a <a class="el" href="classPlayer.html" title="Player class. ">Player</a> object </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
@@ -282,7 +282,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>easy way to print an player </p>
+<p>easy way to print a player </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">o</td><td>is the output stream </td></tr>
