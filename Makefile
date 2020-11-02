@@ -20,7 +20,7 @@ player.o: player.cpp player.h parser.h
 parser.o: parser.cpp parser.h
 	$(CC) $(CFLAGS) -c parser.cpp
 
-main.o: main.cpp player.h
+main.o: main.cpp player.h parser.h
 	$(CC) $(CFLAGS) -c main.cpp
 
 static_code_analysis:
