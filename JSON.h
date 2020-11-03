@@ -25,7 +25,7 @@ private:
 public:
 	JSON(std::map<std::string, std::string> newData) : Data(newData) {}
 
-	int count(std::string& toFind);
+	int count(const std::string& toFind);
 /**
 	 * \brief This method can search a key(std::string) in a std::string and returns the data attached to the key.
 	 * \return return with a std::string

@@ -1,6 +1,6 @@
 #include "JSON.h"
 
-int JSON::count(std::string& toFind){
+int JSON::count(const std::string& toFind){
     Data.count(toFind);
 }
 
