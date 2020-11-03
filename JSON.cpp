@@ -1,5 +1,11 @@
 #include "JSON.h"
 
+int JSON::count(std::string& toFind){
+    Data.count(toFind);
+}
+
+
+
 std::map<std::string, std::string> JSON::ParseJsonString(std::string StringToParse){
     std::map<std::string, std::string> Map;
     bool toDelete = true;
