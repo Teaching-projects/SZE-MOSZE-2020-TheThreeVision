@@ -26,6 +26,12 @@ public:
 	JSON(std::map<std::string, std::string> newData) : Data(newData) {}
 
 	int count(const std::string& toFind);
+
+	template <class Temp>
+  	Temp get(const std::string& input){
+    	Temp toReturn = Data(input);
+    	return toReturn;
+  	}
 /**
 	 * \brief This method can search a key(std::string) in a std::string and returns the data attached to the key.
 	 * \return return with a std::string
