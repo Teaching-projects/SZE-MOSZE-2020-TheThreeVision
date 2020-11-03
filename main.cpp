@@ -17,6 +17,8 @@ int main(int argc, char** argv) {
         }
         catch (std::runtime_error& e) {
             cerr << e.what();
+            delete Player1;
+            delete Player2;
             return 2;
         }
         Player1->Fight(Player2);
@@ -30,7 +32,9 @@ int main(int argc, char** argv) {
         else if (Player2->getHP() == 0) {
             cout << Player1->getName() << " wins." << " Remaining HP: " << Player1->getHP() << ".";
         }
+        delete Player1;
+        delete Player2;
     }
-
+   
     return 0;
 }
