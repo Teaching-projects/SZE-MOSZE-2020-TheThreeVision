@@ -2,8 +2,9 @@
 #include <string>
 #include <map>
 #include <fstream>
-#include "../parser.h"
-#include "../player.h"
+#include "../Hero.h"
+#include "../Monster.h"
+#include "../JSON.h"
 
 TEST(ParserTest, TestingWithFileInput)
 {
@@ -16,7 +17,7 @@ TEST(ParserTest, TestingWithFileInput)
 
 	std::ifstream inputFile(inputFilename);
 
-	std::map<std::string, std::string> testingFunction = Parser::ParseJson(inputFile);
+	std::map<std::string, std::string> testingFunction = JSON::ParseJson(inputFile);
 
 	inputFile.close();
 
@@ -27,14 +28,14 @@ TEST(ParserTest, TestingWithFilenameInput)
 {
 	std::string inputFilename = "test/unit_fail.json";
 
-	ASSERT_THROW(Parser::ParseJsonFilename(inputFilename), std::runtime_error);
+	ASSERT_THROW(JSON::ParseJsonFilename(inputFilename), std::runtime_error);
 }
 
 TEST(ParserTest, TestingWithStringInput)
 {
 	std::string inputString = "{\n\t\"name\"  :  \"vizibicikli\",\n\t\"hp\":1w3,\n\t\"dmg\"   :    1450,\n \"atkcd\": 2}";
 
-	ASSERT_THROW(Parser::ParseJsonString(inputString), std::runtime_error);
+	ASSERT_THROW(JSON::ParseJsonString(inputString), std::runtime_error);
 }
 //new branch tesztek innentol
 
@@ -49,7 +50,7 @@ TEST(ParserTest2, TestingWithFileInput_randomkeys)
 
 	std::ifstream inputFile(inputFilename);
 
-	std::map<std::string, std::string> testingFunction = Parser::ParseJson(inputFile);
+	std::map<std::string, std::string> testingFunction = JSON::ParseJson(inputFile);
 
 	inputFile.close();
 
@@ -67,7 +68,7 @@ TEST(ParserTest2, TestingWithFilenameInput_randomkeys)
 
 
 
-	std::map<std::string, std::string> testingFunction = Parser::ParseJsonFilename(inputFilename);
+	std::map<std::string, std::string> testingFunction = JSON::ParseJsonFilename(inputFilename);
 
 	ASSERT_EQ(expected, testingFunction);
 
@@ -85,7 +86,7 @@ TEST(ParserTest2, TestingWithStringInput_randomkeys)
 
 
 
-	std::map<std::string, std::string> testingFunction = Parser::ParseJsonString(inputString);
+	std::map<std::string, std::string> testingFunction = JSON::ParseJsonString(inputString);
 
 	ASSERT_EQ(expected, testingFunction);
 }
@@ -96,7 +97,7 @@ TEST(Finddatatests, ALL_DATA_TESTS)
 	std::string expected = "15330";;
 
 
-	std::string data = Parser::FindData(inputString, toFind);
+	std::string data = JSON::FindData(inputString, toFind);
 	ASSERT_EQ(expected, data);
 
 
@@ -104,7 +105,7 @@ TEST(Finddatatests, ALL_DATA_TESTS)
 	std::string expected1 = "vizibicikli";;
 
 
-	std::string data1 = Parser::FindData(inputString, toFind1);
+	std::string data1 = JSON::FindData(inputString, toFind1);
 	ASSERT_EQ(expected1, data1);
 
 
@@ -112,7 +113,7 @@ TEST(Finddatatests, ALL_DATA_TESTS)
 	std::string expected2 = "1450";
 
 
-	std::string data2 = Parser::FindData(inputString, toFind2);
+	std::string data2 = JSON::FindData(inputString, toFind2);
 
 	ASSERT_EQ(expected2, data2);
 
@@ -120,7 +121,7 @@ TEST(Finddatatests, ALL_DATA_TESTS)
 	std::string expected3 = "2";;
 
 
-	std::string data3 = Parser::FindData(inputString, toFind3);
+	std::string data3 = JSON::FindData(inputString, toFind3);
 
 	ASSERT_EQ(expected3, data3);
 }
@@ -133,7 +134,7 @@ TEST(Finddatatest, TestingWithfalsedata)
 	std::string toFind = "atcd";
 
 
-	ASSERT_THROW(Parser::FindData(inputString, toFind), std::runtime_error);
+	ASSERT_THROW(JSON::FindData(inputString, toFind), std::runtime_error);
 }
 
 TEST(ParserTest2, TestingWithFilenameInput_good)
@@ -145,7 +146,7 @@ TEST(ParserTest2, TestingWithFilenameInput_good)
 	expected.insert(std::pair<std::string, std::string>("dmg", "1450"));
 	expected.insert(std::pair<std::string, std::string>("atkcd", "2"));
 
-	std::map<std::string, std::string> testingFunction = Parser::ParseJsonFilename(inputFilename);
+	std::map<std::string, std::string> testingFunction = JSON::ParseJsonFilename(inputFilename);
 
 
 	ASSERT_EQ(expected, testingFunction);
@@ -160,7 +161,7 @@ TEST(ParserTest2, TestingWithStringInput_good)
 	expected.insert(std::pair<std::string, std::string>("dmg", "1450"));
 	expected.insert(std::pair<std::string, std::string>("atkcd", "2"));
 
-	std::map<std::string, std::string> testingFunction = Parser::ParseJsonString(inputString);
+	std::map<std::string, std::string> testingFunction = JSON::ParseJsonString(inputString);
 
 
 	ASSERT_EQ(expected, testingFunction);
@@ -171,7 +172,7 @@ TEST(ParserTest2, TestingWithFilenameInput)
 	std::string Filename = "test/unit_fail.json";
 	std::ifstream inputFile(Filename);
 
-	ASSERT_THROW(Parser::ParseJson(inputFile), std::runtime_error);
+	ASSERT_THROW(JSON::ParseJson(inputFile), std::runtime_error);
 }
 
 TEST(Finddatatest, Nametest_withspace)
@@ -181,7 +182,7 @@ TEST(Finddatatest, Nametest_withspace)
 	std::string expected = "vizi bicikli";;
 
 
-	std::string data = Parser::FindData(inputString, toFind);
+	std::string data = JSON::FindData(inputString, toFind);
 
 	ASSERT_EQ(expected, data);
 
@@ -190,21 +191,21 @@ TEST(DATATEST, _NOT_EXISTINGFILE)
 {
 	std::string inputFilename = "test/doesitexist.json";
 
-	ASSERT_THROW(Parser::ParseJsonFilename(inputFilename), std::runtime_error);
+	ASSERT_THROW(JSON::ParseJsonFilename(inputFilename), std::runtime_error);
 
 }
 
 TEST(Fight, isdead)
 {
-	Player* p1 = Player::parseUnit("Units/Maple.json");
-	Player* p2 = Player::parseUnit("Units/Sally.json");
+	Monster* p1 = Monster::parseUnit("Units/Maple.json");
+	Monster* p2 = Monster::parseUnit("Units/Sally.json");
 	p1->Fight(p2);
 	ASSERT_TRUE(p1->getHP() <= 0 || p2->getHP() <= 0);
 }
 TEST(Fight, runtest)
 {
-	Player* p1 = Player::parseUnit("Units/Maple.json");
-	Player* p2 = Player::parseUnit("Units/Sally.json");
+	Monster* p1 = Monster::parseUnit("Units/Maple.json");
+	Monster* p2 = Monster::parseUnit("Units/Sally.json");
 
 	EXPECT_NO_THROW(p1->Fight(p2));
 	

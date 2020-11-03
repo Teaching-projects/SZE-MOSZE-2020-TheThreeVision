@@ -7,19 +7,19 @@
 #include <vector>
 
 /**
- * \class Parser
+ * \class JSON
  * 
- * \brief Parser class
+ * \brief JSON class
  * 
  * \author poloczmate
  *
  * \date 2020.10.28. 21:00
  *
- * \note The Parser can read data from JSON files
+ * \note The JSON can read data from JSON files
  * 
  */
 
-class Parser{
+class JSON{
 public:
 /**
 	 * \brief This method can search a key(std::string) in a std::string and returns the data attached to the key.

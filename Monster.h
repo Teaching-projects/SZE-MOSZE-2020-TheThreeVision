@@ -1,9 +1,10 @@
 #pragma once
 #include <iostream>
+
 /**
- * \class Player
+ * \class Monster
  * 
- * \brief Player class
+ * \brief Monster class
  * 
  * \author radvanszkyI
  *
@@ -12,7 +13,7 @@
  * \note A player can fight with an other player while one of them is alive.
  * The end of the fight depends on the HealthPoints, Damages and the Attackcooldowns of the two Players
  */
-class Player
+class Monster
 {
 	const std::string Name; ///< the Name of the player
 	int HP;					///< the HealthPoints of the player
@@ -21,7 +22,7 @@ class Player
 
 protected:
 	/// this method damage the other player
-	void Damage (Player* player/**[in] the player who is injured*/)const;
+	void Damage (Monster* player/**[in] the player who is injured*/)const;
 	/// simple setter to the HealthPoints
 	void setHP(int h) { HP = h; }
 	/// simple setter to the Damage
@@ -31,7 +32,7 @@ protected:
 	
 public:
 	/// player construct, what put the input parameters to the data members
-	Player(std::string name, int hp, int dmg, double atkCoolDown) :Name(name), HP(hp), DMG(dmg), AtkCoolDown(atkCoolDown) {}
+	Monster(std::string name, int hp, int dmg, double atkCoolDown) :Name(name), HP(hp), DMG(dmg), AtkCoolDown(atkCoolDown) {}
 
 	///simple getter to the Name
 	std::string getName() const { return Name; }
@@ -45,20 +46,20 @@ public:
 
 	
 	/// easy way to print a player
-	friend std::ostream& operator<<(std::ostream& o/**[in] is the output stream*/, Player& d/**[in] is the printed player*/);
+	friend std::ostream& operator<<(std::ostream& o/**[in] is the output stream*/, Monster& d/**[in] is the printed player*/);
 	/**
 	 * \brief fight with another player while one of them is die
 	 */
-	void Fight(Player* player/**[in] is the other player*/);
+	void Fight(Monster* player/**[in] is the other player*/);
 	/**
-	 * \brief This method use the parser class, and reads a .json file, and get the keys and the attached data and returns a new Player object
-	 * \return return with a Player object
+	 * \brief This method use the parser class, and reads a .json file, and get the keys and the attached data and returns a new Monster object
+	 * \return return with a Monster object
 	 * \throw throw a "runtime_error" if something wrong
 	 */
-	static Player* parseUnit(const std::string file/**[in] is the .json file's name*/);
+	static Monster* parseUnit(const std::string file/**[in] is the .json file's name*/);
 };
 
-class AdventurerPlayer : public Player
+class Hero : public Monster
 {
 private:
 	int XP = 0;///< the ExperiencePoints of the adventurerPlayer
@@ -73,14 +74,14 @@ protected:
 	 * \brief This method damages the other adventurerPlayer.
 	 * \note this method does the increaseXP and the levelup 
 	 */	
-	void Damage(AdventurerPlayer* player/**[in] the adventurerPlayer who is injured*/);
+	void Damage(Hero* player/**[in] the adventurerPlayer who is injured*/);
 public:
 	/**
 	 * \brief fight with another player while one of them is die
 	 */
-	void Fight(AdventurerPlayer* otherplayer/**[in] is the other player*/);
+	void Fight(Hero* otherplayer/**[in] is the other player*/);
 	/// adventurerPlayer construct, what put the input parameters to the data members
-	AdventurerPlayer(std::string name, int hp, int dmg, double atkCoolDown) :Player(name, hp, dmg, atkCoolDown), maxHP(hp) {};
+	Hero(std::string name, int hp, int dmg, double atkCoolDown) :Monster(name, hp, dmg, atkCoolDown), maxHP(hp) {};
 	/// a simple getter to the ExperiencePoints
 	int getXP() { return XP; }
 	/**
@@ -88,5 +89,5 @@ public:
 	 * \return return with an AdventurerPlayer object
 	 * \throw throw a "runtime_error" if something wrong
 	 */
-	static AdventurerPlayer* parseUnit(const std::string file/**[in] is the .json file's name*/);
+	static Hero* parseUnit(const std::string file/**[in] is the .json file's name*/);
 };

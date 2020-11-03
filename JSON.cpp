@@ -1,6 +1,6 @@
-#include "parser.h"
+#include "JSON.h"
 
-std::map<std::string, std::string> Parser::ParseJsonString(std::string StringToParse){
+std::map<std::string, std::string> JSON::ParseJsonString(std::string StringToParse){
     std::map<std::string, std::string> Map;
     bool toDelete = true;
     int j = 0;
@@ -25,23 +25,23 @@ std::map<std::string, std::string> Parser::ParseJsonString(std::string StringToP
 
     for (int i = 1; i < 5; i++)
     {
-        Map[array[i]] = Parser::FindData(array[0],array[i]);
+        Map[array[i]] = JSON::FindData(array[0],array[i]);
     }
 
     return Map;
 }
 
-std::map<std::string, std::string> Parser::ParseJson(std::istream& JSONToParse){
+std::map<std::string, std::string> JSON::ParseJson(std::istream& JSONToParse){
     std::string DataToParse, line;
     while (std::getline(JSONToParse, line))
     {
         DataToParse += line;
     }
     
-    return Parser::ParseJsonString(DataToParse);
+    return JSON::ParseJsonString(DataToParse);
 }
 
-std::map<std::string, std::string> Parser::ParseJsonFilename(std::string FilenameToParse){
+std::map<std::string, std::string> JSON::ParseJsonFilename(std::string FilenameToParse){
     std::ifstream ToParse(FilenameToParse);
     std::string DataToParse = "";
     if (ToParse.good())
@@ -52,10 +52,10 @@ std::map<std::string, std::string> Parser::ParseJsonFilename(std::string Filenam
             DataToParse += line;
         }
     }
-    return Parser::ParseJsonString(DataToParse);
+    return JSON::ParseJsonString(DataToParse);
 }
 
-std::string Parser::FindData(const std::string& StringToParse, const std::string& StringToFind){
+std::string JSON::FindData(const std::string& StringToParse, const std::string& StringToFind){
     std::string data = "";
 
     if (StringToParse.find(StringToFind) != std::string::npos)
