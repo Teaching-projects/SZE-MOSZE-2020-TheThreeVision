@@ -25,7 +25,7 @@ private:
 public:
 	JSON(std::map<std::string, std::string> newData) : Data(newData) {}
 
-	static JSON parseFromFile(std::string& filePath);
+	static JSON parseFromFile(const std::string& filePath);
 	std::map<std::string, std::string> parseScenario(std::string& JSONstring);
 
 	int count(const std::string& toFind);

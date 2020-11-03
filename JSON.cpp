@@ -4,7 +4,7 @@ int JSON::count(const std::string& toFind){
     Data.count(toFind);
 }
 
-JSON JSON::parseFromFile(std::string& filePath){
+JSON JSON::parseFromFile(const std::string& filePath){
     std::ifstream JSONfile(filePath);
 
     if (JSONfile.fail())
