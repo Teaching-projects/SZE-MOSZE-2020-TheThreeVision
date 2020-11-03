@@ -18,7 +18,7 @@ JSON JSON::parseFromFile(const std::string& filePath){
         DataToParse += line;
     }
     
-    return parseScenario(DataToParse);
+    return JSON::parseScenario(DataToParse);
 }
 
 std::map<std::string, std::string> JSON::parseScenario(std::string& JSONstring){
