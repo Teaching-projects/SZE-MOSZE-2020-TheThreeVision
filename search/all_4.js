@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['increasexp',['increaseXP',['../classAdventurerPlayer.html#a257ddd64d7c97dcf38fc6d0bdeecac9b',1,'AdventurerPlayer']]]
+  ['increasexp',['increaseXP',['../classHero.html#a9e857e4b2c081d3f3da435d2c3bf3c56',1,'Hero::increaseXP(int dmg)'],['../classHero.html#a9e857e4b2c081d3f3da435d2c3bf3c56',1,'Hero::increaseXP(int dmg)']]]
 ];

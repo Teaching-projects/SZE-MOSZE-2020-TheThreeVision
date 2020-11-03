@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['adventurerplayer',['AdventurerPlayer',['../classAdventurerPlayer.html',1,'AdventurerPlayer'],['../classAdventurerPlayer.html#ab2d9c2a2f09dcbe2ad2b1a03e52950d8',1,'AdventurerPlayer::AdventurerPlayer()']]]
+  ['damage',['Damage',['../classHero.html#ad5b71c939211d80ddaa887167a04d235',1,'Hero::Damage()'],['../classMonster.html#a6301d5ddb5f3387f57874dd517bd2211',1,'Monster::Damage()'],['../classHero.html#ad5b71c939211d80ddaa887167a04d235',1,'Hero::Damage()']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['damage',['Damage',['../classPlayer.html#a478d85343d3be4b6a37e9000631115b7',1,'Player::Damage()'],['../classAdventurerPlayer.html#a63c6084d1751b729bc06ec6cb6de7d6d',1,'AdventurerPlayer::Damage()']]]
+  ['fight',['Fight',['../classHero.html#ad2b348ce5a590c05e28a51df9f9d7cba',1,'Hero::Fight()'],['../classMonster.html#a72a10fa7ed0ce4756397de7008a7e3c5',1,'Monster::Fight()'],['../classHero.html#ad2b348ce5a590c05e28a51df9f9d7cba',1,'Hero::Fight()']]],
+  ['finddata',['FindData',['../classJSON.html#a6b75090a38323be50d7a4868a587e770',1,'JSON']]]
 ];
