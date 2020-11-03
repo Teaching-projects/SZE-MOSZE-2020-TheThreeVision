@@ -25,6 +25,9 @@ private:
 public:
 	JSON(std::map<std::string, std::string> newData) : Data(newData) {}
 
+	JSON parseFromFile(std::string& filePath);
+	std::map<std::string, std::string> parseScenario(std::string& JSONstring);
+
 	int count(const std::string& toFind);
 
 	template <class Temp>
@@ -32,6 +35,11 @@ public:
     	Temp toReturn = Data(input);
     	return toReturn;
   	}
+
+	class ParseException : public std::runtime_error{
+    public:
+      ParseException(const std::string& msg) : std::runtime_error(msg){}
+ 	};
 /**
 	 * \brief This method can search a key(std::string) in a std::string and returns the data attached to the key.
 	 * \return return with a std::string

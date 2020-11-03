@@ -4,7 +4,55 @@ int JSON::count(const std::string& toFind){
     Data.count(toFind);
 }
 
+JSON JSON::parseFromFile(std::string& filePath){
+    std::ifstream JSONfile(filePath);
 
+    if (JSONfile.fail())
+    {
+        throw ParseException("Bad input data.");
+    }
+
+    std::string DataToParse, line;
+    while (std::getline(JSONfile, line))
+    {
+        DataToParse += line;
+    }
+    
+    return parseScenario(DataToParse);
+}
+
+std::map<std::string, std::string> JSON::parseScenario(std::string& JSONstring){
+    std::map<std::string, std::string> Map;
+    bool toDelete = true;
+    int j = 0;
+    while (j < JSONstring.length())
+    {
+        if (JSONstring[j] == '"'){
+            if (toDelete)
+            {
+                toDelete = false;
+            }else{
+                toDelete = true;
+            }
+        }
+        if (JSONstring[j] == ' ' && toDelete)
+        {
+            JSONstring.erase(j,1);
+        }else{
+            j++;
+        }
+    }
+    std::string array[] = {JSONstring, "hero", "monsters"};
+
+    for (int i = 1; i < 3; i++)
+    {
+        Map[array[i]] = JSON::FindData(array[0],array[i]);
+    }
+
+    return Map;
+}
+
+// old
 
 std::map<std::string, std::string> JSON::ParseJsonString(std::string StringToParse){
     std::map<std::string, std::string> Map;
