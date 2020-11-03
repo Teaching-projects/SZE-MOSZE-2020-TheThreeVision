@@ -3,10 +3,6 @@ name: Google test workflow
 
 on: 
   push:
-      branches: 
-      - master 
-      - unittests
-      - gh-pages
 
 
 jobs:
@@ -22,4 +18,4 @@ jobs:
         run:  chmod +x test/unit_test.cpp
       - run: g++ -std=c++17 *.cpp -o unit_test
       - name: Run test
-        run: test/runTests
+        run: make unittest
