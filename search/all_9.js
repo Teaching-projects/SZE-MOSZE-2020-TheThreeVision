@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['parseexception',['ParseException',['../classJSON_1_1ParseException.html',1,'JSON']]],
   ['parsejson',['ParseJson',['../classJSON.html#a9b8e05af9d37a59a818770838236a34d',1,'JSON']]],
   ['parsejsonfilename',['ParseJsonFilename',['../classJSON.html#aa34a7fb06a726c868fd7e7b1b80f82c0',1,'JSON']]],
   ['parsejsonstring',['ParseJsonString',['../classJSON.html#ad40499a14b0072ba8145a9d978e77e47',1,'JSON']]],
