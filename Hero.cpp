@@ -117,11 +117,18 @@ void Hero::Damage(Monster* monster)
 
 }
 
-Hero* Hero::parse(const std::string toParse)
+Hero Hero::parse(const std::string toParse)
 {
     std::map<std::string, std::string> Map;
+
+    JSON Data = JSON::ParseJsonFilename(toParse);
+
     
-    Map = JSON::ParseJsonFilename(toParse);
-    
-    return new Hero(Map["name"], stoi(Map["base_health_points"]), stoi(Map["base_damage"]), stod(Map["base_attack_cooldown"]));
+    /*return new Hero(Map["name"], stoi(Map["base_health_points"]), stoi(Map["base_damage"]), stod(Map["base_attack_cooldown"]));*/
+    return Hero(
+        Data.get<std::string>("name"),
+        Data.get<int>("base_health_points"),
+        Data.get<int>("base_damage"),
+        Data.get<double>("base_attack_cooldown")
+    );
 }

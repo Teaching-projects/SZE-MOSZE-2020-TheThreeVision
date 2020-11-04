@@ -59,6 +59,6 @@ public:
 	 * \throw throw a "runtime_error" if something wrong
 	 */
 
-	static Monster* parse(const std::string file/**[in] is the .json file's name*/);
+	static Monster parse(const std::string file/**[in] is the .json file's name*/);
 };
 

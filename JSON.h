@@ -30,9 +30,9 @@ public:
 
 	int count(const std::string& toFind);
 
-	template <class Temp>
-  	Temp get(const std::string& input){
-    	return std::any_cast<Temp>(Data[input]);
+	template <typename T>
+  	T get(const std::string& input){
+    	return std::any_cast<T>(Data[input]);
   	}
 
 	class ParseException : public std::runtime_error{
@@ -50,7 +50,7 @@ public:
 	 * \return return with a std::map
 	 * \throw throw a "runtime_error" if something wrong
 	 */
-    static std::map<std::string, std::string> ParseJsonFilename(std::string FilenameToParse);
+    static JSON ParseJsonFilename(std::string FilenameToParse);
     /**
 	 * \brief This method reads a .json file and returns the keys and the attached data in a std::map.
 	 * \return return with a std::map

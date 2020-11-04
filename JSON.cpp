@@ -113,7 +113,7 @@ std::map<std::string, std::string> JSON::ParseJson(std::istream& JSONToParse){
     return JSON::ParseJsonString(DataToParse);
 }
 
-std::map<std::string, std::string> JSON::ParseJsonFilename(std::string FilenameToParse){
+JSON JSON::ParseJsonFilename(std::string FilenameToParse){
     FilenameToParse = "Units/" + FilenameToParse;
     std::ifstream ToParse(FilenameToParse);
     std::string DataToParse = "";
@@ -125,8 +125,9 @@ std::map<std::string, std::string> JSON::ParseJsonFilename(std::string FilenameT
             DataToParse += line;
         }
     }
-    
-    return JSON::ParseJsonString(DataToParse);
+    std::map<std::string, std::string> Map = JSON::ParseJsonString(DataToParse);
+    JSON toReturn(Map);
+    return toReturn;
 }
 
 std::string JSON::FindData(const std::string& StringToParse, const std::string& StringToFind){
