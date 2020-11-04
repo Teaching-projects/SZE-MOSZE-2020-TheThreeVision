@@ -99,7 +99,7 @@ std::map<std::string, std::string> JSON::ParseJsonString(std::string StringToPar
     {
         Map[array[i]] = JSON::FindData(array[0],array[i]);
     }
-
+    
     return Map;
 }
 
