@@ -88,10 +88,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a38bf9acdbbb98a5f6d9a3e32b908ad92"><td class="memItemLeft" align="right" valign="top"><a id="a38bf9acdbbb98a5f6d9a3e32b908ad92"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>count</b> (const std::string &amp;toFind)</td></tr>
 <tr class="separator:a38bf9acdbbb98a5f6d9a3e32b908ad92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42bab2d643427bcee41e14822f4742cc"><td class="memTemplParams" colspan="2"><a id="a42bab2d643427bcee41e14822f4742cc"></a>
-template&lt;class Temp &gt; </td></tr>
-<tr class="memitem:a42bab2d643427bcee41e14822f4742cc"><td class="memTemplItemLeft" align="right" valign="top">Temp&#160;</td><td class="memTemplItemRight" valign="bottom"><b>get</b> (const std::string &amp;input)</td></tr>
-<tr class="separator:a42bab2d643427bcee41e14822f4742cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad167565a9f520b4ba81aaff01fa2e909"><td class="memTemplParams" colspan="2"><a id="ad167565a9f520b4ba81aaff01fa2e909"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad167565a9f520b4ba81aaff01fa2e909"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>get</b> (const std::string &amp;input)</td></tr>
+<tr class="separator:ad167565a9f520b4ba81aaff01fa2e909"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -104,9 +104,9 @@ static <a class="el" href="classJSON.html">JSON</a>&#160;</td><td class="memItem
 <tr class="memitem:a6b75090a38323be50d7a4868a587e770"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJSON.html#a6b75090a38323be50d7a4868a587e770">FindData</a> (const std::string &amp;StringToParse, const std::string &amp;StringToFind)</td></tr>
 <tr class="memdesc:a6b75090a38323be50d7a4868a587e770"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method can search a key(std::string) in a std::string and returns the data attached to the key.  <a href="#a6b75090a38323be50d7a4868a587e770">More...</a><br /></td></tr>
 <tr class="separator:a6b75090a38323be50d7a4868a587e770"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa34a7fb06a726c868fd7e7b1b80f82c0"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJSON.html#aa34a7fb06a726c868fd7e7b1b80f82c0">ParseJsonFilename</a> (std::string FilenameToParse)</td></tr>
-<tr class="memdesc:aa34a7fb06a726c868fd7e7b1b80f82c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method opens a .json file and returns the keys and the attached data in a std::map.  <a href="#aa34a7fb06a726c868fd7e7b1b80f82c0">More...</a><br /></td></tr>
-<tr class="separator:aa34a7fb06a726c868fd7e7b1b80f82c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ccacfb112e05f3eea36f431353460d1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classJSON.html">JSON</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJSON.html#a5ccacfb112e05f3eea36f431353460d1">ParseJsonFilename</a> (std::string FilenameToParse)</td></tr>
+<tr class="memdesc:a5ccacfb112e05f3eea36f431353460d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method opens a .json file and returns the keys and the attached data in a std::map.  <a href="#a5ccacfb112e05f3eea36f431353460d1">More...</a><br /></td></tr>
+<tr class="separator:a5ccacfb112e05f3eea36f431353460d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b8e05af9d37a59a818770838236a34d"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJSON.html#a9b8e05af9d37a59a818770838236a34d">ParseJson</a> (std::istream &amp;JSONToParse)</td></tr>
 <tr class="memdesc:a9b8e05af9d37a59a818770838236a34d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method reads a .json file and returns the keys and the attached data in a std::map.  <a href="#a9b8e05af9d37a59a818770838236a34d">More...</a><br /></td></tr>
 <tr class="separator:a9b8e05af9d37a59a818770838236a34d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,8 +200,8 @@ static <a class="el" href="classJSON.html">JSON</a>&#160;</td><td class="memItem
 
 </div>
 </div>
-<a id="aa34a7fb06a726c868fd7e7b1b80f82c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa34a7fb06a726c868fd7e7b1b80f82c0">&#9670;&nbsp;</a></span>ParseJsonFilename()</h2>
+<a id="a5ccacfb112e05f3eea36f431353460d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ccacfb112e05f3eea36f431353460d1">&#9670;&nbsp;</a></span>ParseJsonFilename()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,7 +210,7 @@ static <a class="el" href="classJSON.html">JSON</a>&#160;</td><td class="memItem
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt; std::string, std::string &gt; JSON::ParseJsonFilename </td>
+          <td class="memname"><a class="el" href="classJSON.html">JSON</a> JSON::ParseJsonFilename </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>FilenameToParse</em></td><td>)</td>
