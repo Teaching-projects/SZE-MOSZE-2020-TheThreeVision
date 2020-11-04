@@ -43,5 +43,6 @@ public:
 	 * \return return with an AdventurerPlayer object
 	 * \throw throw a "runtime_error" if something wrong
 	 */
+	int getMaxHealthPoints() { return maxHP; }
 	static Hero* parse(const std::string file/**[in] is the .json file's name*/);
 };

@@ -37,11 +37,11 @@ public:
 	///simple getter to the Name
 	std::string getName() const { return Name; }
 	///simple getter to the HealthPoints
-	int	getHP() const { return HP; }
+	int	getHealthPoints() const { return HP; }
 	///simple getter to the Damage
-	int getDMG() const { return DMG; }
+	int getDamage() const { return DMG; }
 	///simple getter to the AttackCooldown
-	double getAtkCoolDown() const { return AtkCoolDown; }
+	double getAttackCoolDown() const { return AtkCoolDown; }
 	bool isAlive();
 	/// simple setter to the HealthPoints
 	void setHP(int h) { HP = h; }
@@ -58,6 +58,7 @@ public:
 	 * \return return with a Monster object
 	 * \throw throw a "runtime_error" if something wrong
 	 */
+
 	static Monster* parse(const std::string file/**[in] is the .json file's name*/);
 };
 

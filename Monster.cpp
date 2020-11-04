@@ -21,7 +21,7 @@ void Monster::Damage(Monster* player)const
 
 bool Monster::isAlive()
 {
-    if (this->getHP() > 0)
+    if (this->getHealthPoints() > 0)
     {
         return true;
     }
@@ -32,10 +32,10 @@ void Monster::Fight(Monster* otherplayer)
 {
     
     this->Damage(otherplayer);
-    double atkcdownThis = this->getAtkCoolDown(); double atkcdownOther = otherplayer->getAtkCoolDown();
+    double atkcdownThis = this->getAttackCoolDown(); double atkcdownOther = otherplayer->getAttackCoolDown();
     double cooldownCounterThis = 0, cooldownCounterOther = 0;
    
-    while (this->getHP() > 0 && otherplayer->getHP() > 0)
+    while (this->getHealthPoints() > 0 && otherplayer->getHealthPoints() > 0)
     {
         if (cooldownCounterThis + atkcdownThis < atkcdownOther + cooldownCounterOther) {
             
@@ -72,7 +72,7 @@ Monster* Monster::parse(const std::string toParse) {
 
 std::ostream& operator<<(std::ostream& o, Monster& d)
 {
-	return o << d.getName() << ": HP: " << d.getHP() << ", DMG: " << d.getDMG();
+	return o << d.getName() << ": HP: " << d.getHealthPoints() << ", DMG: " << d.getDamage();
 }
 
 

@@ -6,8 +6,8 @@ void Hero::levelup(int levels)
 	for (int i = 0; i < levels; i++)
 	{
 		maxHP = (int)round((double)maxHP * 1.1);
-		setDMG((int)round((double)getDMG() * 1.1));
-        setAtkCoolDown(getAtkCoolDown()*0.9);
+		setDMG((int)round((double)getDamage() * 1.1));
+        setAtkCoolDown(getAttackCoolDown()*0.9);
 		setHP(maxHP);
         Level++;
 	}
@@ -17,10 +17,10 @@ void Hero::levelup(int levels)
 void Hero::Fight(Hero* otherplayer)
 {
     this->Damage(otherplayer);
-    double atkcdownThis = this->getAtkCoolDown(); double atkcdownOther = otherplayer->getAtkCoolDown();
+    double atkcdownThis = this->getAttackCoolDown(); double atkcdownOther = otherplayer->getAttackCoolDown();
     double cooldownCounterThis = 0, cooldownCounterOther = 0;
 
-    while (this->getHP() > 0 && otherplayer->getHP() > 0)
+    while (this->getHealthPoints() > 0 && otherplayer->getHealthPoints() > 0)
     {
         if (cooldownCounterThis + atkcdownThis < atkcdownOther + cooldownCounterOther) {
 
@@ -48,7 +48,7 @@ void Hero::Fight(Hero* otherplayer)
 void Hero::fightTilDeath(Monster m)
 {
     this->Damage(&m);
-    double atkcdownThis = this->getAtkCoolDown(); double atkcdownOther = m.getAtkCoolDown();
+    double atkcdownThis = this->getAttackCoolDown(); double atkcdownOther = m.getAttackCoolDown();
     double cooldownCounterThis = 0, cooldownCounterOther = 0;
 
     while (this->isAlive() && m.isAlive())
@@ -84,13 +84,13 @@ void Hero::increaseXP(int dmg)
 void Hero::Damage(Hero* player) 
 {
     int othXP = player->getXP(), thiXP = this->getXP();
-    int damage = getDMG();
-    if ((player->getHP() - getDMG()) >= 0)
+    int damage = getDamage();
+    if ((player->getHealthPoints() - getDamage()) >= 0)
     {
-        player->setHP(player->getHP() - getDMG());
+        player->setHP(player->getHealthPoints() - getDamage());
     }
     else {
-        damage = player->getHP();
+        damage = player->getHealthPoints();
         player->setHP(0); 
     }
 
@@ -102,13 +102,13 @@ void Hero::Damage(Hero* player)
 void Hero::Damage(Monster* monster)
 {
     int thiXP = getXP();
-    int damage = getDMG();
-    if ((monster->getHP() - getDMG()) >= 0)
+    int damage = getDamage();
+    if ((monster->getHealthPoints() - getDamage()) >= 0)
     {
-        monster->setHP(monster->getHP() - getDMG());
+        monster->setHP(monster->getHealthPoints() - getDamage());
     }
     else {
-        damage = monster->getHP();
+        damage = monster->getHealthPoints();
         monster->setHP(0);
     }
 
