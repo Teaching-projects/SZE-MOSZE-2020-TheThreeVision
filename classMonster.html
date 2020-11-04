@@ -90,6 +90,12 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#a6d8e2ec0e8c7b8507f03a6defd72dc60">Monster</a> (std::string name, int hp, int dmg, double atkCoolDown)</td></tr>
 <tr class="memdesc:a6d8e2ec0e8c7b8507f03a6defd72dc60"><td class="mdescLeft">&#160;</td><td class="mdescRight">player construct, what put the input parameters to the data members <br /></td></tr>
 <tr class="separator:a6d8e2ec0e8c7b8507f03a6defd72dc60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ee5df4b66f41da4745455a42a679db6"><td class="memItemLeft" align="right" valign="top"><a id="a5ee5df4b66f41da4745455a42a679db6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Monster</b> (<a class="el" href="classMonster.html">Monster</a> *)</td></tr>
+<tr class="separator:a5ee5df4b66f41da4745455a42a679db6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d338ba042f4addf730ee7764aa7c0ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#a5d338ba042f4addf730ee7764aa7c0ee">Damage</a> (<a class="el" href="classMonster.html">Monster</a> *monster) const</td></tr>
+<tr class="memdesc:a5d338ba042f4addf730ee7764aa7c0ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method damage the other monster  <a href="#a5d338ba042f4addf730ee7764aa7c0ee">More...</a><br /></td></tr>
+<tr class="separator:a5d338ba042f4addf730ee7764aa7c0ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28ae1112e37262ce150e3c02465b3dd5"><td class="memItemLeft" align="right" valign="top"><a id="a28ae1112e37262ce150e3c02465b3dd5"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#a28ae1112e37262ce150e3c02465b3dd5">getName</a> () const</td></tr>
 <tr class="memdesc:a28ae1112e37262ce150e3c02465b3dd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple getter to the Name <br /></td></tr>
@@ -106,6 +112,13 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#aa7c9b2b5f6d2eb6e08d1eedb3198dea4">getAtkCoolDown</a> () const</td></tr>
 <tr class="memdesc:aa7c9b2b5f6d2eb6e08d1eedb3198dea4"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple getter to the AttackCooldown <br /></td></tr>
 <tr class="separator:aa7c9b2b5f6d2eb6e08d1eedb3198dea4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca4e35d1b32aad3e5cf00157bb212956"><td class="memItemLeft" align="right" valign="top"><a id="aca4e35d1b32aad3e5cf00157bb212956"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isAlive</b> ()</td></tr>
+<tr class="separator:aca4e35d1b32aad3e5cf00157bb212956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4fcff85d9184884f6e77772a27be26d"><td class="memItemLeft" align="right" valign="top"><a id="ab4fcff85d9184884f6e77772a27be26d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#ab4fcff85d9184884f6e77772a27be26d">setHP</a> (int h)</td></tr>
+<tr class="memdesc:ab4fcff85d9184884f6e77772a27be26d"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple setter to the HealthPoints <br /></td></tr>
+<tr class="separator:ab4fcff85d9184884f6e77772a27be26d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72a10fa7ed0ce4756397de7008a7e3c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#a72a10fa7ed0ce4756397de7008a7e3c5">Fight</a> (<a class="el" href="classMonster.html">Monster</a> *player)</td></tr>
 <tr class="memdesc:a72a10fa7ed0ce4756397de7008a7e3c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">fight with another player while one of them is die  <a href="#a72a10fa7ed0ce4756397de7008a7e3c5">More...</a><br /></td></tr>
 <tr class="separator:a72a10fa7ed0ce4756397de7008a7e3c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,13 +131,6 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a6301d5ddb5f3387f57874dd517bd2211"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#a6301d5ddb5f3387f57874dd517bd2211">Damage</a> (<a class="el" href="classMonster.html">Monster</a> *player) const</td></tr>
-<tr class="memdesc:a6301d5ddb5f3387f57874dd517bd2211"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method damage the other player  <a href="#a6301d5ddb5f3387f57874dd517bd2211">More...</a><br /></td></tr>
-<tr class="separator:a6301d5ddb5f3387f57874dd517bd2211"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4fcff85d9184884f6e77772a27be26d"><td class="memItemLeft" align="right" valign="top"><a id="ab4fcff85d9184884f6e77772a27be26d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#ab4fcff85d9184884f6e77772a27be26d">setHP</a> (int h)</td></tr>
-<tr class="memdesc:ab4fcff85d9184884f6e77772a27be26d"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple setter to the HealthPoints <br /></td></tr>
-<tr class="separator:ab4fcff85d9184884f6e77772a27be26d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87809b8d43e9f3f4dc3d1859170b3bae"><td class="memItemLeft" align="right" valign="top"><a id="a87809b8d43e9f3f4dc3d1859170b3bae"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#a87809b8d43e9f3f4dc3d1859170b3bae">setDMG</a> (int d)</td></tr>
 <tr class="memdesc:a87809b8d43e9f3f4dc3d1859170b3bae"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple setter to the Damage <br /></td></tr>
@@ -146,34 +152,26 @@ Friends</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>2020.10.13. 22:22</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>A player can fight with an other player while one of them is alive. The end of the fight depends on the HealthPoints, Damages and the Attackcooldowns of the two Players </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6301d5ddb5f3387f57874dd517bd2211"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6301d5ddb5f3387f57874dd517bd2211">&#9670;&nbsp;</a></span>Damage()</h2>
+<a id="a5d338ba042f4addf730ee7764aa7c0ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d338ba042f4addf730ee7764aa7c0ee">&#9670;&nbsp;</a></span>Damage()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Monster::Damage </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classMonster.html">Monster</a> *&#160;</td>
-          <td class="paramname"><em>player</em></td><td>)</td>
+          <td class="paramname"><em>monster</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>this method damage the other player </p>
+<p>this method damage the other monster </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">player</td><td>the player who is injured </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">monster</td><td>the player witch is injured </td></tr>
   </table>
   </dd>
 </dl>
