@@ -21,19 +21,19 @@ class Monster
 	double AtkCoolDown;		///< the player's Attack Cooldown shows that after how many seconds he/she can hit again. 
 
 protected:
-	/// this method damage the other player
-	void Damage (Monster* player/**[in] the player who is injured*/)const;
-	/// simple setter to the HealthPoints
-	void setHP(int h) { HP = h; }
+	
 	/// simple setter to the Damage
 	void setDMG(int d) { DMG = d; }
 	/// simple setter to the AttackCooldown
 	void setAtkCoolDown(int atkCoolDown)  {  AtkCoolDown=  atkCoolDown; }
-	
+
 public:
 	/// player construct, what put the input parameters to the data members
 	Monster(std::string name, int hp, int dmg, double atkCoolDown) :Name(name), HP(hp), DMG(dmg), AtkCoolDown(atkCoolDown) {}
-
+	//TODO
+	Monster(Monster*) {};
+	/// this method damage the other monster
+	void Damage(Monster* monster/**[in] the player witch is injured*/)const;
 	///simple getter to the Name
 	std::string getName() const { return Name; }
 	///simple getter to the HealthPoints
@@ -42,7 +42,9 @@ public:
 	int getDMG() const { return DMG; }
 	///simple getter to the AttackCooldown
 	double getAtkCoolDown() const { return AtkCoolDown; }
-
+	bool isAlive();
+	/// simple setter to the HealthPoints
+	void setHP(int h) { HP = h; }
 
 	
 	/// easy way to print a player

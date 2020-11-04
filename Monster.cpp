@@ -18,6 +18,16 @@ void Monster::Damage(Monster* player)const
 
 }
 
+
+bool Monster::isAlive()
+{
+    if (this->getHP() > 0)
+    {
+        return true;
+    }
+    return false;
+}
+
 void Monster::Fight(Monster* otherplayer)
 {
     
