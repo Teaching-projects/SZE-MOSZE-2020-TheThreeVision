@@ -1,7 +1,8 @@
 #include "JSON.h"
 
 int JSON::count(const std::string& toFind){
-    Data.count(toFind);
+    int toReturn = Data.count(toFind);
+    return toReturn;
 }
 
 JSON JSON::parseFromFile(const std::string& filePath){
@@ -75,7 +76,7 @@ std::map<std::string, std::string> JSON::ParseJsonString(std::string StringToPar
             j++;
         }
     }
-
+    std::string array[5];
     if (StringToParse.find("base_health_points") == std::string::npos)
     {
         std::string array[] = {StringToParse, "name", "base_health_points", "base_damage", "base_attack_cooldown"};

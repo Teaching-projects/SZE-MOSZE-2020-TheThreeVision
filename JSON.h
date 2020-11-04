@@ -32,8 +32,7 @@ public:
 
 	template <class Temp>
   	Temp get(const std::string& input){
-    	Temp toReturn = Data(input);
-    	return toReturn;
+    	return std::any_cast<Temp>(Data[input]);
   	}
 
 	class ParseException : public std::runtime_error{
