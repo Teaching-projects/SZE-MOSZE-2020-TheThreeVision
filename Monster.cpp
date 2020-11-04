@@ -65,7 +65,7 @@ Monster* Monster::parse(const std::string toParse) {
     
     Map = JSON::ParseJsonFilename(toParse);
     
-    return new Monster(Map["name"], stoi(Map["health_point"]), stoi(Map["damage"]), stod(Map["attack_cooldown"]));
+    return new Monster(Map["name"], stoi(Map["health_points"]), stoi(Map["damage"]), stod(Map["attack_cooldown"]));
 }
 
 

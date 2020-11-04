@@ -18,11 +18,11 @@ JSON JSON::parseFromFile(const std::string& filePath){
     {
         DataToParse += line;
     }
-    
-    return JSON::parseScenario(DataToParse);
+    JSON file = JSON::parseScenario(DataToParse);
+    return file;
 }
 
-std::map<std::string, std::string> JSON::parseScenario(std::string& JSONstring){
+JSON JSON::parseScenario(std::string& JSONstring){
     std::map<std::string, std::string> Map;
     bool toDelete = true;
     int j = 0;
@@ -43,6 +43,7 @@ std::map<std::string, std::string> JSON::parseScenario(std::string& JSONstring){
             j++;
         }
     }
+    
     std::string array[] = {JSONstring, "hero", "monsters"};
 
     for (int i = 1; i < 3; i++)
@@ -50,7 +51,8 @@ std::map<std::string, std::string> JSON::parseScenario(std::string& JSONstring){
         Map[array[i]] = JSON::FindData(array[0],array[i]);
     }
 
-    return Map;
+    JSON file(Map);
+    return file;
 }
 
 // old
@@ -76,12 +78,21 @@ std::map<std::string, std::string> JSON::ParseJsonString(std::string StringToPar
             j++;
         }
     }
+    
     std::string array[5];
-    if (StringToParse.find("base_health_points") == std::string::npos)
+    if (StringToParse.find("base_health_points") != std::string::npos)
     {
-        std::string array[] = {StringToParse, "name", "base_health_points", "base_damage", "base_attack_cooldown"};
+        array[0] = StringToParse;
+        array[1] = "name";
+        array[2] = "base_health_points";
+        array[3] = "base_damage";
+        array[4] = "base_attack_cooldown";
     }else{
-        std::string array[] = {StringToParse, "name", "health_point", "damage", "attack_cooldown"};
+        array[0] = StringToParse;
+        array[1] = "name";
+        array[2] = "health_points";
+        array[3] = "damage";
+        array[4] = "attack_cooldown";
     }
     
     for (int i = 1; i < 5; i++)
@@ -103,6 +114,7 @@ std::map<std::string, std::string> JSON::ParseJson(std::istream& JSONToParse){
 }
 
 std::map<std::string, std::string> JSON::ParseJsonFilename(std::string FilenameToParse){
+    FilenameToParse = "Units/" + FilenameToParse;
     std::ifstream ToParse(FilenameToParse);
     std::string DataToParse = "";
     if (ToParse.good())
@@ -113,16 +125,17 @@ std::map<std::string, std::string> JSON::ParseJsonFilename(std::string FilenameT
             DataToParse += line;
         }
     }
+    
     return JSON::ParseJsonString(DataToParse);
 }
 
 std::string JSON::FindData(const std::string& StringToParse, const std::string& StringToFind){
     std::string data = "";
-
+    
     if (StringToParse.find(StringToFind) != std::string::npos)
     {
         int findWord = StringToParse.find(StringToFind) + StringToFind.length() + 2;
-         if (StringToParse[findWord] == '"')
+         if (StringToParse[findWord] == '"' or StringToParse[findWord] == ' ')
         {
             findWord++;
         }
@@ -130,7 +143,12 @@ std::string JSON::FindData(const std::string& StringToParse, const std::string& 
         {
             data += StringToParse[findWord];
             findWord++;
-        } while (isdigit(StringToParse[findWord]) or isalpha(StringToParse[findWord]) or StringToParse[findWord] == ' ' or StringToParse[findWord] == '.');
+        } while (isdigit(StringToParse[findWord]) or isalpha(StringToParse[findWord]) or StringToParse[findWord] == ' ' or StringToParse[findWord] == '.' or StringToParse[findWord] == '_');
+        if (data[data.length()-1] == ' ')
+        {
+            data.erase(data.length()-1, 1);
+        }
+        
     }else{
         throw std::runtime_error("Bad input data.");
     }
