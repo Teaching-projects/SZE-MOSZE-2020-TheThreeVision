@@ -75,8 +75,14 @@ std::map<std::string, std::string> JSON::ParseJsonString(std::string StringToPar
             j++;
         }
     }
-    std::string array[] = {StringToParse, "name", "hp", "dmg", "atkcd"};
 
+    if (StringToParse.find("base_health_points") == std::string::npos)
+    {
+        std::string array[] = {StringToParse, "name", "base_health_points", "base_damage", "base_attack_cooldown"};
+    }else{
+        std::string array[] = {StringToParse, "name", "health_point", "damage", "attack_cooldown"};
+    }
+    
     for (int i = 1; i < 5; i++)
     {
         Map[array[i]] = JSON::FindData(array[0],array[i]);
