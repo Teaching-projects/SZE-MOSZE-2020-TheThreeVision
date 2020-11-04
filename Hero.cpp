@@ -69,11 +69,11 @@ void Hero::Damage(Hero* player)
 
 }
 
-Hero* Hero::parseUnit(const std::string toParse)
+Hero* Hero::parse(const std::string toParse)
 {
     std::map<std::string, std::string> Map;
     
     Map = JSON::ParseJsonFilename(toParse);
 
-    return new Hero(Map["name"], stoi(Map["hp"]), stoi(Map["dmg"]), stod(Map["atkcd"]));
+    return new Hero(Map["name"], stoi(Map["base_health_points"]), stoi(Map["base_damage"]), stod(Map["base_attack_cooldown"]));
 }
