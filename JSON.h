@@ -21,9 +21,9 @@
 
 class JSON{
 private:
-	std::map<std::string, std::string> Data;
+	std::map<std::string, std::any> Data;
 public:
-	JSON(std::map<std::string, std::string> newData) : Data(newData) {}
+	JSON(std::map<std::string, std::any> newData) : Data(newData) {}
 
 	static JSON parseFromFile(const std::string& filePath);
 	static JSON parseScenario(std::string& JSONstring);
