@@ -23,7 +23,7 @@ class JSON{
 private:
 	std::map<std::string, std::variant<std::string, double, int>> Data;
 public:
-	JSON(std::map<std::string, std::variant<std::string, double, int>> newData) : Data(newData) {}
+	JSON(std::map<std::string, std::variant<std::string, double, int>> newData) : Data(newData) {};
 
 	static JSON parseFromFile(const std::string& filePath);
 	static JSON parseScenario(std::string& JSONstring);
@@ -38,7 +38,7 @@ public:
 
 	class ParseException : public std::runtime_error{
     public:
-      ParseException(const std::string& msg) : std::runtime_error(msg){}
+      ParseException(const std::string& msg) : std::runtime_error(msg){};
  	};
 /**
 	 * \brief This method can search a key(std::string) in a std::string and returns the data attached to the key.
