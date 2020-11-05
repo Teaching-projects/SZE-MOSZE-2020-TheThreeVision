@@ -79,25 +79,21 @@ std::map<std::string, std::variant<std::string, double, int>> JSON::ParseJsonStr
         }
     }
     
-    std::string array[5];
-    if (StringToParse.find("base_health_points") != std::string::npos)
-    {
-        array[0] = StringToParse;
-        array[1] = "name";
-        array[2] = "base_health_points";
-        array[3] = "base_damage";
-        array[4] = "base_attack_cooldown";
-    }else{
-        array[0] = StringToParse;
-        array[1] = "name";
-        array[2] = "health_points";
-        array[3] = "damage";
-        array[4] = "attack_cooldown";
-    }
+    std::string array[5] = {StringToParse, "name", "points", "damage", "cooldown"};
     
-    for (int i = 1; i < 5; i++)
+    
+    for(int i = 1; i < 5; i++)
     {
-        Map[array[i]] = JSON::FindData(array[0],array[i]);
+        if (array[i] == "name")
+        {
+            Map.insert(std::make_pair("name", FindData(array[0], array[i])));
+        }else if(array[i] == "points"){
+            Map.insert(std::make_pair("points", std::stoi(FindData(array[0], array[i]))));
+        }else if(array[i] == "damage"){
+            Map.insert(std::make_pair("damage", std::stoi(FindData(array[0], array[i]))));
+        }else if(array[i] == "cooldown"){
+            Map.insert(std::make_pair("cooldown", std::stod(FindData(array[0], array[i]))));
+        }
     }
     
     return Map;
@@ -130,7 +126,7 @@ JSON JSON::ParseJsonFilename(std::string FilenameToParse){
     return toReturn;
 }
 
-std::variant<std::string , double, int> JSON::FindData(const std::string& StringToParse, const std::string& StringToFind){
+std::string JSON::FindData(const std::string& StringToParse, const std::string& StringToFind){
     std::string data = "";
     
     if (StringToParse.find(StringToFind) != std::string::npos)
@@ -167,5 +163,5 @@ std::variant<std::string , double, int> JSON::FindData(const std::string& String
             }       
          }
     }
-    return std::variant<std::string, double, int>(data); //?
+    return data;
 }
