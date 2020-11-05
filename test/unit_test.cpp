@@ -1,11 +1,13 @@
+#include "../JSON.h"
+#include "../Hero.h"
+#include "../Monster.h"
 #include <gtest/gtest.h>
 #include <string>
 #include <map>
 #include <fstream>
+#include <iostream>
 #include <variant>
-#include "../JSON.h"
-#include "../Hero.h"
-#include "../Monster.h"
+
 
 TEST(ParserTest, TestingWithFileInput)
 {
