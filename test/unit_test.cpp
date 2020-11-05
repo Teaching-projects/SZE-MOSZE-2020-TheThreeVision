@@ -26,7 +26,7 @@ TEST(ParserTest, TestingWithFileInput)
 	inputFile.close();
 
 	ASSERT_EQ(e, testingFunction);*/
-	Hero hero{Hero::parse("Units/Dark_Wanderer.json")};
+	Hero hero{Hero::parse("Dark_Wanderer.json")};
     ASSERT_TRUE(hero.getHealthPoints() == 30);
     ASSERT_TRUE(hero.getName() == "Prince Aidan of Khanduras");
     ASSERT_TRUE(hero.getDamage() == 3);
