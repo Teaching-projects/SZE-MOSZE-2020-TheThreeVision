@@ -167,5 +167,5 @@ std::any JSON::FindData(const std::string& StringToParse, const std::string& Str
             }       
          }
     }
-    return std::any_cast<std::any>(data);
+    return std::any_cast<std::string>(data); //?
 }

@@ -123,8 +123,6 @@ Hero Hero::parse(const std::string toParse)
 
     JSON Data = JSON::ParseJsonFilename(toParse);
 
-    
-    /*return new Hero(Map["name"], stoi(Map["base_health_points"]), stoi(Map["base_damage"]), stod(Map["base_attack_cooldown"]));*/
     return Hero(
         Data.get<std::string>("name"),
         Data.get<int>("base_health_points"),
