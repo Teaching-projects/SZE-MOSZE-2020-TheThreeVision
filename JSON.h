@@ -45,7 +45,7 @@ public:
 	 * \return return with a std::string
 	 * \throw throw a "runtime_error" if something wrong
 	 */
-    static JSON FindData(const std::string& StringToParse, const std::string& StringToFind);
+    static std::variant<std::string, double, int>FindData(const std::string& StringToParse, const std::string& StringToFind);
     /**
 	 * \brief This method opens a .json file and returns the keys and the attached data in a std::map.
 	 * \return return with a std::map
