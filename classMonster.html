@@ -90,9 +90,9 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#a6d8e2ec0e8c7b8507f03a6defd72dc60">Monster</a> (std::string name, int hp, int dmg, double atkCoolDown)</td></tr>
 <tr class="memdesc:a6d8e2ec0e8c7b8507f03a6defd72dc60"><td class="mdescLeft">&#160;</td><td class="mdescRight">player construct, what put the input parameters to the data members <br /></td></tr>
 <tr class="separator:a6d8e2ec0e8c7b8507f03a6defd72dc60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ee5df4b66f41da4745455a42a679db6"><td class="memItemLeft" align="right" valign="top"><a id="a5ee5df4b66f41da4745455a42a679db6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Monster</b> (<a class="el" href="classMonster.html">Monster</a> *)</td></tr>
-<tr class="separator:a5ee5df4b66f41da4745455a42a679db6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab27a4b5f71d38f485c02f26fd6ca7bf9"><td class="memItemLeft" align="right" valign="top"><a id="ab27a4b5f71d38f485c02f26fd6ca7bf9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Monster</b> (<a class="el" href="classMonster.html">Monster</a> *monster)</td></tr>
+<tr class="separator:ab27a4b5f71d38f485c02f26fd6ca7bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d338ba042f4addf730ee7764aa7c0ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#a5d338ba042f4addf730ee7764aa7c0ee">Damage</a> (<a class="el" href="classMonster.html">Monster</a> *monster) const</td></tr>
 <tr class="memdesc:a5d338ba042f4addf730ee7764aa7c0ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">this method damage the other monster  <a href="#a5d338ba042f4addf730ee7764aa7c0ee">More...</a><br /></td></tr>
 <tr class="separator:a5d338ba042f4addf730ee7764aa7c0ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,14 +119,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isAlive</b> ()</td></
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#ab4fcff85d9184884f6e77772a27be26d">setHP</a> (int h)</td></tr>
 <tr class="memdesc:ab4fcff85d9184884f6e77772a27be26d"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple setter to the HealthPoints <br /></td></tr>
 <tr class="separator:ab4fcff85d9184884f6e77772a27be26d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72a10fa7ed0ce4756397de7008a7e3c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#a72a10fa7ed0ce4756397de7008a7e3c5">Fight</a> (<a class="el" href="classMonster.html">Monster</a> *player)</td></tr>
-<tr class="memdesc:a72a10fa7ed0ce4756397de7008a7e3c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">fight with another player while one of them is die  <a href="#a72a10fa7ed0ce4756397de7008a7e3c5">More...</a><br /></td></tr>
-<tr class="separator:a72a10fa7ed0ce4756397de7008a7e3c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:abe91cd8127c815d37f3b3b4577a51b72"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classMonster.html">Monster</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#abe91cd8127c815d37f3b3b4577a51b72">parse</a> (const std::string file)</td></tr>
-<tr class="memdesc:abe91cd8127c815d37f3b3b4577a51b72"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method use the parser class, and reads a .json file, and get the keys and the attached data and returns a new <a class="el" href="classMonster.html" title="Monster class. ">Monster</a> object.  <a href="#abe91cd8127c815d37f3b3b4577a51b72">More...</a><br /></td></tr>
+<tr class="memdesc:abe91cd8127c815d37f3b3b4577a51b72"><td class="mdescLeft">&#160;</td><td class="mdescRight">fight with another player while one of them is die  <a href="#abe91cd8127c815d37f3b3b4577a51b72">More...</a><br /></td></tr>
 <tr class="separator:abe91cd8127c815d37f3b3b4577a51b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -178,32 +175,6 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a72a10fa7ed0ce4756397de7008a7e3c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72a10fa7ed0ce4756397de7008a7e3c5">&#9670;&nbsp;</a></span>Fight()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Monster::Fight </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classMonster.html">Monster</a> *&#160;</td>
-          <td class="paramname"><em>player</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>fight with another player while one of them is die </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">player</td><td>is the other player </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="abe91cd8127c815d37f3b3b4577a51b72"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abe91cd8127c815d37f3b3b4577a51b72">&#9670;&nbsp;</a></span>parse()</h2>
 
@@ -228,8 +199,8 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>This method use the parser class, and reads a .json file, and get the keys and the attached data and returns a new <a class="el" href="classMonster.html" title="Monster class. ">Monster</a> object. </p>
-<dl class="section return"><dt>Returns</dt><dd>return with a <a class="el" href="classMonster.html" title="Monster class. ">Monster</a> object </dd></dl>
+<p>fight with another player while one of them is die </p>
+<p>This method use the parser class, and reads a .json file, and get the keys and the attached data and returns a new <a class="el" href="classMonster.html" title="Monster class. ">Monster</a> object </p><dl class="section return"><dt>Returns</dt><dd>return with a <a class="el" href="classMonster.html" title="Monster class. ">Monster</a> object </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">throw</td><td>a "runtime_error" if something wrong </td></tr>
