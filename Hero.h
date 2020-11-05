@@ -28,16 +28,16 @@ public:
 	/**
 	 * \brief fight with another player while one of them is die
 	 */
-	void Fight(Hero* otherplayer/**[in] is the other player*/);
-	void fightTilDeath(Monster m/**[in] is a monster*/);
+	/*void Fight(Hero* otherplayer/**[in] is the other player);*/
+	void fightTilDeath(Monster& m/**[in] is a monster*/);
 	/// adventurerPlayer construct, what put the input parameters to the data members
 	Hero(std::string name, int hp, int dmg, double atkCoolDown) : Monster(name, hp, dmg, atkCoolDown), maxHP(hp) {};
 	//copy const TODO
-	Hero( Hero* h) :Monster(h) {};
+	Hero(Hero* h) :Monster(h), maxHP(h->getMaxHealthPoints()) {};
 	/// a simple getter to the ExperiencePoints
 	int getXP() { return XP; }
 	/// a simple getter to the Level
-	int getLevel() { return XP; }
+	int getLevel() { return Level; }
 	/**
 	 * \brief This method use the parser class, and reads a .json file, and get the keys and the attached data and returns a new AdventurerPlayer object
 	 * \return return with an AdventurerPlayer object

@@ -31,7 +31,7 @@ public:
 	/// player construct, what put the input parameters to the data members
 	Monster(std::string name, int hp, int dmg, double atkCoolDown) :Name(name), HP(hp), DMG(dmg), AtkCoolDown(atkCoolDown) {}
 	//TODO
-	Monster(Monster*) {};
+	Monster(Monster* monster) :Name(monster->getName()), HP(monster->getHealthPoints()), DMG(monster->getDamage()), AtkCoolDown(monster->getAttackCoolDown()) {};
 	/// this method damage the other monster
 	void Damage(Monster* monster/**[in] the player witch is injured*/)const;
 	///simple getter to the Name
@@ -52,7 +52,7 @@ public:
 	/**
 	 * \brief fight with another player while one of them is die
 	 */
-	void Fight(Monster* player/**[in] is the other player*/);
+	/*void Fight(Monster* player/**[in] is the other player);*/
 	/**
 	 * \brief This method use the parser class, and reads a .json file, and get the keys and the attached data and returns a new Monster object
 	 * \return return with a Monster object
