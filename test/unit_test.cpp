@@ -8,7 +8,7 @@
 
 TEST(ParserTest, TestingWithFileInput)
 {
-	std::string inputFilename = "Units/Dark_Wanderer.json";
+	/*std::string inputFilename = "Units/Dark_Wanderer.json";
 	std::map<std::string, std::variant<std::string, double, int>> expected;
 	expected.insert(std::make_pair("name", "Prince Aidan of Khanduras"));
 	expected.insert(std::make_pair("points", std::stoi("30")));
@@ -22,7 +22,12 @@ TEST(ParserTest, TestingWithFileInput)
 
 	inputFile.close();
 
-	ASSERT_EQ(e, testingFunction);
+	ASSERT_EQ(e, testingFunction);*/
+	Hero hero{Hero::parse("Units/Dark_Wanderer.json")};
+    ASSERT_TRUE(hero.getHealthPoints() == 30);
+    ASSERT_TRUE(hero.getName() == "Prince Aidan of Khanduras");
+    ASSERT_TRUE(hero.getDamage() == 3);
+    ASSERT_TRUE(hero.getAttackCoolDown() == 1.1);
 }
 /*
 TEST(ParserTest, TestingWithFilenameInput)
