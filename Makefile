@@ -1,5 +1,5 @@
 OBJS := Hero.o JSON.o main.o
-CPPOBJS := Hero.cpp JSON.cpp main.cpp
+CPPOBJS := Hero.cpp JSON.cpp Monster.cpp main.cpp
 CC := g++-9
 CFLAGS := -std=c++17 -Wall -Wextra -g
 CH := cppcheck
@@ -16,6 +16,9 @@ linking: $(OBJS)
 
 Hero.o: Hero.cpp Hero.h JSON.h
 	$(CC) $(CFLAGS) -c Hero.cpp
+
+Monster.o: Monster.cpp Monster.h JSON.h
+	$(CC) $(CFLAGS) -c Monster.cpp
 
 JSON.o: JSON.cpp JSON.h
 	$(CC) $(CFLAGS) -c JSON.cpp
