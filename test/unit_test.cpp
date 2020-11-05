@@ -74,7 +74,7 @@ TEST(Tests, TestingWithfalsedata)
 
 TEST(Tests, scenario1)
 {
-	JSON scenario = JSON::parseFromFile("../scenario1.json");
+	JSON scenario = JSON::parseFromFile("scenario1.json");
     ASSERT_TRUE(scenario.count("hero") == true);
     ASSERT_TRUE(scenario.count("monsters") == true);
     std::string hero_name = scenario.get<std::string>("hero");
@@ -83,7 +83,7 @@ TEST(Tests, scenario1)
 
 TEST(Tests,typetest)
 {
-    Hero hero{Hero::parse("../Dark_Wanderer.json")};
+    Hero hero{Hero::parse("Dark_Wanderer.json")};
     EXPECT_EQ(typeid(int),typeid(hero.getHealthPoints()));
     EXPECT_EQ(typeid(std::string),typeid(hero.getName()));
     EXPECT_EQ(typeid(double),typeid(hero.getAttackCoolDown()));
