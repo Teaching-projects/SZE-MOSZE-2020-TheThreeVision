@@ -32,7 +32,8 @@ public:
 
 	template <typename T>
   	T get(const std::string& input){
-    	return std::any_cast<T>(Data[input]);
+    	T toReturn = std::any_cast<T>(Data[input]);
+		return toReturn;
   	}
 
 	class ParseException : public std::runtime_error{
@@ -44,7 +45,7 @@ public:
 	 * \return return with a std::string
 	 * \throw throw a "runtime_error" if something wrong
 	 */
-    static std::string FindData(const std::string& StringToParse, const std::string& StringToFind);
+    static std::any FindData(const std::string& StringToParse, const std::string& StringToFind);
     /**
 	 * \brief This method opens a .json file and returns the keys and the attached data in a std::map.
 	 * \return return with a std::map
@@ -56,11 +57,11 @@ public:
 	 * \return return with a std::map
 	 * \throw throw a "runtime_error" if something wrong
 	 */
-    static std::map<std::string, std::string> ParseJson(std::istream& JSONToParse);
+    static std::map<std::string, std::any> ParseJson(std::istream& JSONToParse);
     /**
 	 * \brief This method reads a .json file as std::string and returns the keys and the attached informations in a std::map.
 	 * \return return with a std::map
 	 * \throw throw a "runtime_error" if something wrong
 	 */
-    static std::map<std::string, std::string> ParseJsonString(std::string StringToParse);
+    static std::map<std::string, std::any> ParseJsonString(std::string StringToParse);
 };

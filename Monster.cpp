@@ -61,11 +61,10 @@ void Monster::Fight(Monster* otherplayer)
 
 
 Monster Monster::parse(const std::string toParse) {
-    std::map<std::string, std::string> Map;
+    
     
     JSON Data = JSON::ParseJsonFilename(toParse);
     
-    /*return new Monster(Map["name"], stoi(Map["health_points"]), stoi(Map["damage"]), stod(Map["attack_cooldown"]));*/
 
     return Monster(
         Data.get<std::string>("name"),
