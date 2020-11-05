@@ -6,7 +6,7 @@ CH := cppcheck
 CHFLAGS := --enable=warning --error-exitcode=2
 CHAFLAGS := --enable=performance,style --output-file=artifact_cppcheck.txt
 VFLAGS := --leak-check=full --error-exitcode=3
-VJSONS := Units/Kakarott.json Units/Maple.json
+VJSONS := Units/scenario1.json
 
 
 all_tests: linking static_code_analysis memory_leak_check io_diff_check
