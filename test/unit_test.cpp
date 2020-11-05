@@ -2,10 +2,10 @@
 #include <string>
 #include <map>
 #include <fstream>
+#include <variant>
 #include "../JSON.h"
 #include "../Hero.h"
 #include "../Monster.h"
-
 
 TEST(ParserTest, TestingWithFileInput)
 {
