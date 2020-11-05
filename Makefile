@@ -1,6 +1,6 @@
 OBJS := Hero.o JSON.o main.o
 CPPOBJS := Hero.cpp JSON.cpp main.cpp
-CC := g++
+CC := g++-9
 CFLAGS := -std=c++17 -Wall -Wextra -g
 CH := cppcheck
 CHFLAGS := --enable=warning --error-exitcode=2
