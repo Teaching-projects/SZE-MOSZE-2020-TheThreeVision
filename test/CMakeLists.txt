@@ -9,5 +9,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # and the GTest and pthread library
 add_executable(runTests unit_test.cpp ../JSON.cpp ../Hero.cpp ../Monster.cpp)
 target_link_libraries(runTests ${GTEST_LIBRARIES} pthread)
-target_compile_features(runEntityTests PRIVATE cxx_std_17)
+target_compile_features(runTests PRIVATE cxx_std_17)
 
