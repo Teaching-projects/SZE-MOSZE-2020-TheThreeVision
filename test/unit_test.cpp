@@ -36,10 +36,10 @@ TEST(ParserTest, HeroTest)
 TEST(ParserTest, TestingWithFilenameInput)
 {
 	Monster monster{Monster::parse("Fallen.json")};
-    ASSERT_TRUE(hero.getHealthPoints() == 4);
-    ASSERT_TRUE(hero.getName() == "Fallen");
-    ASSERT_TRUE(hero.getDamage() == 2);
-    ASSERT_TRUE(hero.getAttackCoolDown() == 1.6);
+    ASSERT_TRUE(monster.getHealthPoints() == 4);
+    ASSERT_TRUE(monster.getName() == "Fallen");
+    ASSERT_TRUE(monster.getDamage() == 2);
+    ASSERT_TRUE(monster.getAttackCoolDown() == 1.6);
 
 }
 /*
