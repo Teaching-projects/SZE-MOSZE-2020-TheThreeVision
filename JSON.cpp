@@ -95,6 +95,21 @@ std::map<std::string, std::variant<std::string, double, int>> JSON::ParseJsonStr
             Map.insert(std::make_pair("cooldown", std::stod(FindData(array[0], array[i]))));
         }
     }
+
+    std::string additionals[8] = {StringToParse, "lore", "\"race", "experience_per_level","health_point_bonus_per_level","damage_bonus_per_level","cooldown_multiplier_per_level","additional_info"};
+    for (int i = 1; i < 8; i++)
+    {
+        if (additionals[0].find(additionals[i]) != std::string::npos)
+        {
+            std::string data = FindData(additionals[0], additionals[i]);
+            if (data != "" && isdigit(data[0]))
+            {
+                Map.insert(std::make_pair(additionals[i],std::stod(data)));
+            }else if(data != "" && isalpha(data[0])){
+                Map.insert(std::make_pair(additionals[i],data));
+            }
+        }
+    }
     
     return Map;
 }
@@ -140,17 +155,13 @@ std::string JSON::FindData(const std::string& StringToParse, const std::string& 
         {
             data += StringToParse[findWord];
             findWord++;
-        } while (isdigit(StringToParse[findWord]) or isalpha(StringToParse[findWord]) or StringToParse[findWord] == ' ' or StringToParse[findWord] == '.' or StringToParse[findWord] == '_');
-        if (data[data.length()-1] == ' ')
+        } while (isdigit(StringToParse[findWord]) or isalpha(StringToParse[findWord]) or StringToParse[findWord] == ' ' or StringToParse[findWord] == '.' or StringToParse[findWord] == '_' or StringToParse[findWord] == '(' or StringToParse[findWord] == ')' or StringToParse[findWord] == ',' or StringToParse[findWord] == '-');
+        if (data[data.length()-1] == ' ' or data[data.length()-1] == ',')
         {
             data.erase(data.length()-1, 1);
         }
         
     }else{
-        throw std::runtime_error("Bad input data.");
-    }
-    if (data == "")
-    {
         throw std::runtime_error("Bad input data.");
     }
     if (StringToFind == "hp" or StringToFind == "dmg")
