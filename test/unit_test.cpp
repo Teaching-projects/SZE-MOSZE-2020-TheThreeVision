@@ -96,13 +96,13 @@ TEST(Tests, HPTest)
     Monster h2 = Monster::parse("Blood_Raven.json");
     h1.fightTilDeath(h2);
     ASSERT_DOUBLE_EQ(h1.getHealthPoints(),0);
-    ASSERT_DOUBLE_EQ(h2.getHealthPoints(),101);
+    ASSERT_DOUBLE_EQ(h2.getHealthPoints(),98);
 }
 
 TEST(Tests, SuccessfulFight)
 {
-    Hero h1 = Hero::parse("../Dark_Wanderer.json");
-    Monster h2 = Monster::parse("../Blood_Raven.json");
+    Hero h1 = Hero::parse("Dark_Wanderer.json");
+    Monster h2 = Monster::parse("Blood_Raven.json");
     EXPECT_NO_THROW(h1.fightTilDeath(h2));
 }
 
