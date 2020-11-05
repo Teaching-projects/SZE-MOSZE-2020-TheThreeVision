@@ -1,5 +1,5 @@
-OBJS := player.o parser.o main.o
-CPPOBJS := player.cpp parser.cpp main.cpp
+OBJS := Hero.o JSON.o main.o
+CPPOBJS := Hero.cpp JSON.cpp main.cpp
 CC := g++
 CFLAGS := -std=c++17 -Wall -Wextra -g
 CH := cppcheck
@@ -14,13 +14,13 @@ all_tests: linking static_code_analysis memory_leak_check io_diff_check
 linking: $(OBJS)
 	$(CC) $(CFLAGS) -o game $(OBJS)
 
-player.o: player.cpp player.h parser.h
-	$(CC) $(CFLAGS) -c player.cpp
+Hero.o: Hero.cpp Hero.h JSON.h
+	$(CC) $(CFLAGS) -c Hero.cpp
 
-parser.o: parser.cpp parser.h
-	$(CC) $(CFLAGS) -c parser.cpp
+JSON.o: JSON.cpp JSON.h
+	$(CC) $(CFLAGS) -c JSON.cpp
 
-main.o: main.cpp player.h parser.h
+main.o: main.cpp Hero.h JSON.h
 	$(CC) $(CFLAGS) -c main.cpp
 
 static_code_analysis:
