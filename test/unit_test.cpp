@@ -9,7 +9,7 @@
 #include <variant>
 
 
-TEST(ParserTest, TestingWithFileInput)
+TEST(ParserTest, HeroTest)
 {
 	/*std::string inputFilename = "Units/Dark_Wanderer.json";
 	std::map<std::string, std::variant<std::string, double, int>> expected;
@@ -32,14 +32,17 @@ TEST(ParserTest, TestingWithFileInput)
     ASSERT_TRUE(hero.getDamage() == 3);
     ASSERT_TRUE(hero.getAttackCoolDown() == 1.1);
 }
-/*
+
 TEST(ParserTest, TestingWithFilenameInput)
 {
-	std::string inputFilename = "test/unit_fail.json";
+	Monster monster{Monster::parse("Fallen.json")};
+    ASSERT_TRUE(hero.getHealthPoints() == 4);
+    ASSERT_TRUE(hero.getName() == "Fallen");
+    ASSERT_TRUE(hero.getDamage() == 2);
+    ASSERT_TRUE(hero.getAttackCoolDown() == 1.6);
 
-	ASSERT_THROW(JSON::ParseJsonFilename(inputFilename), std::runtime_error);
 }
-
+/*
 TEST(ParserTest, TestingWithStringInput)
 {
 	std::string inputString = "{\n\t\"name\"  :  \"vizibicikli\",\n\t\"hp\":1w3,\n\t\"dmg\"   :    1450,\n \"atkcd\": 2}";
