@@ -27,7 +27,7 @@ bool Monster::isAlive()
     }
     return false;
 }
-
+/*
 void Monster::Fight(Monster* otherplayer)
 {
     
@@ -59,7 +59,7 @@ void Monster::Fight(Monster* otherplayer)
     }
 }
 
-
+*/
 Monster Monster::parse(const std::string toParse) {
     
     JSON Data = JSON::ParseJsonFilename(toParse);

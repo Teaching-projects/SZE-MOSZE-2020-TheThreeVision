@@ -13,7 +13,7 @@ void Hero::levelup(int levels)
 	}
 
 }
-
+/*
 void Hero::Fight(Hero* otherplayer)
 {
     this->Damage(otherplayer);
@@ -44,8 +44,8 @@ void Hero::Fight(Hero* otherplayer)
     }
 
 }
-
-void Hero::fightTilDeath(Monster m)
+*/
+void Hero::fightTilDeath(Monster& m)
 {
     this->Damage(&m);
     double atkcdownThis = this->getAttackCoolDown(); double atkcdownOther = m.getAttackCoolDown();
