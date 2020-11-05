@@ -74,7 +74,7 @@ TEST(Tests, TestingWithfalsedata)
 
 TEST(Tests, scenario1)
 {
-	JSON scenario = JSON::parseFromFile("scenario1.json");
+	JSON scenario = JSON::parseFromFile("Units/scenario1.json");
     ASSERT_TRUE(scenario.count("hero") == true);
     ASSERT_TRUE(scenario.count("monsters") == true);
     std::string hero_name = scenario.get<std::string>("hero");
