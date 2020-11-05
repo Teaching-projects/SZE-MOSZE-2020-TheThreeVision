@@ -57,12 +57,12 @@ public:
 	 * \return return with a std::map
 	 * \throw throw a "runtime_error" if something wrong
 	 */
-	static std::map<std::string, std::variant<std::string, double, int>> ParseJson(std::istream& JSONToParse);
+	static JSON ParseJson(std::istream& JSONToParse);
 
     /**
 	 * \brief This method reads a .json file as std::string and returns the keys and the attached informations in a std::map.
 	 * \return return with a std::map
 	 * \throw throw a "runtime_error" if something wrong
 	 */
-    static std::map<std::string, std::variant<std::string, double, int>> ParseJsonString(std::string StringToParse);
+    static JSON ParseJsonString(std::string StringToParse);
 };
