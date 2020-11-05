@@ -11,21 +11,6 @@
 
 TEST(ParserTest, HeroTest)
 {
-	/*std::string inputFilename = "Units/Dark_Wanderer.json";
-	std::map<std::string, std::variant<std::string, double, int>> expected;
-	expected.insert(std::make_pair("name", "Prince Aidan of Khanduras"));
-	expected.insert(std::make_pair("points", std::stoi("30")));
-	expected.insert(std::make_pair("damage", std::stoi("3")));
-	expected.insert(std::make_pair("cooldown", std::stod("1.1")));
-
-	std::ifstream inputFile(inputFilename);
-
-	JSON testingFunction = JSON::ParseJson(inputFile);
-	JSON e(expected);
-
-	inputFile.close();
-
-	ASSERT_EQ(e, testingFunction);*/
 	Hero hero{Hero::parse("Dark_Wanderer.json")};
     ASSERT_TRUE(hero.getHealthPoints() == 30);
     ASSERT_TRUE(hero.getName() == "Prince Aidan of Khanduras");
@@ -33,15 +18,60 @@ TEST(ParserTest, HeroTest)
     ASSERT_TRUE(hero.getAttackCoolDown() == 1.1);
 }
 
-TEST(ParserTest, TestingWithFilenameInput)
+TEST(ParserTest, MonsterTest)
 {
 	Monster monster{Monster::parse("Fallen.json")};
     ASSERT_TRUE(monster.getHealthPoints() == 4);
     ASSERT_TRUE(monster.getName() == "Fallen");
     ASSERT_TRUE(monster.getDamage() == 2);
     ASSERT_TRUE(monster.getAttackCoolDown() == 1.6);
-
 }
+
+TEST(Finddatatests, ALL_DATA_TESTS)
+{
+	std::string inputString = "{\n\t\"name\":\"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
+	std::string toFind = "hp";
+	std::string expected = "15330";;
+
+
+	std::string data = JSON::FindData(inputString, toFind);
+	ASSERT_EQ(expected, data);
+
+
+	std::string toFind1 = "name";
+	std::string expected1 = "vizibicikli";;
+
+
+	std::string data1 = JSON::FindData(inputString, toFind1);
+	ASSERT_EQ(expected1, data1);
+
+
+	std::string toFind2 = "dmg";
+	std::string expected2 = "1450";
+
+
+	std::string data2 = JSON::FindData(inputString, toFind2);
+
+	ASSERT_EQ(expected2, data2);
+
+	std::string toFind3 = "atkcd";
+	std::string expected3 = "2";;
+
+
+	std::string data3 = JSON::FindData(inputString, toFind3);
+
+	ASSERT_EQ(expected3, data3);
+}
+
+TEST(Finddatatest, TestingWithfalsedata)
+{
+	std::string inputString = "{\n\t\"name\":\"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
+	std::string toFind = "atcd";
+
+
+	ASSERT_THROW(JSON::FindData(inputString, toFind), std::runtime_error);
+}
+
 /*
 TEST(ParserTest, TestingWithStringInput)
 {
@@ -102,52 +132,11 @@ TEST(ParserTest2, TestingWithStringInput_randomkeys)
 
 	ASSERT_EQ(expected, testingFunction);
 }
-TEST(Finddatatests, ALL_DATA_TESTS)
-{
-	std::string inputString = "{\n\t\"name\":\"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
-	std::string toFind = "hp";
-	std::string expected = "15330";;
-
-
-	std::string data = JSON::FindData(inputString, toFind);
-	ASSERT_EQ(expected, data);
-
-
-	std::string toFind1 = "name";
-	std::string expected1 = "vizibicikli";;
-
-
-	std::string data1 = JSON::FindData(inputString, toFind1);
-	ASSERT_EQ(expected1, data1);
-
-
-	std::string toFind2 = "dmg";
-	std::string expected2 = "1450";
-
-
-	std::string data2 = JSON::FindData(inputString, toFind2);
-
-	ASSERT_EQ(expected2, data2);
-
-	std::string toFind3 = "atkcd";
-	std::string expected3 = "2";;
-
-
-	std::string data3 = JSON::FindData(inputString, toFind3);
-
-	ASSERT_EQ(expected3, data3);
-}
 
 
 
-TEST(Finddatatest, TestingWithfalsedata)
-{
-	std::string inputString = "{\n\t\"name\":\"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
-	std::string toFind = "atcd";
 
 
-	ASSERT_THROW(JSON::FindData(inputString, toFind), std::runtime_error);
-}
 
 TEST(ParserTest2, TestingWithFilenameInput_good)
 {
