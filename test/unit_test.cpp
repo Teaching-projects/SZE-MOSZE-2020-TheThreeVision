@@ -96,7 +96,7 @@ TEST(Tests, HPTest)
     Monster h2 = Monster::parse("Blood_Raven.json");
     h1.fightTilDeath(h2);
     ASSERT_DOUBLE_EQ(h1.getHealthPoints(),0);
-    ASSERT_DOUBLE_EQ(h2.getHealthPoints(),98);
+    ASSERT_DOUBLE_EQ(h2.getHealthPoints(),101);
 }
 
 TEST(Tests, SuccessfulFight)
@@ -105,7 +105,7 @@ TEST(Tests, SuccessfulFight)
     Monster h2 = Monster::parse("Blood_Raven.json");
     EXPECT_NO_THROW(h1.fightTilDeath(h2));
 }
-/*
+
 TEST(Tests, LevelTest)
 {
     Hero h1 = Hero::parse("Dark_Wanderer.json");
@@ -117,7 +117,7 @@ TEST(Tests, LevelTest)
 TEST(Tests, ParseFile) {
     ASSERT_THROW(Hero hero{Hero::parse("ark_Wanderer.json"), std::runtime_error);
     ASSERT_NO_THROW(Hero hero{Hero::parse("Dark_Wanderer.json"));
-}*/
+}
 
 int main(int argc, char** argv)
 {
