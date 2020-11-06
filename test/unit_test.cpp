@@ -124,7 +124,7 @@ TEST(Tests, AdditionalTest)
 
 TEST(Tests, exist)
 {
-    JSON parsed = JSON::parseJsonString("{\"name\":\"Valaki\",\"hp\": 2}");
+    JSON parsed = JSON::ParseJsonString("{\"name\":\"Valaki\",\"hp\": 2}");
     ASSERT_EQ(parsed.count("name"), 1);
     ASSERT_EQ(parsed.count("hp"), 1);
     ASSERT_EQ(parsed.count("dmg"), 0);
