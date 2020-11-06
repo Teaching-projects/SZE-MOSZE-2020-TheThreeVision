@@ -114,12 +114,9 @@ TEST(Tests, LevelTest)
     ASSERT_EQ(h1.getLevel(),1);
 }
 
-TEST(Tests, XPTest)
-{
-    Hero h1 = Hero::parse("Dark_Wanderer.json");
-    Monster h2 = Monster::parse("Blood_Raven.json");
-    h1.fightTilDeath(h2);
-    ASSERT_DOUBLE_EQ(h1.getExperience(),12);
+TEST(Tests, ParseFile) {
+    ASSERT_THROW(Hero hero{Hero::parse("ark_Wanderer.json"), std::runtime_error);
+    ASSERT_NO_THROW(Hero hero{Hero::parse("Dark_Wanderer.json"));
 }
 
 int main(int argc, char** argv)
