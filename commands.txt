@@ -1,0 +1,2 @@
+./a.out Units/scenario1.json
+./a.out Units/scenario2.json

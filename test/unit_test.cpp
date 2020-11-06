@@ -1,102 +1,40 @@
+#include "../JSON.h"
+#include "../Hero.h"
+#include "../Monster.h"
 #include <gtest/gtest.h>
 #include <string>
 #include <map>
 #include <fstream>
-#include "../parser.h"
-#include "../player.h"
+#include <iostream>
+#include <variant>
 
-TEST(ParserTest, TestingWithFileInput)
+
+TEST(Tests, HeroTest)
 {
-	std::string inputFilename = "test/unit.json";
-	std::map<std::string, std::string> expected;
-	expected.insert(std::pair<std::string, std::string>("name", "vizibicikli"));
-	expected.insert(std::pair<std::string, std::string>("hp", "15330"));
-	expected.insert(std::pair<std::string, std::string>("dmg", "1450"));
-	expected.insert(std::pair<std::string, std::string>("atkcd", "2"));
-
-	std::ifstream inputFile(inputFilename);
-
-	std::map<std::string, std::string> testingFunction = Parser::ParseJson(inputFile);
-
-	inputFile.close();
-
-	ASSERT_EQ(expected, testingFunction);
+	Hero hero{Hero::parse("Dark_Wanderer.json")};
+    ASSERT_TRUE(hero.getHealthPoints() == 30);
+    ASSERT_TRUE(hero.getName() == "Prince Aidan of Khanduras");
+    ASSERT_TRUE(hero.getDamage() == 3);
+    ASSERT_TRUE(hero.getAttackCoolDown() == 1.1);
 }
 
-TEST(ParserTest, TestingWithFilenameInput)
+TEST(Tests, MonsterTest)
 {
-	std::string inputFilename = "test/unit_fail.json";
-
-	ASSERT_THROW(Parser::ParseJsonFilename(inputFilename), std::runtime_error);
+	Monster monster{Monster::parse("Fallen.json")};
+    ASSERT_TRUE(monster.getHealthPoints() == 4);
+    ASSERT_TRUE(monster.getName() == "Fallen");
+    ASSERT_TRUE(monster.getDamage() == 2);
+    ASSERT_TRUE(monster.getAttackCoolDown() == 1.6);
 }
 
-TEST(ParserTest, TestingWithStringInput)
-{
-	std::string inputString = "{\n\t\"name\"  :  \"vizibicikli\",\n\t\"hp\":1w3,\n\t\"dmg\"   :    1450,\n \"atkcd\": 2}";
-
-	ASSERT_THROW(Parser::ParseJsonString(inputString), std::runtime_error);
-}
-//new branch tesztek innentol
-
-TEST(ParserTest2, TestingWithFileInput_randomkeys)
-{
-	std::string inputFilename = "test/unit2.json";
-	std::map<std::string, std::string> expected;
-	expected.insert(std::pair<std::string, std::string>("name", "vizibicikli"));
-	expected.insert(std::pair<std::string, std::string>("hp", "15330"));
-	expected.insert(std::pair<std::string, std::string>("dmg", "1450"));
-	expected.insert(std::pair<std::string, std::string>("atkcd", "2"));
-
-	std::ifstream inputFile(inputFilename);
-
-	std::map<std::string, std::string> testingFunction = Parser::ParseJson(inputFile);
-
-	inputFile.close();
-
-	ASSERT_EQ(expected, testingFunction);
-
-}
-TEST(ParserTest2, TestingWithFilenameInput_randomkeys)
-{
-	std::string inputFilename = "test/unit2.json";
-	std::map<std::string, std::string> expected;
-	expected.insert(std::pair<std::string, std::string>("name", "vizibicikli"));
-	expected.insert(std::pair<std::string, std::string>("hp", "15330"));
-	expected.insert(std::pair<std::string, std::string>("dmg", "1450"));
-	expected.insert(std::pair<std::string, std::string>("atkcd", "2"));
-
-
-
-	std::map<std::string, std::string> testingFunction = Parser::ParseJsonFilename(inputFilename);
-
-	ASSERT_EQ(expected, testingFunction);
-
-
-}
-TEST(ParserTest2, TestingWithStringInput_randomkeys)
-{
-	std::string inputString = "{\n\t\"name\"  :  \"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\"   :    15330,\n \"atkcd\": 2}";
-
-	std::map<std::string, std::string> expected;
-	expected.insert(std::pair<std::string, std::string>("name", "vizibicikli"));
-	expected.insert(std::pair<std::string, std::string>("hp", "15330"));
-	expected.insert(std::pair<std::string, std::string>("dmg", "1450"));
-	expected.insert(std::pair<std::string, std::string>("atkcd", "2"));
-
-
-
-	std::map<std::string, std::string> testingFunction = Parser::ParseJsonString(inputString);
-
-	ASSERT_EQ(expected, testingFunction);
-}
-TEST(Finddatatests, ALL_DATA_TESTS)
+TEST(Tests, ALL_DATA_TESTS)
 {
 	std::string inputString = "{\n\t\"name\":\"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
 	std::string toFind = "hp";
 	std::string expected = "15330";;
 
 
-	std::string data = Parser::FindData(inputString, toFind);
+	std::string data = JSON::FindData(inputString, toFind);
 	ASSERT_EQ(expected, data);
 
 
@@ -104,7 +42,7 @@ TEST(Finddatatests, ALL_DATA_TESTS)
 	std::string expected1 = "vizibicikli";;
 
 
-	std::string data1 = Parser::FindData(inputString, toFind1);
+	std::string data1 = JSON::FindData(inputString, toFind1);
 	ASSERT_EQ(expected1, data1);
 
 
@@ -112,7 +50,7 @@ TEST(Finddatatests, ALL_DATA_TESTS)
 	std::string expected2 = "1450";
 
 
-	std::string data2 = Parser::FindData(inputString, toFind2);
+	std::string data2 = JSON::FindData(inputString, toFind2);
 
 	ASSERT_EQ(expected2, data2);
 
@@ -120,95 +58,83 @@ TEST(Finddatatests, ALL_DATA_TESTS)
 	std::string expected3 = "2";;
 
 
-	std::string data3 = Parser::FindData(inputString, toFind3);
+	std::string data3 = JSON::FindData(inputString, toFind3);
 
 	ASSERT_EQ(expected3, data3);
 }
 
-
-
-TEST(Finddatatest, TestingWithfalsedata)
+TEST(Tests, TestingWithfalsedata)
 {
 	std::string inputString = "{\n\t\"name\":\"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
 	std::string toFind = "atcd";
 
 
-	ASSERT_THROW(Parser::FindData(inputString, toFind), std::runtime_error);
+	ASSERT_THROW(JSON::FindData(inputString, toFind), std::runtime_error);
 }
 
-TEST(ParserTest2, TestingWithFilenameInput_good)
+TEST(Tests, scenario1)
 {
-	std::string inputFilename = "test/unit.json";
-	std::map<std::string, std::string> expected;
-	expected.insert(std::pair<std::string, std::string>("name", "vizibicikli"));
-	expected.insert(std::pair<std::string, std::string>("hp", "15330"));
-	expected.insert(std::pair<std::string, std::string>("dmg", "1450"));
-	expected.insert(std::pair<std::string, std::string>("atkcd", "2"));
-
-	std::map<std::string, std::string> testingFunction = Parser::ParseJsonFilename(inputFilename);
-
-
-	ASSERT_EQ(expected, testingFunction);
+	JSON scenario = JSON::parseFromFile("Units/scenario1.json");
+    ASSERT_TRUE(scenario.count("hero") == true);
+    ASSERT_TRUE(scenario.count("monsters") == true);
+    std::string hero_name = scenario.get<std::string>("hero");
+    ASSERT_TRUE(hero_name == "Dark_Wanderer.json");
 }
 
-TEST(ParserTest2, TestingWithStringInput_good)
+TEST(Tests,typetest)
 {
-	std::string inputString = "{\n\t\"name\":\"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
-	std::map<std::string, std::string> expected;
-	expected.insert(std::pair<std::string, std::string>("name", "vizibicikli"));
-	expected.insert(std::pair<std::string, std::string>("hp", "15330"));
-	expected.insert(std::pair<std::string, std::string>("dmg", "1450"));
-	expected.insert(std::pair<std::string, std::string>("atkcd", "2"));
-
-	std::map<std::string, std::string> testingFunction = Parser::ParseJsonString(inputString);
-
-
-	ASSERT_EQ(expected, testingFunction);
+    Hero hero{Hero::parse("Dark_Wanderer.json")};
+    EXPECT_EQ(typeid(int),typeid(hero.getHealthPoints()));
+    EXPECT_EQ(typeid(std::string),typeid(hero.getName()));
+    EXPECT_EQ(typeid(double),typeid(hero.getAttackCoolDown()));
+    EXPECT_EQ(typeid(int),typeid(hero.getDamage()));
 }
 
-TEST(ParserTest2, TestingWithFilenameInput)
+TEST(Tests, HPTest)
 {
-	std::string Filename = "test/unit_fail.json";
-	std::ifstream inputFile(Filename);
-
-	ASSERT_THROW(Parser::ParseJson(inputFile), std::runtime_error);
+    Hero h1 = Hero::parse("Dark_Wanderer.json");
+    Monster h2 = Monster::parse("Blood_Raven.json");
+    h1.fightTilDeath(h2);
+    ASSERT_DOUBLE_EQ(h1.getHealthPoints(),0);
+    ASSERT_DOUBLE_EQ(h2.getHealthPoints(),101);
 }
 
-TEST(Finddatatest, Nametest_withspace)
+TEST(Tests, SuccessfulFight)
 {
-	std::string inputString = "{\n\t\"name\":\"vizi bicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
-	std::string toFind = "name";
-	std::string expected = "vizi bicikli";;
-
-
-	std::string data = Parser::FindData(inputString, toFind);
-
-	ASSERT_EQ(expected, data);
-
+    Hero h1 = Hero::parse("Dark_Wanderer.json");
+    Monster h2 = Monster::parse("Blood_Raven.json");
+    EXPECT_NO_THROW(h1.fightTilDeath(h2));
 }
-TEST(DATATEST, _NOT_EXISTINGFILE)
+
+TEST(Tests, LevelTest)
 {
-	std::string inputFilename = "test/doesitexist.json";
-
-	ASSERT_THROW(Parser::ParseJsonFilename(inputFilename), std::runtime_error);
-
+    Hero h1 = Hero::parse("Dark_Wanderer.json");
+    Monster h2 = Monster::parse("Zombie.json");
+    h1.fightTilDeath(h2);
+    ASSERT_EQ(h1.getLevel(),1);
 }
 
-TEST(Fight, isdead)
+TEST(Tests, AdditionalTest)
 {
-	Player* p1 = Player::parseUnit("Units/Maple.json");
-	Player* p2 = Player::parseUnit("Units/Sally.json");
-	p1->Fight(p2);
-	ASSERT_TRUE(p1->getHP() <= 0 || p2->getHP() <= 0);
+    Hero h1 = Hero::parse("Dark_Wanderer.json");
+    Monster h2 = Monster::parse("Zombie.json");
+    h1.fightTilDeath(h2);
+    ASSERT_EQ(h1.getLevel(),1);
 }
-TEST(Fight, runtest)
-{
-	Player* p1 = Player::parseUnit("Units/Maple.json");
-	Player* p2 = Player::parseUnit("Units/Sally.json");
 
-	EXPECT_NO_THROW(p1->Fight(p2));
-	
+TEST(Tests, exist)
+{
+    ASSERT_THROW(JSON::ParseJsonString("{\"name\":\"Valaki\",\"hp\": 2}"), std::runtime_error);   
 }
+
+TEST(Tests, Level_XP_2)
+{
+    Hero expected = Hero("Bela", 200, 90, 1.0, 1, 1, 1, 1.0);
+    EXPECT_EQ(expected.getLevel(), 1);
+    EXPECT_EQ(expected.getXP(), 0);
+}
+
+
 
 int main(int argc, char** argv)
 {
