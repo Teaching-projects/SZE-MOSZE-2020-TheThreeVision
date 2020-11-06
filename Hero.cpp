@@ -5,49 +5,17 @@ void Hero::levelup(int levels)
 {
 	for (int i = 0; i < levels; i++)
 	{
-		maxHP = (int)round((double)maxHP * 1.1);
-		setDMG((int)round((double)getDamage() * 1.1));
-        setAtkCoolDown(getAttackCoolDown()*0.9);
+		maxHP += (int)Health_point_bonus_per_level;
+		setDMG((int)(getDamage()+ Damage_bonus_per_level));
+        setAtkCoolDown(getAttackCoolDown()* 0.9);
 		setHP(maxHP);
         Level++;
 	}
 
 }
-/*
-void Hero::Fight(Hero* otherplayer)
-{
-    this->Damage(otherplayer);
-    double atkcdownThis = this->getAttackCoolDown(); double atkcdownOther = otherplayer->getAttackCoolDown();
-    double cooldownCounterThis = 0, cooldownCounterOther = 0;
 
-    while (this->getHealthPoints() > 0 && otherplayer->getHealthPoints() > 0)
-    {
-        if (cooldownCounterThis + atkcdownThis < atkcdownOther + cooldownCounterOther) {
-
-            cooldownCounterThis += atkcdownThis;
-            this->Damage(otherplayer);
-
-
-        }
-        else {
-            if (cooldownCounterThis + atkcdownThis > atkcdownOther + cooldownCounterOther) {
-                cooldownCounterOther += atkcdownOther;
-                otherplayer->Damage(this);
-            }
-            else {//ha egyszerre ütnének akkor az üt amelyik a Fight-ot id�totta
-
-                cooldownCounterThis += atkcdownThis;
-                this->Damage(otherplayer);
-            }
-        }
-
-    }
-
-}
-*/
 void Hero::fightTilDeath(Monster& m)
 {
-    this->Damage(&m);
     double atkcdownThis = this->getAttackCoolDown(); double atkcdownOther = m.getAttackCoolDown();
     double cooldownCounterThis = 0, cooldownCounterOther = 0;
 
@@ -81,24 +49,6 @@ void Hero::increaseXP(int dmg)
 	XP += dmg;
 }
 
-void Hero::Damage(Hero* player) 
-{
-    int othXP = player->getXP(), thiXP = this->getXP();
-    int damage = getDamage();
-    if ((player->getHealthPoints() - getDamage()) >= 0)
-    {
-        player->setHP(player->getHealthPoints() - getDamage());
-    }
-    else {
-        damage = player->getHealthPoints();
-        player->setHP(0); 
-    }
-
-    this->increaseXP(damage);//this xp-je n� annyival, amenyi sebz�st a M�SIK szenvedett
-    this->levelup(this->getXP() / 100 - thiXP / 100);
-
-}
-
 void Hero::Damage(Monster* monster)
 {
     int thiXP = getXP();
@@ -113,7 +63,7 @@ void Hero::Damage(Monster* monster)
     }
 
     this->increaseXP(damage);//this xp-je n� annyival, amenyi sebz�st a M�SIK szenvedett
-    this->levelup(this->getXP() / 100 - thiXP / 100);
+    this->levelup(this->getXP() / (int)Experience_per_level - thiXP / (int)Experience_per_level);
 
 }
 
@@ -125,6 +75,10 @@ Hero Hero::parse(const std::string toParse)
         Data.get<std::string>("name"),
         Data.get<int>("points"),
         Data.get<int>("damage"),
-        Data.get<double>("cooldown")
+        Data.get<double>("cooldown"),
+        Data.get<double>("experience_per_level"),
+        Data.get<double>("health_point_bonus_per_level"),
+        Data.get<double>("damage_bonus_per_level"),
+        Data.get<double>("cooldown_multiplier_per_level")
     );
 }
