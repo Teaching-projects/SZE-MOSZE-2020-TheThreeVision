@@ -99,6 +99,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ae3332d4aeba6028e11630081898312ad"><td class="memItemLeft" align="right" valign="top"><a id="ae3332d4aeba6028e11630081898312ad"></a>
 static <a class="el" href="classJSON.html">JSON</a>&#160;</td><td class="memItemRight" valign="bottom"><b>parseFromFile</b> (const std::string &amp;filePath)</td></tr>
 <tr class="separator:ae3332d4aeba6028e11630081898312ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b75090a38323be50d7a4868a587e770"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJSON.html#a6b75090a38323be50d7a4868a587e770">FindData</a> (const std::string &amp;StringToParse, const std::string &amp;StringToFind)</td></tr>
+<tr class="memdesc:a6b75090a38323be50d7a4868a587e770"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method can search a key(std::string) in a std::string and returns the data attached to the key.  <a href="#a6b75090a38323be50d7a4868a587e770">More...</a><br /></td></tr>
+<tr class="separator:a6b75090a38323be50d7a4868a587e770"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ccacfb112e05f3eea36f431353460d1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classJSON.html">JSON</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJSON.html#a5ccacfb112e05f3eea36f431353460d1">ParseJsonFilename</a> (std::string FilenameToParse)</td></tr>
 <tr class="memdesc:a5ccacfb112e05f3eea36f431353460d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method opens a .json file and returns the keys and the attached data in a std::map.  <a href="#a5ccacfb112e05f3eea36f431353460d1">More...</a><br /></td></tr>
 <tr class="separator:a5ccacfb112e05f3eea36f431353460d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -109,6 +112,51 @@ static <a class="el" href="classJSON.html">JSON</a>&#160;</td><td class="memItem
 <dl class="section date"><dt>Date</dt><dd>2020.10.28. 21:00</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The <a class="el" href="classJSON.html" title="JSON class. ">JSON</a> can read data from <a class="el" href="classJSON.html" title="JSON class. ">JSON</a> files </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6b75090a38323be50d7a4868a587e770"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b75090a38323be50d7a4868a587e770">&#9670;&nbsp;</a></span>FindData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string JSON::FindData </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>StringToParse</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>StringToFind</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method can search a key(std::string) in a std::string and returns the data attached to the key. </p>
+<dl class="section return"><dt>Returns</dt><dd>return with a std::string </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">throw</td><td>a "runtime_error" if something wrong </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a5ccacfb112e05f3eea36f431353460d1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5ccacfb112e05f3eea36f431353460d1">&#9670;&nbsp;</a></span>ParseJsonFilename()</h2>
 
