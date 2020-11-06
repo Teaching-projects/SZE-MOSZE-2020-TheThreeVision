@@ -1,0 +1,2 @@
+./a.out "scenario1.json"
+./a.out "scenario2.json"
