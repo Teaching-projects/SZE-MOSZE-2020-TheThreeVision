@@ -130,10 +130,7 @@ TEST(Tests, exist)
     ASSERT_EQ(parsed.count("dmg"), 0);
 }
 
-TEST(JSONTest, doesnotexistFile)
-{
-    ASSERT_THROW(JSON::parseJsonFilename("ASD.json"), std::runtime_error);
-}
+
 
 int main(int argc, char** argv)
 {
