@@ -8,7 +8,7 @@
 #include <iostream>
 #include <variant>
 
-/*
+
 TEST(Tests, HeroTest)
 {
 	Hero hero{Hero::parse("Dark_Wanderer.json")};
@@ -105,7 +105,7 @@ TEST(Tests, SuccessfulFight)
     Monster h2 = Monster::parse("Blood_Raven.json");
     EXPECT_NO_THROW(h1.fightTilDeath(h2));
 }
-
+/*
 TEST(Tests, LevelTest)
 {
     Hero h1 = Hero::parse("Dark_Wanderer.json");
