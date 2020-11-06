@@ -29,12 +29,7 @@ private:
 	*\throw throw a "runtime_error" if something wrong
 	*/
 	static JSON parseScenario(std::string& JSONstring);
-	/**
-	 * \brief This method can search a key(std::string) in a std::string and returns the data attached to the key.
-	 * \return return with a std::string
-	 * \throw throw a "runtime_error" if something wrong
-	 */
-	static std::string FindData(const std::string& StringToParse, const std::string& StringToFind);
+	
 	/**
 	* \brief This method reads a .json file as std::string and returns the keys and the attached informations in a std::map.
 	* \return return with a std::map
@@ -61,6 +56,12 @@ public:
 	*/
 	static JSON parseFromFile(const std::string& filePath);
 
+	/**
+	 * \brief This method can search a key(std::string) in a std::string and returns the data attached to the key.
+	 * \return return with a std::string
+	 * \throw throw a "runtime_error" if something wrong
+	 */
+	static std::string FindData(const std::string& StringToParse, const std::string& StringToFind);
 
 	int count(const std::string& toFind);
 
