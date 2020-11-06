@@ -2,7 +2,7 @@ var indexSectionsWithContent =
 {
   0: "dfghijlmops",
   1: "hjmp",
-  2: "dfghilmps",
+  2: "dfghijlmps",
   3: "o",
   4: "s"
 };
