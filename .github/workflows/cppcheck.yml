@@ -16,7 +16,7 @@ jobs:
         with:
           name: cppcheck_for_artifact
           path: ./cppcheck_for_artifact.txt
-      - run: g++ -std=c++17 *.cpp -Wall -Wextra -g
+      - run: g++-9 -std=c++17 -lstdc++fs *.cpp -Wall -Wextra -g
       - uses: actions/setup-python@v2
         with:
           python-version: '3.x'
