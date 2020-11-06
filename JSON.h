@@ -72,7 +72,7 @@ public:
 
 	class ParseException : public std::runtime_error{
     public:
-      ParseException(const std::string& msg) : std::runtime_error(msg){}
+      ParseException(const std::string& msg) : std::runtime_error(msg){};
  	};
 	/**
 	 * \brief This method opens a .json file and returns the keys and the attached data in a std::map.

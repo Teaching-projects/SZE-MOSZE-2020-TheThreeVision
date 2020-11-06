@@ -1,12 +1,12 @@
-OBJS := player.o parser.o main.o
-CPPOBJS := player.cpp parser.cpp main.cpp
-CC := g++
-CFLAGS := -std=c++17 -Wall -Wextra -g
+OBJS := Hero.o JSON.o Monster.o main.o
+CPPOBJS := Hero.cpp JSON.cpp Monster.cpp main.cpp
+CC := g++-9
+CFLAGS := -std=c++17 -Wall -Wextra -g -lstdc++fs
 CH := cppcheck
 CHFLAGS := --enable=warning --error-exitcode=2
 CHAFLAGS := --enable=performance,style --output-file=artifact_cppcheck.txt
 VFLAGS := --leak-check=full --error-exitcode=3
-VJSONS := Units/Kakarott.json Units/Maple.json
+VJSONS := Units/scenario1.json
 
 
 all_tests: linking static_code_analysis memory_leak_check io_diff_check
@@ -14,13 +14,16 @@ all_tests: linking static_code_analysis memory_leak_check io_diff_check
 linking: $(OBJS)
 	$(CC) $(CFLAGS) -o game $(OBJS)
 
-player.o: player.cpp player.h parser.h
-	$(CC) $(CFLAGS) -c player.cpp
+Hero.o: Hero.cpp Hero.h JSON.h
+	$(CC) $(CFLAGS) -c Hero.cpp
 
-parser.o: parser.cpp parser.h
-	$(CC) $(CFLAGS) -c parser.cpp
+Monster.o: Monster.cpp Monster.h JSON.h
+	$(CC) $(CFLAGS) -c Monster.cpp
 
-main.o: main.cpp player.h parser.h
+JSON.o: JSON.cpp JSON.h
+	$(CC) $(CFLAGS) -c JSON.cpp
+
+main.o: main.cpp Hero.h JSON.h
 	$(CC) $(CFLAGS) -c main.cpp
 
 static_code_analysis:

@@ -57,7 +57,7 @@ JSON JSON::parseScenario(std::string& JSONstring){
 
 // old
 
-std::map<std::string, std::variant<std::string, double, int>> JSON::ParseJsonString(std::string StringToParse){
+JSON JSON::ParseJsonString(std::string StringToParse){
     std::map<std::string, std::variant<std::string, double, int>> Map;
     bool toDelete = true;
     int j = 0;
@@ -111,16 +111,17 @@ std::map<std::string, std::variant<std::string, double, int>> JSON::ParseJsonStr
         }
     }
     
-    return Map;
+    JSON toReturn(Map);
+    return toReturn;
 }
 
-std::map<std::string, std::variant<std::string, double, int>> JSON::ParseJson(std::istream& JSONToParse){
+JSON JSON::ParseJson(std::istream& JSONToParse){
     std::string DataToParse, line;
     while (std::getline(JSONToParse, line))
     {
         DataToParse += line;
     }
-    
+
     return JSON::ParseJsonString(DataToParse);
 }
 
@@ -136,9 +137,8 @@ JSON JSON::ParseJsonFilename(std::string FilenameToParse){
             DataToParse += line;
         }
     }
-    std::map<std::string, std::variant<std::string, double, int>> Map = JSON::ParseJsonString(DataToParse);
-    JSON toReturn(Map);
-    return toReturn;
+    
+    return JSON::ParseJsonString(DataToParse);
 }
 
 std::string JSON::FindData(const std::string& StringToParse, const std::string& StringToFind){
