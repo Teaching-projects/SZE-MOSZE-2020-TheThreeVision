@@ -114,6 +114,27 @@ TEST(Tests, LevelTest)
     ASSERT_EQ(h1.getLevel(),1);
 }
 
+TEST(Tests, AdditionalTest)
+{
+    Hero h1 = Hero::parse("Dark_Wanderer.json");
+    Monster h2 = Monster::parse("Zombie.json");
+    h1.fightTilDeath(h2);
+    ASSERT_EQ(h1.getLevel(),1);
+}
+
+TEST(Tests, exist)
+{
+    JSON parsed = JSON::parseJsonString("{\"name\":\"Valaki\",\"hp\": 2}");
+    ASSERT_EQ(parsed.count("name"), 1);
+    ASSERT_EQ(parsed.count("hp"), 1);
+    ASSERT_EQ(parsed.count("dmg"), 0);
+}
+
+TEST(JSONTest, doesnotexistFile)
+{
+    ASSERT_THROW(JSON::parseJsonFilename("ASD.json"), std::runtime_error);
+}
+
 int main(int argc, char** argv)
 {
 	::testing::InitGoogleTest(&argc, argv);

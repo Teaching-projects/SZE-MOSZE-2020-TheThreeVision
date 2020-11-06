@@ -30,12 +30,7 @@ private:
 	*/
 	static JSON parseScenario(std::string& JSONstring);
 	
-	/**
-	* \brief This method reads a .json file as std::string and returns the keys and the attached informations in a std::map.
-	* \return return with a std::map
-	* \throw throw a "runtime_error" if something wrong
-	*/
-	static std::map<std::string, std::variant<std::string, double, int>> ParseJsonString(std::string StringToParse);
+	
 	/**
 	* \brief This method reads a .json file and returns the keys and the attached data in a std::map.
 	* \return return with a std::map
@@ -56,6 +51,13 @@ public:
 	*/
 	static JSON parseFromFile(const std::string& filePath);
 
+	/**
+	* \brief This method reads a .json file as std::string and returns the keys and the attached informations in a std::map.
+	* \return return with a std::map
+	* \throw throw a "runtime_error" if something wrong
+	*/
+	static std::map<std::string, std::variant<std::string, double, int>> ParseJsonString(std::string StringToParse);
+	
 	/**
 	 * \brief This method can search a key(std::string) in a std::string and returns the data attached to the key.
 	 * \return return with a std::string
