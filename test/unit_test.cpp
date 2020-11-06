@@ -8,7 +8,7 @@
 #include <iostream>
 #include <variant>
 
-
+/*
 TEST(Tests, HeroTest)
 {
 	Hero hero{Hero::parse("Dark_Wanderer.json")};
@@ -114,7 +114,7 @@ TEST(Tests, LevelTest)
     ASSERT_EQ(h1.getLevel(),1);
 }
 
-/*TEST(Tests, ParseFile) {
+TEST(Tests, ParseFile) {
     ASSERT_THROW(Hero hero{Hero::parse("ark_Wanderer.json"), std::runtime_error);
     ASSERT_NO_THROW(Hero hero{Hero::parse("Dark_Wanderer.json"));
 }*/
