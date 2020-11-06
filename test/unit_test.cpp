@@ -106,6 +106,22 @@ TEST(Tests, SuccessfulFight)
     EXPECT_NO_THROW(h1.fightTilDeath(h2));
 }
 
+TEST(Tests, LevelTest)
+{
+    Hero h1 = Hero::parse("Dark_Wanderer.json");
+    Monster h2 = Monster::parse("Zombie.json");
+    h1.fightTilDeath(h2);
+    ASSERT_EQ(h1.getLevel(),1);
+}
+
+TEST(Tests, XPTest)
+{
+    Hero h1 = Hero::parse("Dark_Wanderer.json");
+    Monster h2 = Monster::parse("Blood_Raven.json");
+    h1.fightTilDeath(h2);
+    ASSERT_DOUBLE_EQ(h1.getExperience(),12);
+}
+
 int main(int argc, char** argv)
 {
 	::testing::InitGoogleTest(&argc, argv);
