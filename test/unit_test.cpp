@@ -127,11 +127,11 @@ TEST(Tests, exist)
     ASSERT_THROW(JSON::ParseJsonString("{\"name\":\"Valaki\",\"hp\": 2}"), std::runtime_error);   
 }
 
-TEST(PlayerTest, Player)
+TEST(PlayerTest, Level,XP_2)
 {
     Hero expected = Hero("Bela", 200, 90, 1.0, 1, 1, 1, 1.0);
     EXPECT_EQ(expected.getLevel(), 1);
-    EXPECT_EQ(expected.getXp(), 0);
+    EXPECT_EQ(expected.getXP(), 0);
 }
 
 
