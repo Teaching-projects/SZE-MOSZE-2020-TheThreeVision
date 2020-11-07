@@ -37,7 +37,7 @@ io_diff_check:
 	python3 testrun.py
 
 unittest: 
-	$(SUBDIR)/test
+	$(SUBDIR)/test/runTests
 
 documentation:
 	doxygen doxconf
