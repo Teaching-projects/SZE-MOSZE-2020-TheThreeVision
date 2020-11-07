@@ -39,7 +39,7 @@ io_diff_check:
 
 unittest: 
 		
-	./runTests
+	test/runTests
 
 documentation:
 	doxygen doxconf
