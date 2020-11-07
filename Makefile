@@ -36,7 +36,7 @@ memory_leak_check: linking
 io_diff_check:
 	python3 testrun.py
 
-unittest: buildunittest
+unittest: 
 	$(SUBDIR)/test
 
 documentation:
