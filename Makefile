@@ -41,7 +41,7 @@ buildunittest:
 	$(MAKE) -C $(SUBDIR)
 
 unittest: buildunittest
-	$(SUBDIR)runTests
+	$(SUBDIR)/runTests
 
 documentation:
 	doxygen doxconf
