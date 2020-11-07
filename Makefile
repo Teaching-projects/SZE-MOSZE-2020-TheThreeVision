@@ -38,7 +38,6 @@ io_diff_check:
 	python3 testrun.py
 
 unittest: 
-	cd /usr/src/gtest && cmake CMakeLists.txt && make
 		
 	cd testing && cmake CMakeLists.txt && make && ./runTests
 
