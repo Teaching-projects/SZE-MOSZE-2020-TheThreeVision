@@ -36,8 +36,12 @@ memory_leak_check: linking
 io_diff_check:
 	python3 testrun.py
 
-unittest:
-	test/runTests
+buildunittest:
+	cmake $(SUBDIR)/$(CMAKEOBJ) /
+	$(MAKE) -C $(SUBDIR)
+
+unittest: buildunittest
+	$(SUBDIR)runTests
 
 documentation:
 	doxygen doxconf
