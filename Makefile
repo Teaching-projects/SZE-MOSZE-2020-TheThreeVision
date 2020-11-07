@@ -37,11 +37,13 @@ memory_leak_check: linking
 io_diff_check:
 	python3 testrun.py
 
-buildunittest:
-	cmake $(SUBDIR)/$ (CMAKEO)/
-	$(MAKE) -C $(SUBDIR)
 unittest: 
-	$(SUBDIR)/runTests
+	cd /usr/src/gtest && cmake CMakeLists.txt && make
+
+	ln -st /usr/lib/ /usr/src/gtest/libgtest.a
+	ln -st /usr/lib/ /usr/src/gtest/libgtest_main.a
+		
+	cd testing && cmake CMakeLists.txt && make && ./runTests
 
 documentation:
 	doxygen doxconf
