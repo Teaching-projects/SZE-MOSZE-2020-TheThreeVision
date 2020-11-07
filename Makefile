@@ -39,7 +39,7 @@ io_diff_check:
 
 unittest: 
 		
-	cd testing && cmake CMakeLists.txt && make && ./runTests
+	./runTests
 
 documentation:
 	doxygen doxconf
