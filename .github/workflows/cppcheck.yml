@@ -6,11 +6,11 @@ on:
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
+    container:  borbelytomii/tests-image:latest
     steps:
       - uses: actions/checkout@v2
-      - run: sudo apt-get install cppcheck
-      - run: sudo apt-get install valgrind
-      - run: cppcheck *.cpp --enable=all --output-file=cppcheck_for_artifact.txt
+      - name: run Makefile
+        run:  make tests 
       - name: Uploading cppcheck as artifact
         uses: actions/upload-artifact@v2
         with:
