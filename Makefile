@@ -39,9 +39,6 @@ io_diff_check:
 
 unittest: 
 	cd /usr/src/gtest && cmake CMakeLists.txt && make
-
-	ln -st /usr/lib/ /usr/src/gtest/libgtest.a
-
 		
 	cd testing && cmake CMakeLists.txt && make && ./runTests
 
