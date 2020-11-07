@@ -7,7 +7,8 @@ CHFLAGS := --enable=warning --error-exitcode=2
 CHAFLAGS := --enable=performance,style --output-file=artifact_cppcheck.txt
 VFLAGS := --leak-check=full --error-exitcode=3
 VJSONS := Units/scenario1.json
-
+SUBDIR := test
+CMAKEO := CMakeLists.txt
 
 all_tests: linking static_code_analysis memory_leak_check io_diff_check
 
@@ -36,8 +37,11 @@ memory_leak_check: linking
 io_diff_check:
 	python3 testrun.py
 
+buildunittest:
+	cmake $(SUBDIR)/$ (CMAKEO)/
+	$(MAKE) -C $(SUBDIR)
 unittest: 
-	$(SUBDIR)/test/runTests
+	$(SUBDIR)/runTests
 
 documentation:
 	doxygen doxconf
