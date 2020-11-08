@@ -6,13 +6,11 @@ on:
 jobs:
   doxygen:
     runs-on: ubuntu-latest
+    container:  borbelytomii/doxygen-image:latest
     steps:
-      - uses: actions/checkout@v2
-      - run: sudo apt-get install doxygen
-      - run: sudo apt-get install graphviz
+      - uses: actions/checkout@v2            
       - run: make documentation
       - name: Push git subdirectory as branch
-
         uses: s0/git-publish-subdir-action@v2.4.0
 
         env:
