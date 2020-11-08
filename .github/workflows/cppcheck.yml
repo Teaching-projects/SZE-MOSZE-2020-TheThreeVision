@@ -9,6 +9,7 @@ jobs:
     container:  borbelytomii/tests-image:latest
     steps:
       - uses: actions/checkout@v2
+      - run:  cppcheck *.cpp --enable=all --output-file=cppcheck_for_artifact.txt
       - name: Uploading cppcheck as artifact
         uses: actions/upload-artifact@v2
         with:
