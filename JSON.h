@@ -24,6 +24,7 @@
 class JSON{
 private:
 	std::map<std::string, std::variant<std::string, double, int>> Data;
+	
 	/*
 	*\brief This method can parse a Scenario JSON.
 	*\note this method use the findData method
@@ -43,6 +44,7 @@ private:
 
 
 public:
+	typedef std::list<std::variant<std::string, int,double>>list;	
 	/// JSON construct, what put the input parameters to the data member
 	JSON(std::map<std::string, std::variant<std::string, double, int>> newData) : Data(newData) {}
 	/*
@@ -69,11 +71,38 @@ public:
 
 	int count(const std::string& toFind);
 
-	template <typename T>
-  	T get(const std::string& input){
+  	template <typename T>
+	inline typename std::enable_if<!std::is_same<T, JSON::list>::value, T>::type get(const std::string& input){
     	return  std::get<T>(Data[input]);
 		
   	}
+	template <typename T>
+    inline typename std::enable_if<std::is_same<T, JSON::list>::value, JSON::list>::type get(std::string input){
+            JSON::list toReturn;
+			std::string allFilenames = std::get<std::string>(Data[input]);
+				int counter = 0;
+				bool addChar = false;
+				std::string toAdd = "";
+				while (counter < allFilenames.length())
+				{
+					if(allFilenames[counter] == '"' && !addChar){
+						addChar = true;
+						counter++;
+					}else if (allFilenames[counter] == '"' && addChar){
+						addChar = false;
+						toReturn.push_back(toAdd);
+						counter++;
+						toAdd = "";
+					}
+					if (addChar)
+					{
+						toAdd += allFilenames[counter];
+						counter++;
+					}
+				}
+
+			return toReturn;
+        }
 
 	class ParseException : public std::runtime_error{
     public:
@@ -85,5 +114,4 @@ public:
 	 * \throw throw a "runtime_error" if something wrong
 	 */
     static JSON ParseJsonFilename(std::string FilenameToParse);
-	typedef std::list<std::variant<std::string, int,double>>list;
    };

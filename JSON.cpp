@@ -147,7 +147,7 @@ std::string JSON::FindData(const std::string& StringToParse, const std::string& 
     if (StringToParse.find(StringToFind) != std::string::npos)
     {
         int findWord = StringToParse.find(StringToFind) + StringToFind.length() + 2;
-         if (StringToParse[findWord] == '"' or StringToParse[findWord] == ' ')
+         if (StringToParse[findWord] == '"' or StringToParse[findWord] == ' ' or StringToParse[findWord] == '[')
         {
             findWord++;
         }
@@ -174,5 +174,6 @@ std::string JSON::FindData(const std::string& StringToParse, const std::string& 
             }       
          }
     }
+    
     return data;
 }
