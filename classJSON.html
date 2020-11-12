@@ -99,10 +99,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a38bf9acdbbb98a5f6d9a3e32b908ad92"><td class="memItemLeft" align="right" valign="top"><a id="a38bf9acdbbb98a5f6d9a3e32b908ad92"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>count</b> (const std::string &amp;toFind)</td></tr>
 <tr class="separator:a38bf9acdbbb98a5f6d9a3e32b908ad92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad167565a9f520b4ba81aaff01fa2e909"><td class="memTemplParams" colspan="2"><a id="ad167565a9f520b4ba81aaff01fa2e909"></a>
+<tr class="memitem:a078893269961e89f4cf5000f1627d82d"><td class="memTemplParams" colspan="2"><a id="a078893269961e89f4cf5000f1627d82d"></a>
 template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ad167565a9f520b4ba81aaff01fa2e909"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>get</b> (const std::string &amp;input)</td></tr>
-<tr class="separator:ad167565a9f520b4ba81aaff01fa2e909"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a078893269961e89f4cf5000f1627d82d"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!std::is_same&lt; T, JSON::list &gt;::value, T &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>get</b> (const std::string &amp;input)</td></tr>
+<tr class="separator:a078893269961e89f4cf5000f1627d82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e97d2e187a5d8a500d2a76fd3dd88d7"><td class="memTemplParams" colspan="2"><a id="a7e97d2e187a5d8a500d2a76fd3dd88d7"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a7e97d2e187a5d8a500d2a76fd3dd88d7"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_same&lt; T, JSON::list &gt;::value, JSON::list &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>get</b> (std::string input)</td></tr>
+<tr class="separator:a7e97d2e187a5d8a500d2a76fd3dd88d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
