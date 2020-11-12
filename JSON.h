@@ -80,7 +80,7 @@ public:
     inline typename std::enable_if<std::is_same<T, JSON::list>::value, JSON::list>::type get(std::string input){
             JSON::list toReturn;
 			std::string allFilenames = std::get<std::string>(Data[input]);
-				int counter = 0;
+				unsigned int counter = 0;
 				while (counter < allFilenames.length())
 				{
 					int find = allFilenames.find(',',counter);
