@@ -162,8 +162,8 @@ std::string JSON::FindData(const std::string& StringToParse, const std::string& 
         }
         if (data[0] == '"')
         {
-            if(data[data.length()] != '"') data += '"';
-        }else if(data[0] != '"' && data[data.length()] == '"') data.erase(data.length()-1, 1);
+            if(data[data.length()-1] != '"') data += '"';
+        }else if(data[0] != '"' && data[data.length()-1] == '"') data.erase(data.length()-1, 1);
     }else{
         throw std::runtime_error("Bad input data.");
     }
