@@ -70,6 +70,7 @@ Monster Monster::parse(const std::string toParse) {
             toGo += toParse[i];
         }
     }
+    std::cout << toGo << std::endl;
     
     JSON Data = JSON::ParseJsonFilename(toGo);
 

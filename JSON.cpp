@@ -177,6 +177,7 @@ std::string JSON::FindData(const std::string& StringToParse, const std::string& 
             }       
          }
     }
+    
     int toAdd = 0;
     for (int i = 0; i < data.length(); i++)
     {
@@ -195,6 +196,7 @@ std::string JSON::FindData(const std::string& StringToParse, const std::string& 
             {
                 toReturn += data[j];
             }
+            std::cout << toReturn <<std::endl;
             return toReturn;
         }
     }
@@ -202,7 +204,7 @@ std::string JSON::FindData(const std::string& StringToParse, const std::string& 
     int toBreak = 0;
     for (int i = 0; i < data.length(); i++)
     {
-        if (data[i] == '"') number++; toBreak = 1;
+        if (data[i] == '"') number++; toBreak = i;
     }
     if (number % 2 != 0)
     {
@@ -213,6 +215,5 @@ std::string JSON::FindData(const std::string& StringToParse, const std::string& 
             }
             return toReturn;
     }
-
     return data;
 }
