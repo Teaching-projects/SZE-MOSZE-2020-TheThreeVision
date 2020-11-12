@@ -61,8 +61,17 @@ void Monster::Fight(Monster* otherplayer)
 
 */
 Monster Monster::parse(const std::string toParse) {
+
+    std::string toGo = "";
+    if (toParse[0] == '"' && toParse[toParse.length()-1] == '"')
+    {
+        for (int i = 1; i < toParse.length()-1; i++)
+        {
+            toGo += toParse[i];
+        }
+    }
     
-    JSON Data = JSON::ParseJsonFilename(toParse);
+    JSON Data = JSON::ParseJsonFilename(toGo);
 
     return Monster(
         Data.get<std::string>("name"),

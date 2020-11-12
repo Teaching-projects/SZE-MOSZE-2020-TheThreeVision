@@ -81,26 +81,21 @@ public:
             JSON::list toReturn;
 			std::string allFilenames = std::get<std::string>(Data[input]);
 				int counter = 0;
-				bool addChar = false;
-				std::string toAdd = "";
 				while (counter < allFilenames.length())
 				{
-					if(allFilenames[counter] == '"' && !addChar){
-						addChar = true;
-						counter++;
-					}else if (allFilenames[counter] == '"' && addChar){
-						addChar = false;
-						toReturn.push_back(toAdd);
-						counter++;
-						toAdd = "";
-					}
-					if (addChar)
+					int find = allFilenames.find(',',counter);
+					if (find < 0 )
 					{
-						toAdd += allFilenames[counter];
-						counter++;
+						find = allFilenames.length();
+					}else{
+						find = allFilenames.find(',',counter);
 					}
-				}
+					
+					std::string toAdd = allFilenames.substr(counter,find-counter);
 
+					toReturn.push_back(toAdd);
+					counter = find + 1;
+				}
 			return toReturn;
         }
 

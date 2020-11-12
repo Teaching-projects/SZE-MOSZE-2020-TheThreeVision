@@ -155,12 +155,15 @@ std::string JSON::FindData(const std::string& StringToParse, const std::string& 
         {
             data += StringToParse[findWord];
             findWord++;
-        } while (isdigit(StringToParse[findWord]) or isalpha(StringToParse[findWord]) or StringToParse[findWord] == ' ' or StringToParse[findWord] == '.' or StringToParse[findWord] == '_' or StringToParse[findWord] == '(' or StringToParse[findWord] == ')' or StringToParse[findWord] == ',' or StringToParse[findWord] == '-');
-        if (data[data.length()-1] == ' ' or data[data.length()-1] == ',')
+        } while (isdigit(StringToParse[findWord]) or isalpha(StringToParse[findWord]) or StringToParse[findWord] == ' ' or StringToParse[findWord] == '.' or StringToParse[findWord] == '_' or StringToParse[findWord] == '(' or StringToParse[findWord] == ')' or StringToParse[findWord] == ',' or StringToParse[findWord] == '-' or StringToParse[findWord] == '"');
+        if (data[data.length()-1] == ' ' or data[data.length()-1] == ',' or data[data.length()-1] == '"')
         {
             data.erase(data.length()-1, 1);
         }
-        
+        if (data[0] == '"')
+        {
+            if(data[data.length()] != '"') data += '"';
+        }else if(data[0] != '"' && data[data.length()] == '"') data.erase(data.length()-1, 1);
     }else{
         throw std::runtime_error("Bad input data.");
     }
@@ -174,6 +177,42 @@ std::string JSON::FindData(const std::string& StringToParse, const std::string& 
             }       
          }
     }
-    
+    int toAdd = 0;
+    for (int i = 0; i < data.length(); i++)
+    {
+        if (data[i] == '"' && toAdd)
+        {
+            toAdd = 0;
+            i++;
+        }else if(data[i] == '"' && !toAdd){
+            toAdd = 1;
+            i++;
+        }
+        if (toAdd && data[i] == ',')
+        {
+            std::string toReturn = "";
+            for (int j = 0; j < i-1; j++)
+            {
+                toReturn += data[j];
+            }
+            return toReturn;
+        }
+    }
+    int number = 0;
+    int toBreak = 0;
+    for (int i = 0; i < data.length(); i++)
+    {
+        if (data[i] == '"') number++; toBreak = 1;
+    }
+    if (number % 2 != 0)
+    {
+        std::string toReturn = "";
+            for (int i = 0; i < toBreak; i++)
+            {
+                toReturn += data[i];
+            }
+            return toReturn;
+    }
+
     return data;
 }
