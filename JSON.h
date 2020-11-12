@@ -5,6 +5,8 @@
 #include <string>
 #include <variant>
 #include <vector>
+#include <list>
+#include <type_traits>
 
 /**
  * \class JSON
@@ -83,5 +85,5 @@ public:
 	 * \throw throw a "runtime_error" if something wrong
 	 */
     static JSON ParseJsonFilename(std::string FilenameToParse);
-   
+	typedef std::list<std::variant<std::string, int,double>>list;
    };
