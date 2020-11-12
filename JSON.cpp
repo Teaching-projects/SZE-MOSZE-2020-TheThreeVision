@@ -196,7 +196,6 @@ std::string JSON::FindData(const std::string& StringToParse, const std::string& 
             {
                 toReturn += data[j];
             }
-            std::cout << toReturn <<std::endl;
             return toReturn;
         }
     }
