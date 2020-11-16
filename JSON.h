@@ -44,6 +44,7 @@ private:
 
 
 public:
+	///this list stores the name of the monsters.
 	typedef std::list<std::variant<std::string, int,double>>list;	
 	/// JSON construct, what put the input parameters to the data member
 	JSON(std::map<std::string, std::variant<std::string, double, int>> newData) : Data(newData) {}
@@ -69,6 +70,10 @@ public:
 	 */
 	static std::string FindData(const std::string& StringToParse, const std::string& StringToFind);
 
+	/**
+	 * \brief This method can search a key(std::string) in a JSON object and returns how many times data with this key find.
+	 * \return return with a integer
+	 */
 	int count(const std::string& toFind);
 
   	template <typename T>
@@ -104,8 +109,8 @@ public:
       ParseException(const std::string& msg) : std::runtime_error(msg){}
  	};
 	/**
-	 * \brief This method opens a .json file and returns the keys and the attached data in a std::map.
-	 * \return return with a std::map
+	 * \brief This method opens a .json file and returns the keys and the attached data in a JSON Object.
+	 * \return return with a JSON Object
 	 * \throw throw a "runtime_error" if something wrong
 	 */
     static JSON ParseJsonFilename(std::string FilenameToParse);
