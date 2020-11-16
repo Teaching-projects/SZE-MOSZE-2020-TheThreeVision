@@ -5,6 +5,8 @@
 #include <string>
 #include <variant>
 #include <vector>
+#include <list>
+#include <type_traits>
 
 /**
  * \class JSON
@@ -22,6 +24,7 @@
 class JSON{
 private:
 	std::map<std::string, std::variant<std::string, double, int>> Data;
+	
 	/*
 	*\brief This method can parse a Scenario JSON.
 	*\note this method use the findData method
@@ -41,6 +44,8 @@ private:
 
 
 public:
+	///this list stores the name of the monsters.
+	typedef std::list<std::variant<std::string, int,double>>list;	
 	/// JSON construct, what put the input parameters to the data member
 	JSON(std::map<std::string, std::variant<std::string, double, int>> newData) : Data(newData) {}
 	/*
@@ -65,23 +70,48 @@ public:
 	 */
 	static std::string FindData(const std::string& StringToParse, const std::string& StringToFind);
 
+	/**
+	 * \brief This method can search a key(std::string) in a JSON object and returns how many times data with this key find.
+	 * \return return with a integer
+	 */
 	int count(const std::string& toFind);
 
-	template <typename T>
-  	T get(const std::string& input){
+  	template <typename T>
+	inline typename std::enable_if<!std::is_same<T, JSON::list>::value, T>::type get(const std::string& input){
     	return  std::get<T>(Data[input]);
 		
   	}
+	template <typename T>
+    inline typename std::enable_if<std::is_same<T, JSON::list>::value, JSON::list>::type get(std::string input){
+            JSON::list toReturn;
+			std::string allFilenames = std::get<std::string>(Data[input]);
+				unsigned int counter = 0;
+				while (counter < allFilenames.length())
+				{
+					int find = allFilenames.find(',',counter);
+					if (find < 0 )
+					{
+						find = allFilenames.length();
+					}else{
+						find = allFilenames.find(',',counter);
+					}
+					
+					std::string toAdd = allFilenames.substr(counter,find-counter);
+
+					toReturn.push_back(toAdd);
+					counter = find + 1;
+				}
+			return toReturn;
+        }
 
 	class ParseException : public std::runtime_error{
     public:
       ParseException(const std::string& msg) : std::runtime_error(msg){}
  	};
 	/**
-	 * \brief This method opens a .json file and returns the keys and the attached data in a std::map.
-	 * \return return with a std::map
+	 * \brief This method opens a .json file and returns the keys and the attached data in a JSON Object.
+	 * \return return with a JSON Object
 	 * \throw throw a "runtime_error" if something wrong
 	 */
     static JSON ParseJsonFilename(std::string FilenameToParse);
-   
    };
