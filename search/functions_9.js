@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['setatkcooldown_48',['setAtkCoolDown',['../classMonster.html#aa29b34ac49099b5e4c2f6f422b7fb648',1,'Monster']]],
-  ['setdmg_49',['setDMG',['../classMonster.html#a87809b8d43e9f3f4dc3d1859170b3bae',1,'Monster']]],
-  ['sethp_50',['setHP',['../classMonster.html#ab4fcff85d9184884f6e77772a27be26d',1,'Monster']]]
+  ['parse_48',['parse',['../classHero.html#acdd608cda56d150ac7ff5a4c29e0cc42',1,'Hero::parse()'],['../classMonster.html#abe91cd8127c815d37f3b3b4577a51b72',1,'Monster::parse()']]],
+  ['parsejsonfilename_49',['ParseJsonFilename',['../classJSON.html#a5ccacfb112e05f3eea36f431353460d1',1,'JSON']]],
+  ['parsejsonstring_50',['ParseJsonString',['../classJSON.html#ae8a7248f0e50187bae71c34ea6621ef6',1,'JSON']]]
 ];

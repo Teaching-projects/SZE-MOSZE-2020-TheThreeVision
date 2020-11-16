@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['parse_45',['parse',['../classHero.html#acdd608cda56d150ac7ff5a4c29e0cc42',1,'Hero::parse()'],['../classMonster.html#abe91cd8127c815d37f3b3b4577a51b72',1,'Monster::parse()']]],
-  ['parsejsonfilename_46',['ParseJsonFilename',['../classJSON.html#a5ccacfb112e05f3eea36f431353460d1',1,'JSON']]],
-  ['parsejsonstring_47',['ParseJsonString',['../classJSON.html#ae8a7248f0e50187bae71c34ea6621ef6',1,'JSON']]]
+  ['monster_47',['Monster',['../classMonster.html#a6d8e2ec0e8c7b8507f03a6defd72dc60',1,'Monster::Monster(std::string name, int hp, int dmg, double atkCoolDown)'],['../classMonster.html#ab27a4b5f71d38f485c02f26fd6ca7bf9',1,'Monster::Monster(Monster *monster)']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['increasexp_11',['increaseXP',['../classHero.html#a9e857e4b2c081d3f3da435d2c3bf3c56',1,'Hero']]],
-  ['isalive_12',['isAlive',['../classMonster.html#aca4e35d1b32aad3e5cf00157bb212956',1,'Monster']]]
+  ['hero_11',['Hero',['../classHero.html',1,'Hero'],['../classHero.html#a43d3ff6d553eb7a09c0262adbf775363',1,'Hero::Hero(std::string name, int hp, int dmg, double atkCoolDown, int experience_per_level, int health_point_bonus_per_level, int damage_bonus_per_level, double cooldown_multiplier_per_level)'],['../classHero.html#acddb8ecebf26697bbbadddb026297689',1,'Hero::Hero(Hero *h)']]]
 ];

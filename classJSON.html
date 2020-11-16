@@ -87,7 +87,8 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a71c9c82072f08e8cbac400a62607eb7d"><td class="memItemLeft" align="right" valign="top"><a id="a71c9c82072f08e8cbac400a62607eb7d"></a>
-typedef std::list&lt; std::variant&lt; std::string, int, double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>list</b></td></tr>
+typedef std::list&lt; std::variant&lt; std::string, int, double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJSON.html#a71c9c82072f08e8cbac400a62607eb7d">list</a></td></tr>
+<tr class="memdesc:a71c9c82072f08e8cbac400a62607eb7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">this list stores the name of the monsters. <br /></td></tr>
 <tr class="separator:a71c9c82072f08e8cbac400a62607eb7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -96,16 +97,16 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJSON.html#aac4c95f331801fec2e27f1138c0970f2">JSON</a> (std::map&lt; std::string, std::variant&lt; std::string, double, int &gt;&gt; newData)</td></tr>
 <tr class="memdesc:aac4c95f331801fec2e27f1138c0970f2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classJSON.html" title="JSON class.">JSON</a> construct, what put the input parameters to the data member. <br /></td></tr>
 <tr class="separator:aac4c95f331801fec2e27f1138c0970f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38bf9acdbbb98a5f6d9a3e32b908ad92"><td class="memItemLeft" align="right" valign="top"><a id="a38bf9acdbbb98a5f6d9a3e32b908ad92"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>count</b> (const std::string &amp;toFind)</td></tr>
+<tr class="memitem:a38bf9acdbbb98a5f6d9a3e32b908ad92"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJSON.html#a38bf9acdbbb98a5f6d9a3e32b908ad92">count</a> (const std::string &amp;toFind)</td></tr>
+<tr class="memdesc:a38bf9acdbbb98a5f6d9a3e32b908ad92"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method can search a key(std::string) in a <a class="el" href="classJSON.html" title="JSON class.">JSON</a> object and returns how many times data with this key find.  <a href="classJSON.html#a38bf9acdbbb98a5f6d9a3e32b908ad92">More...</a><br /></td></tr>
 <tr class="separator:a38bf9acdbbb98a5f6d9a3e32b908ad92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a078893269961e89f4cf5000f1627d82d"><td class="memTemplParams" colspan="2"><a id="a078893269961e89f4cf5000f1627d82d"></a>
 template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a078893269961e89f4cf5000f1627d82d"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!std::is_same&lt; T, JSON::list &gt;::value, T &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>get</b> (const std::string &amp;input)</td></tr>
+<tr class="memitem:a078893269961e89f4cf5000f1627d82d"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!std::is_same&lt; T, <a class="el" href="classJSON.html#a71c9c82072f08e8cbac400a62607eb7d">JSON::list</a> &gt;::value, T &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>get</b> (const std::string &amp;input)</td></tr>
 <tr class="separator:a078893269961e89f4cf5000f1627d82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e97d2e187a5d8a500d2a76fd3dd88d7"><td class="memTemplParams" colspan="2"><a id="a7e97d2e187a5d8a500d2a76fd3dd88d7"></a>
 template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a7e97d2e187a5d8a500d2a76fd3dd88d7"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_same&lt; T, JSON::list &gt;::value, JSON::list &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>get</b> (std::string input)</td></tr>
+<tr class="memitem:a7e97d2e187a5d8a500d2a76fd3dd88d7"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_same&lt; T, <a class="el" href="classJSON.html#a71c9c82072f08e8cbac400a62607eb7d">JSON::list</a> &gt;::value, <a class="el" href="classJSON.html#a71c9c82072f08e8cbac400a62607eb7d">JSON::list</a> &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>get</b> (std::string input)</td></tr>
 <tr class="separator:a7e97d2e187a5d8a500d2a76fd3dd88d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -120,7 +121,7 @@ static <a class="el" href="classJSON.html">JSON</a>&#160;</td><td class="memItem
 <tr class="memdesc:a6b75090a38323be50d7a4868a587e770"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method can search a key(std::string) in a std::string and returns the data attached to the key.  <a href="classJSON.html#a6b75090a38323be50d7a4868a587e770">More...</a><br /></td></tr>
 <tr class="separator:a6b75090a38323be50d7a4868a587e770"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ccacfb112e05f3eea36f431353460d1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classJSON.html">JSON</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJSON.html#a5ccacfb112e05f3eea36f431353460d1">ParseJsonFilename</a> (std::string FilenameToParse)</td></tr>
-<tr class="memdesc:a5ccacfb112e05f3eea36f431353460d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method opens a .json file and returns the keys and the attached data in a std::map.  <a href="classJSON.html#a5ccacfb112e05f3eea36f431353460d1">More...</a><br /></td></tr>
+<tr class="memdesc:a5ccacfb112e05f3eea36f431353460d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method opens a .json file and returns the keys and the attached data in a <a class="el" href="classJSON.html" title="JSON class.">JSON</a> Object.  <a href="classJSON.html#a5ccacfb112e05f3eea36f431353460d1">More...</a><br /></td></tr>
 <tr class="separator:a5ccacfb112e05f3eea36f431353460d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -129,6 +130,27 @@ static <a class="el" href="classJSON.html">JSON</a>&#160;</td><td class="memItem
 <dl class="section date"><dt>Date</dt><dd>2020.10.28. 21:00</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The <a class="el" href="classJSON.html" title="JSON class.">JSON</a> can read data from <a class="el" href="classJSON.html" title="JSON class.">JSON</a> files </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a38bf9acdbbb98a5f6d9a3e32b908ad92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38bf9acdbbb98a5f6d9a3e32b908ad92">&#9670;&nbsp;</a></span>count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int JSON::count </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>toFind</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method can search a key(std::string) in a <a class="el" href="classJSON.html" title="JSON class.">JSON</a> object and returns how many times data with this key find. </p>
+<dl class="section return"><dt>Returns</dt><dd>return with a integer </dd></dl>
+
+</div>
+</div>
 <a id="a6b75090a38323be50d7a4868a587e770"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6b75090a38323be50d7a4868a587e770">&#9670;&nbsp;</a></span>FindData()</h2>
 
@@ -198,8 +220,8 @@ static <a class="el" href="classJSON.html">JSON</a>&#160;</td><td class="memItem
 </table>
 </div><div class="memdoc">
 
-<p>This method opens a .json file and returns the keys and the attached data in a std::map. </p>
-<dl class="section return"><dt>Returns</dt><dd>return with a std::map </dd></dl>
+<p>This method opens a .json file and returns the keys and the attached data in a <a class="el" href="classJSON.html" title="JSON class.">JSON</a> Object. </p>
+<dl class="section return"><dt>Returns</dt><dd>return with a <a class="el" href="classJSON.html" title="JSON class.">JSON</a> Object </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">throw</td><td>a "runtime_error" if something wrong </td></tr>
