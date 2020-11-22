@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['map_18',['Map',['../classMap.html',1,'Map'],['../classMap.html#a77c8edc6dd8cc23bfdc484997f9d851e',1,'Map::Map()']]],
-  ['monster_19',['Monster',['../classMonster.html',1,'Monster'],['../classMonster.html#a6d8e2ec0e8c7b8507f03a6defd72dc60',1,'Monster::Monster(std::string name, int hp, int dmg, double atkCoolDown)'],['../classMonster.html#ab27a4b5f71d38f485c02f26fd6ca7bf9',1,'Monster::Monster(Monster *monster)']]]
+  ['monster_17',['Monster',['../classMonster.html',1,'Monster'],['../classMonster.html#a6d8e2ec0e8c7b8507f03a6defd72dc60',1,'Monster::Monster(std::string name, int hp, int dmg, double atkCoolDown)'],['../classMonster.html#ab27a4b5f71d38f485c02f26fd6ca7bf9',1,'Monster::Monster(Monster *monster)']]]
 ];
