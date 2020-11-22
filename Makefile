@@ -1,5 +1,5 @@
-OBJS := Hero.o JSON.o Monster.o main.o
-CPPOBJS := Hero.cpp JSON.cpp Monster.cpp main.cpp
+OBJS := Hero.o JSON.o Monster.o main.o Map.o
+CPPOBJS := Hero.cpp JSON.cpp Monster.cpp main.cpp Map.cpp
 CC := g++-9
 CFLAGS := -std=c++17 -Wall -Wextra -g -lstdc++fs
 CH := cppcheck
@@ -27,6 +27,9 @@ JSON.o: JSON.cpp JSON.h
 main.o: main.cpp Hero.h JSON.h
 	$(CC) $(CFLAGS) -c main.cpp
 
+Map.o: Map.cpp Map.h	
+	$(CC) $(CFLAGS) -c Map.cpp
+	
 static_code_analysis:
 	$(CH) $(CPPOBJS) $(CHFLAGS)
 	$(CH) $(CPPOBJS) $(CHAFLAGS)
