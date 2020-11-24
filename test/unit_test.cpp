@@ -25,7 +25,8 @@ TEST(Tests, MonsterTest)
 	Monster monster{Monster::parse("Fallen.json")};
     ASSERT_TRUE(monster.getHealthPoints() == 4);
     ASSERT_TRUE(monster.getName() == "Fallen");
-    ASSERT_TRUE(monster.getDamage() == 2);
+    ASSERT_TRUE(monster.getDamage().physical == 2);
+    ASSERT_TRUE(monster.getDamage().magical == 0);
     ASSERT_TRUE(monster.getAttackCoolDown() == 1.6);
     ASSERT_TRUE(monster.getDefense()==0);
 }
