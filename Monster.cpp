@@ -5,17 +5,26 @@
 #include <fstream>
 #include <iostream>
 #include <cmath>
-
-void Monster::Damage(Monster* player)const
+//TODO (something like in the hero)
+void Monster::Damage(Monster* monster)const
 {
-
-	if ((player->HP - DMG) >= 0)
+ //magical
+	if ((monster->HP - DMG.magical) >= 0)
 	{
-		player->HP -= DMG;
+		monster->HP -= DMG.magical;
 
 	}
-	else { player->HP = 0; }
-
+	else { monster->HP = 0; }
+ //physical
+    //realDMG is always positive
+    int realDMG = DMG.physical - monster->Defense;
+    if (realDMG < 0) { realDMG = 0; }
+    //do the physical damage
+    if ((monster->HP - realDMG) >= 0)
+    {
+        monster->HP -= realDMG;
+    }
+    else { monster->HP = 0; }
 }
 
 
@@ -78,7 +87,8 @@ Monster Monster::parse(const std::string toParse) {
     return Monster(
         Data.get<std::string>("name"),
         Data.get<int>("points"),
-        Data.get<int>("damage"),
+        damage(Data.get<int>("damage"), Data.get<int>("magical-damage")),
+        Data.get<double>("defense"),
         Data.get<double>("cooldown")
     );
 }

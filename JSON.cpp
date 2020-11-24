@@ -78,26 +78,47 @@ std::map<std::string, std::variant<std::string, double, int>> JSON::ParseJsonStr
             j++;
         }
     }
-    
-    std::string array[5] = {StringToParse, "name", "points", "damage", "cooldown"};
-    
-    
-    for(int i = 1; i < 5; i++)
+
+
+    std::string array[5] = {StringToParse, "name", "base_health_points", "base_damage", "base_attack_cooldown"};
+
+    if (StringToParse.find("base_health_points") == std::string::npos)
     {
+        array[2] = "health_points";
+        array[3] = "damage";
+        array[4] = "attack_cooldown";
+
+        for(int i = 1; i < 5; i++)
+        {
+            if (array[i] == "name")
+            {
+                Map.insert(std::make_pair("name", FindData(array[0], array[i])));
+            }else if(array[i] == "health_points"){
+                Map.insert(std::make_pair("points", std::stoi(FindData(array[0], array[i]))));
+            }else if(array[i] == "damage"){
+                Map.insert(std::make_pair("damage", std::stoi(FindData(array[0], array[i]))));
+            }else if(array[i] == "attack_cooldown"){
+                Map.insert(std::make_pair("cooldown", std::stod(FindData(array[0], array[i]))));
+            }
+        }
+    }else{
+        for(int i = 1; i < 5; i++)
+        {
         if (array[i] == "name")
         {
             Map.insert(std::make_pair("name", FindData(array[0], array[i])));
-        }else if(array[i] == "points"){
+        }else if(array[i] == "base_health_points"){
             Map.insert(std::make_pair("points", std::stoi(FindData(array[0], array[i]))));
-        }else if(array[i] == "damage"){
+        }else if(array[i] == "base_damage"){
             Map.insert(std::make_pair("damage", std::stoi(FindData(array[0], array[i]))));
-        }else if(array[i] == "cooldown"){
+        }else if(array[i] == "base_attack_cooldown"){
             Map.insert(std::make_pair("cooldown", std::stod(FindData(array[0], array[i]))));
         }
+        }
     }
-
-    std::string additionals[8] = {StringToParse, "lore", "\"race", "experience_per_level","health_point_bonus_per_level","damage_bonus_per_level","cooldown_multiplier_per_level","additional_info"};
-    for (int i = 1; i < 8; i++)
+    
+    std::string additionals[11] = {StringToParse, "lore", "\"race\"", "experience_per_level","health_point_bonus_per_level","damage_bonus_per_level","cooldown_multiplier_per_level","additional_info", "defense_bonus_per_level", "defense", "magical-damage"};
+    for (int i = 1; i < 11; i++)
     {
         if (additionals[0].find(additionals[i]) != std::string::npos)
         {
@@ -108,7 +129,11 @@ std::map<std::string, std::variant<std::string, double, int>> JSON::ParseJsonStr
             }else if(data != "" && isalpha(data[0])){
                 Map.insert(std::make_pair(additionals[i],data));
             }
+        }else if(i == 10 && additionals[0].find(additionals[i]) == std::string::npos)
+        {
+            Map.insert(std::make_pair(additionals[i],0));
         }
+        
     }
     
     return Map;
@@ -143,76 +168,44 @@ JSON JSON::ParseJsonFilename(std::string FilenameToParse){
 
 std::string JSON::FindData(const std::string& StringToParse, const std::string& StringToFind){
     std::string data = "";
-    
-    if (StringToParse.find(StringToFind) != std::string::npos)
+    std::string toFind = "";
+    if (StringToFind[0] != '"')
     {
-        int findWord = StringToParse.find(StringToFind) + StringToFind.length() + 2;
-         if (StringToParse[findWord] == '"' or StringToParse[findWord] == ' ' or StringToParse[findWord] == '[')
+        toFind = '"' + StringToFind + '"';
+    }else{
+        toFind = StringToFind;
+    }
+    if (StringToParse.find(toFind) != std::string::npos)
+    {
+        int findWord = StringToParse.find(toFind) + toFind.length() + 1 ;
+        if (StringToParse[findWord] == '[') // ebben az esetben listarol van szo!!!
         {
             findWord++;
+            do
+            {
+                data += StringToParse[findWord];
+                findWord++;
+            } while (StringToParse[findWord] != ']');
+            
+        }else{
+            if (StringToParse[findWord] == '"') // ebben az esetben stringkent
+            {
+                findWord++;
+                do
+                {
+                    data += StringToParse[findWord];
+                    findWord++;
+                } while (StringToParse[findWord] != '"');
+            }else if(isdigit(StringToParse[findWord])){ // ebben az esetben " nelkul
+                do
+                {
+                    data += StringToParse[findWord];
+                    findWord++;
+                } while (isdigit(StringToParse[findWord]) or StringToParse[findWord] == '.');
+            }
         }
-        do
-        {
-            data += StringToParse[findWord];
-            findWord++;
-        } while (isdigit(StringToParse[findWord]) or isalpha(StringToParse[findWord]) or StringToParse[findWord] == ' ' or StringToParse[findWord] == '.' or StringToParse[findWord] == '_' or StringToParse[findWord] == '(' or StringToParse[findWord] == ')' or StringToParse[findWord] == ',' or StringToParse[findWord] == '-' or StringToParse[findWord] == '"');
-        if (data[data.length()-1] == ' ' or data[data.length()-1] == ',' or data[data.length()-1] == '"')
-        {
-            data.erase(data.length()-1, 1);
-        }
-        if (data[0] == '"')
-        {
-            if(data[data.length()-1] != '"') data += '"';
-        }else if(data[0] != '"' && data[data.length()-1] == '"') data.erase(data.length()-1, 1);
+        return data;
     }else{
         throw std::runtime_error("Bad input data.");
     }
-    if (StringToFind == "hp" or StringToFind == "dmg")
-    {
-        for (int i = 0; i < data.length(); i++)
-        {
-            if (!isdigit(data[i]))
-            {
-                throw std::runtime_error("Bad input data.");
-            }       
-         }
-    }
-    
-    int toAdd = 0;
-    for (int i = 0; i < data.length(); i++)
-    {
-        if (data[i] == '"' && toAdd)
-        {
-            toAdd = 0;
-            i++;
-        }else if(data[i] == '"' && !toAdd){
-            toAdd = 1;
-            i++;
-        }
-        if (toAdd && data[i] == ',')
-        {
-            std::string toReturn = "";
-            for (int j = 0; j < i-1; j++)
-            {
-                toReturn += data[j];
-            }
-            return toReturn;
-        }
-    }
-    int number = 0;
-    int toBreak = 0;
-    for (int i = 0; i < data.length(); i++)
-    {
-        if (data[i] == '"') number++; toBreak = i;
-    }
-    if (number % 2 != 0)
-    {
-        std::string toReturn = "";
-            for (int i = 0; i < toBreak; i++)
-            {
-                toReturn += data[i];
-            }
-            return toReturn;
-    }
-    return data;
 }
