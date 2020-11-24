@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['increasexp_43',['increaseXP',['../classHero.html#a9e857e4b2c081d3f3da435d2c3bf3c56',1,'Hero']]],
-  ['isalive_44',['isAlive',['../classMonster.html#aca4e35d1b32aad3e5cf00157bb212956',1,'Monster']]]
+  ['increasexp_49',['increaseXP',['../classHero.html#a1d5c593f9db0aa2084f3bc0f8c05f4b2',1,'Hero']]],
+  ['isalive_50',['isAlive',['../classMonster.html#aca4e35d1b32aad3e5cf00157bb212956',1,'Monster']]]
 ];

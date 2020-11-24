@@ -1,11 +1,12 @@
 var indexSectionsWithContent =
 {
   0: "cdfghijlmops",
-  1: "hjmp",
+  1: "dhjmp",
   2: "cdfghijlmps",
-  3: "l",
-  4: "o",
-  5: "s"
+  3: "mp",
+  4: "l",
+  5: "o",
+  6: "s"
 };
 
 var indexSectionNames =
@@ -13,9 +14,10 @@ var indexSectionNames =
   0: "all",
   1: "classes",
   2: "functions",
-  3: "typedefs",
-  4: "related",
-  5: "pages"
+  3: "variables",
+  4: "typedefs",
+  5: "related",
+  6: "pages"
 };
 
 var indexSectionLabels =
@@ -23,8 +25,9 @@ var indexSectionLabels =
   0: "All",
   1: "Classes",
   2: "Functions",
-  3: "Typedefs",
-  4: "Friends",
-  5: "Pages"
+  3: "Variables",
+  4: "Typedefs",
+  5: "Friends",
+  6: "Pages"
 };
 
