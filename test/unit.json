@@ -2,5 +2,6 @@
     "name": "vizibicikli",
     "hp": 15330,
     "dmg": 1450,
-    "atkcd": 2
+    "atkcd": 2,
+    "defense": 0
   }

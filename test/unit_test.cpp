@@ -16,6 +16,7 @@ TEST(Tests, HeroTest)
     ASSERT_TRUE(hero.getName() == "Prince Aidan of Khanduras");
     ASSERT_TRUE(hero.getDamage() == 3);
     ASSERT_TRUE(hero.getAttackCoolDown() == 1.1);
+    ASSERT_TRUE(hero.getDefense()==0);
 }
 
 TEST(Tests, MonsterTest)
@@ -25,11 +26,12 @@ TEST(Tests, MonsterTest)
     ASSERT_TRUE(monster.getName() == "Fallen");
     ASSERT_TRUE(monster.getDamage() == 2);
     ASSERT_TRUE(monster.getAttackCoolDown() == 1.6);
+    ASSERT_TRUE(monster.getDefense()==0);
 }
 
 TEST(Tests, ALL_DATA_TESTS)
 {
-	std::string inputString = "{\n\t\"name\":\"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
+	std::string inputString = "{\n\t\"name\":\"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\t\"atkcd\":2\n\t\"defense\":0}";
 	std::string toFind = "hp";
 	std::string expected = "15330";;
 
@@ -61,6 +63,11 @@ TEST(Tests, ALL_DATA_TESTS)
 	std::string data3 = JSON::FindData(inputString, toFind3);
 
 	ASSERT_EQ(expected3, data3);
+
+    std::string toFind4="defense";
+    std::string expected4="0";
+    std::string data4= JSON::FindData(inputString, toFind4);
+    ASSERT_EQ(expected4,data4);
 }
 
 TEST(Tests, TestingWithfalsedata)
