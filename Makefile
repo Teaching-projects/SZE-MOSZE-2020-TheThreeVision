@@ -15,10 +15,10 @@ all_tests: linking static_code_analysis memory_leak_check io_diff_check
 linking: $(OBJS)
 	$(CC) $(CFLAGS) -o game $(OBJS)
 
-Hero.o: Hero.cpp Hero.h JSON.h
+Hero.o: Hero.cpp Hero.h JSON.h Defense.h
 	$(CC) $(CFLAGS) -c Hero.cpp
 
-Monster.o: Monster.cpp Monster.h JSON.h
+Monster.o: Monster.cpp Monster.h JSON.h Defense.h
 	$(CC) $(CFLAGS) -c Monster.cpp
 
 JSON.o: JSON.cpp JSON.h
