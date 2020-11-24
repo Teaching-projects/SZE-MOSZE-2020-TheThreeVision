@@ -14,7 +14,8 @@ TEST(Tests, HeroTest)
 	Hero hero{Hero::parse("Dark_Wanderer.json")};
     ASSERT_TRUE(hero.getHealthPoints() == 30);
     ASSERT_TRUE(hero.getName() == "Prince Aidan of Khanduras");
-    ASSERT_TRUE(hero.getDamage() == 3);
+    ASSERT_TRUE(hero.getDamage().physical== 3);
+    ASSERT_TRUE(hero.getDamage().magical==0);
     ASSERT_TRUE(hero.getAttackCoolDown() == 1.1);
     ASSERT_TRUE(hero.getDefense()==0);
 }
