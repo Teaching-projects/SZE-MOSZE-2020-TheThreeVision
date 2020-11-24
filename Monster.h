@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-
+#include "Damage.h"
 /**
  * \class Monster
  * 
@@ -17,21 +17,24 @@ class Monster
 {
 	const std::string Name; ///< the Name of the monster
 	int HP;					///< the HealthPoints of the monster
-	int DMG;			///< the Damage of the monster
+	damage DMG;			///< the Damage of the monster
+	int Defense;
 	double AtkCoolDown;		///< the monster's Attack Cooldown shows that after how many seconds he/she can hit again. 
 
 protected:
 	
 	/// simple setter to the Damage
-	void setDMG(int d) { DMG = d; }
+	void setDMG(damage d) { DMG = d; }
+	/// simple setter to the Defense
+	void setDefense(int def) { Defense = def; }
 	/// simple setter to the AttackCooldown
 	void setAtkCoolDown(double atkCoolDown)  {  AtkCoolDown=  atkCoolDown; }
 
 public:
 	/// monster construct, what put the input parameters to the data members
-	Monster(std::string name, int hp, int dmg, double atkCoolDown) :Name(name), HP(hp), DMG(dmg), AtkCoolDown(atkCoolDown) {}
+	Monster(std::string name, int hp, damage dmg,int defense, double atkCoolDown) :Name(name), HP(hp), DMG(dmg),Defense(defense), AtkCoolDown(atkCoolDown) {}
 	/// copy construct, what make a copy from the parameter
-	Monster(Monster* monster) :Name(monster->getName()), HP(monster->getHealthPoints()), DMG(monster->getDamage()), AtkCoolDown(monster->getAttackCoolDown()) {};
+	Monster(Monster* monster) :Name(monster->getName()), HP(monster->getHealthPoints()), DMG(monster->getDamage()), Defense(monster->getDefense()), AtkCoolDown(monster->getAttackCoolDown()) {};
 	/// this method damage an other monster
 	void Damage(Monster* monster/**[in] the monster witch is injured*/)const;
 	///simple getter to the Name
@@ -39,7 +42,9 @@ public:
 	///simple getter to the HealthPoints
 	int	getHealthPoints() const { return HP; }
 	///simple getter to the Damage
-	int getDamage() const { return DMG; }
+	damage getDamage() const { return DMG; }
+	///simple getter to the Defense
+	int getDefense() const { return Defense; }
 	///simple getter to the AttackCooldown
 	double getAttackCoolDown() const { return AtkCoolDown; }
 	/**
@@ -49,7 +54,7 @@ public:
 	bool isAlive();
 	/// simple setter to the HealthPoints
 	void setHP(int h) { HP = h; }
-
+	
 	
 	/// easy way to print a monster
 	friend std::ostream& operator<<(std::ostream& o/**[in] is the output stream*/, Monster& d/**[in] is the printed monster*/);

@@ -1,12 +1,20 @@
 #include "Hero.h"
 
-
 void Hero::levelup(int levels)
 {
 	for (int i = 0; i < levels; i++)
 	{
+       
 		maxHP += (int)Health_point_bonus_per_level;
-		setDMG((int)(getDamage()+ Damage_bonus_per_level));
+        damage dmg = getDamage();
+        /*if (dmg.magical != 0) {*///akkor kell, ha az adott damage tipus hiánya(==0) eseten, nem nőhet az adott damage tipus
+            dmg.magical += Damage_bonus_per_level;
+        /*}
+        if (dmg.physical != 0) {*/
+            dmg.physical += Damage_bonus_per_level;
+        //}
+        setDMG(dmg); //+Damage_bonus_per_level)
+        setDefense((int)(getDefense() + Defense_bonus_per_level));
         setAtkCoolDown(getAttackCoolDown()* 0.9);
 		setHP(maxHP);
         Level++;
@@ -44,41 +52,57 @@ void Hero::fightTilDeath(Monster& m)
 
 }
 
-void Hero::increaseXP(int dmg)
+void Hero::increaseXP(damage dmg)
 {
-	XP += dmg;
+	XP += dmg.physical+ dmg.magical;
 }
 
 void Hero::Damage(Monster* monster)
 {
-    int thiXP = getXP();
-    int damage = getDamage();
-    if ((monster->getHealthPoints() - getDamage()) >= 0)
-    {
-        monster->setHP(monster->getHealthPoints() - getDamage());
-    }
-    else {
-        damage = monster->getHealthPoints();
-        monster->setHP(0);
-    }
+        int thiXP = getXP();
+        damage damage = getDamage();
+    //magical (always)
+        if ((monster->getHealthPoints() - getDamage().magical) >= 0)
+        {
+            monster->setHP(monster->getHealthPoints() - getDamage().magical);
+        }
+        else {
+            damage.magical = monster->getHealthPoints();
+            monster->setHP(0);
+        }
+    //physical (with defense calc)
 
-    this->increaseXP(damage);//this xp-je n� annyival, amenyi sebz�st a M�SIK szenvedett
-    this->levelup(this->getXP() / (int)Experience_per_level - thiXP / (int)Experience_per_level);
+        //realDMG is always positive
+        int realDMG=getDamage().physical - monster->getDefense();
+        if (realDMG < 0) { realDMG = 0; }
+        //do the physical damage
+        if ((monster->getHealthPoints() - realDMG) >= 0)
+        {
+            monster->setHP(monster->getHealthPoints() - realDMG);
+        }
+        else {
+            damage.physical = monster->getHealthPoints();
+            monster->setHP(0);
+        }
+        //XP and levels
+        this->increaseXP(damage);//this xp-je n� annyival, amenyi sebz�st a M�SIK szenvedett
+        this->levelup(this->getXP() / (int)Experience_per_level - thiXP / (int)Experience_per_level);
 
 }
 
 Hero Hero::parse(const std::string toParse)
 {
     JSON Data = JSON::ParseJsonFilename(toParse);
-
     return Hero(
         Data.get<std::string>("name"),
         Data.get<int>("points"),
-        Data.get<int>("damage"),
-        Data.get<double>("cooldown"),
+        damage(Data.get<int>("damage"), Data.get<int>("magical-damage") ),
+        Data.get<double>("defense"),
+        Data.get<double>("cooldown"),        
         Data.get<double>("experience_per_level"),
         Data.get<double>("health_point_bonus_per_level"),
-        Data.get<double>("damage_bonus_per_level"),
+        Data.get<double>("damage_bonus_per_level"),//double->damage //változott adattag
+        Data.get<double>("defense_bonus_per_level"),//leveleup     //uj adattag
         Data.get<double>("cooldown_multiplier_per_level")
     );
 }
