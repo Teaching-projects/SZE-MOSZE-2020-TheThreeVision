@@ -96,7 +96,9 @@ TEST(Tests,typetest)
     EXPECT_EQ(typeid(int),typeid(hero.getHealthPoints()));
     EXPECT_EQ(typeid(std::string),typeid(hero.getName()));
     EXPECT_EQ(typeid(double),typeid(hero.getAttackCoolDown()));
-    EXPECT_EQ(typeid(int),typeid(hero.getDamage()));
+    EXPECT_EQ(typeid(int),typeid(hero.getDamage().physical));
+    EXPECT_EQ(typeid(int),typeid(hero.getDamage().magical));
+    EXPECT_EQ(typeid(int),typeid(hero.getDefense()));
 }
 
 TEST(Tests, HPTest)
