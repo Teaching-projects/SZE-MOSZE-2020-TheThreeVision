@@ -138,12 +138,10 @@ TEST(Tests, exist)
 
 TEST(Tests, Level_XP_2)
 {
-    Hero expected = Hero("Bela", 200, 90, 1.0, 1, 1, 1, 1.0);
+    Hero expected = Hero("Bela", 200, damage(90,10),5, 1.0, 1, 1,1, 1, 1.0);
     EXPECT_EQ(expected.getLevel(), 1);
     EXPECT_EQ(expected.getXP(), 0);
 }
-
-
 
 int main(int argc, char** argv)
 {
