@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['count_0',['count',['../classJSON.html#a38bf9acdbbb98a5f6d9a3e32b908ad92',1,'JSON']]]
+  ['alreadyhasunitsexception_0',['AlreadyHasUnitsException',['../classGame_1_1AlreadyHasUnitsException.html',1,'Game']]]
 ];
