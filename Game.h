@@ -26,7 +26,7 @@ private:
     bool hasMap;
 public:
     Game() : map(Map()), hasUnits(false), hasMap(false){};
-    Game::Game(std::string mapfilename) : map(Map(mapfilename)), hasUnits(false), hasMap(true){};
+    Game(std::string mapfilename) : map(Map(mapfilename)), hasUnits(false), hasMap(true){};
     ~Game();
 
 void setMap(Map NewMap); // Set the map
