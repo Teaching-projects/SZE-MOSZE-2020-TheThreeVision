@@ -25,7 +25,7 @@ private:
     bool hasUnits; // @Tomi ez legyen majd true-ra állítva a putokban!!!
     bool hasMap;
 public:
-    Game() : map(Map()), hasUnits(false), hasMap(false){};
+    Game() : map(Map()), hasUnits(false), hasMap(false),hero (hero){};
     Game(std::string mapfilename) : map(Map(mapfilename)), hasUnits(false), hasMap(true){};
     ~Game();
 
