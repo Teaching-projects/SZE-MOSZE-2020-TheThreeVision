@@ -1,5 +1,7 @@
 #include "Game.h"
+#include <string.h>
 
+using namespace std;
 
 Game::Game(); // Empty Game
 
