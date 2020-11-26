@@ -94,8 +94,8 @@ $(function() {
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">bool</span> hasUnits; <span class="comment">// @Tomi ez legyen majd true-ra állítva a putokban!!!</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">bool</span> hasMap;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classGame.html">Game</a>() : map(<a class="code" href="classMap.html">Map</a>()), hasUnits(<span class="keyword">false</span>), hasMap(<span class="keyword">false</span>){}</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    Game::Game(std::string mapfilename) : map(<a class="code" href="classMap.html">Map</a>(mapfilename)), hasUnits(<span class="keyword">false</span>), hasMap(<span class="keyword">true</span>){}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classGame.html">Game</a>() : map(<a class="code" href="classMap.html">Map</a>()), hasUnits(<span class="keyword">false</span>), hasMap(<span class="keyword">false</span>){};</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    Game::Game(std::string mapfilename) : map(<a class="code" href="classMap.html">Map</a>(mapfilename)), hasUnits(<span class="keyword">false</span>), hasMap(<span class="keyword">true</span>){};</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    ~<a class="code" href="classGame.html">Game</a>();</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">void</span> setMap(<a class="code" href="classMap.html">Map</a> NewMap); <span class="comment">// Set the map</span></div>
@@ -109,11 +109,16 @@ $(function() {
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="classGame_1_1AlreadyHasUnitsException.html">AlreadyHasUnitsException</a>(<span class="keyword">const</span> std::string&amp; msg) : std::runtime_error(msg){}</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    };</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classOccupiedException.html">   43</a></span>&#160; <span class="keyword">class </span><a class="code" href="classOccupiedException.html">OccupiedException</a> : <span class="keyword">public</span> std::runtime_error{ </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="classOccupiedException.html">OccupiedException</a>(<span class="keyword">const</span> std::string&amp; errMsg) : std::runtime_error(errMsg){}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    };</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructMstr_html"><div class="ttname"><a href="structMstr.html">Mstr</a></div><div class="ttdef"><b>Definition:</b> Game.h:7</div></div>
 <div class="ttc" id="aclassHero_html"><div class="ttname"><a href="classHero.html">Hero</a></div><div class="ttdoc">Hero class.</div><div class="ttdef"><b>Definition:</b> Hero.h:20</div></div>
 <div class="ttc" id="astructHr_html"><div class="ttname"><a href="structHr.html">Hr</a></div><div class="ttdef"><b>Definition:</b> Game.h:13</div></div>
 <div class="ttc" id="aclassGame_1_1AlreadyHasUnitsException_html"><div class="ttname"><a href="classGame_1_1AlreadyHasUnitsException.html">Game::AlreadyHasUnitsException</a></div><div class="ttdef"><b>Definition:</b> Game.h:38</div></div>
+<div class="ttc" id="aclassOccupiedException_html"><div class="ttname"><a href="classOccupiedException.html">OccupiedException</a></div><div class="ttdef"><b>Definition:</b> Game.h:43</div></div>
 <div class="ttc" id="aclassMonster_html"><div class="ttname"><a href="classMonster.html">Monster</a></div><div class="ttdoc">Monster class.</div><div class="ttdef"><b>Definition:</b> Monster.h:16</div></div>
 <div class="ttc" id="aclassMap_html"><div class="ttname"><a href="classMap.html">Map</a></div><div class="ttdef"><b>Definition:</b> Map.h:5</div></div>
 <div class="ttc" id="aclassGame_html"><div class="ttname"><a href="classGame.html">Game</a></div><div class="ttdef"><b>Definition:</b> Game.h:19</div></div>
