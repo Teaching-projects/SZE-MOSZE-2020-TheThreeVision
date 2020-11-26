@@ -14,6 +14,7 @@ public:
 
     ///Map konstruktor a terkep beolvasásához
     Map(const std::string& Filename );  
+    Map(){}
         
     /// Függvény ami visszaadja az x,y koordinátán lévő elemet.    
     Map::type get( unsigned int x, unsigned int y) const;
