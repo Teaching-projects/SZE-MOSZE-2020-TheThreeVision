@@ -16,7 +16,7 @@ public:
     Map(const std::string& Filename );  
         
     /// Függvény ami visszaadja az x,y koordinátán lévő elemet.    
-    Map::type get( int x,  int y) const;
+    Map::type get( unsigned int x, unsigned int y) const;
 
     class WrongIndexException : public std::runtime_error{
     public:

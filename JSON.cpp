@@ -25,7 +25,7 @@ JSON JSON::parseFromFile(const std::string& filePath){
 JSON JSON::parseScenario(std::string& JSONstring){
     std::map<std::string, std::variant<std::string, double, int>> Map;
     bool toDelete = true;
-    int j = 0;
+    unsigned int j = 0;
     while (j < JSONstring.length())
     {
         if (JSONstring[j] == '"'){
@@ -60,7 +60,7 @@ JSON JSON::parseScenario(std::string& JSONstring){
 std::map<std::string, std::variant<std::string, double, int>> JSON::ParseJsonString(std::string StringToParse){
     std::map<std::string, std::variant<std::string, double, int>> Map;
     bool toDelete = true;
-    int j = 0;
+    unsigned int j = 0;
     while (j < StringToParse.length())
     {
         if (StringToParse[j] == '"'){
