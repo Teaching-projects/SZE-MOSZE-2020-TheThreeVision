@@ -15,6 +15,30 @@ void Game::setMap(Map NewMap){
     
 }
 
-void Game::putHero(Hero hero, int x, int y){}
+void Game::putHero(Hero hero, int x, int y){
+    
+if (!hasUnits)
+{
+   if (map.get(x,y)== Map::type::Free)
+   {
+       this->hero.h=new Hero(hero);
+       this->hero.row=x;
+       this->hero.col=y;       
+       hasUnits=true;
+   }
+   
+}
+}
 
-void Game::putMonster(Monster monster, int x, int y){}
+void Game::putMonster(Monster monster, int x, int y){
+    hasUnits=true;
+    if (map.get(x,y)== Map::type::Free){
+        Mstr monsterpoint  = {monster,x,y};
+        monsters.push_back(monsterpoint);
+    }
+    else 
+        throw OccupiedException("Coordinate occupied");
+    
+    
+    
+}

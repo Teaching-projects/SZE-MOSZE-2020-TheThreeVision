@@ -25,8 +25,8 @@ private:
     bool hasUnits; // @Tomi ez legyen majd true-ra állítva a putokban!!!
     bool hasMap;
 public:
-    Game() : map(Map()), hasUnits(false), hasMap(false){}
-    Game::Game(std::string mapfilename) : map(Map(mapfilename)), hasUnits(false), hasMap(true){}
+    Game() : map(Map()), hasUnits(false), hasMap(false){};
+    Game::Game(std::string mapfilename) : map(Map(mapfilename)), hasUnits(false), hasMap(true){};
     ~Game();
 
 void setMap(Map NewMap); // Set the map
@@ -40,3 +40,7 @@ class AlreadyHasUnitsException : public std::runtime_error{
         AlreadyHasUnitsException(const std::string& msg) : std::runtime_error(msg){}
     };
 };
+ class OccupiedException : public std::runtime_error{ 
+        public:
+        OccupiedException(const std::string& errMsg) : std::runtime_error(errMsg){}
+    };
