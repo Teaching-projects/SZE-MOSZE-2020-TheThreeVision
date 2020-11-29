@@ -43,3 +43,38 @@ void Game::putMonster(Monster monster, int x, int y){
     
     
 }
+//future possible feature updates 
+/*void Game::moveHero(const std::string& direction){
+    if (direction =="east") hero.row++;
+    if (direction =="west") hero.row--;
+    if (direction =="north") hero.col--;
+    if (direction =="south") hero.col++;
+}
+*/
+
+
+void Game::run(){
+    
+    if (hasUnits && !monsters.empty() && hasMap)
+    {
+        std::string moveHero="";
+        std::list<Mstr>::iterator monster = monsters.begin();
+        while (hero.h->isAlive() && !monsters.empty())
+        {
+            if (hero.h->isAlive())
+            {
+                if (hero.row==mm.row && hero.col==mm.col)
+                {
+                    cout<<hero.h->getName() <<"("<<hero.h->getLevel()<<endl;
+                    hero.h->fightTilDeath(monster->monster);
+                }
+                if(!monster->monster.isAlive()) monsters.erase(monster);
+                else monster++;
+            }
+            
+        }
+        
+    }
+    else throw OccupiedException("Game couldn't initialized! Try again");
+    
+}
