@@ -17,7 +17,7 @@ void Game::setMap(Map NewMap){
 
 void Game::putHero(Hero hero, int x, int y){
     
-if (!hasUnits)
+if (this->hero.h != nullptr) throw AlreadyHasUnitsException("Game already has Hero");
 {
    if (map.get(x,y)== Map::type::Free)
    {
@@ -31,10 +31,11 @@ if (!hasUnits)
 }
 
 void Game::putMonster(Monster monster, int x, int y){
-    hasUnits=true;
+    
     if (map.get(x,y)== Map::type::Free){
         Mstr monsterpoint  = {monster,x,y};
         monsters.push_back(monsterpoint);
+        hasUnits=true;
     }
     else 
         throw OccupiedException("Coordinate occupied");
