@@ -24,7 +24,7 @@ private:
     Map map;
     std::list<Mstr> monsters;
     Hr hero;
-    bool hasUnits; // @Tomi ez legyen majd true-ra állítva a putokban!!!
+    bool hasUnits; 
     bool hasMap;
 
 public:

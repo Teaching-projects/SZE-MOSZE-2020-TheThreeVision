@@ -66,9 +66,9 @@ void Game::run(){
                 if (hero.row==mm.row && hero.col==mm.col)
                 {
                     cout<<hero.h->getName() <<"("<<hero.h->getLevel()<<endl;
-                    hero.h->fightTilDeath(monster->monster);
+                    hero.h->fightTilDeath(monster->m);
                 }
-                if(!monster->monster.isAlive()) monsters.erase(monster);
+                if(!monster->m.isAlive()) monsters.erase(monster);
                 else monster++;
             }
             
