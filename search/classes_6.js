@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['occupiedexception_50',['OccupiedException',['../classOccupiedException.html',1,'']]]
+  ['occupiedexception_50',['OccupiedException',['../classGame_1_1OccupiedException.html',1,'Game']]]
 ];
