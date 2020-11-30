@@ -16,7 +16,7 @@ void Game::setMap(Map NewMap){
 }
 
 void Game::putHero(Hero hero, int x, int y){
-    
+ //TODO:Ha meg nincs terkep beallitva akkor Map::WrongIndexException   
 if (this->hero.h != nullptr) throw AlreadyHasHeroException("Game already has Hero");
 {
    if (map.get(x,y)== Map::type::Free)
@@ -26,12 +26,14 @@ if (this->hero.h != nullptr) throw AlreadyHasHeroException("Game already has Her
        this->hero.col=y;       
        hasUnits=true;
    }
+   else
+       throw OccupiedException("Coordinate occupied");
    
 }
 }
 
 void Game::putMonster(Monster monster, int x, int y){
-    
+//TODO:Ha meg nincs terkep beallitva akkor Map::WrongIndexException   
     if (map.get(x,y)== Map::type::Free){
         Mstr monsterpoint  = {monster,x,y};
         monsters.push_back(monsterpoint);
