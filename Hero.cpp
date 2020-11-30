@@ -6,16 +6,9 @@ void Hero::levelup(int levels)
 	{
        
 		maxHP += (int)Health_point_bonus_per_level;
-        damage dmg = getDamage();
-        /*if (dmg.magical != 0) {*///akkor kell, ha az adott damage tipus hiánya(==0) eseten, nem nőhet az adott damage tipus
-            dmg.magical += Damage_bonus_per_level;
-        /*}
-        if (dmg.physical != 0) {*/
-            dmg.physical += Damage_bonus_per_level;
-        //}
-        setDMG(dmg); //+Damage_bonus_per_level)
+        setDMG(getDamage()+ Damage_bonus_per_level);
         setDefense((int)(getDefense() + Defense_bonus_per_level));
-        setAtkCoolDown(getAttackCoolDown()* 0.9);
+        setAtkCoolDown(getAttackCoolDown()* Cooldown_multiplier_per_level);
 		setHP(maxHP);
         Level++;
 	}
@@ -101,8 +94,8 @@ Hero Hero::parse(const std::string toParse)
         Data.get<double>("cooldown"),        
         Data.get<double>("experience_per_level"),
         Data.get<double>("health_point_bonus_per_level"),
-        Data.get<double>("damage_bonus_per_level"),//double->damage //változott adattag
-        Data.get<double>("defense_bonus_per_level"),//leveleup     //uj adattag
+        damage(Data.get<int>("damage_bonus_per_level"), Data.get<int>("magical-damage_bonus_per_level")),
+        Data.get<double>("defense_bonus_per_level"),
         Data.get<double>("cooldown_multiplier_per_level")
     );
 }

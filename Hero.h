@@ -25,7 +25,7 @@ private:
 	int Level = 1;
 	double Experience_per_level;
 	double Health_point_bonus_per_level;
-	double Damage_bonus_per_level;
+	damage Damage_bonus_per_level;
 	double Defense_bonus_per_level;
 	double Cooldown_multiplier_per_level;
 	/// a simple getter to the Experience per level
@@ -33,7 +33,7 @@ private:
 	/// a simple getter to the Health point bonus per level
 	double	getHealth_point_bonus_per_level() { return Health_point_bonus_per_level; }
 	/// a simple getter to the Damage bonus per level
-	double	getDamage_bonus_per_level() { return Damage_bonus_per_level; }
+	damage	getDamage_bonus_per_level() { return Damage_bonus_per_level; }
 	/// a simple getter to the Defense bonus per level
 	double	getDefense_bonus_per_level() { return Defense_bonus_per_level; }
 	/// a simple getter to the Cooldown multiplier per level
@@ -58,7 +58,7 @@ public:
 	void fightTilDeath(Monster& m/**[in] is the monster*/);
 	/// Hero construct, what put the input parameters to the data members
 	Hero(std::string name, int hp, damage dmg, int defense, double atkCoolDown,
-		int experience_per_level, int health_point_bonus_per_level, int damage_bonus_per_level,int defense_bonus_per_level, double cooldown_multiplier_per_level)
+		int experience_per_level, int health_point_bonus_per_level, damage damage_bonus_per_level,int defense_bonus_per_level, double cooldown_multiplier_per_level)
 		: Monster(name, hp, dmg, defense, atkCoolDown),
 		maxHP(hp), Experience_per_level(experience_per_level),
 		Health_point_bonus_per_level(health_point_bonus_per_level),
