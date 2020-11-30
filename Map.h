@@ -18,7 +18,10 @@ public:
         
     /// Függvény ami visszaadja az x,y koordinátán lévő elemet.    
     Map::type get( unsigned int x, unsigned int y) const;
-
+    bool isEmpty(){
+        if (map.empty()) return true;
+        else return false;
+    }
     class WrongIndexException : public std::runtime_error{
     public:
         WrongIndexException(const std::string& errMsg) : std::runtime_error(errMsg){}

@@ -15,33 +15,35 @@ void Game::setMap(Map NewMap){
     
 }
 
-void Game::putHero(Hero hero, int x, int y){
- //TODO:Ha meg nincs terkep beallitva akkor Map::WrongIndexException   
-if (this->hero.h != nullptr) throw AlreadyHasHeroException("Game already has Hero");
-{
-   if (map.get(x,y)== Map::type::Free)
-   {
-       this->hero.h=new Hero(hero);
-       this->hero.row=x;
-       this->hero.col=y;       
-       hasUnits=true;
-   }
-   else
-       throw OccupiedException("Coordinate occupied");
-   
-}
+void Game::putHero(Hero hero, int x, int y) {
+    if (map.isEmpty()) throw Map::WrongIndexException("Need set map to put a Hero");
+    {
+        if (this->hero.h != nullptr) throw AlreadyHasHeroException("Game already has Hero");
+        {
+            if (map.get(x, y) == Map::type::Free)
+            {
+                this->hero.h = new Hero(hero);
+                this->hero.row = x;
+                this->hero.col = y;
+                hasUnits = true;
+            }
+            else
+                throw OccupiedException("Coordinate occupied");
+        }
+    }
 }
 
 void Game::putMonster(Monster monster, int x, int y){
-//TODO:Ha meg nincs terkep beallitva akkor Map::WrongIndexException   
-    if (map.get(x,y)== Map::type::Free){
-        Mstr monsterpoint  = {monster,x,y};
-        monsters.push_back(monsterpoint);
-        hasUnits=true;
+    if (map.isEmpty()) throw Map::WrongIndexException("Need set map to put a Hero");
+    {
+        if (map.get(x, y) == Map::type::Free) {
+            Mstr monsterpoint = { monster,x,y };
+            monsters.push_back(monsterpoint);
+            hasUnits = true;
+        }
+        else
+            throw OccupiedException("Coordinate occupied");
     }
-    else 
-        throw OccupiedException("Coordinate occupied");
-    
     
     
 }
@@ -77,6 +79,6 @@ void Game::run(){
         }
         
     }
-    else throw OccupiedException("Game couldn't initialized! Try again");
+    else throw NotInitializedException("Game couldn't initialized! Try again");
     
 }
