@@ -19,10 +19,19 @@ Map::type Map::get( unsigned int x,  unsigned int y) const{
     else return Map::type::Wall;
     
 }
-int Map::getHeight(){
+int Map::getHeight() const{
     return map.size();
     
 }
 int Map::getWidth(int line) const {
     return map[line].length();
+}
+
+int Map::getMaxWidth() const{
+    int max = 0;
+    for (auto a : map)
+    {
+        if (a.length() > max) max = a.length();
+    }
+    return max;
 }
