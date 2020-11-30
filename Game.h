@@ -28,10 +28,11 @@ private:
     Hr hero;
     bool hasUnits; 
     bool hasMap;
+    bool running;
 
 public:
-    Game() : map(Map()), hasUnits(false), hasMap(false), hero(){};
-    Game(std::string mapfilename) : map(Map(mapfilename)), hasUnits(false), hasMap(true){};
+    Game() : map(Map()), hasUnits(false), hasMap(false), running(false), hero() {};
+    Game(std::string mapfilename) : map(Map(mapfilename)), hasUnits(false), hasMap(true), running(false) {};
     ~Game();
 
     void run(); ///Game run (start)
@@ -60,6 +61,11 @@ public:
     class OccupiedException : public std::runtime_error
     {
     public:
-        OccupiedException(const std::string &errMsg) : std::runtime_error(errMsg) {}
+        OccupiedException(const std::string& errMsg) : std::runtime_error(errMsg) {}
+    };
+    class GameAlreadyStartedException : public std::runtime_error
+    {
+    public:
+        GameAlreadyStartedException(const std::string& errMsg) : std::runtime_error(errMsg) {}
     };
 };

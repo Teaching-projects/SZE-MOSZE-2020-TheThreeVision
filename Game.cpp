@@ -7,18 +7,22 @@ using namespace std;
 void Game::setMap(Map NewMap){
     if (hasUnits)
     {
-        map = NewMap;
-        if (!hasMap) hasMap = true;
-    }else{
-        throw AlreadyHasUnitsException("The game already has Units, you cant add a new Map!");
+        if (!running){
+            map = NewMap;
+            if (!hasMap) hasMap = true;
+        }else 
+            throw GameAlreadyStartedException("Game already started, you cant set a new Map!");
+       
+    }else {
+        throw AlreadyHasUnitsException("The game already has Units, you cant set a new Map!");
     }
     
 }
 
 void Game::putHero(Hero hero, int x, int y) {
-    if (map.isEmpty()) throw Map::WrongIndexException("Need set map to put a Hero");
+    if (map.isEmpty()) 
     {
-        if (this->hero.h != nullptr) throw AlreadyHasHeroException("Game already has Hero");
+        if (this->hero.h != nullptr) 
         {
             if (map.get(x, y) == Map::type::Free)
             {
@@ -29,12 +33,12 @@ void Game::putHero(Hero hero, int x, int y) {
             }
             else
                 throw OccupiedException("Coordinate occupied");
-        }
-    }
+        }else{ throw AlreadyHasHeroException("Game already has Hero"); }
+    }else{ throw Map::WrongIndexException("Need set map to put a Hero"); }
 }
 
 void Game::putMonster(Monster monster, int x, int y){
-    if (map.isEmpty()) throw Map::WrongIndexException("Need set map to put a Hero");
+    if (map.isEmpty()) 
     {
         if (map.get(x, y) == Map::type::Free) {
             Mstr monsterpoint = { monster,x,y };
@@ -43,6 +47,9 @@ void Game::putMonster(Monster monster, int x, int y){
         }
         else
             throw OccupiedException("Coordinate occupied");
+    }
+    else {
+        throw Map::WrongIndexException("Need set map to put a Hero");
     }
     
     
@@ -57,30 +64,40 @@ void Game::moveHero(const std::string& direction){
 
 
 
-void Game::run(){
-    
-    if (hasUnits && !monsters.empty() && hasMap)
+void Game::run() {
+    running = true;
+    if (hasUnits && !monsters.empty() && hasMap) 
     {
-        std::string moveHero="";
+        std::string moveHero = "";
         std::list<Mstr>::iterator monster = monsters.begin();
         while (hero.h->isAlive() && !monsters.empty())
         {
-            if (hero.h->isAlive())
+
+            if (hero.row == mm.row && hero.col == mm.col)
             {
-                if (hero.row==mm.row && hero.col==mm.col)
-                {
-                    cout<<hero.h->getName() <<"("<<hero.h->getLevel()<<endl;
-                    hero.h->fightTilDeath(monster->m);
-                }
-                if(!monster->m.isAlive()) monsters.erase(monster);
-                else monster++;
+                cout << hero.h->getName() << "(" << hero.h->getLevel() << endl;
+                hero.h->fightTilDeath(monster->m);
             }
-            
+            if (!monster->m.isAlive()) monsters.erase(monster);
+            //léptet
+            else monster++;
+
         }
-        
+        //ha a hero nyert
+        if (hero.h->isAlive()) {
+            cout << hero.h->getName() << "cleared the map.";
+        }
+        else {//ha meghalt
+
+        }
+        //? minden lépés után kiírodik a pálya output ultra hosszu lesz azt is ellenőrízni kell vagy az out tesztre vami egyszerü mintát kéne csinálni pl másik scanario v nem tom 
+        //késöb valszeg ezt orvsolja a marked map (belép a scanario fájlok helyet)
+
     }
-    else throw NotInitializedException("Game couldn't initialized! Try again");
-    
+    else {
+        throw NotInitializedException("Game couldn't initialized! Try again");
+    }
+
 }
 
 void Game::printMap(){
