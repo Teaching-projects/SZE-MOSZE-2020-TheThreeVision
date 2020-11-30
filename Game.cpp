@@ -17,7 +17,7 @@ void Game::setMap(Map NewMap){
 
 void Game::putHero(Hero hero, int x, int y){
     
-if (this->hero.h != nullptr) throw AlreadyHasUnitsException("Game already has Hero");
+if (this->hero.h != nullptr) throw AlreadyHasHeroException("Game already has Hero");
 {
    if (map.get(x,y)== Map::type::Free)
    {

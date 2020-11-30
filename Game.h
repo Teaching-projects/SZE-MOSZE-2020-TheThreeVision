@@ -38,7 +38,12 @@ public:
     void putHero(Hero hero, int x, int y);
     void moveHero(const std::string &direction);
     void putMonster(Monster monster, int x, int y);
-
+    
+    class AlreadyHasHeroException : public std::runtime_error
+    {
+    public:
+        AlreadyHasHeroException(const std::string& msg) : std::runtime_error(msg) {}
+    };
     class AlreadyHasUnitsException : public std::runtime_error
     {
     public:
