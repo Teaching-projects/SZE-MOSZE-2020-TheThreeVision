@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['hero_46',['Hero',['../classHero.html',1,'']]],
-  ['hr_47',['Hr',['../structHr.html',1,'']]]
+  ['hero_47',['Hero',['../classHero.html',1,'']]],
+  ['hr_48',['Hr',['../structHr.html',1,'']]]
 ];
