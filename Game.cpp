@@ -47,14 +47,14 @@ void Game::putMonster(Monster monster, int x, int y){
     
     
 }
-//future possible feature updates 
-/*void Game::moveHero(const std::string& direction){
+
+void Game::moveHero(const std::string& direction){
     if (direction =="east") hero.row++;
     if (direction =="west") hero.row--;
     if (direction =="north") hero.col--;
     if (direction =="south") hero.col++;
 }
-*/
+
 
 
 void Game::run(){
