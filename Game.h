@@ -42,6 +42,11 @@ public:
     void moveHero(const std::string &direction); ///Moving the hero
     void putMonster(Monster monster, int x, int y); ///Put hero
 
+    class InvalidMove : public std::runtime_error
+    {
+    public:
+        InvalidMove(const std::string& msg) : std::runtime_error(msg) {}
+    };
     class NotInitializedException : public std::runtime_error
     {
     public:

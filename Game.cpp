@@ -56,43 +56,62 @@ void Game::putMonster(Monster monster, int x, int y){
 }
 
 void Game::moveHero(const std::string& direction){
-    if (direction =="east") hero.row++;
-    if (direction =="west") hero.row--;
-    if (direction =="north") hero.col--;
-    if (direction =="south") hero.col++;
+    int x = hero.row;
+    int y = hero.col;
+    bool goodcommand = true;
+    if (direction =="east") x++;
+    else if (direction =="west") x--;
+    else if (direction =="north") y--;
+    else if (direction =="south") y++;
+    else { goodcommand = false; throw InvalidMove("Invalid move, you can only use these movement commands: [east,west,north,south]"); }
+    if (goodcommand) {
+        if (map.get(x, y) == Map::type::Free)
+        {
+            this->hero.row = x;
+            this->hero.col = y;
+        }
+        else { throw InvalidMove("Invalid move, you can only enter a free space"); }
+    }
+   
 }
 
 
 
 void Game::run() {
     running = true;
+    
     if (hasUnits && !monsters.empty() && hasMap) 
     {
-        std::string moveHero = "";
-        std::list<Mstr>::iterator monster = monsters.begin();
-        while (hero.h->isAlive() && !monsters.empty())
-        {
-
-            if (hero.row == mm.row && hero.col == mm.col)
+        //hero try to clear the map
+        while (hero.h->isAlive()) {
+            //move
+            this->printMap();
+            std::string heroMoveDirection = "";
+            cin >> heroMoveDirection;
+            moveHero(heroMoveDirection);
+            std::list<Mstr>::iterator monster = monsters.begin();
+            //hero try to clear a point of the map
+            while (hero.h->isAlive() && monster != monsters.end())
             {
-                cout << hero.h->getName() << "(" << hero.h->getLevel() << endl;
-                hero.h->fightTilDeath(monster->m);
-            }
-            if (!monster->m.isAlive()) monsters.erase(monster);
-            //léptet
-            else monster++;
+                if (hero.row == mm.row && hero.col == mm.col)
+                {
+                    cout << hero.h->getName() << "(" << hero.h->getLevel() << endl;
+                    hero.h->fightTilDeath(monster->m);
+                }
+                if (!monster->m.isAlive()) monsters.erase(monster);
 
+                //next monster
+                monster++;
+
+            }
         }
-        //ha a hero nyert
         if (hero.h->isAlive()) {
             cout << hero.h->getName() << "cleared the map.";
         }
-        else {//ha meghalt
-
+        else {
+            cout << "The hero died.";
         }
-        //? minden lépés után kiírodik a pálya output ultra hosszu lesz azt is ellenőrízni kell vagy az out tesztre vami egyszerü mintát kéne csinálni pl másik scanario v nem tom 
-        //késöb valszeg ezt orvsolja a marked map (belép a scanario fájlok helyet)
-
+       
     }
     else {
         throw NotInitializedException("Game couldn't initialized! Try again");
