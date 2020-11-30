@@ -17,8 +17,9 @@ public:
     Map(){}
 
     ///Map méretei
-    int getHeight();
-    int getWidth(int line) const;    
+    int getHeight() const;
+    int getWidth(int line) const;
+    int getMaxWidth() const;
     /// Függvény ami visszaadja az x,y koordinátán lévő elemet.    
     Map::type get( unsigned int x, unsigned int y) const;
     bool isEmpty(){
