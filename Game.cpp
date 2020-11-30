@@ -88,13 +88,21 @@ void Game::printMap(){
     {
         for (int x = 0; x < map.getWidth(y); x++)
         {
-            if (map.get(x,y) ==map.type::Wall) std::cout << "██"; 
-            {
-                
+            if (map.get(x,y) == map.type::Wall) {
+                std::cout << "██";
+            }else if(hero.row == x && hero.col == y){
+                std::cout << "┣┫";
+            }else{
+                int count = 0;
+                for (auto a : monsters)
+                {
+                    if ((a.row == x && a.col == y) && a.m.isAlive()) count++;
+                }
+                if (count == 1) std::cout << "M░";
+                else if (count > 1) std::cout << "MM";
+                else std::cout << "░░";
             }
-            
         }
-        
+        std::cout << std::endl;
     }
-    
 }
