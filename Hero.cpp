@@ -89,7 +89,7 @@ Hero Hero::parse(const std::string toParse)
     return Hero(
         Data.get<std::string>("name"),
         Data.get<int>("points"),
-        damage(Data.get<int>("damage"), Data.get<int>("magical-damage") ),
+        damage(Data.get<int>("damage"), Data.get<int>("\"magical-damage\"") ),
         Data.get<double>("defense"),
         Data.get<double>("cooldown"),        
         Data.get<double>("experience_per_level"),
