@@ -87,7 +87,7 @@ Monster Monster::parse(const std::string toParse) {
     return Monster(
         Data.get<std::string>("name"),
         Data.get<int>("points"),
-        damage(Data.get<int>("damage"), Data.get<int>("magical-damage")),
+        damage(Data.get<int>("damage"), Data.get<int>("\"magical-damage\"")),
         Data.get<double>("defense"),
         Data.get<double>("cooldown")
     );
