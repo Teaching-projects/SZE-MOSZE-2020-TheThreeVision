@@ -4,6 +4,8 @@
 #include "Hero.h"
 #include "Monster.h"
 
+///TO DO beolvasáskor ellenőrizni hogy minden sor egyforma e
+
 struct Mstr
 {
     Monster m;

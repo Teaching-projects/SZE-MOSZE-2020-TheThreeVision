@@ -19,3 +19,10 @@ Map::type Map::get( unsigned int x,  unsigned int y) const{
     else return Map::type::Wall;
     
 }
+int Map::getHeight(){
+    return map.size();
+    
+}
+int Map::getWidth(int line) const {
+    return map[line].length();
+}
