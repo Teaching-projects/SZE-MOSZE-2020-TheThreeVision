@@ -20,7 +20,7 @@ void Game::setMap(Map NewMap){
 }
 
 void Game::putHero(Hero hero, int x, int y) {
-    if (map.isEmpty()) 
+    if (!map.isEmpty()) 
     {
         if (this->hero.h != nullptr) 
         {
@@ -31,14 +31,15 @@ void Game::putHero(Hero hero, int x, int y) {
                 this->hero.col = y;
                 hasUnits = true;
             }
-            else
-                throw OccupiedException("Coordinate occupied");
+            else{
+                throw OccupiedException("Coordinate occupied.");
+            }
         }else{ throw AlreadyHasHeroException("Game already has Hero"); }
     }else{ throw Map::WrongIndexException("Need set map to put a Hero"); }
 }
 
 void Game::putMonster(Monster monster, int x, int y){
-    if (map.isEmpty()) 
+    if (!map.isEmpty()) 
     {
         if (map.get(x, y) == Map::type::Free) {
             Mstr monsterpoint = { monster,x,y };
@@ -46,10 +47,10 @@ void Game::putMonster(Monster monster, int x, int y){
             hasUnits = true;
         }
         else
-            throw OccupiedException("Coordinate occupied");
+            throw OccupiedException("Coordinate occupied..");
     }
     else {
-        throw Map::WrongIndexException("Need set map to put a Hero");
+        throw Map::WrongIndexException("Need set map to put a Monster");
     }
     
     

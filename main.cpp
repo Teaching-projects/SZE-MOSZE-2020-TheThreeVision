@@ -52,11 +52,11 @@ int main(int argc, char** argv){
         for (const auto& monster_file : monster_files)
             monsters.push_back(Monster::parse(monster_file));        
         
-        Game game = Game("map_example.txt");
+        Game game = Game("Units/map_example.txt");
         game.putHero(hero,1,1);
         for (const auto& m : monsters)
         {
-            game.putMonster(m, 2,2);
+            game.putMonster(m, 1,2);
         }
         game.run();
         

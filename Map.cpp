@@ -16,7 +16,7 @@ Map::Map(const std::string& Filename){
 Map::type Map::get( unsigned int x,  unsigned int y) const{
     if (y >= map.size() || (x >= map[y].length() && map[y].length() > getMaxWidth())){
     throw WrongIndexException("Given coordinate is out of range!");
-    }else return Map::type::Wall;
+    }
     if(map[y][x] == ' ') return Map::type::Free;
     else return Map::type::Wall;
     

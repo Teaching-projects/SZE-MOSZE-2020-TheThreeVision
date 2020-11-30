@@ -126,7 +126,6 @@ std::map<std::string, std::variant<std::string, double, int>> JSON::ParseJsonStr
         {
             std::string data = FindData(additionals[0], additionals[i]);
             if((data != "" && isdigit(data[0]) )&& additionals[i] == "magical-damage_bonus_per_level" or additionals[i] == "damage_bonus_per_level"){
-                std::cout << "itt vagyk" << std::endl;
                 Map.insert(std::make_pair(additionals[i],std::stoi(data)));
             }else if (data != "" && isdigit(data[0]))
             {
@@ -172,7 +171,6 @@ JSON JSON::ParseJsonFilename(std::string FilenameToParse){
 }
 
 std::string JSON::FindData(const std::string& StringToParse, const std::string& StringToFind){
-    std::cout << StringToFind << std::endl;
     std::string data = "";
     std::string toFind = "";
     if (StringToFind[0] != '"')
@@ -210,7 +208,6 @@ std::string JSON::FindData(const std::string& StringToParse, const std::string& 
                 } while (isdigit(StringToParse[findWord]) or StringToParse[findWord] == '.');
             }
         }
-        std::cout << "-" << data << "-" << std::endl;
         return data;
     }else{
         throw std::runtime_error("Bad input data.");
