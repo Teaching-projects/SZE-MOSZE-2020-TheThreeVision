@@ -2,7 +2,7 @@
 #include <list>
 #include "Map.h"
 #include "Hero.h"
-#include "Monster.h"
+//#include "Monster.h"
 
 ///TO DO beolvasáskor ellenőrizni hogy minden sor egyforma e
 
@@ -11,7 +11,7 @@ struct Mstr
     Monster m;
     int col;
     int row;
-} mm;
+};
 
 struct Hr
 {
@@ -33,7 +33,6 @@ private:
 public:
     Game() : map(Map()), hasUnits(false), hasMap(false), running(false), hero() {};
     Game(std::string mapfilename) : map(Map(mapfilename)), hasUnits(false), hasMap(true), running(false) {};
-    ~Game();
 
     void run(); ///Game run (start)
     void setMap(Map NewMap); /// Set the map

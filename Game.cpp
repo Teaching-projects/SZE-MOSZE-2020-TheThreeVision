@@ -93,7 +93,7 @@ void Game::run() {
             //hero try to clear a point of the map
             while (hero.h->isAlive() && monster != monsters.end())
             {
-                if (hero.row == mm.row && hero.col == mm.col)
+                if (hero.row == monster->row && hero.col == monster->col)
                 {
                     cout << hero.h->getName() << "(" << hero.h->getLevel() << endl;
                     hero.h->fightTilDeath(monster->m);
