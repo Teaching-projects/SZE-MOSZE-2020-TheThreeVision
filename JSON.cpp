@@ -117,8 +117,8 @@ std::map<std::string, std::variant<std::string, double, int>> JSON::ParseJsonStr
         }
     }
     
-    std::string additionals[11] = {StringToParse, "lore", "\"race\"", "experience_per_level","health_point_bonus_per_level","damage_bonus_per_level","cooldown_multiplier_per_level","additional_info", "defense_bonus_per_level", "defense", "magical-damage"};
-    for (int i = 1; i < 11; i++)
+    std::string additionals[12] = {StringToParse, "lore", "\"race\"", "experience_per_level","health_point_bonus_per_level","damage_bonus_per_level","cooldown_multiplier_per_level","additional_info", "defense_bonus_per_level", "defense", "magical-damage", "magical-damage_bonus_per_level"};
+    for (int i = 1; i < 12; i++)
     {
         if (additionals[0].find(additionals[i]) != std::string::npos)
         {
