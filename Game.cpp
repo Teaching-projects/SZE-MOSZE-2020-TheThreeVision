@@ -82,3 +82,7 @@ void Game::run(){
     else throw NotInitializedException("Game couldn't initialized! Try again");
     
 }
+
+void Game::printMap(){
+    
+}

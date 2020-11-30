@@ -32,12 +32,12 @@ public:
     Game(std::string mapfilename) : map(Map(mapfilename)), hasUnits(false), hasMap(true){};
     ~Game();
 
-    void run();
-    void setMap(Map NewMap); // Set the map
-
-    void putHero(Hero hero, int x, int y);
-    void moveHero(const std::string &direction);
-    void putMonster(Monster monster, int x, int y);
+    void run(); ///Game run (start)
+    void setMap(Map NewMap); /// Set the map
+    void printMap(); ///Print the map
+    void putHero(Hero hero, int x, int y); /// Put hero
+    void moveHero(const std::string &direction); ///Moving the hero
+    void putMonster(Monster monster, int x, int y); ///Put hero
 
     class NotInitializedException : public std::runtime_error
     {
