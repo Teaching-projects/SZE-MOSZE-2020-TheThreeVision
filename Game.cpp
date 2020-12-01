@@ -84,30 +84,39 @@ void Game::run() {
     if (hasUnits && !monsters.empty() && hasMap) 
     {
         //hero try to clear the map
-        while (hero.h->isAlive()) {
+        while (hero.h->isAlive() && !monsters.empty()) {
             //move
             this->printMap();
             std::string heroMoveDirection = "";
             cin >> heroMoveDirection;
-            moveHero(heroMoveDirection);
-            std::list<Mstr>::iterator monster = monsters.begin();
-            //hero try to clear a point of the map
-            while (hero.h->isAlive() && monster != monsters.end())
-            {
-                if (hero.row == monster->row && hero.col == monster->col)
+            try {
+                moveHero(heroMoveDirection);
+
+                std::list<Mstr>::iterator monster = monsters.begin();
+                //hero try to clear a point of the map
+                while (hero.h->isAlive() && monster != monsters.end())
                 {
-                    cout << hero.h->getName() << "(" << hero.h->getLevel()<<") vs "<<monster->m.getName() << endl;
-                    hero.h->fightTilDeath(monster->m);
+                    if (hero.row == monster->row && hero.col == monster->col)
+                    {
+                        cout << hero.h->getName() << "(" << hero.h->getLevel() << ") vs " << monster->m.getName() << endl;
+                        hero.h->fightTilDeath(monster->m);
+                    }
+                    if (!monster->m.isAlive()) monsters.erase(monster++);
+                    else monster++;
+
                 }
-                if (!monster->m.isAlive()) monsters.erase(monster);
-
-                //next monster
-                monster++;
-
+            }
+            catch (std::runtime_error& e) {
+                cout << e.what()<<endl;
             }
         }
         if (hero.h->isAlive()) {
-            cout << hero.h->getName() << "cleared the map.";
+             cout <<endl<< hero.h->getName() << " cleared the map.\n";
+             cout << "  LVL: " << hero.h->getLevel() << std::endl
+                  << "   HP: "<<hero.h->getHealthPoints()<<"/"<<hero.h->getMaxHealthPoints()<<std::endl
+                  << "  DMG: "<<hero.h->getDamage()<<std::endl
+                  << "  ACD: "<<hero.h->getAttackCoolDown()<<std::endl
+                  ;
         }
         else {
             cout << "The hero died.";
