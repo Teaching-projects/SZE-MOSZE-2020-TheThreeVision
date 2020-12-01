@@ -10,7 +10,7 @@ VJSONS := Units/scenario1.json
 SUBDIR := test
 CMAKEO := CMakeLists.txt
 
-all_tests: linking static_code_analysis memory_leak_check io_diff_check
+all_tests: linking static_code_analysis memory_leak_check 
 
 linking: $(OBJS)
 	$(CC) $(CFLAGS) -o game $(OBJS)
