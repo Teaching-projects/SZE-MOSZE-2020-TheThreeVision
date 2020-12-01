@@ -53,7 +53,15 @@ int main(int argc, char** argv){
             monsters.push_back(Monster::parse(monster_file));        
         
         Game game = Game("Units/map_example.txt");
-        game.putHero(hero,1,1);
+        try
+        {
+            game.putHero(hero,1,1);
+        }
+        catch (std::runtime_error)
+        {
+            std::cout << "error";
+        }
+        
         for (const auto& m : monsters)
         {
             game.putMonster(m, 1,2);
