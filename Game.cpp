@@ -85,14 +85,30 @@ void Game::run() {
     {
         //hero try to clear the map
         while (hero.h->isAlive() && !monsters.empty()) {
-            //move
-            this->printMap();
             std::string heroMoveDirection = "";
-            cin >> heroMoveDirection;
-            try {
-                moveHero(heroMoveDirection);
+            std::list<Mstr>::iterator monster = monsters.begin();
+            bool findMonsterOnHero = false;
 
-                std::list<Mstr>::iterator monster = monsters.begin();
+
+            while (monster != monsters.end()&&!findMonsterOnHero){
+                if (hero.row == monster->row && hero.col == monster->col) {
+                    findMonsterOnHero = true;
+                }
+                monster++;
+            }
+            try {
+                if (!findMonsterOnHero)
+                {
+                    this->printMap();
+                    cin >> heroMoveDirection;
+                    moveHero(heroMoveDirection);
+                }
+                else {
+                    this->printMap();
+                }
+            
+
+                monster = monsters.begin();
                 //hero try to clear a point of the map
                 while (hero.h->isAlive() && monster != monsters.end())
                 {
