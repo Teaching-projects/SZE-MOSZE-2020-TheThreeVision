@@ -59,7 +59,7 @@ int main(int argc, char** argv){
         
             for (const auto& m : monsters)
             {
-                game.putMonster(m, 1,2);
+                game.putMonster(m, 1,1);
             }
             game.run();
         }
