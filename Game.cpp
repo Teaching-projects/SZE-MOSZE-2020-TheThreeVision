@@ -123,7 +123,7 @@ void Game::run() {
 void Game::printMap(){
     for (int y = 0; y < map.getHeight(); y++)
     {
-        for (int x = 0; x < map.getWidth(y); x++)
+        for (int x = 0; x < map.getMaxWidth(); x++)
         {
             if (map.get(x,y) == map.type::Wall) {
                 std::cout << "██";
