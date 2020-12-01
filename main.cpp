@@ -56,18 +56,17 @@ int main(int argc, char** argv){
         try
         {
             game.putHero(hero,1,1);
+        
+            for (const auto& m : monsters)
+            {
+                game.putMonster(m, 1,2);
+            }
+            game.run();
         }
         catch (std::runtime_error)
         {
             std::cout << "error";
         }
-        
-        for (const auto& m : monsters)
-        {
-            game.putMonster(m, 1,2);
-        }
-        game.run();
-        
         /*while (hero.isAlive() && !monsters.empty()) {
             std::cout 
                 << hero.getName() << "(" << hero.getLevel()<<")"
