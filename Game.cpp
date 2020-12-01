@@ -96,7 +96,7 @@ void Game::run() {
             {
                 if (hero.row == monster->row && hero.col == monster->col)
                 {
-                    cout << hero.h->getName() << "(" << hero.h->getLevel() << endl;
+                    cout << hero.h->getName() << "(" << hero.h->getLevel()<<") vs "<<monster->m.getName() << endl;
                     hero.h->fightTilDeath(monster->m);
                 }
                 if (!monster->m.isAlive()) monsters.erase(monster);
