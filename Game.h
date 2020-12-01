@@ -18,6 +18,7 @@ struct Hr
     Hero *h;
     int col;
     int row;
+    ~Hr() { delete h; }
 };
 
 class Game
@@ -33,7 +34,7 @@ private:
 public:
     Game() : map(Map()), hasUnits(false), hasMap(false), running(false), hero() {};
     Game(std::string mapfilename) : map(Map(mapfilename)), hasUnits(false), hasMap(true), running(false), hero() {};
-
+    
     void run(); ///Game run (start)
     void setMap(Map NewMap); /// Set the map
     void printMap(); ///Print the map
