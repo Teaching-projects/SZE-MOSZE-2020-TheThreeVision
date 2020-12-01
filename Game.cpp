@@ -22,7 +22,7 @@ void Game::setMap(Map NewMap){
 void Game::putHero(Hero hero, int x, int y) {
     if (!map.isEmpty()) 
     {
-        if (this->hero.h != nullptr) 
+        if (this->hero.h == nullptr) 
         {
             if (map.get(x, y) == Map::type::Free)
             {
