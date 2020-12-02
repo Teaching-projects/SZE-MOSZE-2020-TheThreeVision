@@ -235,12 +235,12 @@ PreparedGame::PreparedGame(std::string filename)
         }else if(i == 3){
             parseHelp += '3';
         }
-        std::vector<std::pair<int, int>> monsterPos = map.getMonsterPosition('0' + i);
+        std::vector<std::pair<int, int>> monsterPos = map.getMonsterPosition(parseHelp[parseHelp.length()-1]);
 
-        for (int j = 0; j < monsterPos.size(); j++)
+        for (unsigned int j = 0; j < monsterPos.size(); j++)
         {
             Monster m = Monster::parse(Units.get<std::string>(parseHelp));
-            putMonster(m, monsterPos[i].first, monsterPos[i].second);
+            putMonster(m, monsterPos[j].first, monsterPos[j].second);
         }
     }
 }

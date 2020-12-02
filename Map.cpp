@@ -1,5 +1,6 @@
 #include "Map.h"
 #include <fstream>
+#include <iostream>
 
 Map::Map(const std::string &Filename)
 {
@@ -66,7 +67,7 @@ MarkedMap::MarkedMap(const std::string &FileName)
         throw std::runtime_error("Game file does not exist:" + FileName);
     MapFile.close();
 }
-std::vector<std::pair<int, int>> MarkedMap::getMonsterPosition(char c) const
+std::vector<std::pair<int, int>> MarkedMap::getMonsterPosition(char c)
 {
     std::vector<std::pair<int, int>> MonsterPosition;
     for (int i = 0; i < (int)map.size(); i++)
@@ -75,6 +76,7 @@ std::vector<std::pair<int, int>> MarkedMap::getMonsterPosition(char c) const
         {
             if (map[i][j] == c)
             {
+                map[i][j] = ' ';
                 MonsterPosition.push_back(std::make_pair(j, i));
             }
         }
