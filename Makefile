@@ -38,7 +38,7 @@ static_code_analysis:
 	$(CH) $(CPPOBJS) $(CHAFLAGS)
 
 memory_leak_check: linking
-	valgrind $(VFLAGS) ./game $(VJSONS)
+	valgrind $(VFLAGS) ./game 
 
 io_diff_check:
 	python3 testrun.py
