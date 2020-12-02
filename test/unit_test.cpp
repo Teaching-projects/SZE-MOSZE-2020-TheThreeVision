@@ -85,9 +85,9 @@ TEST(Tests, scenario1)
 {
 	JSON scenario = JSON::parseFromFile("Units/preparedgame.txt");
     ASSERT_TRUE(scenario.count("hero") == true);
-    ASSERT_TRUE(scenario.count("monsters-1") == true);
-    ASSERT_TRUE(scenario.count("monsters-2") == true);
-    ASSERT_TRUE(scenario.count("monsters-3") == true);
+    ASSERT_TRUE(scenario.count("monster-1") == true);
+    ASSERT_TRUE(scenario.count("monster-2") == true);
+    ASSERT_TRUE(scenario.count("monster-3") == true);
     ASSERT_TRUE(scenario.count("map") == true);
     std::string hero_name = scenario.get<std::string>("hero");
     ASSERT_TRUE(hero_name == "Dark_Wanderer.json");
