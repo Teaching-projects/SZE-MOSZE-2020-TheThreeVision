@@ -25,7 +25,7 @@ JSON JSON::parseFromFile(const std::string& filePath){
 JSON JSON::parseScenario(std::string& JSONstring){
     std::map<std::string, std::variant<std::string, double, int>> Map;
     bool toDelete = true;
-    int j = 0;
+    unsigned int j = 0;
     while (j < JSONstring.length())
     {
         if (JSONstring[j] == '"'){
@@ -60,7 +60,7 @@ JSON JSON::parseScenario(std::string& JSONstring){
 std::map<std::string, std::variant<std::string, double, int>> JSON::ParseJsonString(std::string StringToParse){
     std::map<std::string, std::variant<std::string, double, int>> Map;
     bool toDelete = true;
-    int j = 0;
+    unsigned int j = 0;
     while (j < StringToParse.length())
     {
         if (StringToParse[j] == '"'){
@@ -117,13 +117,17 @@ std::map<std::string, std::variant<std::string, double, int>> JSON::ParseJsonStr
         }
     }
     
-    std::string additionals[11] = {StringToParse, "lore", "\"race\"", "experience_per_level","health_point_bonus_per_level","damage_bonus_per_level","cooldown_multiplier_per_level","additional_info", "defense_bonus_per_level", "defense", "magical-damage"};
-    for (int i = 1; i < 11; i++)
+    std::string additionals[12] = {StringToParse, "lore", "\"race\"", "experience_per_level","health_point_bonus_per_level",
+        "damage_bonus_per_level","cooldown_multiplier_per_level","additional_info", "defense_bonus_per_level", "defense",
+         "\"magical-damage\"", "magical-damage_bonus_per_level"};
+    for (int i = 1; i < 12; i++)
     {
         if (additionals[0].find(additionals[i]) != std::string::npos)
         {
             std::string data = FindData(additionals[0], additionals[i]);
-            if (data != "" && isdigit(data[0]))
+            if((data != "" && isdigit(data[0]) )&& additionals[i] == "magical-damage_bonus_per_level" or additionals[i] == "damage_bonus_per_level"){
+                Map.insert(std::make_pair(additionals[i],std::stoi(data)));
+            }else if (data != "" && isdigit(data[0]))
             {
                 Map.insert(std::make_pair(additionals[i],std::stod(data)));
             }else if(data != "" && isalpha(data[0])){

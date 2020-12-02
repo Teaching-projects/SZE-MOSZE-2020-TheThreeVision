@@ -14,10 +14,18 @@ public:
 
     ///Map konstruktor a terkep beolvasásához
     Map(const std::string& Filename );  
-        
-    /// Függvény ami visszaadja az x,y koordinátán lévő elemet.    
-    Map::type get( int x,  int y) const;
+    Map(){}
 
+    ///Map méretei
+    int getHeight() const;
+    int getWidth(int line) const;
+    int getMaxWidth() const;
+    /// Függvény ami visszaadja az x,y koordinátán lévő elemet.    
+    Map::type get( unsigned int x, unsigned int y) const;
+    bool isEmpty(){
+        if (map.empty()) return true;
+        else return false;
+    }
     class WrongIndexException : public std::runtime_error{
     public:
         WrongIndexException(const std::string& errMsg) : std::runtime_error(errMsg){}
