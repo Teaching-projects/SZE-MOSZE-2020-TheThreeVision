@@ -43,6 +43,7 @@ class MarkedMap : public Map
 
 public:
     MarkedMap(const std::string &FileName);                        ///Fájlnak az elérési útvonala
+    MarkedMap(){}
     std::pair<int, int> getHeroPosition() const;                       ///Hero pozícióját adja vissza
     std::vector<std::pair<int, int>> getMonsterPosition(char c) const; ///Monster pozícióját adja vissza
 };

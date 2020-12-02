@@ -24,7 +24,7 @@ struct Hr
 class Game
 {
 private:
-    Map map;
+    MarkedMap map;
     std::list<Mstr> monsters;
     Hr hero;
     bool hasUnits; 
@@ -32,8 +32,8 @@ private:
     bool running;
 
 public:
-    Game() : map(Map()), hasUnits(false), hasMap(false), running(false), hero() {};
-    Game(std::string mapfilename) : map(Map(mapfilename)), hasUnits(false), hasMap(true), running(false), hero() {};
+    Game() : map(MarkedMap()), hasUnits(false), hasMap(false), running(false), hero() {};
+    Game(std::string mapfilename) : map(MarkedMap(mapfilename)), hasUnits(false), hasMap(true), running(false), hero() {};
     
     void run(); ///Game run (start)
     void setMap(Map NewMap); /// Set the map

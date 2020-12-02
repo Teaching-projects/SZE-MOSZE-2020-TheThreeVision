@@ -76,8 +76,6 @@ void Game::moveHero(const std::string& direction){
    
 }
 
-
-
 void Game::run() {
     running = true;
     

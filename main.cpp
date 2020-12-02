@@ -38,7 +38,7 @@ int main(int argc, char **argv)
         bad_exit(1);
     if (!std::filesystem::exists(argv[1]))
         bad_exit(2);
-    std::string map_file = "Units/map_example.txt";
+    std::string map_file = "Units/MarkedMap_Example.txt";
     if (!std::filesystem::exists(map_file))
         bad_exit(2);
     std::string hero_file;
