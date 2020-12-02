@@ -9,6 +9,7 @@ VFLAGS := --leak-check=full --error-exitcode=3
 VJSONS := Units/scenario1.json
 SUBDIR := test
 CMAKEO := CMakeLists.txt
+SUBDIR2 := Units
 
 all_tests: linking static_code_analysis memory_leak_check 
 
@@ -38,7 +39,7 @@ static_code_analysis:
 	$(CH) $(CPPOBJS) $(CHAFLAGS)
 
 memory_leak_check: linking
-	valgrind $(VFLAGS) cat $(SUBDIR)/preparedgame.txt | ./game 
+	valgrind $(VFLAGS) cat $(SUBDIR2)/preparedgame.txt | ./game 
 
 io_diff_check:
 	python3 testrun.py
