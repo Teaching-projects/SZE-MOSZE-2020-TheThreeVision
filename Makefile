@@ -10,7 +10,7 @@ VJSONS := Units/scenario1.json
 SUBDIR := test
 CMAKEO := CMakeLists.txt
 
-all_tests: linking  memory_leak_check
+all_tests: linking static_code_analysis memory_leak_check 
 
 linking: $(OBJS)
 	$(CC) $(CFLAGS) -o game $(OBJS)
@@ -38,7 +38,7 @@ static_code_analysis:
 	$(CH) $(CPPOBJS) $(CHAFLAGS)
 
 memory_leak_check: linking
-	valgrind $(VFLAGS) ./game 
+	valgrind $(VFLAGS) cat $(SUBDIR)/preparedgame.txt | ./game 
 
 io_diff_check:
 	python3 testrun.py
