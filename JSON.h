@@ -25,15 +25,6 @@ class JSON{
 private:
 	std::map<std::string, std::variant<std::string, double, int>> Data;
 	
-	/*
-	*\brief This method can parse a Scenario JSON.
-	*\note this method use the findData method
-	*\return return with a JSON
-	*\throw throw a "runtime_error" if something wrong
-	*/
-	static JSON parseScenario(std::string& JSONstring);
-	
-	
 	/**
 	* \brief This method reads a .json file and returns the keys and the attached data in a std::map.
 	* \return return with a std::map
@@ -44,6 +35,14 @@ private:
 
 
 public:
+	/*
+	*\brief This method can parse a Scenario JSON.
+	*\note this method use the findData method
+	*\return return with a JSON
+	*\throw throw a "runtime_error" if something wrong
+	*/
+	static JSON parseScenario(std::string& JSONstring);
+	
 	///this list stores the name of the monsters.
 	typedef std::list<std::variant<std::string, int,double>>list;	
 	/// JSON construct, what put the input parameters to the data member

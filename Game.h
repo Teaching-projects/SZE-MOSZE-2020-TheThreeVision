@@ -24,18 +24,18 @@ struct Hr
 class Game
 {
 protected:
-    MarkedMap map;
+    Map map;
     std::list<Mstr> monsters;
     Hr hero;
     bool hasUnits; 
     bool hasMap;
     bool running;
+public:
     void setMap(Map NewMap); /// Set the map
     void printMap(); ///Print the map
     void putHero(Hero hero, int x, int y); /// Put hero
     void moveHero(const std::string &direction); ///Moving the hero
     void putMonster(Monster monster, int x, int y); ///Put hero
-public:
     Game() : map(MarkedMap()), hasUnits(false), hasMap(false), running(false), hero() {};
     Game(std::string mapfilename) : map(MarkedMap(mapfilename)), hasUnits(false), hasMap(true), running(false), hero() {};
     void run(); ///Game run (start)
@@ -76,6 +76,6 @@ class PreparedGame : private Game{
 private:
     MarkedMap map;
 public:
-    PreparedGame(const std::string& filename);
+    PreparedGame(std::string filename);
     using Game::run;
 };

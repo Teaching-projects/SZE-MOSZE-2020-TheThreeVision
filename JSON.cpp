@@ -44,9 +44,9 @@ JSON JSON::parseScenario(std::string& JSONstring){
         }
     }
     
-    std::string array[] = {JSONstring, "hero", "monsters"};
+    std::string array[] = {JSONstring, "map", "hero", "monster-1", "monster-2", "monster-3"};
 
-    for (int i = 1; i < 3; i++)
+    for (int i = 1; i < 6; i++)
     {
         Map[array[i]] = JSON::FindData(array[0],array[i]);
     }
@@ -171,6 +171,8 @@ JSON JSON::ParseJsonFilename(std::string FilenameToParse){
 }
 
 std::string JSON::FindData(const std::string& StringToParse, const std::string& StringToFind){
+    //std::cout << StringToFind << std::endl;
+    //std::cout << StringToParse << std::endl;
     std::string data = "";
     std::string toFind = "";
     if (StringToFind[0] != '"')
@@ -210,6 +212,6 @@ std::string JSON::FindData(const std::string& StringToParse, const std::string& 
         }
         return data;
     }else{
-        throw std::runtime_error("Bad input data.");
+        throw std::runtime_error("Bad input data...");
     }
 }

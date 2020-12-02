@@ -34,14 +34,15 @@ void bad_exit(int exitcode)
 
 int main(int argc, char **argv)
 {
-    if (argc != 2)
+    /*if (argc != 2)
         bad_exit(1);
     if (!std::filesystem::exists(argv[1]))
+        bad_exit(2);*/
+    std::string prep_game = "Units/preparedgame.txt";
+    if (!std::filesystem::exists(prep_game))
         bad_exit(2);
-    std::string map_file = "Units/MarkedMap_Example.txt";
-    if (!std::filesystem::exists(map_file))
-        bad_exit(2);
-    std::string hero_file;
+    PreparedGame game = PreparedGame(prep_game);
+    /*std::string hero_file;
     std::list<std::string> monster_files;
 
     try
@@ -60,8 +61,8 @@ int main(int argc, char **argv)
     catch (const JSON::ParseException &e)
     {
         bad_exit(4);
-    }
-
+    }*/
+    /*
     try
     {
         Hero hero{Hero::parse(hero_file)};
@@ -104,7 +105,7 @@ int main(int argc, char **argv)
         catch (const Map::WrongIndexException &e)
         {
             bad_exit(10);
-        }
+        }*/
 
         try
         {
@@ -114,10 +115,10 @@ int main(int argc, char **argv)
         {
             std::cout << e.what();
         }
-    }
+    /*}
     catch (const JSON::ParseException &e)
     {
         bad_exit(4);
-    }
+    }*/
     return 0;
 }

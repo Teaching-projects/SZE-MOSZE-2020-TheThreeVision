@@ -3,26 +3,30 @@
 
 using namespace std;
 
-
-void Game::setMap(Map NewMap){
-    if (hasUnits)
+void Game::setMap(Map NewMap)
+{
+    if (!hasUnits)
     {
-        if (!running){
+        if (!running)
+        {
             map = NewMap;
-            if (!hasMap) hasMap = true;
-        }else 
+            if (!hasMap)
+                hasMap = true;
+        }
+        else
             throw GameAlreadyStartedException("Game already started, you cant set a new Map!");
-       
-    }else {
+    }
+    else
+    {
         throw AlreadyHasUnitsException("The game already has Units, you cant set a new Map!");
     }
-    
 }
 
-void Game::putHero(Hero hero, int x, int y) {
-    if (!map.isEmpty()) 
+void Game::putHero(Hero hero, int x, int y)
+{
+    if (!map.isEmpty())
     {
-        if (this->hero.h == nullptr) 
+        if (this->hero.h == nullptr)
         {
             if (map.get(x, y) == Map::type::Free)
             {
@@ -31,80 +35,106 @@ void Game::putHero(Hero hero, int x, int y) {
                 this->hero.col = y;
                 hasUnits = true;
             }
-            else{
+            else
+            {
                 throw OccupiedException("Coordinate occupied.");
             }
-        }else{ throw AlreadyHasHeroException("Game already has Hero"); }
-    }else{ throw Map::WrongIndexException("Need set map to put a Hero"); }
+        }
+        else
+        {
+            throw AlreadyHasHeroException("Game already has Hero");
+        }
+    }
+    else
+    {
+        throw Map::WrongIndexException("Need set map to put a Hero");
+    }
 }
 
-void Game::putMonster(Monster monster, int x, int y){
-    if (!map.isEmpty()) 
+void Game::putMonster(Monster monster, int x, int y)
+{
+    if (!map.isEmpty())
     {
-        if (map.get(x, y) == Map::type::Free) {
-            Mstr monsterpoint = { monster,x,y };
+        if (map.get(x, y) == Map::type::Free)
+        {
+            Mstr monsterpoint = {monster, x, y};
             monsters.push_back(monsterpoint);
             hasUnits = true;
         }
         else
             throw OccupiedException("Coordinate occupied..");
     }
-    else {
+    else
+    {
         throw Map::WrongIndexException("Need set map to put a Monster");
     }
-    
-    
 }
 
-void Game::moveHero(const std::string& direction){
+void Game::moveHero(const std::string &direction)
+{
     int x = hero.row;
     int y = hero.col;
     bool goodcommand = true;
-    if (direction =="east") x++;
-    else if (direction =="west") x--;
-    else if (direction =="north") y--;
-    else if (direction =="south") y++;
-    else { goodcommand = false; throw InvalidMove("Invalid move, you can only use these movement commands: [east,west,north,south]"); }
-    if (goodcommand) {
+    if (direction == "east")
+        x++;
+    else if (direction == "west")
+        x--;
+    else if (direction == "north")
+        y--;
+    else if (direction == "south")
+        y++;
+    else
+    {
+        goodcommand = false;
+        throw InvalidMove("Invalid move, you can only use these movement commands: [east,west,north,south]");
+    }
+    if (goodcommand)
+    {
         if (map.get(x, y) == Map::type::Free)
         {
             this->hero.row = x;
             this->hero.col = y;
         }
-        else { throw InvalidMove("Invalid move, you can only enter a free space"); }
+        else
+        {
+            throw InvalidMove("Invalid move, you can only enter a free space");
+        }
     }
-   
 }
 
-void Game::run() {
+void Game::run()
+{
     running = true;
-    
-    if (hasUnits && !monsters.empty() && hasMap) 
+
+    if (hasUnits && !monsters.empty() && hasMap)
     {
         //hero try to clear the map
-        while (hero.h->isAlive() && !monsters.empty()) {
+        while (hero.h->isAlive() && !monsters.empty())
+        {
             std::string heroMoveDirection = "";
             std::list<Mstr>::iterator monster = monsters.begin();
             bool findMonsterOnHero = false;
 
-
-            while (monster != monsters.end()&&!findMonsterOnHero){
-                if (hero.row == monster->row && hero.col == monster->col) {
+            while (monster != monsters.end() && !findMonsterOnHero)
+            {
+                if (hero.row == monster->row && hero.col == monster->col)
+                {
                     findMonsterOnHero = true;
                 }
                 monster++;
             }
-            try {
+            try
+            {
                 if (!findMonsterOnHero)
                 {
                     this->printMap();
                     cin >> heroMoveDirection;
                     moveHero(heroMoveDirection);
                 }
-                else {
+                else
+                {
                     this->printMap();
                 }
-            
 
                 monster = monsters.begin();
                 //hero try to clear a point of the map
@@ -115,55 +145,102 @@ void Game::run() {
                         cout << hero.h->getName() << "(" << hero.h->getLevel() << ") vs " << monster->m.getName() << endl;
                         hero.h->fightTilDeath(monster->m);
                     }
-                    if (!monster->m.isAlive()) monsters.erase(monster++);
-                    else monster++;
-
+                    if (!monster->m.isAlive())
+                        monsters.erase(monster++);
+                    else
+                        monster++;
                 }
             }
-            catch (std::runtime_error& e) {
-                cout << e.what()<<endl;
+            catch (std::runtime_error &e)
+            {
+                cout << e.what() << endl;
             }
         }
-        if (hero.h->isAlive()) {
-             cout <<endl<< hero.h->getName() << " cleared the map.\n";
-             cout << "  LVL: " << hero.h->getLevel() << std::endl
-                  << "   HP: "<<hero.h->getHealthPoints()<<"/"<<hero.h->getMaxHealthPoints()<<std::endl
-                  << "  DMG: "<<hero.h->getDamage()<<std::endl
-                  << "  ACD: "<<hero.h->getAttackCoolDown()<<std::endl
-                  ;
+        if (hero.h->isAlive())
+        {
+            cout << endl
+                 << hero.h->getName() << " cleared the map.\n";
+            cout << "  LVL: " << hero.h->getLevel() << std::endl
+                 << "   HP: " << hero.h->getHealthPoints() << "/" << hero.h->getMaxHealthPoints() << std::endl
+                 << "  DMG: " << hero.h->getDamage() << std::endl
+                 << "  ACD: " << hero.h->getAttackCoolDown() << std::endl;
         }
-        else {
+        else
+        {
             cout << "The hero died.";
         }
-       
     }
-    else {
+    else
+    {
         throw NotInitializedException("Game couldn't initialized! Try again");
     }
-
 }
 
-void Game::printMap(){
+void Game::printMap()
+{
     for (int y = 0; y < map.getHeight(); y++)
     {
         for (int x = 0; x < map.getMaxWidth(); x++)
         {
-            if (map.get(x,y) == map.type::Wall) {
+            if (map.get(x, y) == map.type::Wall)
+            {
                 std::cout << "██";
-            }else if(hero.row == x && hero.col == y){
+            }
+            else if (hero.row == x && hero.col == y)
+            {
                 std::cout << "┣┫";
-            }else{
+            }
+            else
+            {
                 int count = 0;
                 for (auto a : monsters)
                 {
-                    if ((a.row == x && a.col == y) && a.m.isAlive()) count++;
+                    if ((a.row == x && a.col == y) && a.m.isAlive())
+                        count++;
                 }
-                if (count == 1) std::cout << "M░";
-                else if (count > 1) std::cout << "MM";
-                else std::cout << "░░";
+                if (count == 1)
+                    std::cout << "M░";
+                else if (count > 1)
+                    std::cout << "MM";
+                else
+                    std::cout << "░░";
             }
         }
         std::cout << std::endl;
     }
 }
 
+PreparedGame::PreparedGame(std::string filename)
+{
+    hasUnits = false;
+    hasMap = false;
+    running = false;
+    JSON Units = JSON::parseFromFile(filename);
+    //lehetne checkolni jok e  unitok
+    std::string toOpen = "Units/" + Units.get<std::string>("map");
+    MarkedMap map(toOpen);
+    setMap(map);
+    std::pair<int, int> heroPos = map.getHeroPosition();
+    Hero h = Hero::parse(Units.get<std::string>("hero"));
+    putHero(h, heroPos.first, heroPos.second);
+
+    for (int i = 1; i <= 3; i++)
+    {
+        std::string parseHelp = "monster-";
+        if (i == 1)
+        {
+            parseHelp += '1';
+        }else if(i ==2){
+            parseHelp += '2';
+        }else if(i == 3){
+            parseHelp += '3';
+        }
+        std::vector<std::pair<int, int>> monsterPos = map.getMonsterPosition('0' + i);
+
+        for (int j = 0; j < monsterPos.size(); j++)
+        {
+            Monster m = Monster::parse(Units.get<std::string>(parseHelp));
+            putMonster(m, monsterPos[i].first, monsterPos[i].second);
+        }
+    }
+}
