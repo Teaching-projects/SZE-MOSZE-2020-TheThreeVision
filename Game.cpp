@@ -56,8 +56,8 @@ void Game::putMonster(Monster monster, int x, int y)
     if (!map.isEmpty())
     {
         if (map.get(x, y) == Map::type::Free)
-        {
-            Mstr monsterpoint = {monster, x, y};
+        {   
+            Mstr monsterpoint = {monster, y, x};
             monsters.push_back(monsterpoint);
             hasUnits = true;
         }

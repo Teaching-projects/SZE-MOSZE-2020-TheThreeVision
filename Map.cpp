@@ -22,12 +22,12 @@ Map::type Map::get(unsigned int x, unsigned int y) const
     {
         throw WrongIndexException("Given coordinate is out of range!");
     }
-    else if (x > map[y].length())
+    else if (x > map[y].length()-1)
     {
         return Map::type::Wall;
     }
 
-    if (map[y][x] != '#' )
+    if (map[y][x] != '#')
         return Map::type::Free;
     else
         return Map::type::Wall;
@@ -67,7 +67,7 @@ MarkedMap::MarkedMap(const std::string &FileName)
         throw std::runtime_error("Game file does not exist:" + FileName);
     MapFile.close();
 }
-std::vector<std::pair<int, int>> MarkedMap::getMonsterPosition(char c)
+std::vector<std::pair<int, int>> MarkedMap::getMonsterPosition(char c) const
 {
     std::vector<std::pair<int, int>> MonsterPosition;
     for (int i = 0; i < (int)map.size(); i++)
@@ -76,7 +76,6 @@ std::vector<std::pair<int, int>> MarkedMap::getMonsterPosition(char c)
         {
             if (map[i][j] == c)
             {
-                map[i][j] = ' ';
                 MonsterPosition.push_back(std::make_pair(j, i));
             }
         }
