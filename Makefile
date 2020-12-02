@@ -14,7 +14,7 @@ SUBDIR2 := Units
 all_tests: linking static_code_analysis memory_leak_check 
 
 linking: $(OBJS)
-	$(CC) $(CFLAGS) -o game $(OBJS)
+	$(CC) $(CFLAGS) -o main $(OBJS)
 
 Hero.o: Hero.cpp Hero.h JSON.h Monster.h
 	$(CC) $(CFLAGS) -c Hero.cpp
@@ -39,7 +39,7 @@ static_code_analysis:
 	$(CH) $(CPPOBJS) $(CHAFLAGS)
 
 memory_leak_check: linking
-	valgrind $(VFLAGS) cat $(SUBDIR2)/preparedgame.txt | ./game 
+	valgrind $(VFLAGS) cat $(SUBDIR2)/preparedgame.txt | ./main 
 
 io_diff_check:
 	python3 testrun.py
