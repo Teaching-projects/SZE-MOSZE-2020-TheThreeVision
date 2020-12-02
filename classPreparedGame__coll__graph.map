@@ -1,8 +1,7 @@
 <map id="PreparedGame" name="PreparedGame">
 <area shape="rect" id="node1" title=" " alt="" coords="5,336,124,363"/>
 <area shape="rect" id="node2" href="$classGame.html" title=" " alt="" coords="34,260,95,287"/>
-<area shape="rect" id="node3" href="$classMap.html" title=" " alt="" coords="7,171,58,197"/>
-<area shape="rect" id="node4" href="$structHr.html" title=" " alt="" coords="83,171,121,197"/>
-<area shape="rect" id="node5" href="$classHero.html" title="Hero class." alt="" coords="75,81,129,108"/>
-<area shape="rect" id="node6" href="$classMonster.html" title="Monster class." alt="" coords="65,5,139,32"/>
+<area shape="rect" id="node3" href="$structHr.html" title=" " alt="" coords="45,171,84,197"/>
+<area shape="rect" id="node4" href="$classHero.html" title="Hero class." alt="" coords="38,81,91,108"/>
+<area shape="rect" id="node5" href="$classMonster.html" title="Monster class." alt="" coords="27,5,102,32"/>
 </map>
