@@ -72,7 +72,7 @@ public:
     };
 };
 
-class PreparedGame : private Game{
+class PreparedGame : public Game{
 private:
     MarkedMap map;
 public:
