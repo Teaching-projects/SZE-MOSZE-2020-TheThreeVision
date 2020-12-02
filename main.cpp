@@ -108,7 +108,7 @@ int main(int argc, char **argv)
 
         try
         {
-           // game.run();
+            game.run();
         }
         catch (Game::NotInitializedException &e)
         {
