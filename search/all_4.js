@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['game_6',['Game',['../classGame.html',1,'']]],
+  ['game_6',['Game',['../classGame.html',1,'Game'],['../classGame.html#ad59df6562a58a614fda24622d3715b65',1,'Game::Game()']]],
   ['gamealreadystartedexception_7',['GameAlreadyStartedException',['../classGame_1_1GameAlreadyStartedException.html',1,'Game']]],
   ['get_8',['get',['../classMap.html#af3d2f71301bb5bdafcef6099a65ae7e0',1,'Map']]],
   ['getattackcooldown_9',['getAttackCoolDown',['../classMonster.html#ad84dbe06c7a2aa7f75164dd9db52daf3',1,'Monster']]],
