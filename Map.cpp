@@ -26,7 +26,7 @@ Map::type Map::get(unsigned int x, unsigned int y) const
         return Map::type::Wall;
     }
 
-    if (map[y][x] == ' ' or map[y][x] == 'H' or isdigit(map[y][x])) // ???
+    if (map[y][x] != '#' )
         return Map::type::Free;
     else
         return Map::type::Wall;
