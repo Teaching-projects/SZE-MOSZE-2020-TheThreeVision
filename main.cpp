@@ -8,7 +8,7 @@
 #include <list>
 
 #include "JSON.h"
-//#include "Hero.h"
+#include "Hero.h"
 #include "Monster.h"
 #include "Game.h"
 

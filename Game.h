@@ -2,7 +2,7 @@
 #include <list>
 #include "Map.h"
 #include "Hero.h"
-//#include "Monster.h"
+#include "Monster.h"
 
 
 
