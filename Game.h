@@ -23,8 +23,9 @@ struct Hr
 
 class Game
 {
-protected:
+private:
     Map map;
+protected:
     std::list<Mstr> monsters;
     Hr hero;
     bool hasUnits; 
