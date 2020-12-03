@@ -82,6 +82,8 @@ public:
 	int getLevel() { return Level; }
 	/// a simple getter to the MaxHealthPoints
 	int getMaxHealthPoints() { return maxHP; }
+	/// a simple getter to the lightradius
+	int getLightRadius(){ return int(Light_radius);}
 	/**
 	 * \brief This method use the parser class, and reads a .json file, and get the keys and the attached data and returns a new AdventurerPlayer object
 	 * \return return with an Hero object
