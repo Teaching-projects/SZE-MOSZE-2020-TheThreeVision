@@ -165,6 +165,7 @@ JSON JSON::ParseJsonFilename(std::string FilenameToParse){
             DataToParse += line;
         }
     }
+    DataToParse += FilenameToParse;
     std::map<std::string, std::variant<std::string, double, int>> Map = JSON::ParseJsonString(DataToParse);
     JSON toReturn(Map);
     return toReturn;
@@ -212,6 +213,6 @@ std::string JSON::FindData(const std::string& StringToParse, const std::string& 
         //std::cout << "-" << data << "-\n\n";
         return data;
     }else{
-        throw std::runtime_error("Bad input data...");
+        throw std::runtime_error("Bad input data..." + StringToParse);
     }
 }
