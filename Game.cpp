@@ -83,6 +83,8 @@ void Game::moveHero(const std::string &direction)
         y--;
     else if (direction == "south")
         y++;
+    else if (direction == "")
+        throw  InvalidMove("Invalid move, you can only use these movement commands: [east,west,north,south]");
     else
     {
         goodcommand = false;
