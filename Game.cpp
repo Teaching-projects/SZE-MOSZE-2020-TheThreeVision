@@ -217,7 +217,7 @@ PreparedGame::PreparedGame(std::string filename)
     running = false;
     JSON Units = JSON::parseFromFile(filename);
     //lehetne checkolni jok e  unitok
-    std::string toOpen = "Units/" + Units.get<std::string>("map");
+    std::string toOpen = Units.get<std::string>("map");
     MarkedMap map(toOpen);
     setMap(map);
     std::pair<int, int> heroPos = map.getHeroPosition();

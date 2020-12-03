@@ -212,6 +212,6 @@ std::string JSON::FindData(const std::string& StringToParse, const std::string& 
         //std::cout << "-" << data << "-\n\n";
         return data;
     }else{
-        throw std::runtime_error("Bad input data..." + StringToFind + "\n" + StringToParse);
+        throw std::runtime_error("Bad input data...");
     }
 }

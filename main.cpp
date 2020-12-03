@@ -37,7 +37,7 @@ int main(int argc, char **argv)
         bad_exit(1);
     if (!std::filesystem::exists(argv[1]))
         bad_exit(2);*/
-    std::string prep_game = "Units/preparedgame.txt";
+    std::string prep_game = "preparedgame.txt";
     if (!std::filesystem::exists(prep_game))
         bad_exit(2);
     PreparedGame game = PreparedGame(prep_game);
