@@ -96,6 +96,8 @@ Hero Hero::parse(const std::string toParse)
         Data.get<double>("health_point_bonus_per_level"),
         damage(Data.get<int>("damage_bonus_per_level"), Data.get<int>("magical-damage_bonus_per_level")),
         Data.get<double>("defense_bonus_per_level"),
-        Data.get<double>("cooldown_multiplier_per_level")
+        Data.get<double>("cooldown_multiplier_per_level"),
+        Data.get<double>("light_radius"),
+        Data.get<double>("light_radius_bonus_per_level")
     );
 }
