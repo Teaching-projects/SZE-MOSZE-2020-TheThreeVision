@@ -83,8 +83,6 @@ void Game::moveHero(const std::string &direction)
         y--;
     else if (direction == "south")
         y++;
-    else if (direction == "")
-        throw  InvalidMove("Invalid move, you can only use these movement commands: [east,west,north,south]");
     else
     {
         goodcommand = false;
@@ -125,12 +123,11 @@ void Game::run()
                 }
                 monster++;
             }
-            try
-            {
-                if (!findMonsterOnHero)
+            if (!findMonsterOnHero)
                 {
                     this->printMap();
-                    cin >> heroMoveDirection;
+                    heroMoveDirection = "";
+                    std::getline(cin, heroMoveDirection);
                     moveHero(heroMoveDirection);
                 }
                 else
@@ -152,11 +149,14 @@ void Game::run()
                     else
                         monster++;
                 }
+            /*try
+            {
+                
             }
             catch (std::runtime_error &e)
             {
                 cout << e.what() << endl;
-            }
+            }*/
         }
         if (hero.h->isAlive())
         {
