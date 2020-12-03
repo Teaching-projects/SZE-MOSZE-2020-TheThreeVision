@@ -29,8 +29,9 @@ def main():
     for line in os.popen(commands[0]).read().strip().split('\n'):
         outputs1.append(line.strip()) 
 
-    for line in os.popen(inputs[0]).read().strip().split('\n'):
-        inputs.append(line.strip())     
+    for line in range(len(inputs)):
+        os.popen(inputs[line]).read().strip().split('\n')
+        print(line.strip())     
 
     
     for i in range(len(outputs1)):
