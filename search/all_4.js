@@ -9,8 +9,9 @@ var searchData=
   ['gethealthpoints_12',['getHealthPoints',['../classMonster.html#acbfb552014439fe02d10f2492e60fe34',1,'Monster']]],
   ['getheight_13',['getHeight',['../classMap.html#a67113f1ffac80d9a20b15fa18a58edc2',1,'Map']]],
   ['getlevel_14',['getLevel',['../classHero.html#a5e57cbaa03afdb8ee9b0c5c3505a76be',1,'Hero']]],
-  ['getmaxhealthpoints_15',['getMaxHealthPoints',['../classHero.html#a102ed7a15cb4a5f7058e33a435518f06',1,'Hero']]],
-  ['getmonsterposition_16',['getMonsterPosition',['../classMarkedMap.html#ad87c44c6009490edffb9fa29759b71a2',1,'MarkedMap']]],
-  ['getname_17',['getName',['../classMonster.html#a28ae1112e37262ce150e3c02465b3dd5',1,'Monster']]],
-  ['getxp_18',['getXP',['../classHero.html#af8f4b26fcf84d976a492ce974ad108f1',1,'Hero']]]
+  ['getlightradius_15',['getLightRadius',['../classHero.html#ae9ed6c962134a401a1b5c11a1f0fcbf0',1,'Hero']]],
+  ['getmaxhealthpoints_16',['getMaxHealthPoints',['../classHero.html#a102ed7a15cb4a5f7058e33a435518f06',1,'Hero']]],
+  ['getmonsterposition_17',['getMonsterPosition',['../classMarkedMap.html#ad87c44c6009490edffb9fa29759b71a2',1,'MarkedMap']]],
+  ['getname_18',['getName',['../classMonster.html#a28ae1112e37262ce150e3c02465b3dd5',1,'Monster']]],
+  ['getxp_19',['getXP',['../classHero.html#af8f4b26fcf84d976a492ce974ad108f1',1,'Hero']]]
 ];
