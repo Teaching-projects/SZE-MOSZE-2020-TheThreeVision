@@ -11,6 +11,7 @@ void Hero::levelup(int levels)
         setAtkCoolDown(getAttackCoolDown()* Cooldown_multiplier_per_level);
 		setHP(maxHP);
         Level++;
+        Light_radius += Light_radius_bonus_per_level;
 	}
 
 }
