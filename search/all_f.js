@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['wall_52',['Wall',['../classMap.html#a41697b848ea9a5aad1910714e0196b7ba874474147b8fcfcec145b20926fc83bf',1,'Map']]],
-  ['wrongindexexception_53',['WrongIndexException',['../classMap_1_1WrongIndexException.html',1,'Map']]]
+  ['textrenderer_52',['TextRenderer',['../classTextRenderer.html',1,'']]],
+  ['type_53',['type',['../classMap.html#a41697b848ea9a5aad1910714e0196b7b',1,'Map']]]
 ];
