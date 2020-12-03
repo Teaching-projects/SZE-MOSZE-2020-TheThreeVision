@@ -33,79 +33,10 @@ void bad_exit(int exitcode)
 
 int main(int argc, char **argv)
 {
-    /*if (argc != 2)
-        bad_exit(1);
-    if (!std::filesystem::exists(argv[1]))
-        bad_exit(2);*/
     std::string prep_game = "Units/preparedgame.txt";
     if (!std::filesystem::exists(prep_game))
         bad_exit(2);
     PreparedGame game = PreparedGame(prep_game);
-    /*std::string hero_file;
-    std::list<std::string> monster_files;
-
-    try
-    {
-        JSON scenario = JSON::parseFromFile(argv[1]);
-        if (!(scenario.count("hero") && scenario.count("monsters")))
-            bad_exit(3);
-        else
-        {
-            hero_file = scenario.get<std::string>("hero");
-            JSON::list monster_file_list = scenario.get<JSON::list>("monsters");
-            for (auto monster_file : monster_file_list)
-                monster_files.push_back(std::get<std::string>(monster_file));
-        }
-    }
-    catch (const JSON::ParseException &e)
-    {
-        bad_exit(4);
-    }*/
-    /*
-    try
-    {
-        Hero hero{Hero::parse(hero_file)};
-        std::list<Monster> monsters;
-        for (const auto &monster_file : monster_files)
-            monsters.push_back(Monster::parse(monster_file));
-
-        if (!std::filesystem::exists(map_file))
-            bad_exit(2);
-        Game game = Game(map_file);
-
-        try
-        {
-            game.putHero(hero, 1, 1);
-        }
-        catch (const Game::GameAlreadyStartedException &e)
-        {
-            bad_exit(8);
-        }
-        catch (const Game::OccupiedException &e)
-        {
-            bad_exit(9);
-        }
-        catch (const Map::WrongIndexException &e)
-        {
-            bad_exit(10);
-        }
-
-        try
-        {
-            for (const auto &m : monsters)
-            {
-                game.putMonster(m, 1, 1);
-            }
-        }
-        catch (const Game::OccupiedException &e)
-        {
-            bad_exit(9);
-        }
-        catch (const Map::WrongIndexException &e)
-        {
-            bad_exit(10);
-        }*/
-
         try
         {
             game.run();
@@ -114,10 +45,5 @@ int main(int argc, char **argv)
         {
             std::cout << e.what();
         }
-    /*}
-    catch (const JSON::ParseException &e)
-    {
-        bad_exit(4);
-    }*/
     return 0;
 }
