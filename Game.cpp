@@ -183,15 +183,24 @@ void Game::printMap()
     {
         for (int x = 0; x < map.getMaxWidth(); x++)
         {
-            if (map.get(x, y) == map.type::Wall)
+            if ((map.get(x, y) == map.type::Wall ) && x >= hero.row-hero.h->getLightRadius() &&
+             x <= hero.row+hero.h->getLightRadius() &&
+             y >= hero.col-hero.h->getLightRadius() &&
+             y <= hero.col+hero.h->getLightRadius())
             {
                 std::cout << "██";
             }
-            else if (hero.row == x && hero.col == y)
+            else if (hero.row == x && hero.col == y && x >= hero.row-hero.h->getLightRadius() &&
+             x <= hero.row+hero.h->getLightRadius() &&
+             y >= hero.col-hero.h->getLightRadius() &&
+             y <= hero.col+hero.h->getLightRadius())
             {
                 std::cout << "┣┫";
             }
-            else
+            else if(x >= hero.row-hero.h->getLightRadius() &&
+             x <= hero.row+hero.h->getLightRadius() &&
+             y >= hero.col-hero.h->getLightRadius() &&
+             y <= hero.col+hero.h->getLightRadius())
             {
                 int count = 0;
                 for (auto a : monsters)
@@ -207,7 +216,7 @@ void Game::printMap()
                     std::cout << "░░";
             }
         }
-        std::cout << std::endl;
+        if(y >= hero.col-hero.h->getLightRadius() && y <= hero.col+hero.h->getLightRadius()) std::cout << std::endl;
     }
 }
 
