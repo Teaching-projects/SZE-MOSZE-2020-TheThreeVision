@@ -2,7 +2,7 @@
 #include <list>
 #include "Map.h"
 #include "Hero.h"
-//#include "Monster.h"
+#include "Monster.h"
 
 
 
@@ -25,23 +25,21 @@ class Game
 {
 private:
     Map map;
+protected:
     std::list<Mstr> monsters;
     Hr hero;
     bool hasUnits; 
     bool hasMap;
     bool running;
-
 public:
-    Game() : map(Map()), hasUnits(false), hasMap(false), running(false), hero() {};
-    Game(std::string mapfilename) : map(Map(mapfilename)), hasUnits(false), hasMap(true), running(false), hero() {};
-    
-    void run(); ///Game run (start)
     void setMap(Map NewMap); /// Set the map
     void printMap(); ///Print the map
     void putHero(Hero hero, int x, int y); /// Put hero
     void moveHero(const std::string &direction); ///Moving the hero
     void putMonster(Monster monster, int x, int y); ///Put hero
-
+    Game() : map(MarkedMap()), hasUnits(false), hasMap(false), running(false), hero() {};
+    Game(std::string mapfilename) : map(MarkedMap(mapfilename)), hasUnits(false), hasMap(true), running(false), hero() {};
+    void run(); ///Game run (start)
     class InvalidMove : public std::runtime_error
     {
     public:
@@ -73,4 +71,12 @@ public:
     public:
         GameAlreadyStartedException(const std::string& errMsg) : std::runtime_error(errMsg) {}
     };
+};
+
+class PreparedGame : public Game{
+private:
+    MarkedMap map;
+public:
+    PreparedGame(std::string filename);
+    using Game::run;
 };

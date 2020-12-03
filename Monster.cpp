@@ -83,7 +83,7 @@ Monster Monster::parse(const std::string toParse) {
     }
     
     JSON Data = JSON::ParseJsonFilename(toGo);
-
+    
     return Monster(
         Data.get<std::string>("name"),
         Data.get<int>("points"),

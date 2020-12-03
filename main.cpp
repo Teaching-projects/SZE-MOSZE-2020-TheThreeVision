@@ -8,7 +8,6 @@
 #include <list>
 
 #include "JSON.h"
-//#include "Hero.h"
 #include "Monster.h"
 #include "Game.h"
 
@@ -17,13 +16,12 @@ const std::map<int, std::string> error_messages = {
     {2, "The provided file is not accessible."},
     {3, "The provided scenario file is invalid."},
     {4, "JSON parsing error."},
-    {5, "The game is not initialized."} ,
-    {6, "The game already has a hero."} ,
+    {5, "The game is not initialized."},
+    {6, "The game already has a hero."},
     {7, "The game already has units."},
     {8, "The game already started."},
     {9, "This coordinate is occupied."},
-    {10,"Wrong index."}
-};
+    {10, "Wrong index."}};
 
 void bad_exit(int exitcode)
 {
@@ -35,16 +33,17 @@ void bad_exit(int exitcode)
 
 int main(int argc, char **argv)
 {
-    if (argc != 2)
+    /*if (argc != 2)
         bad_exit(1);
     if (!std::filesystem::exists(argv[1]))
+        bad_exit(2);*/
+    std::string prep_game = "Units/preparedgame.txt";
+    if (!std::filesystem::exists(prep_game))
         bad_exit(2);
-    std::string map_file = "Units/map_example.txt";
-    if (!std::filesystem::exists(map_file))
-        bad_exit(2);
-    std::string hero_file;
+    PreparedGame game = PreparedGame(prep_game);
+    /*std::string hero_file;
     std::list<std::string> monster_files;
-    
+
     try
     {
         JSON scenario = JSON::parseFromFile(argv[1]);
@@ -61,43 +60,64 @@ int main(int argc, char **argv)
     catch (const JSON::ParseException &e)
     {
         bad_exit(4);
-    }
-
+    }*/
+    /*
     try
     {
         Hero hero{Hero::parse(hero_file)};
         std::list<Monster> monsters;
         for (const auto &monster_file : monster_files)
             monsters.push_back(Monster::parse(monster_file));
-        
-        if (!std::filesystem::exists(map_file)) bad_exit(2);
+
+        if (!std::filesystem::exists(map_file))
+            bad_exit(2);
         Game game = Game(map_file);
-        
-        try{
+
+        try
+        {
             game.putHero(hero, 1, 1);
         }
-        catch (const Game::GameAlreadyStartedException& e) { bad_exit(8); }
-        catch (const Game::OccupiedException& e) { bad_exit(9); }
-        catch (const Map::WrongIndexException& e) { bad_exit(10); }
-        
-        try {
-            for (const auto& m : monsters)
+        catch (const Game::GameAlreadyStartedException &e)
+        {
+            bad_exit(8);
+        }
+        catch (const Game::OccupiedException &e)
+        {
+            bad_exit(9);
+        }
+        catch (const Map::WrongIndexException &e)
+        {
+            bad_exit(10);
+        }
+
+        try
+        {
+            for (const auto &m : monsters)
             {
                 game.putMonster(m, 1, 1);
             }
         }
-        catch (const Game::OccupiedException& e) { bad_exit(9); }
-        catch (const Map::WrongIndexException& e) { bad_exit(10); }
-         
-        try {
+        catch (const Game::OccupiedException &e)
+        {
+            bad_exit(9);
+        }
+        catch (const Map::WrongIndexException &e)
+        {
+            bad_exit(10);
+        }*/
+
+        try
+        {
             game.run();
-        }catch (Game::NotInitializedException& e){
+        }
+        catch (Game::NotInitializedException &e)
+        {
             std::cout << e.what();
         }
-    }
+    /*}
     catch (const JSON::ParseException &e)
     {
         bad_exit(4);
-    }
+    }*/
     return 0;
 }
