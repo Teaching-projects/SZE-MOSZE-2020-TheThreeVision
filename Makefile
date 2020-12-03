@@ -10,13 +10,14 @@ VJSONS := Units/scenario1.json
 SUBDIR := test
 CMAKEO := CMakeLists.txt
 SUBDIR2 := Units
+CONF := --check-config
 
 all_tests: linking static_code_analysis memory_leak_check 
 
 linking: $(OBJS)
 	$(CC) $(CFLAGS) -o main $(OBJS)
 
-Hero.o: Hero.cpp Hero.h JSON.h Monster.h
+Hero.o: Hero.cpp Hero.h JSON.h Monster.h Damage.h
 	$(CC) $(CFLAGS) -c Hero.cpp
 
 Monster.o: Monster.cpp Monster.h JSON.h Damage.h 
@@ -35,7 +36,7 @@ Game.o: Game.cpp Game.h
 	$(CC) $(CFLAGS) -c Game.cpp	
 	
 static_code_analysis:
-	$(CH) $(CPPOBJS) $(CHFLAGS)
+	$(CH) $(CPPOBJS) $(CHFLAGS) $(CONF)
 	$(CH) $(CPPOBJS) $(CHAFLAGS)
 
 memory_leak_check: linking
