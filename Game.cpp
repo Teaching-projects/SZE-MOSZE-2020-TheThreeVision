@@ -123,7 +123,9 @@ void Game::run()
                 }
                 monster++;
             }
-            if (!findMonsterOnHero)
+            try
+            {
+             if (!findMonsterOnHero)
                 {
                     this->printMap();
                     heroMoveDirection = "";
@@ -148,15 +150,12 @@ void Game::run()
                         monsters.erase(monster++);
                     else
                         monster++;
-                }
-            /*try
-            {
-                
+                }   
             }
             catch (std::runtime_error &e)
             {
                 cout << e.what() << endl;
-            }*/
+            }
         }
         if (hero.h->isAlive())
         {
