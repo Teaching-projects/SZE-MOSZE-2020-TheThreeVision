@@ -213,6 +213,6 @@ std::string JSON::FindData(const std::string& StringToParse, const std::string& 
         //std::cout << "-" << data << "-\n\n";
         return data;
     }else{
-        throw std::runtime_error("Bad input data..." + StringToParse);
+        throw std::runtime_error("Bad input data..." + StringToParse); //Stringtoparse to delete
     }
 }
