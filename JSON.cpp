@@ -172,7 +172,6 @@ JSON JSON::ParseJsonFilename(std::string FilenameToParse){
 
 std::string JSON::FindData(const std::string& StringToParse, const std::string& StringToFind){
     //std::cout << StringToFind << std::endl;
-    //std::cout << StringToParse << std::endl;
     std::string data = "";
     std::string toFind = "";
     if (StringToFind[0] != '"')
@@ -210,8 +209,9 @@ std::string JSON::FindData(const std::string& StringToParse, const std::string& 
                 } while (isdigit(StringToParse[findWord]) or StringToParse[findWord] == '.');
             }
         }
+        //std::cout << "-" << data << "-\n\n";
         return data;
     }else{
-        throw std::runtime_error("Bad input data...");
+        throw std::runtime_error("Bad input data..." + StringToFind);
     }
 }
