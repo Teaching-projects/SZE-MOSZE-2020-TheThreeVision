@@ -12,7 +12,7 @@ CMAKEO := CMakeLists.txt
 SUBDIR2 := Units
 CONF := --check-config
 
-all_tests: linking static_code_analysis memory_leak_check io_diff_check
+all_tests: linking static_code_analysis memory_leak_check 
 
 linking: $(OBJS)
 	$(CC) $(CFLAGS) -o main $(OBJS)
