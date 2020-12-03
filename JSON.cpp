@@ -55,8 +55,6 @@ JSON JSON::parseScenario(std::string& JSONstring){
     return file;
 }
 
-// old
-
 std::map<std::string, std::variant<std::string, double, int>> JSON::ParseJsonString(std::string StringToParse){
     std::map<std::string, std::variant<std::string, double, int>> Map;
     bool toDelete = true;
@@ -115,6 +113,12 @@ std::map<std::string, std::variant<std::string, double, int>> JSON::ParseJsonStr
             Map.insert(std::make_pair("cooldown", std::stod(FindData(array[0], array[i]))));
         }
         }
+        Map.insert(std::make_pair("light_radius", std::stod(FindData(array[0],"light_radius"))));
+        if (array[0].find("light_radius_bonus_per_level") == std::string::npos)
+        {
+            Map.insert(std::make_pair("light_radius_bonus_per_level", (double)1));
+        }else Map.insert(std::make_pair("light_radius_bonus_per_level", std::stod(FindData(array[0],"light_radius_bonus_per_level"))));
+        
     }
     
     std::string additionals[12] = {StringToParse, "lore", "\"race\"", "experience_per_level","health_point_bonus_per_level",
