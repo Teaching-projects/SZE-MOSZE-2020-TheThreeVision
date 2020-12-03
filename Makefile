@@ -40,7 +40,7 @@ static_code_analysis:
 	$(CH) $(CPPOBJS) $(CHAFLAGS)
 
 memory_leak_check: linking
-	valgrind $(VFLAGS) cat $(SUBDIR2)/preparedgame.txt | ./main 
+	valgrind $(VFLAGS) ./main 
 
 io_diff_check:
 	python3 testrun.py
