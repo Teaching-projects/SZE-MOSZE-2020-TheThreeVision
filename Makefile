@@ -40,7 +40,7 @@ static_code_analysis:
 	$(CH) $(CPPOBJS) $(CHAFLAGS)
 
 memory_leak_check: linking
-	valgrind $(VFLAGS) ./main 
+	valgrind $(VFLAGS) cat inputdata.txt | ./main 
 
 io_diff_check:
 	python3 testrun.py
