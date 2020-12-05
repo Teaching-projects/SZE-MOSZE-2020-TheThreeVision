@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['map_83',['Map',['../classMap.html',1,'']]],
-  ['markedmap_84',['MarkedMap',['../classMarkedMap.html',1,'']]],
-  ['monster_85',['Monster',['../classMonster.html',1,'']]],
-  ['mstr_86',['Mstr',['../structMstr.html',1,'']]]
+  ['map_86',['Map',['../classMap.html',1,'']]],
+  ['markedmap_87',['MarkedMap',['../classMarkedMap.html',1,'']]],
+  ['monster_88',['Monster',['../classMonster.html',1,'']]],
+  ['mstr_89',['Mstr',['../structMstr.html',1,'']]]
 ];

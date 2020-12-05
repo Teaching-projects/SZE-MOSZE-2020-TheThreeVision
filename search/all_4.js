@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['game_7',['Game',['../classGame.html',1,'Game'],['../classGame.html#a4826d5d4e1c4a355c203df5c4fceb650',1,'Game::Game()']]],
+  ['game_7',['Game',['../classGame.html',1,'Game'],['../classGame.html#ad59df6562a58a614fda24622d3715b65',1,'Game::Game()'],['../classGame.html#a4826d5d4e1c4a355c203df5c4fceb650',1,'Game::Game(std::string mapfilename)']]],
   ['gamealreadystartedexception_8',['GameAlreadyStartedException',['../classGame_1_1GameAlreadyStartedException.html',1,'Game']]],
   ['get_9',['get',['../classMap.html#af3d2f71301bb5bdafcef6099a65ae7e0',1,'Map']]],
   ['getattackcooldown_10',['getAttackCoolDown',['../classMonster.html#ad84dbe06c7a2aa7f75164dd9db52daf3',1,'Monster']]],
@@ -17,6 +17,7 @@ var searchData=
   ['getmonsterposition_21',['getMonsterPosition',['../classMarkedMap.html#ad87c44c6009490edffb9fa29759b71a2',1,'MarkedMap']]],
   ['getmonsters_22',['getMonsters',['../classGame.html#aa0533fbbf1398377e48a9d4b9d01380b',1,'Game']]],
   ['getname_23',['getName',['../classMonster.html#a28ae1112e37262ce150e3c02465b3dd5',1,'Monster']]],
-  ['getwidth_24',['getWidth',['../classMap.html#a53609fccd117a5a069bf33ef1e0c65c2',1,'Map']]],
-  ['getxp_25',['getXP',['../classHero.html#af8f4b26fcf84d976a492ce974ad108f1',1,'Hero']]]
+  ['gettextures_24',['getTextures',['../classGame.html#ae224ccdfbf631b379c90191e79463268',1,'Game']]],
+  ['getwidth_25',['getWidth',['../classMap.html#a53609fccd117a5a069bf33ef1e0c65c2',1,'Map']]],
+  ['getxp_26',['getXP',['../classHero.html#af8f4b26fcf84d976a492ce974ad108f1',1,'Hero']]]
 ];
