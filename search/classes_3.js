@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['hero_66',['Hero',['../classHero.html',1,'']]],
-  ['herotextrenderer_67',['HeroTextRenderer',['../classHeroTextRenderer.html',1,'']]],
-  ['hr_68',['Hr',['../structHr.html',1,'']]]
+  ['game_71',['Game',['../classGame.html',1,'']]],
+  ['gamealreadystartedexception_72',['GameAlreadyStartedException',['../classGame_1_1GameAlreadyStartedException.html',1,'Game']]]
 ];
