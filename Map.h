@@ -5,25 +5,28 @@
 class Map
 {
 protected:
-    std::vector<std::string> map; ///A játék térképének a betöltése
+    std::vector<std::string> map; ///It stores the map line by line.
 public:
-    /// Az enum térkép elemeknek.
+    /// Enum to map.
     enum type
     {
-        Free, ///bejárható út
-        Wall  /// FAL
+        Free, ///free to move
+        Wall  ///not free to move 
     };
 
-    ///Map konstruktor a terkep beolvasásához
+    ///Map constructor read the map from file
     Map(const std::string &Filename);
     Map() {}
 
-    ///Map méretei
+    ///Simple getter to Map's Height
     int getHeight() const;
+    ///Simple getter to the line's Width
     int getWidth(int line) const;
+    ///Simple getter to Map 's MaxWidth
     int getMaxWidth() const;
-    /// Függvény ami visszaadja az x,y koordinátán lévő elemet.
+    /// Function that returns the enum type on x,y coordinates.
     Map::type get(unsigned int x, unsigned int y) const;
+    ///It returns true if the map is empty
     bool isEmpty()
     {
         if (map.empty())
