@@ -76,4 +76,5 @@ void ObserverTextRenderer::render(const Game& g) const
             }
         }
         std::cout << std::endl;
+    }
 }
