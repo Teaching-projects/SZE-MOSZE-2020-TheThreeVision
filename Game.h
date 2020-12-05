@@ -32,13 +32,17 @@ protected:
     bool hasMap;
     bool running;
 public:
+    Game() : map(MarkedMap()), hasUnits(false), hasMap(false), running(false), hero() {};/// Game's costructor without mapfile
+    Game(std::string mapfilename) : map(MarkedMap(mapfilename)), hasUnits(false), hasMap(true), running(false), hero() {};/// Game's costructor with mapfile
+
     void setMap(Map NewMap); /// Set the map
+    Map getMap()const { return map; }///Get the map
     void printMap(); ///Print the map
     void putHero(Hero hero, int x, int y); /// Put hero
+    Hr getHero() const { return hero; }///Get the hero
     void moveHero(const std::string &direction); ///Moving the hero
     void putMonster(Monster monster, int x, int y); ///Put hero
-    Game() : map(MarkedMap()), hasUnits(false), hasMap(false), running(false), hero() {};
-    Game(std::string mapfilename) : map(MarkedMap(mapfilename)), hasUnits(false), hasMap(true), running(false), hero() {};
+    std::list<Mstr> getMonsters() const { return monsters; }///Get the monsters
     void run(); ///Game run (start)
     class InvalidMove : public std::runtime_error
     {
