@@ -1,5 +1,8 @@
+#pragma once
 #include "Game.h"
 #include <ostream>
+
+class Game;
 
 class Renderer
 {

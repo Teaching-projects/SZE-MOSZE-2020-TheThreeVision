@@ -12,14 +12,14 @@ void HeroTextRenderer::render(const Game& g) const
                 y >= g.getHero().col - g.getHero().h->getLightRadius() &&
                 y <= g.getHero().col + g.getHero().h->getLightRadius())
             {
-                std::cout << "██";
+                OutStream << "██";
             }
             else if (g.getHero().row == x && g.getHero().col == y && x >= g.getHero().row - g.getHero().h->getLightRadius() &&
                 x <= g.getHero().row + g.getHero().h->getLightRadius() &&
                 y >= g.getHero().col - g.getHero().h->getLightRadius() &&
                 y <= g.getHero().col + g.getHero().h->getLightRadius())
             {
-                std::cout << "┣┫";
+                OutStream << "┣┫";
             }
             else if (x >= g.getHero().row - g.getHero().h->getLightRadius() &&
                 x <= g.getHero().row + g.getHero().h->getLightRadius() &&
@@ -33,15 +33,16 @@ void HeroTextRenderer::render(const Game& g) const
                         count++;
                 }
                 if (count == 1)
-                    std::cout << "M░";
+                    OutStream << "M░";
                 else if (count > 1)
-                    std::cout << "MM";
+                    OutStream << "MM";
                 else
-                    std::cout << "░░";
+                    OutStream << "░░";
             }
         }
-        if (y >= g.getHero().col - g.getHero().h->getLightRadius() && y <= g.getHero().col + g.getHero().h->getLightRadius()) std::cout << std::endl;
+        if (y >= g.getHero().col - g.getHero().h->getLightRadius() && y <= g.getHero().col + g.getHero().h->getLightRadius()) OutStream << "\n";
     }
+
 }
 
 void ObserverTextRenderer::render(const Game& g) const
@@ -53,11 +54,11 @@ void ObserverTextRenderer::render(const Game& g) const
         {
             if (g.getMap().get(x, y) == g.getMap().type::Wall)
             {
-                std::cout << "██";
+                OutStream << "██";
             }
             else if (g.getHero().row == x && g.getHero().col == y)
             {
-                std::cout << "┣┫";
+                OutStream << "┣┫";
             }
             else
             {
@@ -68,13 +69,13 @@ void ObserverTextRenderer::render(const Game& g) const
                         count++;
                 }
                 if (count == 1)
-                    std::cout << "M░";
+                    OutStream << "M░";
                 else if (count > 1)
-                    std::cout << "MM";
+                    OutStream << "MM";
                 else
-                    std::cout << "░░";
+                    OutStream << "░░";
             }
         }
-        std::cout << std::endl;
+        OutStream << "\n";
     }
 }

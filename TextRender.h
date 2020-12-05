@@ -25,7 +25,7 @@ public:
     /// HeroTextRenderer constructor
     HeroTextRenderer(std::ostream& stream = std::cout) : TextRenderer(stream) {}
     /// Render method
-    void render(const Game& game) const override;
+    void render(const Game& game) const;
 };
 
 class ObserverTextRenderer : public TextRenderer
@@ -34,6 +34,6 @@ public:
     /// TextRenderer constructor
     ObserverTextRenderer(std::ostream& stream = std::cout) : TextRenderer(stream) {}
     /// Render method
-    void render(const Game& game) const override;
+    void render(const Game& game) const;
 };
     

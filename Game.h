@@ -1,10 +1,12 @@
+#pragma once
 #include <string>
 #include <list>
 #include "Map.h"
 #include "Hero.h"
 #include "Monster.h"
-
-
+#include "Renderer.h"
+#include <filesystem>
+class Renderer;
 
 struct Mstr
 {
@@ -30,19 +32,25 @@ protected:
     Hr hero;
     bool hasUnits; 
     bool hasMap;
-    bool running;
+    bool Running;
+    std::map<std::string, std::string> Textures///contain the wall and free and the placeholder textures
+    { std::make_pair("empty_texture", "svg/black.svg"),std::make_pair("free_texture", "svg/free.svg"),std::make_pair("wall_tecture", "svg/wall.svg")};
+    std::list<Renderer*> Renderers; ///contain the added renderers
+
 public:
-    Game() : map(MarkedMap()), hasUnits(false), hasMap(false), running(false), hero() {};/// Game's costructor without mapfile
-    Game(std::string mapfilename) : map(MarkedMap(mapfilename)), hasUnits(false), hasMap(true), running(false), hero() {};/// Game's costructor with mapfile
+    Game() : map(MarkedMap()), hasUnits(false), hasMap(false), Running(false), hero() {};/// Game's costructor without mapfile
+    Game(std::string mapfilename) : map(MarkedMap(mapfilename)), hasUnits(false), hasMap(true), Running(false), hero() {};/// Game's costructor with mapfile
 
     void setMap(Map NewMap); /// Set the map
     Map getMap()const { return map; }///Get the map
     void printMap(); ///Print the map
+    std::map<std::string, std::string> getTextures() const{ return Textures; }///Get the textures
     void putHero(Hero hero, int x, int y); /// Put hero
     Hr getHero() const { return hero; }///Get the hero
     void moveHero(const std::string &direction); ///Moving the hero
     void putMonster(Monster monster, int x, int y); ///Put hero
     std::list<Mstr> getMonsters() const { return monsters; }///Get the monsters
+    void registerRenderer(Renderer* renderer) { Renderers.push_back(renderer); }///add a new renderer
     void run(); ///Game run (start)
     class InvalidMove : public std::runtime_error
     {

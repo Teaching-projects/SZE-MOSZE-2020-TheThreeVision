@@ -7,7 +7,7 @@ void Game::setMap(Map NewMap)
 {
     if (!hasUnits)
     {
-        if (!running)
+        if (!Running)
         {
             map = NewMap;
             if (!hasMap)
@@ -104,7 +104,7 @@ void Game::moveHero(const std::string &direction)
 
 void Game::run()
 {
-    running = true;
+    Running = true;
 
     if (hasUnits && !monsters.empty() && hasMap)
     {
@@ -127,14 +127,14 @@ void Game::run()
             {
              if (!findMonsterOnHero)
                 {
-                    this->printMap();
+                    this->printMap();//TODO: print helyet  for (auto &&r : renderers){r->render(*this)};
                     heroMoveDirection = "";
                     std::getline(cin, heroMoveDirection);
                     moveHero(heroMoveDirection);
                 }
                 else
                 {
-                    this->printMap();
+                    this->printMap();//TODO: print helyet  for ....
                 }
 
                 monster = monsters.begin();
@@ -224,7 +224,7 @@ PreparedGame::PreparedGame(std::string filename)
 {
     hasUnits = false;
     hasMap = false;
-    running = false;
+    Running = false;
     JSON Units = JSON::parseFromFile(filename);
     //lehetne checkolni jok e  unitok
     std::string toOpen = "Units/" + Units.get<std::string>("map");
