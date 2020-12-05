@@ -1,10 +1,11 @@
 var searchData=
 [
-  ['sze_2dmosze_2d2020_2dthethreevision_56',['SZE-MOSZE-2020-TheThreeVision',['../md_README.html',1,'']]],
-  ['setatkcooldown_57',['setAtkCoolDown',['../classMonster.html#aa29b34ac49099b5e4c2f6f422b7fb648',1,'Monster']]],
-  ['setdefense_58',['setDefense',['../classMonster.html#a4d776eecafbbb6e0c857f11e4db4d863',1,'Monster']]],
-  ['setdmg_59',['setDMG',['../classMonster.html#a7555031e9cc0434cc62e3fbb1467af4e',1,'Monster']]],
-  ['sethp_60',['setHP',['../classMonster.html#ab4fcff85d9184884f6e77772a27be26d',1,'Monster']]],
-  ['setoutputstream_61',['setOutputStream',['../classTextRenderer.html#a4065c27649ffbb104e85cee0303ada0b',1,'TextRenderer']]],
-  ['svgrenderer_62',['SVGRenderer',['../classSVGRenderer.html',1,'SVGRenderer'],['../classSVGRenderer.html#afac7bb63f154d381cb0a3b321cd88d4e',1,'SVGRenderer::SVGRenderer()']]]
+  ['sze_2dmosze_2d2020_2dthethreevision_60',['SZE-MOSZE-2020-TheThreeVision',['../md_README.html',1,'']]],
+  ['setatkcooldown_61',['setAtkCoolDown',['../classMonster.html#aa29b34ac49099b5e4c2f6f422b7fb648',1,'Monster']]],
+  ['setdefense_62',['setDefense',['../classMonster.html#a4d776eecafbbb6e0c857f11e4db4d863',1,'Monster']]],
+  ['setdmg_63',['setDMG',['../classMonster.html#a7555031e9cc0434cc62e3fbb1467af4e',1,'Monster']]],
+  ['sethp_64',['setHP',['../classMonster.html#ab4fcff85d9184884f6e77772a27be26d',1,'Monster']]],
+  ['setmap_65',['setMap',['../classGame.html#a1f757023d3aeb3d3ffc9b010516fd3fd',1,'Game']]],
+  ['setoutputstream_66',['setOutputStream',['../classTextRenderer.html#a4065c27649ffbb104e85cee0303ada0b',1,'TextRenderer']]],
+  ['svgrenderer_67',['SVGRenderer',['../classSVGRenderer.html',1,'SVGRenderer'],['../classSVGRenderer.html#afac7bb63f154d381cb0a3b321cd88d4e',1,'SVGRenderer::SVGRenderer()']]]
 ];

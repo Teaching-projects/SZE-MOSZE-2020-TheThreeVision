@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['invalidmove_76',['InvalidMove',['../classGame_1_1InvalidMove.html',1,'Game']]]
+  ['invalidmove_81',['InvalidMove',['../classGame_1_1InvalidMove.html',1,'Game']]]
 ];
