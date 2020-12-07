@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['json_39',['JSON',['../classJSON.html',1,'JSON'],['../classJSON.html#aac4c95f331801fec2e27f1138c0970f2',1,'JSON::JSON()']]]
+  ['increasexp_37',['increaseXP',['../classHero.html#a1d5c593f9db0aa2084f3bc0f8c05f4b2',1,'Hero']]],
+  ['invalidmove_38',['InvalidMove',['../classGame_1_1InvalidMove.html',1,'Game']]],
+  ['isalive_39',['isAlive',['../classMonster.html#aca4e35d1b32aad3e5cf00157bb212956',1,'Monster']]],
+  ['isempty_40',['isEmpty',['../classMap.html#ae18ec5d847eeb52dbf23a803223dbfef',1,'Map']]]
 ];

@@ -1,11 +1,7 @@
 var searchData=
 [
-  ['sze_2dmosze_2d2020_2dthethreevision_67',['SZE-MOSZE-2020-TheThreeVision',['../md_README.html',1,'']]],
-  ['setatkcooldown_68',['setAtkCoolDown',['../classMonster.html#aa29b34ac49099b5e4c2f6f422b7fb648',1,'Monster']]],
-  ['setdefense_69',['setDefense',['../classMonster.html#a4d776eecafbbb6e0c857f11e4db4d863',1,'Monster']]],
-  ['setdmg_70',['setDMG',['../classMonster.html#a7555031e9cc0434cc62e3fbb1467af4e',1,'Monster']]],
-  ['sethp_71',['setHP',['../classMonster.html#ab4fcff85d9184884f6e77772a27be26d',1,'Monster']]],
-  ['setmap_72',['setMap',['../classGame.html#a1f757023d3aeb3d3ffc9b010516fd3fd',1,'Game']]],
-  ['setoutputstream_73',['setOutputStream',['../classTextRenderer.html#a4065c27649ffbb104e85cee0303ada0b',1,'TextRenderer']]],
-  ['svgrenderer_74',['SVGRenderer',['../classSVGRenderer.html',1,'SVGRenderer'],['../classSVGRenderer.html#afac7bb63f154d381cb0a3b321cd88d4e',1,'SVGRenderer::SVGRenderer()']]]
+  ['registerrenderer_65',['registerRenderer',['../classGame.html#a95dedd778de0fc02a5c045d8212129d0',1,'Game']]],
+  ['render_66',['render',['../classSVGRenderer.html#aebeffd2a3582e27dc263afb03bf2fc68',1,'SVGRenderer::render()'],['../classCharacterSVGRenderer.html#af2f7da66a70efe9cdd98394ccf4ea929',1,'CharacterSVGRenderer::render()'],['../classObserverSVGRenderer.html#a273448eaa7a2a5723a08c7070a8e416b',1,'ObserverSVGRenderer::render()'],['../classTextRenderer.html#ad5b996b1e4763c61a97e44a3e3ae4c4f',1,'TextRenderer::render()'],['../classHeroTextRenderer.html#a5a77a02843e9855616a5b96ccbd27997',1,'HeroTextRenderer::render()'],['../classObserverTextRenderer.html#ae5148f404777b9c24133f38c2d0e891e',1,'ObserverTextRenderer::render()']]],
+  ['renderer_67',['Renderer',['../classRenderer.html',1,'']]],
+  ['run_68',['run',['../classGame.html#a1ab78f5ed0d5ea879157357cf2fb2afa',1,'Game']]]
 ];

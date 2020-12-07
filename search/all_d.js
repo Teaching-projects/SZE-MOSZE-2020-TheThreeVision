@@ -1,7 +1,12 @@
 var searchData=
 [
-  ['registerrenderer_63',['registerRenderer',['../classGame.html#a95dedd778de0fc02a5c045d8212129d0',1,'Game']]],
-  ['render_64',['render',['../classSVGRenderer.html#aebeffd2a3582e27dc263afb03bf2fc68',1,'SVGRenderer::render()'],['../classCharacterSVGRenderer.html#af2f7da66a70efe9cdd98394ccf4ea929',1,'CharacterSVGRenderer::render()'],['../classObserverSVGRenderer.html#a273448eaa7a2a5723a08c7070a8e416b',1,'ObserverSVGRenderer::render()'],['../classTextRenderer.html#ad5b996b1e4763c61a97e44a3e3ae4c4f',1,'TextRenderer::render()'],['../classHeroTextRenderer.html#a5a77a02843e9855616a5b96ccbd27997',1,'HeroTextRenderer::render()'],['../classObserverTextRenderer.html#ae5148f404777b9c24133f38c2d0e891e',1,'ObserverTextRenderer::render()']]],
-  ['renderer_65',['Renderer',['../classRenderer.html',1,'']]],
-  ['run_66',['run',['../classGame.html#a1ab78f5ed0d5ea879157357cf2fb2afa',1,'Game']]]
+  ['parse_56',['parse',['../classHero.html#acdd608cda56d150ac7ff5a4c29e0cc42',1,'Hero::parse()'],['../classMonster.html#abe91cd8127c815d37f3b3b4577a51b72',1,'Monster::parse()']]],
+  ['parseexception_57',['ParseException',['../classJSON_1_1ParseException.html',1,'JSON']]],
+  ['parsejsonfilename_58',['ParseJsonFilename',['../classJSON.html#a5ccacfb112e05f3eea36f431353460d1',1,'JSON']]],
+  ['parsejsonstring_59',['ParseJsonString',['../classJSON.html#ae8a7248f0e50187bae71c34ea6621ef6',1,'JSON']]],
+  ['physical_60',['physical',['../structdamage.html#a3974bf789911a66ad66f1f28bc58b707',1,'damage']]],
+  ['preparedgame_61',['PreparedGame',['../classPreparedGame.html',1,'']]],
+  ['printmap_62',['printMap',['../classGame.html#a59432db9fcfce098c2613cfa06173e39',1,'Game']]],
+  ['puthero_63',['putHero',['../classGame.html#a2c9bbc80ff60480af1bbdf06cd3380a7',1,'Game']]],
+  ['putmonster_64',['putMonster',['../classGame.html#a5fc59a7c9f21b26c9b6502217dc5aa5d',1,'Game']]]
 ];

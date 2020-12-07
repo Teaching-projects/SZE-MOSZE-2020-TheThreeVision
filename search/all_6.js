@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['increasexp_35',['increaseXP',['../classHero.html#a1d5c593f9db0aa2084f3bc0f8c05f4b2',1,'Hero']]],
-  ['invalidmove_36',['InvalidMove',['../classGame_1_1InvalidMove.html',1,'Game']]],
-  ['isalive_37',['isAlive',['../classMonster.html#aca4e35d1b32aad3e5cf00157bb212956',1,'Monster']]],
-  ['isempty_38',['isEmpty',['../classMap.html#ae18ec5d847eeb52dbf23a803223dbfef',1,'Map']]]
+  ['hero_34',['Hero',['../classHero.html',1,'Hero'],['../classHero.html#aacbc7e3edcb90244d6c679b7d0bf1e9b',1,'Hero::Hero(std::string name, int hp, damage dmg, int defense, double atkCoolDown, std::string texture, int experience_per_level, int health_point_bonus_per_level, damage damage_bonus_per_level, int defense_bonus_per_level, double cooldown_multiplier_per_level, double light_radius, double light_radius_bonus_per_level)'],['../classHero.html#acddb8ecebf26697bbbadddb026297689',1,'Hero::Hero(Hero *h)']]],
+  ['herotextrenderer_35',['HeroTextRenderer',['../classHeroTextRenderer.html',1,'HeroTextRenderer'],['../classHeroTextRenderer.html#a496f87a6f8b26e4528c6d74d3be3b21c',1,'HeroTextRenderer::HeroTextRenderer()']]],
+  ['hr_36',['Hr',['../structHr.html',1,'']]]
 ];

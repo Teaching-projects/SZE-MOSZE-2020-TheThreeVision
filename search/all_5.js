@@ -1,6 +1,29 @@
 var searchData=
 [
-  ['hero_32',['Hero',['../classHero.html',1,'Hero'],['../classHero.html#af36f87d6aea321839b9ca026fa2bd6f6',1,'Hero::Hero(std::string name, int hp, damage dmg, int defense, double atkCoolDown, int experience_per_level, int health_point_bonus_per_level, damage damage_bonus_per_level, int defense_bonus_per_level, double cooldown_multiplier_per_level, double light_radius, double light_radius_bonus_per_level)'],['../classHero.html#acddb8ecebf26697bbbadddb026297689',1,'Hero::Hero(Hero *h)']]],
-  ['herotextrenderer_33',['HeroTextRenderer',['../classHeroTextRenderer.html',1,'HeroTextRenderer'],['../classHeroTextRenderer.html#a496f87a6f8b26e4528c6d74d3be3b21c',1,'HeroTextRenderer::HeroTextRenderer()']]],
-  ['hr_34',['Hr',['../structHr.html',1,'']]]
+  ['game_8',['Game',['../classGame.html',1,'Game'],['../classGame.html#ad59df6562a58a614fda24622d3715b65',1,'Game::Game()'],['../classGame.html#a4826d5d4e1c4a355c203df5c4fceb650',1,'Game::Game(std::string mapfilename)']]],
+  ['gamealreadystartedexception_9',['GameAlreadyStartedException',['../classGame_1_1GameAlreadyStartedException.html',1,'Game']]],
+  ['get_10',['get',['../classMap.html#af3d2f71301bb5bdafcef6099a65ae7e0',1,'Map']]],
+  ['getattackcooldown_11',['getAttackCoolDown',['../classMonster.html#ad84dbe06c7a2aa7f75164dd9db52daf3',1,'Monster']]],
+  ['getcooldown_5fmultiplier_5fper_5flevel_12',['getCooldown_multiplier_per_level',['../classHero.html#acad4733ca948f1807e4a334649094cd3',1,'Hero']]],
+  ['getdamage_13',['getDamage',['../classMonster.html#a56b198cee3796d9e311a7840266c9c6c',1,'Monster']]],
+  ['getdamage_5fbonus_5fper_5flevel_14',['getDamage_bonus_per_level',['../classHero.html#a1e8f4e9c66d5d1e449e3c31743c772a7',1,'Hero']]],
+  ['getdefense_15',['getDefense',['../classMonster.html#aafce7d1ded2630ea0d1d1089858b8fc0',1,'Monster']]],
+  ['getdefense_5fbonus_5fper_5flevel_16',['getDefense_bonus_per_level',['../classHero.html#a7e641f8dbba271fb6b4bac9194b0275a',1,'Hero']]],
+  ['getexperience_5fper_5flevel_17',['getExperience_per_level',['../classHero.html#ac1fd3a9e993091b57f8ed2fef21bc538',1,'Hero']]],
+  ['gethealth_5fpoint_5fbonus_5fper_5flevel_18',['getHealth_point_bonus_per_level',['../classHero.html#a9c09c7edbf0465066fdca2fbd4e045f7',1,'Hero']]],
+  ['gethealthpoints_19',['getHealthPoints',['../classMonster.html#acbfb552014439fe02d10f2492e60fe34',1,'Monster']]],
+  ['getheight_20',['getHeight',['../classMap.html#a67113f1ffac80d9a20b15fa18a58edc2',1,'Map']]],
+  ['gethero_21',['getHero',['../classGame.html#a970446fd6a3d43fe38651d1c8a903358',1,'Game']]],
+  ['getlevel_22',['getLevel',['../classHero.html#a5e57cbaa03afdb8ee9b0c5c3505a76be',1,'Hero']]],
+  ['getlightradius_23',['getLightRadius',['../classHero.html#ae9ed6c962134a401a1b5c11a1f0fcbf0',1,'Hero']]],
+  ['getmap_24',['getMap',['../classGame.html#ae85fbbee31a858735355b7873e128af6',1,'Game']]],
+  ['getmaxhealthpoints_25',['getMaxHealthPoints',['../classHero.html#a102ed7a15cb4a5f7058e33a435518f06',1,'Hero']]],
+  ['getmaxwidth_26',['getMaxWidth',['../classMap.html#a0565eebee42eaf18131b89fbae8f15b6',1,'Map']]],
+  ['getmonsterposition_27',['getMonsterPosition',['../classMarkedMap.html#ad87c44c6009490edffb9fa29759b71a2',1,'MarkedMap']]],
+  ['getmonsters_28',['getMonsters',['../classGame.html#aa0533fbbf1398377e48a9d4b9d01380b',1,'Game']]],
+  ['getname_29',['getName',['../classMonster.html#a28ae1112e37262ce150e3c02465b3dd5',1,'Monster']]],
+  ['gettexture_30',['getTexture',['../classMonster.html#a6d2ded9d50be9e307f69b08c5b9a611e',1,'Monster']]],
+  ['gettextures_31',['getTextures',['../classGame.html#ae224ccdfbf631b379c90191e79463268',1,'Game']]],
+  ['getwidth_32',['getWidth',['../classMap.html#a53609fccd117a5a069bf33ef1e0c65c2',1,'Map']]],
+  ['getxp_33',['getXP',['../classHero.html#af8f4b26fcf84d976a492ce974ad108f1',1,'Hero']]]
 ];
