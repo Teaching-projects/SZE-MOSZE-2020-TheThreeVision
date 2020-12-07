@@ -120,7 +120,7 @@ TEST(Tests,typetest)
     EXPECT_EQ(typeid(double),typeid(hero.getAttackCoolDown()));
     EXPECT_EQ(typeid(int),typeid(hero.getDefense()));
     EXPECT_EQ(typeid(double),typeid(hero.getExperience_per_level()));
-    EXPECT_EQ(typeid(double),typeid(hero.getHelath_point_bonus_per_level()));
+    EXPECT_EQ(typeid(double),typeid(hero.getHealth_point_bonus_per_level()));
     EXPECT_EQ(typeid(int),typeid(hero.getDamage_bonus_per_level().physical));
     EXPECT_EQ(typeid(int),typeid(hero.getDamage_bonus_per_level().magical));
     EXPECT_EQ(typeid(double),typeid(hero.getDefense_bonus_per_level()));
