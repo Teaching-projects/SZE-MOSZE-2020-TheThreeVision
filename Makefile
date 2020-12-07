@@ -40,10 +40,10 @@ static_code_analysis:
 	$(CH) $(CPPOBJS) $(CHAFLAGS)
 
 memory_leak_check: linking
-	valgrind $(VFLAGS) cat inputdata.txt | ./main 
+	valgrind $(VFLAGS) cat inputdata.txt | ./main > output2.txt
 
 io_diff_check:
-	python3 testrun.py
+	diff output1.txt output2.txt
 
 buildunittest:
 	cmake $(SUBDIR)/$(CMAKEO) /
