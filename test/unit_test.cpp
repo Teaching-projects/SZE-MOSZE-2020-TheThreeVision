@@ -170,7 +170,7 @@ TEST(Tests, ParseWithWhitespaces)
     ASSERT_TRUE(hero.getHealthPoints() == 15330);
     ASSERT_TRUE(hero.getDamage().physical== 1450);
     ASSERT_TRUE(hero.getDamage().magical==0);
-    ASSERT_TRUE(hero.getAttackCoolDown() == 2;
+    ASSERT_TRUE(hero.getAttackCoolDown() == 2);
     ASSERT_TRUE(hero.getDefense()==0);
 }
 
