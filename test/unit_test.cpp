@@ -167,7 +167,7 @@ TEST(Tests, ParseWithWhitespaces)
 {
     Hero hero = Hero::parse("unit.json");
     ASSERT_TRUE(hero.getName() == "vizibicikli");
-    ASSERT_TRUE(hero.getHealthPoints() == 15330);
+    ASSERT_TRUE(hero.getHealthPoints() == 1530);
     ASSERT_TRUE(hero.getDamage().physical== 3);
     ASSERT_TRUE(hero.getDamage().magical==0);
     ASSERT_TRUE(hero.getAttackCoolDown() == 2);
@@ -180,8 +180,19 @@ TEST(Tests, ParseWithWhitespaces)
     ASSERT_TRUE(hero.getCooldown_multiplier_per_level() == 0.9);
 }
 
-TEST(Tests, ParseException){
-
+TEST(Tests, OccupiedException){
+    hasUnits = false;
+    hasMap = false;
+    Running = false;
+    JSON Units = JSON::parseFromFile(filename);
+    std::string toOpen = "Units/" + Units.get<std::string>("map");
+    MarkedMap map(toOpen);
+    setMap(map);
+    std::pair<int, int> heroPos = map.getHeroPosition();
+    Hero h = Hero::parse(Units.get<std::string>("hero"));
+    heroPos.first = 0;
+    heroPos.second = 0;
+    ASSERT_THROW(putHero(h, heroPos.first, heroPos.second), OccupiedException());
 }
 
 
