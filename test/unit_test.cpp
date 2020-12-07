@@ -168,10 +168,16 @@ TEST(Tests, ParseWithWhitespaces)
     Hero hero = Hero::parse("unit.json");
     ASSERT_TRUE(hero.getName() == "vizibicikli");
     ASSERT_TRUE(hero.getHealthPoints() == 15330);
-    ASSERT_TRUE(hero.getDamage().physical== 1450);
+    ASSERT_TRUE(hero.getDamage().physical== 3);
     ASSERT_TRUE(hero.getDamage().magical==0);
     ASSERT_TRUE(hero.getAttackCoolDown() == 2);
     ASSERT_TRUE(hero.getDefense()==0);
+    ASSERT_TRUE(hero.getExperience_per_level() == 20);
+    ASSERT_TRUE(hero.getHealth_point_bonus_per_level() == 5);
+    ASSERT_TRUE(hero.getDamage_bonus_per_level().physical == 1);
+    ASSERT_TRUE(hero.getDamage_bonus_per_level().magical == 2);
+    ASSERT_TRUE(hero.getDefense_bonus_per_level() == 0);
+    ASSERT_TRUE(hero.getCooldown_multiplier_per_level() == 0.9);
 }
 
 TEST(Tests, ParseException){
