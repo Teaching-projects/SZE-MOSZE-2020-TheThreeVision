@@ -20,7 +20,7 @@
     fight test      ready
     fight test with hp      ready
     withspaces      ready
-    parseexception test
+    exception test
     check magical
     Map test
     puthero wongindexexception
