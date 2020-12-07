@@ -19,7 +19,7 @@
     type test ready
     fight test      ready
     fight test with hp      ready
-    withspaces
+    withspaces      ready
     parseexception test
     check magical
     Map test
@@ -165,7 +165,7 @@ TEST(Tests, Level_XP_2)
 
 TEST(Tests, ParseWithWhitespaces)
 {
-    Hero expected = Hero::parse("Units/unit.json");
+    Hero hero = Hero::parse("Units/unit.json");
     ASSERT_TRUE(hero.getName() == "vizibicikli");
     ASSERT_TRUE(hero.getHealthPoints() == 15330);
     ASSERT_TRUE(hero.getDamage().physical== 1450);
@@ -173,6 +173,12 @@ TEST(Tests, ParseWithWhitespaces)
     ASSERT_TRUE(hero.getAttackCoolDown() == 2;
     ASSERT_TRUE(hero.getDefense()==0);
 }
+
+TEST(Tests, ParseException){
+
+}
+
+
 
 int main(int argc, char** argv)
 {
