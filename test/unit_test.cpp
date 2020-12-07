@@ -186,7 +186,7 @@ TEST(Tests, MagDMG){
 TEST(Tests, MapTest){
     ASSERT_NO_THROW(Map("Units/markedmap.txt"));
     ASSERT_THROW(Map("nomap.txt"), std::runtime_error);
-    Map map("maps/exampleMap.txt");
+    Map map("Units/markedmap.txt");
     ASSERT_THROW(map.get(999,999), Map::WrongIndexException); 
 }
 
