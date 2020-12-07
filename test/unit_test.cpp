@@ -148,14 +148,6 @@ TEST(Tests, LevelTest)
     Hero h1 = Hero::parse("Dark_Wanderer.json");
     Monster h2 = Monster::parse("Blood_Raven.json");
     h1.fightTilDeath(h2);
-    ASSERT_EQ(h1.getLevel(),7);
-}
-
-TEST(Tests, AdditionalTest)
-{
-    Hero h1 = Hero::parse("Dark_Wanderer.json");
-    Monster h2 = Monster::parse("Zombie.json");
-    h1.fightTilDeath(h2);
     ASSERT_EQ(h1.getLevel(),1);
 }
 
@@ -169,6 +161,17 @@ TEST(Tests, Level_XP_2)
     Hero expected = Hero("Bela", 200, damage(90,10),5.0, 1.0, 1.0, 1.0,damage(1,1), 1.0, 1.0,1.0,1.0);
     EXPECT_EQ(expected.getLevel(), 1);
     EXPECT_EQ(expected.getXP(), 0);
+}
+
+TEST(Tests, ParseWithWhitespaces)
+{
+    Hero expected = Hero::parse("Units/unit.json");
+    ASSERT_TRUE(hero.getName() == "vizibicikli");
+    ASSERT_TRUE(hero.getHealthPoints() == 15330);
+    ASSERT_TRUE(hero.getDamage().physical== 1450);
+    ASSERT_TRUE(hero.getDamage().magical==0);
+    ASSERT_TRUE(hero.getAttackCoolDown() == 2;
+    ASSERT_TRUE(hero.getDefense()==0);
 }
 
 int main(int argc, char** argv)
