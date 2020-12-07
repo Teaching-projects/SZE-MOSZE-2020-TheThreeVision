@@ -1,5 +1,6 @@
 #include "../JSON.h"
 #include "../Game.h"
+#include "../Map.h"
 #include <gtest/gtest.h>
 #include <string>
 #include <map>
