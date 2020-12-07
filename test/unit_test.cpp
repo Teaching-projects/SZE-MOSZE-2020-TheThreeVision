@@ -23,6 +23,7 @@ TEST(Tests, HeroTest)
     ASSERT_TRUE(hero.getDamage_bonus_per_level().magical == 2);
     ASSERT_TRUE(hero.getDefense_bonus_per_level() == 0);
     ASSERT_TRUE(hero.getCooldown_multiplier_per_level() == 0.9);
+    ASSERT_TRUE(hero.getTexture() == "svg/pretty.svg");
 
 }
 
@@ -35,6 +36,7 @@ TEST(Tests, MonsterTest)
     ASSERT_TRUE(monster.getDamage().magical == 0);
     ASSERT_TRUE(monster.getAttackCoolDown() == 1.6);
     ASSERT_TRUE(monster.getDefense()==0);
+    ASSERT_TRUE(monster.getTexture() == "svg/fallen.svg");
 }
 
 TEST(Tests, FindDataTest)
@@ -138,7 +140,7 @@ TEST(Tests, exist)
 
 TEST(Tests, Level_XP_2)
 {
-    Hero expected = Hero("Bela", 200, damage(90,10),5.0, 1.0, 1.0, 1.0,damage(1,1), 1.0, 1.0,1.0,1.0);
+    Hero expected = Hero("Bela", 200, damage(90,10),5.0, 1.0, 1.0, 1.0,damage(1,1), 1.0, 1.0,1.0,1.0,"svg/pretty.svg");
     EXPECT_EQ(expected.getLevel(), 1);
     EXPECT_EQ(expected.getXP(), 0);
 }
