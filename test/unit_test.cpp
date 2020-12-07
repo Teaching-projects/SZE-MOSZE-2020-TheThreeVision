@@ -1,6 +1,8 @@
 #include "../JSON.h"
 #include "../Hero.h"
 #include "../Monster.h"
+#include "../Game.h"
+#include "../Map.h"
 #include <gtest/gtest.h>
 #include <string>
 #include <map>
@@ -8,16 +10,42 @@
 #include <iostream>
 #include <variant>
 
+//ToDo new test
+/*
+    HeroTest
+    MonsterTest
+    FindData test
+    runtime error with finddata
+    hp test
+    scenario test
+    type test
+    fight test 
+    fight test with hp
+    withspaces
+    parseexception test
+    check magical
+    Map test
+    puthero wongindexexception
+    heropos check
+*/
+
 
 TEST(Tests, HeroTest)
 {
 	Hero hero{Hero::parse("Dark_Wanderer.json")};
-    ASSERT_TRUE(hero.getHealthPoints() == 30);
     ASSERT_TRUE(hero.getName() == "Prince Aidan of Khanduras");
+    ASSERT_TRUE(hero.getHealthPoints() == 30);
     ASSERT_TRUE(hero.getDamage().physical== 3);
     ASSERT_TRUE(hero.getDamage().magical==0);
     ASSERT_TRUE(hero.getAttackCoolDown() == 1.1);
     ASSERT_TRUE(hero.getDefense()==0);
+    ASSERT_TRUE(hero.getExperience_per_level() == 20);
+    ASSERT_TRUE(hero.getHealth_point_bonus_per_level() == 5);
+    ASSERT_TRUE(hero.getDamage_bonus_per_level().physical == 1);
+    ASSERT_TRUE(hero.getDamage_bonus_per_level().magical == 2);
+    ASSERT_TRUE(hero.getDefense_bonus_per_level() == 0);
+    ASSERT_TRUE(hero.getCooldown_multiplier_per_level() == 0.9);
+
 }
 
 TEST(Tests, MonsterTest)
