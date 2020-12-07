@@ -180,15 +180,16 @@ TEST(Tests, ParseWithWhitespaces)
 }
 
 TEST(Tests, OccupiedException){
+    Game game();
     JSON Units = JSON::parseFromFile("Units/preparedgame.txt");
     std::string toOpen = "Units/" + Units.get<std::string>("map");
     MarkedMap map(toOpen);
     Game::setMap(map);
-    std::pair<int, int> heroPos = Map::map.getHeroPosition();
+    std::pair<int, int> heroPos = map.getHeroPosition();
     Hero h = Hero::parse(Units.get<std::string>("hero"));
     heroPos.first = 0;
     heroPos.second = 0;
-    ASSERT_THROW(Game::putHero(h, heroPos.first, heroPos.second), OccupiedException());
+    ASSERT_THROW(game.putHero(h, heroPos.first, heroPos.second), Game::OccupiedException());
 }
 
 
