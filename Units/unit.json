@@ -11,6 +11,5 @@
       "cooldown_multiplier_per_level"              :                       0.9                  ,
       "magical-damage_bonus_per_level": 2,
       "light_radius": 2,
-      "light_radius_bonus_per_level": 2,
-      "magical-damage": 5
+      "light_radius_bonus_per_level": 2
   }
