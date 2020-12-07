@@ -168,7 +168,7 @@ TEST(Tests, ParseWithWhitespaces)
     ASSERT_TRUE(hero.getHealthPoints() == 1530);
     ASSERT_TRUE(hero.getDamage().physical== 3);
     ASSERT_TRUE(hero.getDamage().magical==0);
-    ASSERT_TRUE(hero.getAttackCoolDown() == 2);
+    ASSERT_TRUE(hero.getAttackCoolDown() == 1.1);
     ASSERT_TRUE(hero.getDefense()==0);
     ASSERT_TRUE(hero.getExperience_per_level() == 20);
     ASSERT_TRUE(hero.getHealth_point_bonus_per_level() == 5);
@@ -179,7 +179,7 @@ TEST(Tests, ParseWithWhitespaces)
 }
 
 TEST(unittests, checkMagicalDMG2){
-    JSON unit = JSON::parseFromFile("unit.json");
+    JSON unit = JSON::parseJSONFilename("unit.json");
     ASSERT_EQ(unit.get<int>("\"magical-damage\""), 0);
 }
 
