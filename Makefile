@@ -43,7 +43,7 @@ memory_leak_check: linking
 	valgrind $(VFLAGS) cat inputdata.txt | ./main >> output2.txt
 
 io_diff_check:
-	diff output1.txt output2.txt
+	$ cmp output1.txt output2.txt
 
 buildunittest:
 	cmake $(SUBDIR)/$(CMAKEO) /
