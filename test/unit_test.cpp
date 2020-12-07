@@ -1,6 +1,5 @@
 #include "../JSON.h"
 #include "../Game.h"
-#include "../Map.h"
 #include <gtest/gtest.h>
 #include <string>
 #include <map>
@@ -181,18 +180,18 @@ TEST(Tests, ParseWithWhitespaces)
 }
 
 TEST(Tests, OccupiedException){
-    hasUnits = false;
-    hasMap = false;
-    Running = false;
+    Game::hasUnits = false;
+    Game::hasMap = false;
+    Game::Running = false;
     JSON Units = JSON::parseFromFile(filename);
     std::string toOpen = "Units/" + Units.get<std::string>("map");
-    MarkedMap map(toOpen);
-    setMap(map);
-    std::pair<int, int> heroPos = map.getHeroPosition();
+    MarkedMap MarkedMap::map(toOpen);
+    Game::setMap(map);
+    std::pair<int, int> heroPos = Map::map.getHeroPosition();
     Hero h = Hero::parse(Units.get<std::string>("hero"));
     heroPos.first = 0;
     heroPos.second = 0;
-    ASSERT_THROW(putHero(h, heroPos.first, heroPos.second), OccupiedException());
+    ASSERT_THROW(Game::putHero(h, heroPos.first, heroPos.second), OccupiedException());
 }
 
 
