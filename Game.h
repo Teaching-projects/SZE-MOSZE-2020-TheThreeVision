@@ -34,7 +34,7 @@ protected:
     bool hasMap;
     bool Running;
     std::map<std::string, std::string> Textures///contain the wall and free and the placeholder textures
-    { std::make_pair("empty_texture", "svg/black.svg"),std::make_pair("free_texture", "svg/free.svg"),std::make_pair("wall_tecture", "svg/wall.svg")};
+    {std::make_pair("free_texture", "svg/free.svg"),std::make_pair("wall_tecture", "svg/wall.svg")};
     std::list<Renderer*> Renderers; ///contain the added renderers
 
 public:

@@ -5,7 +5,7 @@
 #include <fstream>
 #include <iostream>
 #include <cmath>
-//TODO (something like in the hero)
+//something like in the hero
 void Monster::Damage(Monster* monster)const
 {
  //magical
@@ -89,7 +89,8 @@ Monster Monster::parse(const std::string toParse) {
         Data.get<int>("points"),
         damage(Data.get<int>("damage"), Data.get<int>("\"magical-damage\"")),
         Data.get<double>("defense"),
-        Data.get<double>("cooldown")
+        Data.get<double>("cooldown"),
+        Data.get<std::string>("texture")
     );
 }
 

@@ -46,9 +46,9 @@ public:
 	 */
 	void fightTilDeath(Monster& m/**[in] is the monster*/);
 	/// Hero construct, what put the input parameters to the data members
-	Hero(std::string name, int hp, damage dmg, int defense, double atkCoolDown,
+	Hero(std::string name, int hp, damage dmg, int defense, double atkCoolDown,std::string texture,
 		int experience_per_level, int health_point_bonus_per_level, damage damage_bonus_per_level,int defense_bonus_per_level, double cooldown_multiplier_per_level, double light_radius, double light_radius_bonus_per_level)
-		: Monster(name, hp, dmg, defense, atkCoolDown),
+		: Monster(name, hp, dmg, defense, atkCoolDown, texture),
 		maxHP(hp), Experience_per_level(experience_per_level),
 		Health_point_bonus_per_level(health_point_bonus_per_level),
 		Damage_bonus_per_level(damage_bonus_per_level),
