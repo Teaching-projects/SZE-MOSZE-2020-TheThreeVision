@@ -178,9 +178,16 @@ TEST(Tests, ParseWithWhitespaces)
     ASSERT_TRUE(hero.getCooldown_multiplier_per_level() == 0.9);
 }
 
-TEST(unittests, checkMagicalDMG2){
+TEST(Tests, MagDMG){
     JSON unit = JSON::ParseJsonFilename("unit.json");
     ASSERT_EQ(unit.get<int>("\"magical-damage\""), 0);
+}
+
+TEST(Tests, MapTest){
+    ASSERT_NO_THROW(Map("Units/markedmap.txt"));
+    ASSERT_THROW(Map("nomap.txt"), std::runtime_error);
+    Map map("maps/exampleMap.txt");
+    ASSERT_THROW(map.get(999,999), Map::WrongIndexException); 
 }
 
 int main(int argc, char** argv)
