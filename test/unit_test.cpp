@@ -179,7 +179,7 @@ TEST(Tests, ParseWithWhitespaces)
 }
 
 TEST(unittests, checkMagicalDMG2){
-    JSON unit = JSON::parseJsonFilename("unit.json");
+    JSON unit = JSON::ParseJsonFilename("unit.json");
     ASSERT_EQ(unit.get<int>("\"magical-damage\""), 0);
 }
 
