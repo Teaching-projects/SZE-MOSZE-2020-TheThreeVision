@@ -165,7 +165,7 @@ TEST(Tests, Level_XP_2)
 
 TEST(Tests, ParseWithWhitespaces)
 {
-    Hero hero = Hero::parse("Units/unit.json");
+    Hero hero = Hero::parse("unit.json");
     ASSERT_TRUE(hero.getName() == "vizibicikli");
     ASSERT_TRUE(hero.getHealthPoints() == 15330);
     ASSERT_TRUE(hero.getDamage().physical== 1450);
