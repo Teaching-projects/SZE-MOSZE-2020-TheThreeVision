@@ -96,4 +96,3 @@ Prince Aidan of Khanduras cleared the map.
    HP: 65/65
   DMG: Physical: 10, Magical: 14
   ACD: 0.526127
-  
