@@ -19,7 +19,6 @@
     fight test      ready
     fight test with hp      ready
     withspaces      ready
-    exception test
     check magical
     Map test
     puthero wongindexexception
@@ -168,7 +167,7 @@ TEST(Tests, ParseWithWhitespaces)
     ASSERT_TRUE(hero.getName() == "vizibicikli");
     ASSERT_TRUE(hero.getHealthPoints() == 1530);
     ASSERT_TRUE(hero.getDamage().physical== 3);
-    ASSERT_TRUE(hero.getDamage().magical==0);
+    ASSERT_TRUE(hero.getDamage().magical==5);
     ASSERT_TRUE(hero.getAttackCoolDown() == 2);
     ASSERT_TRUE(hero.getDefense()==0);
     ASSERT_TRUE(hero.getExperience_per_level() == 20);
@@ -179,20 +178,11 @@ TEST(Tests, ParseWithWhitespaces)
     ASSERT_TRUE(hero.getCooldown_multiplier_per_level() == 0.9);
 }
 
-TEST(Tests, OccupiedException){
-    Game game();
-    JSON Units = JSON::parseFromFile("Units/preparedgame.txt");
-    std::string toOpen = "Units/" + Units.get<std::string>("map");
-    MarkedMap map(toOpen);
-    Game::setMap(map);
-    std::pair<int, int> heroPos = map.getHeroPosition();
-    Hero h = Hero::parse(Units.get<std::string>("hero"));
-    heroPos.first = 0;
-    heroPos.second = 0;
-    ASSERT_THROW(game.putHero(h, heroPos.first, heroPos.second), Game::OccupiedException());
+TEST(unittests, checkMagicalDMG2){
+    JSON unit = JSON::parseFromFile("unit.json");
+    ASSERT_EQ(unit.get<int>("\"magical-damage\""), 5);
+
 }
-
-
 
 int main(int argc, char** argv)
 {
