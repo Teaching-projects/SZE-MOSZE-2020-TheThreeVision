@@ -7,24 +7,6 @@
 #include <iostream>
 #include <variant>
 
-//ToDo new test
-/*
-    HeroTest            ready
-    MonsterTest         ready
-    FindData test       ready
-    runtime error with finddata     ready
-    hp test     ready
-    scenario test   ready
-    type test ready
-    fight test      ready
-    fight test with hp      ready
-    withspaces      ready
-    check magical
-    Map test
-    puthero wongindexexception
-    heropos check
-*/
-
 
 TEST(Tests, HeroTest)
 {
