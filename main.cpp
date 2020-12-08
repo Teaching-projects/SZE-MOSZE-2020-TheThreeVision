@@ -42,6 +42,9 @@ int main(int argc, char **argv)
     PreparedGame game = PreparedGame(prep_game);
         try
         {
+            std::ofstream stream = std::ofstream("log.txt");
+            game.registerRenderer(new ObserverTextRenderer(stream));
+            game.registerRenderer(new ObserverSVGRenderer("pretty.svg"));
             game.registerRenderer(new HeroTextRenderer());
             game.run();
         }

@@ -1,17 +1,17 @@
 ﻿#include "SVGRenderer.h"
+#include <sstream> 
 
 std::string getEmpty(int x,int y,int es) {
-    std::string s = "<g transform=\"translate(";
-    s += x + "," + y;
-    s += ") scale(0.0" + es;
-    s+=",0.0" + es;
-    s +=") \"fill=\"#000000\" stroke=\"none\"><path d=\"M0 640 l0 -640 640 0 640 0 0 640 0 640 -640 0 -640 0 0 -640z\"/></g>";
-    return s;
+    std::stringstream ss;    
+    ss << "<g transform=\"translate("<< x << "," << y<<") scale(0.0" << es <<",0.0"<< es<<")\"" 
+    <<" fill=\"#000000\" stroke=\"none\">"
+    <<"\n<path d=\"M0 640 l0 -640 640 0 640 0 0 640 0 640 -640 0 -640 0 0 -640z\"/>\n</g>\n";
+    return ss.str();
 }
 void ObserverSVGRenderer::render(const Game& game) const
 {
-    int fullWidth = game.getMap().getMaxWidth() * 10;
-    int fullHeight = game.getMap().getHeight() * 10;
+    int fullWidth = game.getMap().getMaxWidth() * elementSize;
+    int fullHeight = game.getMap().getHeight() * elementSize;
 
     //find textures
     std::map<std::string, std::string> textures = game.getTextures();
@@ -33,22 +33,22 @@ void ObserverSVGRenderer::render(const Game& game) const
     }
     //start of file
     std::ofstream svgOutput(Filename);
-    svgOutput << "<svg version=\"1.0\" xmlns=\"http://www.w3.org/2000/svg\"";
-    svgOutput << "width = \"" << fullWidth << "pt\" height=\"" << fullHeight << "pt\" viewBox=\"-10 -10 " << fullWidth << " " << fullHeight << "\">";
+    svgOutput << "<svg version=\"1.0\" xmlns=\"http://www.w3.org/2000/svg\" \n";
+    svgOutput << "width = \"" << fullWidth << "pt\" height=\"" << fullHeight << "pt\" viewBox=\"-10 -10 " << fullWidth << " " << fullHeight << "\">\n\n";
 
-    for (int y = 0; y < fullHeight; y+=10){
-        for (int x = 0; x < fullWidth; x+=10){
-            if (game.getMap().get(x, y) == game.getMap().type::Wall)
+    for (int y = 0; y < fullHeight; y+=elementSize){
+        for (int x = 0; x < fullWidth; x+=elementSize){
+            if (game.getMap().get(x/ elementSize, y/ elementSize) == game.getMap().type::Wall)
             {
                 if (wall != "") svgOutput << "<image x = \"" << x << "\" y=\"" << y << "\" width=\"" << elementSize << "\" height=\"" << elementSize << "\" href=\"" << wall << "\" />";
                 else svgOutput << getEmpty(x,y,elementSize);
             }
-            else if (game.getHero().row == x && game.getHero().col == y)
+            else if (game.getHero().row == x/ elementSize && game.getHero().col == y/ elementSize)
             {
                 if (hero != "") svgOutput << "<image x = \"" << x << "\" y=\"" << y << "\" width=\"" << elementSize << "\" height=\"" << elementSize << "\" href=\"" << hero << "\" />";
                 else svgOutput << getEmpty(x, y, elementSize);
             }
-            else if (game.getMap().get(x, y) == game.getMap().type::Free)
+            else if (game.getMap().get(x/ elementSize, y/ elementSize) == game.getMap().type::Free)
             {
                 if (free != "") svgOutput << "<image x = \"" << x << "\" y=\"" << y << "\" width=\"" << elementSize << "\" height=\"" << elementSize << "\" href=\"" << free << "\" />";
                 else svgOutput << getEmpty(x, y, elementSize);
@@ -60,7 +60,7 @@ void ObserverSVGRenderer::render(const Game& game) const
                 {
                     int eSize = elementSize / count;
                     int ex = x + (count-1)*eSize, ey = y + (count - 1) * eSize;
-                    if ((a.row == x && a.col == y) && a.m.isAlive()) {
+                    if ((a.row == x/ elementSize && a.col == y/ elementSize) && a.m.isAlive()) {
                         if (monsterTexures[a.m.getTexture()]) svgOutput << "<image x = \"" << ex << "\" y=\"" << ey << "\" width=\"" << eSize << "\" height=\"" << eSize << "\" href=\"" << a.m.getTexture() << "\" />";
                         else svgOutput << getEmpty(ex, ey, eSize);
                         
@@ -77,7 +77,7 @@ void ObserverSVGRenderer::render(const Game& game) const
      
   
     //end of file
-    svgOutput << "</svg>";
+    svgOutput << "</svg>\n";
     svgOutput.close();
 }
 
