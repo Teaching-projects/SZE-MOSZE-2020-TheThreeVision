@@ -106,7 +106,9 @@ void CharacterSVGRenderer::render(const Game& game) const{
     //start of file
     std::ofstream svgOutput(Filename);
     svgOutput << "<svg version=\"1.0\" xmlns=\"http://www.w3.org/2000/svg\" \n";
-    svgOutput << "width = \"" << fullWidth+20 << "pt\" height=\"" << fullHeight + 20 << "pt\" viewBox=\"-10 -10 " << fullWidth + 20 << " " << fullHeight + 20 << "\">\n\n";
+    int viewBoxRow = row - radius; if (viewBoxRow < 0)viewBoxRow = 0; viewBoxRow -= 10;
+    int viewBoxCol = col - radius; if (viewBoxCol < 0)viewBoxCol = 0; viewBoxCol -= 10;
+    svgOutput << "width = \"" << fullWidth+20 << "pt\" height=\"" << fullHeight + 20 << "pt\" viewBox=\"" << viewBoxRow << " " << viewBoxCol << " " << fullWidth + 20 << " " << fullHeight + 20 << "\">\n\n";
 
     for (int y = 0; y < fullHeight; y+=elementSize){
         for (int x = 0; x < fullWidth; x+=elementSize){
