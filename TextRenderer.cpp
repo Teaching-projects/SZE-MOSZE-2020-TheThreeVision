@@ -1,4 +1,4 @@
-﻿#include "TextRender.h"
+﻿#include "TextRenderer.h"
 
 void HeroTextRenderer::render(const Game& g) const
 {

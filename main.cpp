@@ -11,7 +11,7 @@
 #include "Monster.h"
 #include "Game.h"
 
-#include "TextRender.h"
+#include "TextRenderer.h"
 #include "SVGRenderer.h"
 
 const std::map<int, std::string> error_messages = {
