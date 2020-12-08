@@ -43,9 +43,10 @@ int main(int argc, char **argv)
         try
         {
             std::ofstream stream = std::ofstream("log.txt");
-            game.registerRenderer(new ObserverTextRenderer(stream));
-            game.registerRenderer(new ObserverSVGRenderer("pretty.svg"));
             game.registerRenderer(new HeroTextRenderer());
+            game.registerRenderer(new ObserverTextRenderer(stream));
+            game.registerRenderer(new CharacterSVGRenderer("pretty.svg"));
+            game.registerRenderer(new ObserverSVGRenderer("prettyObserver.svg"));
             game.run();
         }
         catch (Game::NotInitializedException &e)

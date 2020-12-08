@@ -25,7 +25,7 @@ public:
 class ObserverSVGRenderer : public SVGRenderer {
 public:
     /// ObserverSVGRenderer constructor
-    ObserverSVGRenderer(const std::string& filename/** [in] the output stream's path*/) : SVGRenderer(filename) {}
+    ObserverSVGRenderer (const std::string& filename/** [in] the output stream's path*/) : SVGRenderer(filename) {}
     /// render method
     virtual void render(const Game& game/**[in]  a printable Game*/) const;
 };

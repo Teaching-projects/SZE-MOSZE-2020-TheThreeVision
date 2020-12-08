@@ -179,48 +179,7 @@ void Game::run()
     }
 }
 
-void Game::printMap()
-{
-    for (int y = 0; y < map.getHeight(); y++)
-    {
-        for (int x = 0; x < map.getMaxWidth(); x++)
-        {
-            if ((map.get(x, y) == map.type::Wall ) && x >= hero.row-hero.h->getLightRadius() &&
-             x <= hero.row+hero.h->getLightRadius() &&
-             y >= hero.col-hero.h->getLightRadius() &&
-             y <= hero.col+hero.h->getLightRadius())
-            {
-                std::cout << "██";
-            }
-            else if (hero.row == x && hero.col == y && x >= hero.row-hero.h->getLightRadius() &&
-             x <= hero.row+hero.h->getLightRadius() &&
-             y >= hero.col-hero.h->getLightRadius() &&
-             y <= hero.col+hero.h->getLightRadius())
-            {
-                std::cout << "┣┫";
-            }
-            else if(x >= hero.row-hero.h->getLightRadius() &&
-             x <= hero.row+hero.h->getLightRadius() &&
-             y >= hero.col-hero.h->getLightRadius() &&
-             y <= hero.col+hero.h->getLightRadius())
-            {
-                int count = 0;
-                for (auto a : monsters)
-                {
-                    if ((a.row == x && a.col == y) && a.m.isAlive())
-                        count++;
-                }
-                if (count == 1)
-                    std::cout << "M░";
-                else if (count > 1)
-                    std::cout << "MM";
-                else
-                    std::cout << "░░";
-            }
-        }
-        if(y >= hero.col-hero.h->getLightRadius() && y <= hero.col+hero.h->getLightRadius()) std::cout << std::endl;
-    }
-}
+
 
 PreparedGame::PreparedGame(std::string filename)
 {
