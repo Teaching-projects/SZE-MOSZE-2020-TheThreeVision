@@ -20,7 +20,7 @@ struct Hr
     Hero *h;
     int col;
     int row;
-    ~Hr() { delete h; }
+    //~Hr() { delete h; }
 };
 
 class Game

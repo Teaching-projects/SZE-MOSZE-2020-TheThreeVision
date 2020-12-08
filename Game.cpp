@@ -127,14 +127,16 @@ void Game::run()
             {
              if (!findMonsterOnHero)
                 {
-                    this->printMap();//TODO: print helyet  for (auto &&r : renderers){r->render(*this)};
+                    //this->printMap();
+                    for (auto&& r : Renderers) { r->render(*this); }
                     heroMoveDirection = "";
                     std::getline(cin, heroMoveDirection);
                     moveHero(heroMoveDirection);
                 }
                 else
                 {
-                    this->printMap();//TODO: print helyet  for ....
+                 //this->printMap();
+                 for (auto&& r : Renderers) { r->render(*this); }
                 }
 
                 monster = monsters.begin();

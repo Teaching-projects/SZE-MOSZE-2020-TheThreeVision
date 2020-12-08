@@ -11,6 +11,9 @@
 #include "Monster.h"
 #include "Game.h"
 
+#include "TextRender.h"
+#include "SVGRenderer.h"
+
 const std::map<int, std::string> error_messages = {
     {1, "Bad number of arguments. Only a single scenario file should be provided."},
     {2, "The provided file is not accessible."},
@@ -39,6 +42,7 @@ int main(int argc, char **argv)
     PreparedGame game = PreparedGame(prep_game);
         try
         {
+            game.registerRenderer(new HeroTextRenderer());
             game.run();
         }
         catch (Game::NotInitializedException &e)
