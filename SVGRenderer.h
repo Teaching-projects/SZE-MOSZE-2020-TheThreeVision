@@ -5,7 +5,7 @@
 class SVGRenderer : public Renderer {
 protected:
     std::string Filename; /// the output stream's path 
-    int elementSize = 40;
+    int elementSize = 10;
 public:
     /// SVGRenderer constructor
     SVGRenderer(const std::string& filename/** [in] the output stream's path */) : Filename(filename) {}

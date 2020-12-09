@@ -4,7 +4,7 @@
 std::string getElement(std::string e,int x, int y, int eW, int eH) {
     std::stringstream ss;
     if (e != "") ss << "<image x = \"" << x << "\" y=\"" << y << "\" width=\"" << eW << "\" height=\"" << eH << "\" href=\"" << e << "\" />";
-    else ss << "<g transform=\"translate(" << x << "," << y << ") scale(0.0" << eW << ",0.0" << eH << ")\""
+    else ss << "<g transform=\"translate(" << x << "," << y << ") scale(0.0" << eW-10 << ",0.0" << eH-10 << ")\""
             << " fill=\"#000000\" stroke=\"none\">"
             << "\n<path d=\"M0 640 l0 -640 640 0 640 0 0 640 0 640 -640 0 -640 0 0 -640z\"/>\n</g>\n";
     return ss.str();

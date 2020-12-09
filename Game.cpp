@@ -188,6 +188,12 @@ PreparedGame::PreparedGame(std::string filename)
     Running = false;
     JSON Units = JSON::parseFromFile(filename);
     //lehetne checkolni jok e  unitok
+
+    /*elvileg ez kéne legyen de vmiért nemjó
+    Textures["free_texture"]= Units.get<std::string>("free_texture");
+    Textures["wall_texture"] = Units.get<std::string>("wall_texture");
+    */
+
     std::string toOpen = "Units/" + Units.get<std::string>("map");
     MarkedMap map(toOpen);
     setMap(map);
