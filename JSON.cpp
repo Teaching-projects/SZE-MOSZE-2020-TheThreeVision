@@ -44,9 +44,9 @@ JSON JSON::parseScenario(std::string& JSONstring){
         }
     }
     
-    std::string array[] = {JSONstring, "map", "hero", "monster-1", "monster-2", "monster-3"};
+    std::string array[] = {JSONstring, "map", "hero", "monster-1", "monster-2", "monster-3", "free_texture", "wall_texture"};
 
-    for (int i = 1; i < 6; i++)
+    for (int i = 1; i < 8; i++)
     {
         Map[array[i]] = JSON::FindData(array[0],array[i]);
     }
