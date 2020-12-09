@@ -127,7 +127,6 @@ void Game::run()
             {
              if (!findMonsterOnHero)
                 {
-                    //this->printMap();
                     for (auto&& r : Renderers) { r->render(*this); }
                     heroMoveDirection = "";
                     std::getline(cin, heroMoveDirection);
@@ -135,7 +134,6 @@ void Game::run()
                 }
                 else
                 {
-                 //this->printMap();
                  for (auto&& r : Renderers) { r->render(*this); }
                 }
 
@@ -159,6 +157,7 @@ void Game::run()
                 cout << e.what() << endl;
             }
         }
+        for (auto&& r : Renderers) { r->render(*this); }
         if (hero.h->isAlive())
         {
             cout << endl
@@ -187,9 +186,7 @@ PreparedGame::PreparedGame(std::string filename)
     hasMap = false;
     Running = false;
     JSON Units = JSON::parseFromFile(filename);
-    //lehetne checkolni jok e  unitok
 
-    //elvileg ez k�ne legyen de vmi�rt nemj�
     Textures["free_texture"]= Units.get<std::string>("free_texture");
     Textures["wall_texture"] = Units.get<std::string>("wall_texture");
     
