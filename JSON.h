@@ -74,12 +74,19 @@ public:
 	 * \return return with a integer
 	 */
 	int count(const std::string& toFind);
-
+	/**
+	 * \brief get information from json
+	 * \return return an information from json file
+	 */
   	template <typename T>
 	inline typename std::enable_if<!std::is_same<T, JSON::list>::value, T>::type get(const std::string& input){
     	return  std::get<T>(Data[input]);
 		
   	}
+	/**
+	 * \brief get information from json
+	 * \return return an information from json file
+	 */
 	template <typename T>
     inline typename std::enable_if<std::is_same<T, JSON::list>::value, JSON::list>::type get(std::string input){
             JSON::list toReturn;
@@ -102,7 +109,9 @@ public:
 				}
 			return toReturn;
         }
-
+	/**
+	 * \brief This class inherit from runtime_error
+	 */
 	class ParseException : public std::runtime_error{
     public:
       ParseException(const std::string& msg) : std::runtime_error(msg){}

@@ -15,7 +15,7 @@
  * \date 2020.11.06. 0:30
  *
  * \note A Hero can fight with a monster while one of them is alive.
- * The end of the fight depends on the HealthPoints, Damages and the Attackcooldowns.
+ * The end of the fight depends on every attribution.
  */
 class Hero : public Monster
 {
