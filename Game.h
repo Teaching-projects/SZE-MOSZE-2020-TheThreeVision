@@ -38,8 +38,8 @@ protected:
     std::list<Renderer*> Renderers; ///contain the added renderers
 
 public:
-    Game() : map(MarkedMap()), hasUnits(false), hasMap(false), Running(false), hero() {};/// Game's costructor without mapfile
-    Game(std::string mapfilename) : map(MarkedMap(mapfilename)), hasUnits(false), hasMap(true), Running(false), hero() {};/// Game's costructor with mapfile
+    Game() : map(MarkedMap()), hero(),hasUnits(false),hasMap(false),Running(false) {};/// Game's costructor without mapfile
+    Game(std::string mapfilename) : map(MarkedMap(mapfilename)), hero(), hasUnits(false), hasMap(true), Running(false) {};/// Game's costructor with mapfile
 
     void setMap(Map NewMap); /// Set the map
     Map getMap()const { return map; }///Get the map
