@@ -1,6 +1,6 @@
 <map id="Game" name="Game">
 <area shape="rect" id="node1" title=" " alt="" coords="12,260,73,287"/>
-<area shape="rect" id="node2" href="$structHr.html" title=" " alt="" coords="23,171,62,197"/>
+<area shape="rect" id="node2" href="$structHr.html" title="Hr struct." alt="" coords="23,171,62,197"/>
 <area shape="rect" id="node3" href="$classHero.html" title="Hero class." alt="" coords="16,81,69,108"/>
 <area shape="rect" id="node4" href="$classMonster.html" title="Monster class." alt="" coords="5,5,80,32"/>
 </map>

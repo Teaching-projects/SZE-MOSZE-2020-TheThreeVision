@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['outstream_169',['OutStream',['../classTextRenderer.html#a031689068b6fb29f258f8f7b06042a25',1,'TextRenderer']]]
+  ['magical_171',['magical',['../structdamage.html#a5b3ef255c24627b1f5d608fb6a37e51f',1,'damage']]]
 ];
