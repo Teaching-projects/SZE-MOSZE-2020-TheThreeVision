@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['hero_87',['Hero',['../classHero.html',1,'']]],
-  ['herotextrenderer_88',['HeroTextRenderer',['../classHeroTextRenderer.html',1,'']]],
-  ['hr_89',['Hr',['../structHr.html',1,'']]]
+  ['hero_90',['Hero',['../classHero.html',1,'']]],
+  ['herotextrenderer_91',['HeroTextRenderer',['../classHeroTextRenderer.html',1,'']]],
+  ['hr_92',['Hr',['../structHr.html',1,'']]]
 ];

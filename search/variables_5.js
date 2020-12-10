@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['renderers_168',['Renderers',['../classGame.html#af502e870c71c738864a9dc4f48e3d8a4',1,'Game']]],
-  ['row_169',['row',['../structMstr.html#a1180955bfb58a5f883c6b398f30cbb96',1,'Mstr::row()'],['../structHr.html#a04e1d02a400defa0e44fd43c2ca76a71',1,'Hr::row()']]]
+  ['outstream_172',['OutStream',['../classTextRenderer.html#a031689068b6fb29f258f8f7b06042a25',1,'TextRenderer']]]
 ];
