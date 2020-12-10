@@ -1,4 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classMap.html" title=" " alt="" coords="5,5,56,32"/>
-<area shape="rect" id="node2" href="$classMarkedMap.html" title=" " alt="" coords="104,5,203,32"/>
+<area shape="rect" id="node1" href="$classMap.html" title="It stores only the Game&#39;s map;." alt="" coords="5,5,56,32"/>
+<area shape="rect" id="node2" href="$classMarkedMap.html" title="It stores the Game&#39;s map with units;." alt="" coords="104,5,203,32"/>
 </map>
