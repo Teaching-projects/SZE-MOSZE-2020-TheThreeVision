@@ -133,7 +133,7 @@ std::map<std::string, std::variant<std::string, double, int>> JSON::ParseJsonStr
         if (additionals[0].find(additionals[i]) != std::string::npos)
         {
             std::string data = FindData(additionals[0], additionals[i]);
-            if((data != "" && isdigit(data[0]) )&& additionals[i] == "magical-damage_bonus_per_level" or additionals[i] == "damage_bonus_per_level"){
+            if((data != "" && isdigit(data[0])) && (additionals[i] == "magical-damage_bonus_per_level" or additionals[i] == "damage_bonus_per_level")){
                 Map.insert(std::make_pair(additionals[i],std::stoi(data)));
             }else if (data != "" && isdigit(data[0]))
             {
