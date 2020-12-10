@@ -15,9 +15,9 @@ class Renderer;
  */
 struct Mstr
 {
-    Monster m;///the Monster
-    int col;///x coordinate
-    int row;///y coordinate
+    Monster m;///< the Monster
+    int col;///< x coordinate
+    int row;///< y coordinate
 };
 /**
  * \brief Hr struct contain a Hero pointer and his/her coordinates (col and row)
@@ -28,9 +28,9 @@ struct Mstr
  */
 struct Hr
 {
-    Hero *h;///the Hero
-    int col;///x coordinate
-    int row;///y coordinate
+    Hero *h;///< the Hero
+    int col;///< x coordinate
+    int row;///< y coordinate
 };
 /**
  * \class Game

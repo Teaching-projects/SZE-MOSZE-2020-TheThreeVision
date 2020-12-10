@@ -6,7 +6,7 @@ class TextRenderer : public Renderer
 protected:
     std::ostream& OutStream; ///< output stream type.
 public:
-    /// TextRenderer constructor
+    /// This is a constructor 
     TextRenderer(std::ostream& stream = std::cout/** [in] is an output stream type*/) : OutStream(stream) {}
     ~TextRenderer() {}
     /// Render method
@@ -22,7 +22,7 @@ public:
 class HeroTextRenderer : public TextRenderer
 {
 public:
-    /// HeroTextRenderer constructor
+    /// This is a constructor 
     HeroTextRenderer(std::ostream& stream = std::cout/** [in] is an output stream type*/) : TextRenderer(stream) {}
     /// Render method
     void render(const Game& game/**[in] is a printable Game*/) const;
@@ -31,7 +31,7 @@ public:
 class ObserverTextRenderer : public TextRenderer
 {
 public:
-    /// TextRenderer constructor
+    /// This is a constructor 
     ObserverTextRenderer(std::ostream& stream = std::cout/** [in] is an output stream type*/) : TextRenderer(stream) {}
     /// Render method
     void render(const Game& game/**[in] is a printable Game*/) const;

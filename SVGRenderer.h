@@ -4,10 +4,10 @@
 /// Renders the game to SVG 
 class SVGRenderer : public Renderer {
 protected:
-    std::string Filename; /// the output file's path 
-    int elementSize = 10;///the smallest prtintable unit's size
+    std::string Filename; ///< the output file's path 
+    int elementSize = 10;///<the smallest prtintable unit's size
 public:
-    /// SVGRenderer constructor
+    /// this is a constructor 
     SVGRenderer(const std::string& filename/** [in] is the output file's path */) : Filename(filename) {}
     /// render method
     virtual void render(const Game& game/**[in] is a printable Game*/) const = 0;
@@ -16,7 +16,7 @@ public:
 /// Renders the game to SVG 
 class CharacterSVGRenderer : public SVGRenderer {
 public:
-    /// CharacterSVGRenderer constructor
+    /// this is a constructor 
     CharacterSVGRenderer(const std::string& filename/** [in] is the output file's path*/) : SVGRenderer(filename) {}
     /// render method
     virtual void render(const Game& game/**[in]  is a printable Game*/) const;
@@ -24,7 +24,7 @@ public:
 /// Renders the game to SVG 
 class ObserverSVGRenderer : public SVGRenderer {
 public:
-    /// ObserverSVGRenderer constructor
+    ///this is a constructor
     ObserverSVGRenderer (const std::string& filename/** [in] is the output file's path*/) : SVGRenderer(filename) {}
     /// render method
     virtual void render(const Game& game/**[in] is  a printable Game*/) const;
