@@ -23,7 +23,7 @@ public:
     ///Simple getter to the line's Width
     int getWidth(int line) const;
     ///Simple getter to Map 's MaxWidth
-    unsigned int getMaxWidth() const;
+    int getMaxWidth() const;
     /// Function that returns the enum type on x,y coordinates.
     Map::type get(unsigned int x, unsigned int y) const;
     ///It returns true if the map is empty

@@ -41,9 +41,9 @@ int Map::getWidth(int line) const
     return map[line].length();
 }
 
-unsigned int Map::getMaxWidth() const
+int Map::getMaxWidth() const
 {
-    unsigned int max = 0;
+     int max = 0;
     for (auto a : map)
     {
         if (a.length() > max)
