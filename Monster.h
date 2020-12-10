@@ -11,7 +11,7 @@
  * \date 2020.10.13. 22:22
  *
  * \note A monster can fight with an other monster while one of them is alive.
- * The end of the fight depends on the HealthPoints, Damages and the Attackcooldowns of the two monsters.
+ * The end of the fight depends on the HealthPoints, Damages, Defense and the Attackcooldowns of the two monsters.
  */
 class Monster
 {

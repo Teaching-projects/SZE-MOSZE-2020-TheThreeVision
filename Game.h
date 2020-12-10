@@ -7,20 +7,35 @@
 #include "Renderer.h"
 #include <filesystem>
 class Renderer;
-
+/**
+ * \brief Mstr struct
+ *
+ * \author radvanszkyI
+ *
+ * \date 2020.12.10. 9:23
+ *
+ * \note The Mstr contain a Monster and its coordinates (col and row) 
+ */
 struct Mstr
 {
-    Monster m;
-    int col;
-    int row;
+    Monster m;///the Monster
+    int col;///x coordinate
+    int row;///y coordinate
 };
-
+/**
+ * \brief Hr struct
+ *
+ * \author radvanszkyI
+ *
+ * \date 2020.12.10. 9:24
+ *
+ * \note The Hr contain a Hero pointer and his/her coordinates (col and row)
+ */
 struct Hr
 {
-    Hero *h;
-    int col;
-    int row;
-    //~Hr() { delete h; }
+    Hero *h;///the Hero
+    int col;///x coordinate
+    int row;///y coordinate
 };
 
 class Game
