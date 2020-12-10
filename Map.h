@@ -45,8 +45,18 @@ class MarkedMap : public Map
 {
 
 public:
-    MarkedMap(const std::string &FileName);                        ///Fájlnak az elérési útvonala
+    /// MarkedMap construct, what put the input parameter to the data member
+    MarkedMap(const std::string &FileName/**[in] file's path or name*/);
     MarkedMap(){}
-    std::pair<int, int> getHeroPosition() const;                       ///Hero pozícióját adja vissza
-    std::vector<std::pair<int, int>> getMonsterPosition(char c) const; ///Monster pozícióját adja vissza
+    
+   /**
+     * \brief get the Hero position
+     * \return return with std::pair<int, int> that contains the Hero's coordinate 
+     */
+    std::pair<int, int> getHeroPosition() const;      
+    /**
+      * \brief get the Monsters position
+      * \return return with std::vector<std::pair<int, int>> that contains all Monster's coordinate
+      */
+    std::vector<std::pair<int, int>> getMonsterPosition(char c) const;
 };
