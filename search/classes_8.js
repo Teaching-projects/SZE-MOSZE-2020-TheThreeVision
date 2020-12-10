@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['notinitializedexception_100',['NotInitializedException',['../classGame_1_1NotInitializedException.html',1,'Game']]]
+  ['notinitializedexception_96',['NotInitializedException',['../classGame_1_1NotInitializedException.html',1,'Game']]]
 ];
