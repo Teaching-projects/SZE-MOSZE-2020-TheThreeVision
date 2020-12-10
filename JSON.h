@@ -23,7 +23,7 @@
 
 class JSON{
 private:
-	std::map<std::string, std::variant<std::string, double, int>> Data;
+	std::map<std::string, std::variant<std::string, double, int>> Data;///<all parsed data
 	
 	/**
 	* \brief This method reads a .json file and returns the keys and the attached data in a std::map.
@@ -110,7 +110,7 @@ public:
 			return toReturn;
         }
 	/**
-	 * \brief This class inherit from runtime_error
+	 * \brief This is a kind of runtime_error
 	 */
 	class ParseException : public std::runtime_error{
     public:

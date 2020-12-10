@@ -5,13 +5,13 @@
 class Map
 {
 protected:
-    std::vector<std::string> map; ///It stores the map line by line.
+    std::vector<std::string> map;///<It stores the map line by line. 
 public:
     /// Enum to map.
     enum type
     {
-        Free, ///free to move
-        Wall  ///not free to move 
+        Free, ///<free to move
+        Wall  ///<not free to move 
     };
 
     ///Map constructor read the map from file
