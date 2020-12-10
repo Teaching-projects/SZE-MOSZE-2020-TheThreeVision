@@ -36,10 +36,11 @@ void bad_exit(int exitcode)
 
 int main(int argc, char **argv)
 {
-    std::string prep_game = "Units/preparedgame.txt";
-    if (!std::filesystem::exists(prep_game))
-        bad_exit(2);
-    PreparedGame game = PreparedGame(prep_game);
+    if (argc == 2)
+    {
+        if (!std::filesystem::exists(argv[1]))
+            bad_exit(2);
+        PreparedGame game = PreparedGame(argv[1]);
         try
         {
             std::ofstream stream = std::ofstream("log.txt");
@@ -53,5 +54,9 @@ int main(int argc, char **argv)
         {
             std::cout << e.what();
         }
+    }else{
+        bad_exit(1);
+    }
+
     return 0;
 }
