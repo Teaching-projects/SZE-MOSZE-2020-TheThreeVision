@@ -37,7 +37,7 @@ Ezért is ugyanannyi a becsült óraszám.
 | markedmap | Merge: 12.03 | 0 | @poloczmate /@AlmasiSzabolcs |
 | preparedgame | Merge: 12.03 | 0 |@poloczmate /@AlmasiSzabolcs|
 | light radius | Merge: 12.03 | 0 | @radvanszkyI / @AlmasiSzabolcs  |
-| rendering | Merge: 12.10 | ... |  @borbelytomii / @AlmasiSzabolcs |
+| rendering | Merge: 12.10 | 0 |  @borbelytomii / @AlmasiSzabolcs |
 
 # Unit tesztek
 
