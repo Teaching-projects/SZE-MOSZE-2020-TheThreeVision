@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['alreadyhasheroexception_84',['AlreadyHasHeroException',['../classGame_1_1AlreadyHasHeroException.html',1,'Game']]],
-  ['alreadyhasunitsexception_85',['AlreadyHasUnitsException',['../classGame_1_1AlreadyHasUnitsException.html',1,'Game']]]
+  ['alreadyhasheroexception_85',['AlreadyHasHeroException',['../classGame_1_1AlreadyHasHeroException.html',1,'Game']]],
+  ['alreadyhasunitsexception_86',['AlreadyHasUnitsException',['../classGame_1_1AlreadyHasUnitsException.html',1,'Game']]]
 ];
