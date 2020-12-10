@@ -1,7 +1,12 @@
 #include <vector>
 #include <string>
 #include <fstream>
-
+/**
+ * \brief It stores only the Game's map;
+ *
+ * \date 2020.12.10. 14:23
+ *
+ */
 class Map
 {
 protected:
@@ -41,7 +46,12 @@ public:
         WrongIndexException(const std::string &errMsg) : std::runtime_error(errMsg) {}
     };
 };
-
+/**
+ * \brief It stores the Game's map with units;
+ *
+ * \date 2020.12.10. 14:23
+ *
+ */
 class MarkedMap : public Map
 {
 
