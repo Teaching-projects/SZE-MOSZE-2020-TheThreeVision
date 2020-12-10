@@ -3,13 +3,19 @@
 #include <ostream>
 
 class Game;
-
+/**
+ * \brief Renders the Game
+ *
+ * \date 2020.12.10. 13:23
+ *
+ */
 class Renderer
 {
 private:
 public:
     Renderer() {};
     ~Renderer() {};
-    virtual void render(const Game &) const = 0;
+    /// render method
+    virtual void render(const Game &game /**[in] is  a printable Game*/) const = 0;
 };
 

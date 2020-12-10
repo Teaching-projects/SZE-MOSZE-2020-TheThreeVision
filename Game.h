@@ -8,13 +8,10 @@
 #include <filesystem>
 class Renderer;
 /**
- * \brief Mstr struct
- *
- * \author radvanszkyI
- *
+ * \brief Mstr struct contain a Monster and its coordinates (col and row) 
+ * 
  * \date 2020.12.10. 9:23
  *
- * \note The Mstr contain a Monster and its coordinates (col and row) 
  */
 struct Mstr
 {
@@ -23,13 +20,11 @@ struct Mstr
     int row;///y coordinate
 };
 /**
- * \brief Hr struct
+ * \brief Hr struct contain a Hero pointer and his/her coordinates (col and row)
  *
- * \author radvanszkyI
  *
  * \date 2020.12.10. 9:24
  *
- * \note The Hr contain a Hero pointer and his/her coordinates (col and row)
  */
 struct Hr
 {
@@ -41,8 +36,6 @@ struct Hr
  * \class Game
  * 
  * \brief manage the game
- *
- * \author radvanszkyI
  *
  * \date 2020.12.10. 13:23
  *
@@ -113,13 +106,7 @@ public:
     };
 };
 /**
- * \class Game
- *
  * \brief manages the game, but it's already prepared
- *
- * \author radvanszkyI
- *
- * \date 2020.12.10. 13:23
  * 
  * \note this class prepares from a file
  */

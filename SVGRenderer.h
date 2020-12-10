@@ -1,31 +1,31 @@
 #pragma once
 #include "Renderer.h"
 
-
+/// Renders the game to SVG 
 class SVGRenderer : public Renderer {
 protected:
     std::string Filename; /// the output file's path 
     int elementSize = 10;///the smallest prtintable unit's size
 public:
     /// SVGRenderer constructor
-    SVGRenderer(const std::string& filename/** [in] the output file's path */) : Filename(filename) {}
+    SVGRenderer(const std::string& filename/** [in] is the output file's path */) : Filename(filename) {}
     /// render method
-    virtual void render(const Game& game/**[in] a printable Game*/) const = 0;
+    virtual void render(const Game& game/**[in] is a printable Game*/) const = 0;
 };
 
-
+/// Renders the game to SVG 
 class CharacterSVGRenderer : public SVGRenderer {
 public:
     /// CharacterSVGRenderer constructor
-    CharacterSVGRenderer(const std::string& filename/** [in] the output file's path*/) : SVGRenderer(filename) {}
+    CharacterSVGRenderer(const std::string& filename/** [in] is the output file's path*/) : SVGRenderer(filename) {}
     /// render method
-    virtual void render(const Game& game/**[in]  a printable Game*/) const;
+    virtual void render(const Game& game/**[in]  is a printable Game*/) const;
 };
-
+/// Renders the game to SVG 
 class ObserverSVGRenderer : public SVGRenderer {
 public:
     /// ObserverSVGRenderer constructor
-    ObserverSVGRenderer (const std::string& filename/** [in] the output file's path*/) : SVGRenderer(filename) {}
+    ObserverSVGRenderer (const std::string& filename/** [in] is the output file's path*/) : SVGRenderer(filename) {}
     /// render method
-    virtual void render(const Game& game/**[in]  a printable Game*/) const;
+    virtual void render(const Game& game/**[in] is  a printable Game*/) const;
 };

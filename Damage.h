@@ -1,11 +1,9 @@
 #pragma once
 #include <iostream>
 /**
- * \brief damage struct
+ * \brief Contain two type of damage
  *
- * \author radvanszkyI
- *
- * \date 2020.12.10. 9:22
+ * \date 2020.12.10. 14:02
  *
  * \note The damage contain two type of damage: physical and magical.
  */

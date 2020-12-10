@@ -1,39 +1,39 @@
 #pragma once
 #include "Renderer.h"
-
+/// Renders the game to text
 class TextRenderer : public Renderer
 {
 protected:
     std::ostream& OutStream; ///< output stream type.
 public:
     /// TextRenderer constructor
-    TextRenderer(std::ostream& stream = std::cout/** [in] an output stream type*/) : OutStream(stream) {}
+    TextRenderer(std::ostream& stream = std::cout/** [in] is an output stream type*/) : OutStream(stream) {}
     ~TextRenderer() {}
     /// Render method
-    virtual void render(const Game&/** [in]  a printable Game*/ ) const = 0;
+    virtual void render(const Game&/** [in] is a printable Game*/ ) const = 0;
     /// Simple setter to output stream type.
-    void setOutputStream(std::ostream& stream/** [in] an output stream type*/){
+    void setOutputStream(std::ostream& stream/** [in] is an output stream type*/){
         OutStream.copyfmt(stream);
     }
 };
 
 
-
+/// Renders the game to text
 class HeroTextRenderer : public TextRenderer
 {
 public:
     /// HeroTextRenderer constructor
-    HeroTextRenderer(std::ostream& stream = std::cout/** [in] an output stream type*/) : TextRenderer(stream) {}
+    HeroTextRenderer(std::ostream& stream = std::cout/** [in] is an output stream type*/) : TextRenderer(stream) {}
     /// Render method
-    void render(const Game& game/**[in]  a printable Game*/) const;
+    void render(const Game& game/**[in] is a printable Game*/) const;
 };
-
+/// Renders the game to text
 class ObserverTextRenderer : public TextRenderer
 {
 public:
     /// TextRenderer constructor
-    ObserverTextRenderer(std::ostream& stream = std::cout/** [in] an output stream type*/) : TextRenderer(stream) {}
+    ObserverTextRenderer(std::ostream& stream = std::cout/** [in] is an output stream type*/) : TextRenderer(stream) {}
     /// Render method
-    void render(const Game& game/**[in]  a printable Game*/) const;
+    void render(const Game& game/**[in] is a printable Game*/) const;
 };
     

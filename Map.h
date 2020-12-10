@@ -34,6 +34,7 @@ public:
         else
             return false;
     }
+    /// This is a kind of runtime_error
     class WrongIndexException : public std::runtime_error
     {
     public:
