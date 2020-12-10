@@ -18,7 +18,7 @@ var searchData=
   ['getlightradius_24',['getLightRadius',['../classHero.html#ae9ed6c962134a401a1b5c11a1f0fcbf0',1,'Hero']]],
   ['getmap_25',['getMap',['../classGame.html#ae85fbbee31a858735355b7873e128af6',1,'Game']]],
   ['getmaxhealthpoints_26',['getMaxHealthPoints',['../classHero.html#a102ed7a15cb4a5f7058e33a435518f06',1,'Hero']]],
-  ['getmaxwidth_27',['getMaxWidth',['../classMap.html#a5c5a35e73a2648882e2391a718db7398',1,'Map']]],
+  ['getmaxwidth_27',['getMaxWidth',['../classMap.html#a0565eebee42eaf18131b89fbae8f15b6',1,'Map']]],
   ['getmonsterposition_28',['getMonsterPosition',['../classMarkedMap.html#ad87c44c6009490edffb9fa29759b71a2',1,'MarkedMap']]],
   ['getmonsters_29',['getMonsters',['../classGame.html#aa0533fbbf1398377e48a9d4b9d01380b',1,'Game']]],
   ['getname_30',['getName',['../classMonster.html#a28ae1112e37262ce150e3c02465b3dd5',1,'Monster']]],
