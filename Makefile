@@ -1,5 +1,5 @@
-OBJS := Hero.o JSON.o Monster.o main.o Map.o Game.o
-CPPOBJS := Hero.cpp JSON.cpp Monster.cpp main.cpp Map.cpp Game.cpp
+OBJS := Hero.o JSON.o Monster.o main.o Map.o Game.o SVGRenderer.o TextRenderer.o
+CPPOBJS := Hero.cpp JSON.cpp Monster.cpp main.cpp Map.cpp Game.cpp SVGRenderer.cpp TextRenderer.cpp
 CC := g++-9
 CFLAGS := -std=c++17 -Wall -Wextra -g -lstdc++fs
 CH := cppcheck --enable=all --suppress=missingIncludeSystem
@@ -12,7 +12,7 @@ CMAKEO := CMakeLists.txt
 SUBDIR2 := Units
 CONF := --check-config
 
-all_tests: linking static_code_analysis memory_leak_check 
+all_tests: linking static_code_analysis memory_leak_check io_diff_check
 
 linking: $(OBJS)
 	$(CC) $(CFLAGS) -o main $(OBJS)
@@ -26,24 +26,30 @@ Monster.o: Monster.cpp Monster.h JSON.h Damage.h
 JSON.o: JSON.cpp JSON.h
 	$(CC) $(CFLAGS) -c JSON.cpp
 
-main.o: main.cpp  JSON.h Monster.h Game.h
+main.o: main.cpp  JSON.h Monster.h Game.h SVGRenderer.h TextRenderer.h
 	$(CC) $(CFLAGS) -c main.cpp
 
 Map.o: Map.cpp Map.h	
 	$(CC) $(CFLAGS) -c Map.cpp
 
-Game.o: Game.cpp Game.h
+Game.o: Game.cpp Game.h Renderer.h
 	$(CC) $(CFLAGS) -c Game.cpp	
-	
+
+SVGRenderer.o: SVGRenderer.cpp SVGRenderer.h Renderer.h Game.h
+	$(CC) $(CFLAGS) -c SVGRenderer.cpp	
+
+TextRenderer.o: TextRenderer.cpp TextRenderer.h Renderer.h Game.h
+	$(CC) $(CFLAGS) -c TextRenderer.cpp	
+
 static_code_analysis:
 	$(CH) $(CPPOBJS) $(CHFLAGS) $(CONF)
 	$(CH) $(CPPOBJS) $(CHAFLAGS)
 
 memory_leak_check: linking
-	valgrind $(VFLAGS) cat inputdata.txt | ./main 
+	valgrind $(VFLAGS) cat inputdata.txt | ./main Units/preparedgame.txt >> output2.txt
 
 io_diff_check:
-	python3 testrun.py
+	$ cmp output1.txt output2.txt
 
 buildunittest:
 	cmake $(SUBDIR)/$(CMAKEO) /

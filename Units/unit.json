@@ -1,0 +1,16 @@
+{
+            "name"      :           "vizibicikli",
+      "base_health_points"          :        1530            ,
+      "base_damage"     :          3,     
+      "defense"   :              0,
+      "base_attack_cooldown" : 1.1                    ,              
+      "experience_per_level"                           : 20,
+      "health_point_bonus_per_level"                        : 5,
+      "damage_bonus_per_level" : 1,
+      "defense_bonus_per_level" : 0,
+      "cooldown_multiplier_per_level"              :                       0.9                  ,
+      "magical-damage_bonus_per_level": 2,
+      "light_radius": 2,
+      "light_radius_bonus_per_level": 2,
+      "texture": "svg/valami.svg"
+  }

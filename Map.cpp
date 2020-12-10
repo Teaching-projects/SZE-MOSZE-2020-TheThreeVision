@@ -43,7 +43,7 @@ int Map::getWidth(int line) const
 
 int Map::getMaxWidth() const
 {
-    int max = 0;
+     int max = 0;
     for (auto a : map)
     {
         if (a.length() > max)

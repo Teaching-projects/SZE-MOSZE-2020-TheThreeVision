@@ -11,7 +11,7 @@
  * \date 2020.10.13. 22:22
  *
  * \note A monster can fight with an other monster while one of them is alive.
- * The end of the fight depends on the HealthPoints, Damages and the Attackcooldowns of the two monsters.
+ * The end of the fight depends on the HealthPoints, Damages, Defense and the Attackcooldowns of the two monsters.
  */
 class Monster
 {
@@ -20,7 +20,7 @@ class Monster
 	damage DMG;			///< the Damage of the monster
 	int Defense;
 	double AtkCoolDown;		///< the monster's Attack Cooldown shows that after how many seconds he/she can hit again. 
-
+	const std::string Texture;
 protected:
 	
 	/// simple setter to the Damage
@@ -32,9 +32,9 @@ protected:
 
 public:
 	/// monster construct, what put the input parameters to the data members
-	Monster(std::string name, int hp, damage dmg,int defense, double atkCoolDown) :Name(name), HP(hp), DMG(dmg),Defense(defense), AtkCoolDown(atkCoolDown) {}
+	Monster(std::string name, int hp, damage dmg,int defense, double atkCoolDown, std::string texture) :Name(name), HP(hp), DMG(dmg),Defense(defense), AtkCoolDown(atkCoolDown) , Texture(texture){}
 	/// copy construct, what make a copy from the parameter
-	Monster(Monster* monster) :Name(monster->getName()), HP(monster->getHealthPoints()), DMG(monster->getDamage()), Defense(monster->getDefense()), AtkCoolDown(monster->getAttackCoolDown()) {};
+	Monster(Monster* monster) :Name(monster->getName()), HP(monster->getHealthPoints()), DMG(monster->getDamage()), Defense(monster->getDefense()), AtkCoolDown(monster->getAttackCoolDown()), Texture(monster->getTexture()){};
 	/// this method damage an other monster
 	void Damage(Monster* monster/**[in] the monster witch is injured*/)const;
 	///simple getter to the Name
@@ -47,6 +47,8 @@ public:
 	int getDefense() const { return Defense; }
 	///simple getter to the AttackCooldown
 	double getAttackCoolDown() const { return AtkCoolDown; }
+	///simple getter to the Texture
+	std::string getTexture() const { return Texture; }
 	/**
 	 * \brief This method decide the monster is alive or died
 	 * \return return with true if the monster is alive else return with false

@@ -7,7 +7,7 @@ void Game::setMap(Map NewMap)
 {
     if (!hasUnits)
     {
-        if (!running)
+        if (!Running)
         {
             map = NewMap;
             if (!hasMap)
@@ -104,7 +104,7 @@ void Game::moveHero(const std::string &direction)
 
 void Game::run()
 {
-    running = true;
+    Running = true;
 
     if (hasUnits && !monsters.empty() && hasMap)
     {
@@ -127,14 +127,14 @@ void Game::run()
             {
              if (!findMonsterOnHero)
                 {
-                    this->printMap();
+                    for (auto&& r : Renderers) { r->render(*this); }
                     heroMoveDirection = "";
                     std::getline(cin, heroMoveDirection);
                     moveHero(heroMoveDirection);
                 }
                 else
                 {
-                    this->printMap();
+                 for (auto&& r : Renderers) { r->render(*this); }
                 }
 
                 monster = monsters.begin();
@@ -157,6 +157,7 @@ void Game::run()
                 cout << e.what() << endl;
             }
         }
+        for (auto&& r : Renderers) { r->render(*this); }
         if (hero.h->isAlive())
         {
             cout << endl
@@ -177,56 +178,19 @@ void Game::run()
     }
 }
 
-void Game::printMap()
-{
-    for (int y = 0; y < map.getHeight(); y++)
-    {
-        for (int x = 0; x < map.getMaxWidth(); x++)
-        {
-            if ((map.get(x, y) == map.type::Wall ) && x >= hero.row-hero.h->getLightRadius() &&
-             x <= hero.row+hero.h->getLightRadius() &&
-             y >= hero.col-hero.h->getLightRadius() &&
-             y <= hero.col+hero.h->getLightRadius())
-            {
-                std::cout << "██";
-            }
-            else if (hero.row == x && hero.col == y && x >= hero.row-hero.h->getLightRadius() &&
-             x <= hero.row+hero.h->getLightRadius() &&
-             y >= hero.col-hero.h->getLightRadius() &&
-             y <= hero.col+hero.h->getLightRadius())
-            {
-                std::cout << "┣┫";
-            }
-            else if(x >= hero.row-hero.h->getLightRadius() &&
-             x <= hero.row+hero.h->getLightRadius() &&
-             y >= hero.col-hero.h->getLightRadius() &&
-             y <= hero.col+hero.h->getLightRadius())
-            {
-                int count = 0;
-                for (auto a : monsters)
-                {
-                    if ((a.row == x && a.col == y) && a.m.isAlive())
-                        count++;
-                }
-                if (count == 1)
-                    std::cout << "M░";
-                else if (count > 1)
-                    std::cout << "MM";
-                else
-                    std::cout << "░░";
-            }
-        }
-        if(y >= hero.col-hero.h->getLightRadius() && y <= hero.col+hero.h->getLightRadius()) std::cout << std::endl;
-    }
-}
+
 
 PreparedGame::PreparedGame(std::string filename)
 {
     hasUnits = false;
     hasMap = false;
-    running = false;
+    Running = false;
     JSON Units = JSON::parseFromFile(filename);
-    //lehetne checkolni jok e  unitok
+
+    Textures["free_texture"]= Units.get<std::string>("free_texture");
+    Textures["wall_texture"] = Units.get<std::string>("wall_texture");
+    
+
     std::string toOpen = "Units/" + Units.get<std::string>("map");
     MarkedMap map(toOpen);
     setMap(map);

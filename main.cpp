@@ -11,6 +11,9 @@
 #include "Monster.h"
 #include "Game.h"
 
+#include "TextRenderer.h"
+#include "SVGRenderer.h"
+
 const std::map<int, std::string> error_messages = {
     {1, "Bad number of arguments. Only a single scenario file should be provided."},
     {2, "The provided file is not accessible."},
@@ -33,17 +36,27 @@ void bad_exit(int exitcode)
 
 int main(int argc, char **argv)
 {
-    std::string prep_game = "Units/preparedgame.txt";
-    if (!std::filesystem::exists(prep_game))
-        bad_exit(2);
-    PreparedGame game = PreparedGame(prep_game);
+    if (argc == 2)
+    {
+        if (!std::filesystem::exists(argv[1]))
+            bad_exit(2);
+        PreparedGame game = PreparedGame(argv[1]);
         try
         {
+            std::ofstream stream = std::ofstream("log.txt");
+            game.registerRenderer(new HeroTextRenderer());
+            game.registerRenderer(new ObserverTextRenderer(stream));
+            game.registerRenderer(new CharacterSVGRenderer("pretty.svg"));
+            game.registerRenderer(new ObserverSVGRenderer("prettyObserver.svg"));
             game.run();
         }
         catch (Game::NotInitializedException &e)
         {
             std::cout << e.what();
         }
+    }else{
+        bad_exit(1);
+    }
+
     return 0;
 }

@@ -1,9 +1,16 @@
 #pragma once
 #include <iostream>
+/**
+ * \brief Contain two type of damage
+ *
+ * \date 2020.12.10. 14:02
+ *
+ * \note The damage contain two type of damage: physical and magical.
+ */
 struct damage
 {
-    int physical; ///< physical damage
-    int magical; ///< magical damage
+    int physical; ///< physical damage: the defense affect it  
+    int magical; ///< magical damage: cannot be prevented with defense
     damage(int physical, int magical):physical(physical),magical(magical){}
     damage operator+(const damage& oth) {
         damage dmgToReturn(this->physical + oth.physical, this->magical + oth.magical);

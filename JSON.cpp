@@ -44,9 +44,9 @@ JSON JSON::parseScenario(std::string& JSONstring){
         }
     }
     
-    std::string array[] = {JSONstring, "map", "hero", "monster-1", "monster-2", "monster-3"};
+    std::string array[] = {JSONstring, "map", "hero", "monster-1", "monster-2", "monster-3", "free_texture", "wall_texture"};
 
-    for (int i = 1; i < 6; i++)
+    for (int i = 1; i < 8; i++)
     {
         Map[array[i]] = JSON::FindData(array[0],array[i]);
     }
@@ -78,7 +78,7 @@ std::map<std::string, std::variant<std::string, double, int>> JSON::ParseJsonStr
     }
 
 
-    std::string array[5] = {StringToParse, "name", "base_health_points", "base_damage", "base_attack_cooldown"};
+    std::string array[6] = {StringToParse, "name", "base_health_points", "base_damage", "base_attack_cooldown","texture"};
 
     if (StringToParse.find("base_health_points") == std::string::npos)
     {
@@ -86,7 +86,7 @@ std::map<std::string, std::variant<std::string, double, int>> JSON::ParseJsonStr
         array[3] = "damage";
         array[4] = "attack_cooldown";
 
-        for(int i = 1; i < 5; i++)
+        for(int i = 1; i < 6; i++)
         {
             if (array[i] == "name")
             {
@@ -97,21 +97,25 @@ std::map<std::string, std::variant<std::string, double, int>> JSON::ParseJsonStr
                 Map.insert(std::make_pair("damage", std::stoi(FindData(array[0], array[i]))));
             }else if(array[i] == "attack_cooldown"){
                 Map.insert(std::make_pair("cooldown", std::stod(FindData(array[0], array[i]))));
+            }else if(array[i] == "texture"){
+                Map.insert(std::make_pair("texture", FindData(array[0], "texture")));
             }
         }
     }else{
-        for(int i = 1; i < 5; i++)
+        for(int i = 1; i < 6; i++)
         {
-        if (array[i] == "name")
-        {
-            Map.insert(std::make_pair("name", FindData(array[0], array[i])));
-        }else if(array[i] == "base_health_points"){
-            Map.insert(std::make_pair("points", std::stoi(FindData(array[0], array[i]))));
-        }else if(array[i] == "base_damage"){
-            Map.insert(std::make_pair("damage", std::stoi(FindData(array[0], array[i]))));
-        }else if(array[i] == "base_attack_cooldown"){
-            Map.insert(std::make_pair("cooldown", std::stod(FindData(array[0], array[i]))));
-        }
+            if (array[i] == "name")
+            {
+                Map.insert(std::make_pair("name", FindData(array[0], array[i])));
+            }else if(array[i] == "base_health_points"){
+                Map.insert(std::make_pair("points", std::stoi(FindData(array[0], array[i]))));
+            }else if(array[i] == "base_damage"){
+                Map.insert(std::make_pair("damage", std::stoi(FindData(array[0], array[i]))));
+            }else if(array[i] == "base_attack_cooldown"){
+                Map.insert(std::make_pair("cooldown", std::stod(FindData(array[0], array[i]))));
+            }else if(array[i] == "texture"){
+                    Map.insert(std::make_pair("texture", FindData(array[0], "texture")));
+                }
         }
         Map.insert(std::make_pair("light_radius", std::stod(FindData(array[0],"light_radius"))));
         if (array[0].find("light_radius_bonus_per_level") == std::string::npos)
@@ -129,7 +133,7 @@ std::map<std::string, std::variant<std::string, double, int>> JSON::ParseJsonStr
         if (additionals[0].find(additionals[i]) != std::string::npos)
         {
             std::string data = FindData(additionals[0], additionals[i]);
-            if((data != "" && isdigit(data[0]) )&& additionals[i] == "magical-damage_bonus_per_level" or additionals[i] == "damage_bonus_per_level"){
+            if((data != "" && isdigit(data[0])) && (additionals[i] == "magical-damage_bonus_per_level" or additionals[i] == "damage_bonus_per_level")){
                 Map.insert(std::make_pair(additionals[i],std::stoi(data)));
             }else if (data != "" && isdigit(data[0]))
             {

@@ -1,6 +1,5 @@
 #include "../JSON.h"
-#include "../Hero.h"
-#include "../Monster.h"
+#include "../Game.h"
 #include <gtest/gtest.h>
 #include <string>
 #include <map>
@@ -12,58 +11,58 @@
 TEST(Tests, HeroTest)
 {
 	Hero hero{Hero::parse("Dark_Wanderer.json")};
-    ASSERT_TRUE(hero.getHealthPoints() == 30);
     ASSERT_TRUE(hero.getName() == "Prince Aidan of Khanduras");
+    ASSERT_TRUE(hero.getHealthPoints() == 30);
     ASSERT_TRUE(hero.getDamage().physical== 3);
     ASSERT_TRUE(hero.getDamage().magical==0);
     ASSERT_TRUE(hero.getAttackCoolDown() == 1.1);
     ASSERT_TRUE(hero.getDefense()==0);
+    ASSERT_TRUE(hero.getExperience_per_level() == 20);
+    ASSERT_TRUE(hero.getHealth_point_bonus_per_level() == 5);
+    ASSERT_TRUE(hero.getDamage_bonus_per_level().physical == 1);
+    ASSERT_TRUE(hero.getDamage_bonus_per_level().magical == 2);
+    ASSERT_TRUE(hero.getDefense_bonus_per_level() == 0);
+    ASSERT_TRUE(hero.getCooldown_multiplier_per_level() == 0.9);
+    ASSERT_TRUE(hero.getTexture() == "svg/pretty.svg");
+
 }
 
 TEST(Tests, MonsterTest)
 {
 	Monster monster{Monster::parse("Fallen.json")};
-    ASSERT_TRUE(monster.getHealthPoints() == 4);
     ASSERT_TRUE(monster.getName() == "Fallen");
+    ASSERT_TRUE(monster.getHealthPoints() == 4);
     ASSERT_TRUE(monster.getDamage().physical == 2);
     ASSERT_TRUE(monster.getDamage().magical == 0);
     ASSERT_TRUE(monster.getAttackCoolDown() == 1.6);
     ASSERT_TRUE(monster.getDefense()==0);
+    ASSERT_TRUE(monster.getTexture() == "svg/fallen.svg");
 }
 
-TEST(Tests, ALL_DATA_TESTS)
+TEST(Tests, FindDataTest)
 {
 	std::string inputString = "{\n\t\"name\":\"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\t\"atkcd\":2\n\t\"defense\":0}";
-	std::string toFind = "hp";
+	
+    std::string toFind = "hp";
 	std::string expected = "15330";;
-
-
 	std::string data = JSON::FindData(inputString, toFind);
 	ASSERT_EQ(expected, data);
 
 
 	std::string toFind1 = "name";
 	std::string expected1 = "vizibicikli";;
-
-
 	std::string data1 = JSON::FindData(inputString, toFind1);
 	ASSERT_EQ(expected1, data1);
 
 
 	std::string toFind2 = "dmg";
 	std::string expected2 = "1450";
-
-
 	std::string data2 = JSON::FindData(inputString, toFind2);
-
 	ASSERT_EQ(expected2, data2);
 
 	std::string toFind3 = "atkcd";
 	std::string expected3 = "2";;
-
-
 	std::string data3 = JSON::FindData(inputString, toFind3);
-
 	ASSERT_EQ(expected3, data3);
 
     std::string toFind4="defense";
@@ -72,7 +71,7 @@ TEST(Tests, ALL_DATA_TESTS)
     ASSERT_EQ(expected4,data4);
 }
 
-TEST(Tests, TestingWithfalsedata)
+TEST(Tests, TestingWithFalseData)
 {
 	std::string inputString = "{\n\t\"name\":\"vizibicikli\",\n\t\"dmg\":1450,\n\t\"hp\":15330,\n\"atkcd\":2}";
 	std::string toFind = "atcd";
@@ -81,7 +80,7 @@ TEST(Tests, TestingWithfalsedata)
 	ASSERT_THROW(JSON::FindData(inputString, toFind), std::runtime_error);
 }
 
-TEST(Tests, scenario1)
+TEST(Tests, PreparedGame)
 {
 	JSON scenario = JSON::parseFromFile("Units/preparedgame.txt");
     ASSERT_TRUE(scenario.count("hero") == true);
@@ -96,12 +95,18 @@ TEST(Tests, scenario1)
 TEST(Tests,typetest)
 {
     Hero hero{Hero::parse("Dark_Wanderer.json")};
-    EXPECT_EQ(typeid(int),typeid(hero.getHealthPoints()));
     EXPECT_EQ(typeid(std::string),typeid(hero.getName()));
-    EXPECT_EQ(typeid(double),typeid(hero.getAttackCoolDown()));
+    EXPECT_EQ(typeid(int),typeid(hero.getHealthPoints()));
     EXPECT_EQ(typeid(int),typeid(hero.getDamage().physical));
     EXPECT_EQ(typeid(int),typeid(hero.getDamage().magical));
+    EXPECT_EQ(typeid(double),typeid(hero.getAttackCoolDown()));
     EXPECT_EQ(typeid(int),typeid(hero.getDefense()));
+    EXPECT_EQ(typeid(double),typeid(hero.getExperience_per_level()));
+    EXPECT_EQ(typeid(double),typeid(hero.getHealth_point_bonus_per_level()));
+    EXPECT_EQ(typeid(int),typeid(hero.getDamage_bonus_per_level().physical));
+    EXPECT_EQ(typeid(int),typeid(hero.getDamage_bonus_per_level().magical));
+    EXPECT_EQ(typeid(double),typeid(hero.getDefense_bonus_per_level()));
+    EXPECT_EQ(typeid(double),typeid(hero.getCooldown_multiplier_per_level()));
 }
 
 TEST(Tests, HPTest)
@@ -123,15 +128,7 @@ TEST(Tests, SuccessfulFight)
 TEST(Tests, LevelTest)
 {
     Hero h1 = Hero::parse("Dark_Wanderer.json");
-    Monster h2 = Monster::parse("Zombie.json");
-    h1.fightTilDeath(h2);
-    ASSERT_EQ(h1.getLevel(),1);
-}
-
-TEST(Tests, AdditionalTest)
-{
-    Hero h1 = Hero::parse("Dark_Wanderer.json");
-    Monster h2 = Monster::parse("Zombie.json");
+    Monster h2 = Monster::parse("Blood_Raven.json");
     h1.fightTilDeath(h2);
     ASSERT_EQ(h1.getLevel(),1);
 }
@@ -143,9 +140,38 @@ TEST(Tests, exist)
 
 TEST(Tests, Level_XP_2)
 {
-    Hero expected = Hero("Bela", 200, damage(90,10),5.0, 1.0, 1.0, 1.0,damage(1,1), 1.0, 1.0,1.0,1.0);
+    Hero expected = Hero("Bela", 200, damage(90,10),5.0, 1.0,"svg/pretty.svg", 1.0, 1.0,damage(1,1), 1.0, 1.0,1.0,1.0);
     EXPECT_EQ(expected.getLevel(), 1);
     EXPECT_EQ(expected.getXP(), 0);
+}
+
+TEST(Tests, ParseWithWhitespaces)
+{
+    Hero hero = Hero::parse("unit.json");
+    ASSERT_TRUE(hero.getName() == "vizibicikli");
+    ASSERT_TRUE(hero.getHealthPoints() == 1530);
+    ASSERT_TRUE(hero.getDamage().physical== 3);
+    ASSERT_TRUE(hero.getDamage().magical==0);
+    ASSERT_TRUE(hero.getAttackCoolDown() == 1.1);
+    ASSERT_TRUE(hero.getDefense()==0);
+    ASSERT_TRUE(hero.getExperience_per_level() == 20);
+    ASSERT_TRUE(hero.getHealth_point_bonus_per_level() == 5);
+    ASSERT_TRUE(hero.getDamage_bonus_per_level().physical == 1);
+    ASSERT_TRUE(hero.getDamage_bonus_per_level().magical == 2);
+    ASSERT_TRUE(hero.getDefense_bonus_per_level() == 0);
+    ASSERT_TRUE(hero.getCooldown_multiplier_per_level() == 0.9);
+}
+
+TEST(Tests, MagDMG){
+    JSON unit = JSON::ParseJsonFilename("unit.json");
+    ASSERT_EQ(unit.get<int>("\"magical-damage\""), 0);
+}
+
+TEST(Tests, MapTest){
+    ASSERT_NO_THROW(Map("Units/markedmap.txt"));
+    ASSERT_THROW(Map("nomap.txt"), std::runtime_error);
+    Map map("Units/markedmap.txt");
+    ASSERT_THROW(map.get(999,999), Map::WrongIndexException); 
 }
 
 int main(int argc, char** argv)
